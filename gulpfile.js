@@ -36,7 +36,11 @@ var gulp = require('gulp'),
 	
 gulp.task('SassToCssSrc', function() {
     gulp.src(srcPath.scss +'/**/*.scss')  
-        .pipe(sass().on('error', sass.logError))		
+        .pipe(sass({
+            style: 'expanded',
+            sourceComments: 'normal',
+        }).on('error', sass.logError))
+        .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // pass the file through autoprefixer 
 		.pipe(sourcemaps.write())
         .pipe(gulp.dest(srcPath.publik +'/css/'));
 		

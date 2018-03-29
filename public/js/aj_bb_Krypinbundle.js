@@ -45,7 +45,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var msg = __webpack_require__(1);
-	var $ = __webpack_require__(2);
+	var $ = __webpack_require__(3);
 
 	$(function(){
 	    $("#mainapp").attr('style','background:#fff;')
@@ -58,18 +58,49 @@
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	
+	var booklistpage = __webpack_require__(2);
+	var $ = __webpack_require__(3);
 	module.exports = {
 	    testar: function (msg) {
-	        alert(msg);
+	       
+	        booklistpage.init();
+	        
 	    }
 	}
 
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(3);
+	module.exports = {
+	    init: function (value) {
+	        
+	        // booklist mainblock buttons
+	        // visa addboklist menyn
+	        $('#bb_aj_addbooklist').on('click', function () {
+	            $('.bb_aj_BooklistAdd').slideToggle(500);
+	            if ($('.bb_aj_BooklistSettings').is(':visible')) {
+	                $('.bb_aj_BooklistSettings').hide(500);
+	            };
+	        });
+	        // visa boklist settings menyn
+	        $('#bb_aj_setupbooklist').on('click', function () {
+	            $('.bb_aj_BooklistSettings').slideToggle(500);
+	            if ($('.bb_aj_BooklistAdd').is(':visible')) {
+	                $('.bb_aj_BooklistAdd').hide(500);
+	            };
+	        });
+	        /////////////////////////////////////////////////////
+	    }
+	}
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!

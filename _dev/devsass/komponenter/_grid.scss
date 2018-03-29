@@ -57,12 +57,12 @@ hr {
   flex: 1;
 }
 
-.Demo {
-  padding: .8em 1em 0;
+.bb_aj_gridItem {
+  padding: .5em .5em 0;
   margin-bottom: 1em;
   background: $demoMain;
   transition: background-color 0.3s ease;
-  border: 1px solid $demoBorder;
+  border: 0px!important;
   border-radius: 3px;
   &:after {
     content: "";
@@ -75,7 +75,7 @@ hr {
   }
 }
 
-.Demo.Holly {
+.bb_aj_gridItem.Holly {
     background: $demoHolly;
     &:hover {
       background: $demoHollyDark;
@@ -95,7 +95,7 @@ $gutter: 1em;
   }
   .Grid--nested {
     .Grid-cell:first-of-type {
-      .Demo {
+      .bb_aj_gridItem {
         margin-right: 1em;
       }
     }
@@ -229,7 +229,8 @@ $gutter: 1em;
 /* One of -- columns*/
 .Grid--1of2 > .Grid-cell,
 .Grid--1of4 > .Grid-cell:first-of-type,
-.Grid--1of3 > .Grid-cell:first-of-type{
+.Grid--1of3 > .Grid-cell:first-of-type,
+.Grid--2of3 > .Grid-cell:first-of-type{
   flex: 0 0 100%;
 }
 .Grid--1of6 > .Grid-cell:first-of-type {
@@ -277,6 +278,9 @@ $gutter: 1em;
   .Grid--1of3 > .Grid-cell:first-of-type {
     flex: 0 0 100%;
   }
+  .Grid--2of3 > .Grid-cell:first-of-type {
+    flex: 0 0 100%;
+  }
 }
 
 
@@ -312,6 +316,9 @@ $gutter: 1em;
   .Grid--1of3 > .Grid-cell:first-of-type {
     flex: 0 0 100%;
   }
+  .Grid--2of3 > .Grid-cell:first-of-type {
+    flex: 0 0 75%;
+  }
 }
 
 /* Large screens */
@@ -343,23 +350,26 @@ $gutter: 1em;
     flex: 0 0 25%;
   }
   .Grid--1of3 > .Grid-cell:first-of-type {
-    flex: 0 0 30%;
+    flex: 0 0 33.3333%;
+  }
+  .Grid--2of3 > .Grid-cell:first-of-type {
+    flex: 0 0 66.6666%;
   }
   .Grid--gutters.Grid--nested {
     .Grid-cell:first-of-type {
-      .Demo {
+      .bb_aj_gridItem {
         margin-right: 0;
       }
     }
   }
 }
   
-// Contents classes
+/*// Contents classes
 .content-1of1::before { content: "1"; }
 .content-1of2::before { content: "1/2"; }
 .content-1of3::before { content: "1/3"; }
 .content-1of4::before { content: "1/4"; }
 .content-1of6::before { content: "1/6"; }
-.content-1of12::before { content: "1/12"; }
+.content-1of12::before { content: "1/12"; }*/
 
 

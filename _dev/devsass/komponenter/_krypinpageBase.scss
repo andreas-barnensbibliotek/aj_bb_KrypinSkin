@@ -1,0 +1,29 @@
+﻿.ikonheaderBlock{  
+    position:relative;  
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+     img{
+            max-width:80px;
+            margin-right:.5rem;
+        }
+    .booklistSetup{
+        position:absolute;
+        right:0px;
+        bottom:-5px;
+        img{
+            margin-right:.1rem;
+        }
+    }
+}
+
+.mybookSettings{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+
+
