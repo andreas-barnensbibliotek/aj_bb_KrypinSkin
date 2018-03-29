@@ -1,3 +1,5 @@
+Detta är skinnamn: bb_DAGOBAH_krypin
+
 # webpack_sass_gulp
 boilerplate för gulp och sass och webpack 
 
