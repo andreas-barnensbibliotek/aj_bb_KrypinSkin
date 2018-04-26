@@ -13,10 +13,42 @@
              padding:0px;
              list-style:none;
              li{
-                
+                &:hover{
+                    
+                    
+                    margin-left:-.5rem;
+                    margin-right:-.5rem;
+                    img{
+                        margin-left:.5rem;
+                        margin-right:.5rem;
+                    }
+                 }
                  margin-top:.3rem;
+                 img{
+                  
+                 }
              }
         }
      }
 }
 
+ /* item baseblock för alla listitems*/
+.bookitem-card{
+    position:relative;
+     margin-right:1rem;
+     margin-left:1rem;
+    .bookitem-image{
+
+    }
+    .bookitem-info{
+        text-align:center;
+        background-color:#fff;
+        
+    }
+    .bookitem-button{
+        text-align:right;
+        position:absolute;
+        right:0;       
+    }
+
+}

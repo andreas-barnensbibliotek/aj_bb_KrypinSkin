@@ -1,4 +1,31 @@
-﻿/*Tema med grönt*/
+﻿$white       : #FFFFFF;
+// $ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+$vapor       : #F6F6F6;
+$white-smoke : #F5F5F5;
+// $silver      : #EFEFEF;
+ $smoke       : #EEEEEE;
+$gainsboro   : #DDDDDD;
+ $iron        : #CCCCCC;
+// $base        : #AAAAAA;
+$aluminum    : #999999;
+$jumbo       : #888888;
+// $monsoon     : #777777;
+ $steel       : #666666;
+// $charcoal    : #555555;
+$tuatara     : #444444;
+// $oil         : #333333;
+ $jet         : #222222;
+$black      : #000000;
+$gold       : #b2a16c;
+$darkgreen  : #0c6d4c;
+$orange     : #f77136; //#f85014;
+$orangeLight: #e2974a;
+$beige      :#efebde;
+$beigelight :#f7f5ef;
+$browngrey  :#949086;
+
+/*Tema med grönt*/
 .aj_bb_greenbg{
     
     background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg')!important;
@@ -9,16 +36,32 @@
     .bb_aj_gridItem {
         background-color:#fdf28b;
     }
+
+    #aj_bb_krypinNav{
+         li{ 
+            &:hover{
+                 background-color:#c1df89;
+             }
+        }
+    }
 }
 
 /*Tema med brunt*/
 .aj_bb_brownbg{
     background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/brunblomma.jpg')!important;
     .aj_bb_krypinNavBlock{
-        background-color:#666!important;        
+        background-color:#BCA575;        
     }
     .bb_aj_gridItem {
-        background-color:#fff;
+        background-color:#BCA575;
+    }
+    
+    #aj_bb_krypinNav{
+         li{ 
+            &:hover{
+                 background-color:#62533B;
+             }
+        }
     }
 }
 
@@ -26,21 +69,39 @@
 .aj_bb_bluebg{
     background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/BlueFlowers_light.jpg')!important;
     .aj_bb_krypinNavBlock{
-        background-color:#666!important;        
+        background-color:#C3ECF3!important;        
     }
     .bb_aj_gridItem {
-        background-color:#fff;
+        background-color:#C3ECF3;
+    }
+    #aj_bb_krypinNav{
+         li{ 
+            &:hover{
+                 background-color:#C3ECF3;
+             }
+        }
     }
 }
 
 /*Tema med svart*/
 .aj_bb_blackbg{
     background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg')!important;
+    h1,h2,h3,h4,h5,p{
+ color:#fff!important;
+    }
+   
     .aj_bb_krypinNavBlock{
-        background-color:#666!important;        
+        background-color:#444343!important;        
     }
     .bb_aj_gridItem {
-        background-color:#fff;
+        background-color:#444343;
+    }
+    #aj_bb_krypinNav{
+         li{ 
+            &:hover{
+                 background-color:#ccc;
+             }
+        }
     }
 }
 
@@ -48,9 +109,16 @@
 .aj_bb_beigebg{
     background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/LjusbeigeBin.jpg')!important;
     .aj_bb_krypinNavBlock{
-        background-color:#666!important;        
+        background-color:#FBE2B3!important;        
     }
     .bb_aj_gridItem {
-        background-color:#fff;
+        background-color:#FBE2B3;
+    }
+    #aj_bb_krypinNav{
+         li{ 
+            &:hover{
+                 background-color:#E8B16D;
+             }
+        }
     }
 }

@@ -1,0 +1,30 @@
+﻿#bb_aj_inventory_Mod{
+    .bb_aj_inventorytAdd{
+        display:none;
+
+    }
+    .bb_aj_inventorySettings{
+        display:none;
+
+    }
+    .inventoryitem-card{
+        @extend .bookitem-card;
+        .bookitem-image{
+             background-color:#999999;
+        }    
+        .bookitem-info{
+            text-align:left;
+            padding-right:.2rem;
+            padding-left:.2rem;
+        }
+        margin-right:0rem;
+        margin-left:0rem;
+        p{font-size:.7rem;}
+        .invitmtyp{
+            padding-top:.5rem;
+            padding-left:.2rem;
+            h6{font-size:0.7rem!important; font-weight:900;}
+            img{max-width:24px;margin-bottom:.5rem; text-align:right;}
+        }
+    }
+}

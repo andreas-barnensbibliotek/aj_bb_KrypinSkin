@@ -1,46 +1,58 @@
 @charset "UTF-8";
 /* line 10, _dev/devsass/komponenter/_grid.scss */
 body {
-  font: 100 1em/150% "proxima-nova", Helvetica, sans-serif; }
+  font: 100 1em/150% 'Hind Siliguri', Helvetica, sans-serif;
+  /*font: 100 1em/150% "proxima-nova", Helvetica, sans-serif;*/ }
 
-/* line 15, _dev/devsass/komponenter/_grid.scss */
+/* line 16, _dev/devsass/komponenter/_grid.scss */
 .wrapper {
   max-width: 1200px;
   margin: auto; }
 
-/* line 21, _dev/devsass/komponenter/_grid.scss */
-h1, h2, h3, h4 {
+/* line 22, _dev/devsass/komponenter/_grid.scss */
+h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
   color: #333;
-  margin: 1.5em 0 0.5em; }
+  margin: 1.5em 0 0.5em;
+  font-family: 'Hind Siliguri', sans-serif; }
 
-/* line 27, _dev/devsass/komponenter/_grid.scss */
+/* line 29, _dev/devsass/komponenter/_grid.scss */
 h1 {
   font-size: 2em; }
 
-/* line 28, _dev/devsass/komponenter/_grid.scss */
+/* line 30, _dev/devsass/komponenter/_grid.scss */
 h2 {
   font-size: 1.8em; }
 
-/* line 29, _dev/devsass/komponenter/_grid.scss */
+/* line 31, _dev/devsass/komponenter/_grid.scss */
 h3 {
   font-size: 1.5em; }
 
-/* line 30, _dev/devsass/komponenter/_grid.scss */
+/* line 32, _dev/devsass/komponenter/_grid.scss */
 h4 {
   font-size: 1.3em; }
 
-/* line 32, _dev/devsass/komponenter/_grid.scss */
+/* line 33, _dev/devsass/komponenter/_grid.scss */
+h5 {
+  font-size: 1.1em !important;
+  font-weight: 600; }
+
+/* line 36, _dev/devsass/komponenter/_grid.scss */
+h6 {
+  font-size: 1.05em !important;
+  font-weight: 500; }
+
+/* line 40, _dev/devsass/komponenter/_grid.scss */
 strong {
   font-weight: 600; }
 
-/* line 34, _dev/devsass/komponenter/_grid.scss */
+/* line 42, _dev/devsass/komponenter/_grid.scss */
 hr {
   border: none;
   height: 1px;
   background-color: rgba(51, 153, 204, 0.2); }
 
-/* line 40, _dev/devsass/komponenter/_grid.scss */
+/* line 48, _dev/devsass/komponenter/_grid.scss */
 .img-placeholder {
   background-image: url("http://placehold.it/200x100/CC99CC/ffffff&text=Feature");
   background-size: cover;
@@ -48,7 +60,7 @@ hr {
   min-width: 100px; }
 
 /*Basic Grid Styles*/
-/* line 48, _dev/devsass/komponenter/_grid.scss */
+/* line 56, _dev/devsass/komponenter/_grid.scss */
 .aj_bb_KrypinMainGrid {
   display: -webkit-box;
   display: -webkit-flex;
@@ -63,18 +75,18 @@ hr {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
 
-/* line 53, _dev/devsass/komponenter/_grid.scss */
+/* line 61, _dev/devsass/komponenter/_grid.scss */
 .u-textCenter {
   text-align: center; }
 
-/* line 56, _dev/devsass/komponenter/_grid.scss */
+/* line 64, _dev/devsass/komponenter/_grid.scss */
 .Grid-cell {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
 
-/* line 60, _dev/devsass/komponenter/_grid.scss */
+/* line 68, _dev/devsass/komponenter/_grid.scss */
 .bb_aj_gridItem {
   padding: .5em .5em 0;
   margin-bottom: 1em;
@@ -84,40 +96,40 @@ hr {
   border: 0px !important;
   -webkit-border-radius: 3px;
           border-radius: 3px; }
-  /* line 67, _dev/devsass/komponenter/_grid.scss */
+  /* line 75, _dev/devsass/komponenter/_grid.scss */
   .bb_aj_gridItem:after {
     content: "";
     display: block;
     margin-top: .8em;
     height: 1px; }
-  /* line 73, _dev/devsass/komponenter/_grid.scss */
+  /* line 81, _dev/devsass/komponenter/_grid.scss */
   .bb_aj_gridItem:hover {
     background: rgba(51, 153, 204, 0.6); }
 
-/* line 78, _dev/devsass/komponenter/_grid.scss */
+/* line 86, _dev/devsass/komponenter/_grid.scss */
 .bb_aj_gridItem.Holly {
   background: rgba(102, 51, 255, 0.1); }
-  /* line 80, _dev/devsass/komponenter/_grid.scss */
+  /* line 88, _dev/devsass/komponenter/_grid.scss */
   .bb_aj_gridItem.Holly:hover {
     background: rgba(102, 51, 255, 0.25); }
 
 /* With gutters*/
-/* line 91, _dev/devsass/komponenter/_grid.scss */
+/* line 99, _dev/devsass/komponenter/_grid.scss */
 .Grid--gutters {
   margin-left: -1em; }
-  /* line 93, _dev/devsass/komponenter/_grid.scss */
+  /* line 101, _dev/devsass/komponenter/_grid.scss */
   .Grid--gutters .Grid-cell {
     padding-left: 1em; }
-  /* line 98, _dev/devsass/komponenter/_grid.scss */
+  /* line 106, _dev/devsass/komponenter/_grid.scss */
   .Grid--gutters .Grid--nested .Grid-cell:first-of-type .bb_aj_gridItem {
     margin-right: 1em; }
 
-/* line 105, _dev/devsass/komponenter/_grid.scss */
+/* line 113, _dev/devsass/komponenter/_grid.scss */
 .first-1of1Grid-cell {
   padding-left: 0px !important; }
 
 /*Fyll utrymmet i höjd*/
-/* line 110, _dev/devsass/komponenter/_grid.scss */
+/* line 118, _dev/devsass/komponenter/_grid.scss */
 .fill-area {
   display: -webkit-box;
   display: -webkit-flex;
@@ -139,14 +151,14 @@ hr {
   /* Extra space in Cross Axis */ }
 
 /* Justify per row*/
-/* line 120, _dev/devsass/komponenter/_grid.scss */
+/* line 128, _dev/devsass/komponenter/_grid.scss */
 .Grid--right {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
-/* line 123, _dev/devsass/komponenter/_grid.scss */
+/* line 131, _dev/devsass/komponenter/_grid.scss */
 .Grid--center {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -154,21 +166,21 @@ hr {
           justify-content: center; }
 
 /* Alignment per row */
-/* line 128, _dev/devsass/komponenter/_grid.scss */
+/* line 136, _dev/devsass/komponenter/_grid.scss */
 .Grid--top {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start; }
 
-/* line 131, _dev/devsass/komponenter/_grid.scss */
+/* line 139, _dev/devsass/komponenter/_grid.scss */
 .Grid--bottom {
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end; }
 
-/* line 134, _dev/devsass/komponenter/_grid.scss */
+/* line 142, _dev/devsass/komponenter/_grid.scss */
 .Grid--center {
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -176,26 +188,26 @@ hr {
           align-items: center; }
 
 /* Alignment per cell */
-/* line 139, _dev/devsass/komponenter/_grid.scss */
+/* line 147, _dev/devsass/komponenter/_grid.scss */
 .Grid-cell--top {
   -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
           align-self: flex-start; }
 
-/* line 142, _dev/devsass/komponenter/_grid.scss */
+/* line 150, _dev/devsass/komponenter/_grid.scss */
 .Grid-cell--bottom {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end; }
 
-/* line 145, _dev/devsass/komponenter/_grid.scss */
+/* line 153, _dev/devsass/komponenter/_grid.scss */
 .Grid-cell--center {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
               -ms-grid-row-align: center;
           align-self: center; }
 
-/* line 150, _dev/devsass/komponenter/_grid.scss */
+/* line 158, _dev/devsass/komponenter/_grid.scss */
 .navigation {
   list-style: none;
   /*background: deepskyblue;*/
@@ -213,30 +225,30 @@ hr {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
-  /* line 162, _dev/devsass/komponenter/_grid.scss */
+  /* line 170, _dev/devsass/komponenter/_grid.scss */
   .navigation a {
     text-decoration: none;
     display: block;
     padding: 1em;
     color: #333; }
-    /* line 167, _dev/devsass/komponenter/_grid.scss */
+    /* line 175, _dev/devsass/komponenter/_grid.scss */
     .navigation a:hover {
       background: rgba(64, 0, 255, 0.1);
       -webkit-border-radius: 3px;
               border-radius: 3px; }
-  /* line 172, _dev/devsass/komponenter/_grid.scss */
+  /* line 180, _dev/devsass/komponenter/_grid.scss */
   .navigation:hover {
     background: rgba(102, 51, 255, 0.25); }
 
 @media all and (max-width: 800px) {
-  /* line 178, _dev/devsass/komponenter/_grid.scss */
+  /* line 186, _dev/devsass/komponenter/_grid.scss */
   .navigation {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
             justify-content: space-around; } }
 
 @media all and (max-width: 600px) {
-  /* line 184, _dev/devsass/komponenter/_grid.scss */
+  /* line 192, _dev/devsass/komponenter/_grid.scss */
   .navigation {
     -webkit-flex-flow: column wrap;
     -webkit-box-orient: vertical;
@@ -244,54 +256,54 @@ hr {
         -ms-flex-flow: column wrap;
             flex-flow: column wrap;
     padding: 0; }
-    /* line 188, _dev/devsass/komponenter/_grid.scss */
+    /* line 196, _dev/devsass/komponenter/_grid.scss */
     .navigation a {
       text-align: center;
       padding: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.3);
       border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-    /* line 194, _dev/devsass/komponenter/_grid.scss */
+    /* line 202, _dev/devsass/komponenter/_grid.scss */
     .navigation li:last-of-type a {
       border-bottom: none; } }
 
 /*===========================================*/
 /* Base classes for all media - Mobile first */
-/* line 203, _dev/devsass/komponenter/_grid.scss */
+/* line 211, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-2 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-/* line 207, _dev/devsass/komponenter/_grid.scss */
+/* line 215, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-3 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-/* line 211, _dev/devsass/komponenter/_grid.scss */
+/* line 219, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-4 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-/* line 215, _dev/devsass/komponenter/_grid.scss */
+/* line 223, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-6 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%; }
 
-/* line 219, _dev/devsass/komponenter/_grid.scss */
+/* line 227, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-12 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 33.3333%;
       -ms-flex: 0 0 33.3333%;
           flex: 0 0 33.3333%; }
 
-/* line 224, _dev/devsass/komponenter/_grid.scss */
+/* line 232, _dev/devsass/komponenter/_grid.scss */
 .Grid--holly-grail .aside, .Grid--holly-grail .main {
   -webkit-box-flex: 1;
   -webkit-flex: 1 100%;
@@ -299,7 +311,7 @@ hr {
           flex: 1 100%; }
 
 /* One of -- columns*/
-/* line 230, _dev/devsass/komponenter/_grid.scss */
+/* line 238, _dev/devsass/komponenter/_grid.scss */
 .Grid--1of2 > .Grid-cell,
 .Grid--1of4 > .Grid-cell:first-of-type,
 .Grid--1of3 > .Grid-cell:first-of-type,
@@ -309,28 +321,28 @@ hr {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-/* line 236, _dev/devsass/komponenter/_grid.scss */
+/* line 244, _dev/devsass/komponenter/_grid.scss */
 .Grid--1of6 > .Grid-cell:first-of-type {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%; }
 
-/* line 239, _dev/devsass/komponenter/_grid.scss */
+/* line 247, _dev/devsass/komponenter/_grid.scss */
 .Grid--1of12 > .Grid-cell:first-of-type {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 25%;
       -ms-flex: 0 0 25%;
           flex: 0 0 25%; }
 
-/* line 242, _dev/devsass/komponenter/_grid.scss */
+/* line 250, _dev/devsass/komponenter/_grid.scss */
 .Grid--fit > .Grid-cell {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
 
-/* line 245, _dev/devsass/komponenter/_grid.scss */
+/* line 253, _dev/devsass/komponenter/_grid.scss */
 .Grid--full > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
@@ -339,61 +351,61 @@ hr {
 
 /* Tablet (medium) screens */
 @media (max-width: 25em) {
-  /* line 251, _dev/devsass/komponenter/_grid.scss */
+  /* line 259, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-4 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 255, _dev/devsass/komponenter/_grid.scss */
+  /* line 263, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-6 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 258, _dev/devsass/komponenter/_grid.scss */
+  /* line 266, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-12 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 262, _dev/devsass/komponenter/_grid.scss */
+  /* line 270, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside {
     -webkit-box-flex: 1;
     -webkit-flex: 1 -webkit-calc(25% - 1em);
         -ms-flex: 1 calc(25% - 1em);
             flex: 1 calc(25% - 1em); }
-  /* line 266, _dev/devsass/komponenter/_grid.scss */
+  /* line 274, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of2 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 269, _dev/devsass/komponenter/_grid.scss */
+  /* line 277, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of12 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
             flex: 0 0 25%; }
-  /* line 272, _dev/devsass/komponenter/_grid.scss */
+  /* line 280, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of6 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 275, _dev/devsass/komponenter/_grid.scss */
+  /* line 283, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of4 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 278, _dev/devsass/komponenter/_grid.scss */
+  /* line 286, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 281, _dev/devsass/komponenter/_grid.scss */
+  /* line 289, _dev/devsass/komponenter/_grid.scss */
   .Grid--2of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
@@ -402,61 +414,61 @@ hr {
 
 /* Tablet (medium) screens */
 @media (min-width: 30em) {
-  /* line 289, _dev/devsass/komponenter/_grid.scss */
+  /* line 297, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-4 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
-  /* line 293, _dev/devsass/komponenter/_grid.scss */
+  /* line 301, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-6 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 33.3333%;
         -ms-flex: 0 0 33.3333%;
             flex: 0 0 33.3333%; }
-  /* line 296, _dev/devsass/komponenter/_grid.scss */
+  /* line 304, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-12 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 16.6666%;
         -ms-flex: 0 0 16.6666%;
             flex: 0 0 16.6666%; }
-  /* line 300, _dev/devsass/komponenter/_grid.scss */
+  /* line 308, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside {
     -webkit-box-flex: 1;
     -webkit-flex: 1 -webkit-calc(25% - 1em);
         -ms-flex: 1 calc(25% - 1em);
             flex: 1 calc(25% - 1em); }
-  /* line 304, _dev/devsass/komponenter/_grid.scss */
+  /* line 312, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of2 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
-  /* line 307, _dev/devsass/komponenter/_grid.scss */
+  /* line 315, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of12 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 8.3333%;
         -ms-flex: 0 0 8.3333%;
             flex: 0 0 8.3333%; }
-  /* line 310, _dev/devsass/komponenter/_grid.scss */
+  /* line 318, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of6 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 30%;
         -ms-flex: 0 0 30%;
             flex: 0 0 30%; }
-  /* line 313, _dev/devsass/komponenter/_grid.scss */
+  /* line 321, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of4 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
-  /* line 316, _dev/devsass/komponenter/_grid.scss */
+  /* line 324, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 319, _dev/devsass/komponenter/_grid.scss */
+  /* line 327, _dev/devsass/komponenter/_grid.scss */
   .Grid--2of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 75%;
@@ -465,7 +477,7 @@ hr {
 
 /* Large screens */
 @media (min-width: 48em) {
-  /* line 326, _dev/devsass/komponenter/_grid.scss */
+  /* line 334, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-2 > .Grid-cell,
   .Grid--cols-3 > .Grid-cell,
   .Grid--cols-4 > .Grid-cell,
@@ -475,73 +487,73 @@ hr {
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1; }
-  /* line 334, _dev/devsass/komponenter/_grid.scss */
+  /* line 342, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .main {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
         -ms-flex: 2;
             flex: 2; }
-  /* line 335, _dev/devsass/komponenter/_grid.scss */
+  /* line 343, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1; }
-  /* line 336, _dev/devsass/komponenter/_grid.scss */
+  /* line 344, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside-1 {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
         -ms-flex-order: 1;
             order: 1; }
-  /* line 337, _dev/devsass/komponenter/_grid.scss */
+  /* line 345, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .main {
     -webkit-box-ordinal-group: 3;
     -webkit-order: 2;
         -ms-flex-order: 2;
             order: 2; }
-  /* line 338, _dev/devsass/komponenter/_grid.scss */
+  /* line 346, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside-2 {
     -webkit-box-ordinal-group: 4;
     -webkit-order: 3;
         -ms-flex-order: 3;
             order: 3; }
-  /* line 340, _dev/devsass/komponenter/_grid.scss */
+  /* line 348, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of2 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
-  /* line 343, _dev/devsass/komponenter/_grid.scss */
+  /* line 351, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of12 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 8.3333%;
         -ms-flex: 0 0 8.3333%;
             flex: 0 0 8.3333%; }
-  /* line 346, _dev/devsass/komponenter/_grid.scss */
+  /* line 354, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of6 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 16.6666%;
         -ms-flex: 0 0 16.6666%;
             flex: 0 0 16.6666%; }
-  /* line 349, _dev/devsass/komponenter/_grid.scss */
+  /* line 357, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of4 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
             flex: 0 0 25%; }
-  /* line 352, _dev/devsass/komponenter/_grid.scss */
+  /* line 360, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 33.3333%;
         -ms-flex: 0 0 33.3333%;
             flex: 0 0 33.3333%; }
-  /* line 355, _dev/devsass/komponenter/_grid.scss */
+  /* line 363, _dev/devsass/komponenter/_grid.scss */
   .Grid--2of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 66.6666%;
         -ms-flex: 0 0 66.6666%;
             flex: 0 0 66.6666%; }
-  /* line 360, _dev/devsass/komponenter/_grid.scss */
+  /* line 368, _dev/devsass/komponenter/_grid.scss */
   .Grid--gutters.Grid--nested .Grid-cell:first-of-type .bb_aj_gridItem {
     margin-right: 0; } }
 
@@ -570,61 +582,103 @@ hr {
     /* line 15, _dev/devsass/komponenter/_base.scss */
     .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li {
       margin-top: .3rem; }
+      /* line 16, _dev/devsass/komponenter/_base.scss */
+      .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li:hover {
+        margin-left: -.5rem;
+        margin-right: -.5rem; }
+        /* line 21, _dev/devsass/komponenter/_base.scss */
+        .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li:hover img {
+          margin-left: .5rem;
+          margin-right: .5rem; }
+
+/* item baseblock f�r alla listitems*/
+/* line 36, _dev/devsass/komponenter/_base.scss */
+.bookitem-card, .bibblomon-card, .badgeitem-card, #bb_aj_inventory_Mod .inventoryitem-card, #bb_aj_shop_Mod .shopitem-card {
+  position: relative;
+  margin-right: 1rem;
+  margin-left: 1rem; }
+  /* line 43, _dev/devsass/komponenter/_base.scss */
+  .bookitem-card .bookitem-info, .bibblomon-card .bookitem-info, .badgeitem-card .bookitem-info, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-info, #bb_aj_shop_Mod .shopitem-card .bookitem-info {
+    text-align: center;
+    background-color: #fff; }
+  /* line 48, _dev/devsass/komponenter/_base.scss */
+  .bookitem-card .bookitem-button, .bibblomon-card .bookitem-button, .badgeitem-card .bookitem-button, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-button, #bb_aj_shop_Mod .shopitem-card .bookitem-button {
+    text-align: right;
+    position: absolute;
+    right: 0; }
 
 /*Tema med grönt*/
-/* line 2, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 29, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_greenbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg") !important; }
-  /* line 5, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 32, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_greenbg .aj_bb_krypinNavBlock {
     background-image: url("/images/bakgrunder/greenNyckelpigor.jpg"); }
-  /* line 9, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 36, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_greenbg .bb_aj_gridItem {
     background-color: #fdf28b; }
+  /* line 42, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_greenbg #aj_bb_krypinNav li:hover {
+    background-color: #c1df89; }
 
 /*Tema med brunt*/
-/* line 15, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 50, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_brownbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/brunblomma.jpg") !important; }
-  /* line 17, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 52, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_brownbg .aj_bb_krypinNavBlock {
-    background-color: #666 !important; }
-  /* line 20, _dev/devsass/komponenter/_colortemplate.scss */
+    background-color: #BCA575; }
+  /* line 55, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_brownbg .bb_aj_gridItem {
-    background-color: #fff; }
+    background-color: #BCA575; }
+  /* line 61, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_brownbg #aj_bb_krypinNav li:hover {
+    background-color: #62533B; }
 
 /*Tema med Blå*/
-/* line 26, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 69, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_bluebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/BlueFlowers_light.jpg") !important; }
-  /* line 28, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 71, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_bluebg .aj_bb_krypinNavBlock {
-    background-color: #666 !important; }
-  /* line 31, _dev/devsass/komponenter/_colortemplate.scss */
+    background-color: #C3ECF3 !important; }
+  /* line 74, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_bluebg .bb_aj_gridItem {
-    background-color: #fff; }
+    background-color: #C3ECF3; }
+  /* line 79, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_bluebg #aj_bb_krypinNav li:hover {
+    background-color: #C3ECF3; }
 
 /*Tema med svart*/
-/* line 37, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 87, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_blackbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg") !important; }
-  /* line 39, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 89, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_blackbg h1, .aj_bb_blackbg h2, .aj_bb_blackbg h3, .aj_bb_blackbg h4, .aj_bb_blackbg h5, .aj_bb_blackbg p {
+    color: #fff !important; }
+  /* line 93, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_blackbg .aj_bb_krypinNavBlock {
-    background-color: #666 !important; }
-  /* line 42, _dev/devsass/komponenter/_colortemplate.scss */
+    background-color: #444343 !important; }
+  /* line 96, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_blackbg .bb_aj_gridItem {
-    background-color: #fff; }
+    background-color: #444343; }
+  /* line 101, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_blackbg #aj_bb_krypinNav li:hover {
+    background-color: #ccc; }
 
 /*Tema med svart*/
-/* line 48, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 109, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_beigebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/LjusbeigeBin.jpg") !important; }
-  /* line 50, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 111, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_beigebg .aj_bb_krypinNavBlock {
-    background-color: #666 !important; }
-  /* line 53, _dev/devsass/komponenter/_colortemplate.scss */
+    background-color: #FBE2B3 !important; }
+  /* line 114, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_beigebg .bb_aj_gridItem {
-    background-color: #fff; }
+    background-color: #FBE2B3; }
+  /* line 119, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_beigebg #aj_bb_krypinNav li:hover {
+    background-color: #E8B16D; }
 
 /* line 1, _dev/devsass/komponenter/_krypinpageBase.scss */
 .ikonheaderBlock {
@@ -673,28 +727,335 @@ hr {
 #bb_aj_booklist_Mod .bb_aj_BooklistSettings {
   display: none; }
 
-/* line 1, _dev/devsass/komponenter/_bookItemBlock.scss */
-.bookitem-card {
-  position: relative;
-  margin-right: 1rem;
-  margin-left: 1rem; }
-  /* line 8, _dev/devsass/komponenter/_bookItemBlock.scss */
-  .bookitem-card .bookitem-info {
+/* line 2, _dev/devsass/komponenter/_bookItemBlock.scss */
+.bibblomon-card {
+  background-color: #000000;
+  -webkit-border-radius: 10px;
+          border-radius: 10px; }
+  /* line 7, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card .bookitem-info {
+    border: 3px solid #000000;
+    -webkit-border-bottom-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+            border-bottom-right-radius: 10px; }
+
+/* line 13, _dev/devsass/komponenter/_bookItemBlock.scss */
+.badgeitem-card {
+  margin-right: 0rem;
+  margin-left: 0rem; }
+
+/* line 1, _dev/devsass/komponenter/_startpage.scss */
+h3 {
+  font-weight: 600; }
+
+/* line 3, _dev/devsass/komponenter/_startpage.scss */
+.avatarItems {
+  padding: 1rem; }
+  /* line 5, _dev/devsass/komponenter/_startpage.scss */
+  .avatarItems h3 {
+    padding: .5rem; }
+
+/* line 10, _dev/devsass/komponenter/_startpage.scss */
+.BiblomoneyItems {
+  overflow: hidden; }
+  /* line 12, _dev/devsass/komponenter/_startpage.scss */
+  .BiblomoneyItems .bibblomoneyContent {
+    min-height: 10rem;
+    padding-top: 2rem;
+    text-align: center; }
+    /* line 13, _dev/devsass/komponenter/_startpage.scss */
+    .BiblomoneyItems .bibblomoneyContent img {
+      max-width: 56px; }
+  /* line 20, _dev/devsass/komponenter/_startpage.scss */
+  .BiblomoneyItems .bibblomoneyFooter img {
+    max-width: 28px; }
+
+/* line 23, _dev/devsass/komponenter/_startpage.scss */
+.BiblomonItems {
+  overflow: hidden; }
+  /* line 25, _dev/devsass/komponenter/_startpage.scss */
+  .BiblomonItems .bibblomonContent {
+    min-height: 10rem;
+    padding-top: 2rem;
+    text-align: center; }
+    /* line 26, _dev/devsass/komponenter/_startpage.scss */
+    .BiblomonItems .bibblomonContent img {
+      max-width: 56px; }
+  /* line 32, _dev/devsass/komponenter/_startpage.scss */
+  .BiblomonItems .bibblomonFooter img {
+    max-width: 28px; }
+
+/* line 37, _dev/devsass/komponenter/_startpage.scss */
+.laserjustnuItems .bookitem-card, .laserjustnuItems .bibblomon-card, .laserjustnuItems .badgeitem-card, .laserjustnuItems #bb_aj_inventory_Mod .inventoryitem-card, #bb_aj_inventory_Mod .laserjustnuItems .inventoryitem-card, .laserjustnuItems #bb_aj_shop_Mod .shopitem-card, #bb_aj_shop_Mod .laserjustnuItems .shopitem-card {
+  padding-top: 1rem;
+  text-align: center; }
+
+/*---------------------------------------------grow START----------------*/
+/* line 45, _dev/devsass/komponenter/_startpage.scss */
+.testare {
+  text-align: center; }
+
+/* line 49, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #AJKrypingrowboxcontent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+/* line 54, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #growmainbox {
+  padding: 0;
+  margin: 10px 32px;
+  height: 95px; }
+  /* line 58, _dev/devsass/komponenter/_startpage.scss */
+  .AJKrypingrowboxmain #growmainbox ul {
+    margin-left: 0;
+    padding-left: 0;
+    white-space: nowrap; }
+    /* line 63, _dev/devsass/komponenter/_startpage.scss */
+    .AJKrypingrowboxmain #growmainbox ul li {
+      display: inline;
+      list-style-type: none;
+      float: left;
+      min-height: 80px;
+      width: 45px;
+      background-image: url("http://www.barnensbibliotek.se/DesktopModules/AJBarnensKrypin/webbilds/growbghylla.png"); }
+
+/* line 75, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .itmimg {
+  min-height: 85px;
+  background-repeat: no-repeat; }
+
+/* line 79, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .itmimga {
+  display: none; }
+
+/* line 80, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .itmadm {
+  min-height: 80px;
+  width: 45px;
+  border: 1px dashed #999; }
+  /* line 84, _dev/devsass/komponenter/_startpage.scss */
+  .AJKrypingrowboxmain .itmadm a {
+    display: block;
+    white-space: pre-line;
     text-align: center;
-    background-color: #fff; }
-  /* line 13, _dev/devsass/komponenter/_bookItemBlock.scss */
-  .bookitem-card .bookitem-button {
-    text-align: right;
-    position: absolute;
-    right: 0; }
+    color: #666;
+    text-decoration: none;
+    margin-top: 12px; }
+  /* line 92, _dev/devsass/komponenter/_startpage.scss */
+  .AJKrypingrowboxmain .itmadm:hover {
+    background-color: #ddd; }
+
+/* line 94, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .editGrow a {
+  padding: 0px;
+  margin: 0px; }
+
+/* line 95, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #AJKrypingrowdelbox {
+  margin-left: 40px; }
+
+/* line 96, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .itmimgadel {
+  display: none; }
+
+/* line 97, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #growhelpbox a {
+  float: right;
+  background-image: url("");
+  display: block;
+  height: 10px;
+  width: 10px; }
+
+/* line 98, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #growhelpbox a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5; }
+
+/* line 105, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #AJKrypInBarnbiblContent p {
+  font-size: 0.8em;
+  color: #333; }
+
+/* line 106, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #AJKrypingrowInfo {
+  padding: 4px;
+  background-color: #fff;
+  margin-right: 10%; }
+
+/*---------------------------------------------grow END----------------*/
+/* line 114, _dev/devsass/komponenter/_startpage.scss */
+.highscoreItems {
+  overflow: hidden; }
+  /* line 116, _dev/devsass/komponenter/_startpage.scss */
+  .highscoreItems h2 {
+    text-align: left; }
+  /* line 117, _dev/devsass/komponenter/_startpage.scss */
+  .highscoreItems ul {
+    margin-top: 1rem;
+    list-style: none; }
+    /* line 120, _dev/devsass/komponenter/_startpage.scss */
+    .highscoreItems ul li {
+      float: left; }
+      /* line 122, _dev/devsass/komponenter/_startpage.scss */
+      .highscoreItems ul li img {
+        max-width: 42px;
+        padding: .2rem; }
+
+/* line 2, _dev/devsass/komponenter/_inventory.scss */
+#bb_aj_inventory_Mod .bb_aj_inventorytAdd {
+  display: none; }
+
+/* line 6, _dev/devsass/komponenter/_inventory.scss */
+#bb_aj_inventory_Mod .bb_aj_inventorySettings {
+  display: none; }
+
+/* line 10, _dev/devsass/komponenter/_inventory.scss */
+#bb_aj_inventory_Mod .inventoryitem-card {
+  margin-right: 0rem;
+  margin-left: 0rem; }
+  /* line 12, _dev/devsass/komponenter/_inventory.scss */
+  #bb_aj_inventory_Mod .inventoryitem-card .bookitem-image {
+    background-color: #999999; }
+  /* line 15, _dev/devsass/komponenter/_inventory.scss */
+  #bb_aj_inventory_Mod .inventoryitem-card .bookitem-info {
+    text-align: left;
+    padding-right: .2rem;
+    padding-left: .2rem; }
+  /* line 22, _dev/devsass/komponenter/_inventory.scss */
+  #bb_aj_inventory_Mod .inventoryitem-card p {
+    font-size: .7rem; }
+  /* line 23, _dev/devsass/komponenter/_inventory.scss */
+  #bb_aj_inventory_Mod .inventoryitem-card .invitmtyp {
+    padding-top: .5rem;
+    padding-left: .2rem; }
+    /* line 26, _dev/devsass/komponenter/_inventory.scss */
+    #bb_aj_inventory_Mod .inventoryitem-card .invitmtyp h6 {
+      font-size: 0.7rem !important;
+      font-weight: 900; }
+    /* line 27, _dev/devsass/komponenter/_inventory.scss */
+    #bb_aj_inventory_Mod .inventoryitem-card .invitmtyp img {
+      max-width: 24px;
+      margin-bottom: .5rem;
+      text-align: right; }
+
+/* line 1, _dev/devsass/komponenter/_shop.scss */
+#bb_aj_shop_Mod {
+  margin-right: 0rem;
+  margin-left: 0rem; }
+  /* line 2, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .bb_aj_shopAdd {
+    display: none; }
+  /* line 6, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .bb_aj_shopSettings {
+    display: none; }
+  /* line 10, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .shopitem-card {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 1rem; }
+    /* line 15, _dev/devsass/komponenter/_shop.scss */
+    #bb_aj_shop_Mod .shopitem-card .bookitem-button {
+      max-width: 32px; }
+  /* line 19, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .bookitem-image {
+    background-color: #999999; }
+  /* line 22, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .bookitem-info {
+    text-align: left !important;
+    padding-right: .2rem;
+    padding-left: .2rem; }
+    /* line 26, _dev/devsass/komponenter/_shop.scss */
+    #bb_aj_shop_Mod .bookitem-info .shop_prisblock {
+      margin-right: -.2rem;
+      margin-left: -.2rem;
+      padding-right: .2rem;
+      padding-left: .2rem;
+      background: #339933;
+      padding-top: .2rem;
+      padding-bottom: .1rem; }
+      /* line 34, _dev/devsass/komponenter/_shop.scss */
+      #bb_aj_shop_Mod .bookitem-info .shop_prisblock.forsale {
+        background: #ff9900; }
+  /* line 42, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod p {
+    font-size: .7rem; }
+  /* line 43, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .invitmtyp {
+    padding-top: .5rem;
+    padding-left: .2rem; }
+    /* line 46, _dev/devsass/komponenter/_shop.scss */
+    #bb_aj_shop_Mod .invitmtyp h6 {
+      font-size: 0.7rem !important;
+      font-weight: 900; }
+    /* line 47, _dev/devsass/komponenter/_shop.scss */
+    #bb_aj_shop_Mod .invitmtyp img {
+      max-width: 24px;
+      margin-bottom: .5rem;
+      text-align: right; }
+
+/* line 1, _dev/devsass/komponenter/_installningar.scss */
+.basecurrentImgstyle, #bb_aj_installningar_Mod .alternativblock .avatar_current img, #bb_aj_installningar_Mod .alternativblock .skin_current img {
+  max-width: 150px;
+  margin-left: 1rem; }
+
+/* line 5, _dev/devsass/komponenter/_installningar.scss */
+.listbasestyle, #bb_aj_installningar_Mod .alternativblock .avatar_alternativ #avatar_maingallery li, #bb_aj_installningar_Mod .alternativblock .skin_alternativ #skin_maingallery li {
+  list-style: none;
+  float: left;
+  width: 50px;
+  margin: 5px 1px 0 0; }
+
+/* line 14, _dev/devsass/komponenter/_installningar.scss */
+#bb_aj_installningar_Mod .bb_aj_installningarAdd {
+  display: none; }
+
+/* line 18, _dev/devsass/komponenter/_installningar.scss */
+#bb_aj_installningar_Mod .bb_aj_installningarSettings {
+  display: none; }
+
+/* line 21, _dev/devsass/komponenter/_installningar.scss */
+#bb_aj_installningar_Mod .alternativblock {
+  padding-bottom: 1rem;
+  ___border-bottom: 1px solid #000;
+  margin-bottom: 2.5rem; }
+  /* line 35, _dev/devsass/komponenter/_installningar.scss */
+  #bb_aj_installningar_Mod .alternativblock .avatar_alternativ #avatar_maingallery img {
+    max-width: 40px; }
+  /* line 41, _dev/devsass/komponenter/_installningar.scss */
+  #bb_aj_installningar_Mod .alternativblock .skin_current img {
+    border: 2px solid #fff; }
+  /* line 48, _dev/devsass/komponenter/_installningar.scss */
+  #bb_aj_installningar_Mod .alternativblock .skin_alternativ #skin_maingallery li {
+    width: 90px; }
+  /* line 52, _dev/devsass/komponenter/_installningar.scss */
+  #bb_aj_installningar_Mod .alternativblock .skin_alternativ #skin_maingallery img {
+    max-width: 80px; }
 
 /* Global krypinskin*/
-/* line 9, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 13, _dev/devsass/kk_aj_PublicCSS.scss */
 .aj_bb_KrypinSkin {
   padding-top: 2rem !important;
   padding-left: 0.5rem !important;
   padding-right: .5rem !important; }
-  /* line 16, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 20, _dev/devsass/kk_aj_PublicCSS.scss */
   .aj_bb_KrypinSkin hr {
     margin-top: 0px;
     background-color: #000; }
+
+/* line 26, _dev/devsass/kk_aj_PublicCSS.scss */
+.Grid-cell .dnnModuleManager {
+  padding: 0px !important; }

@@ -1,0 +1,126 @@
+﻿ h3{
+    font-weight:600;}
+.avatarItems{
+  padding:1rem;
+  h3{   
+    padding:.5rem;  
+    }
+}
+
+.BiblomoneyItems{
+   overflow:hidden; 
+    .bibblomoneyContent{
+        img{max-width:56px;}
+        min-height:10rem;
+        padding-top:2rem;
+        text-align:center;
+        
+    }
+    .bibblomoneyFooter{
+        img{max-width:28px;}
+    }
+}
+.BiblomonItems{
+   overflow:hidden; 
+    .bibblomonContent{
+        img{max-width:56px;}
+        min-height:10rem;
+        padding-top:2rem;
+        text-align:center;
+    }
+    .bibblomonFooter{
+        img{max-width:28px;}
+    }
+}
+.laserjustnuItems{
+     
+    .bookitem-card{
+        padding-top:1rem;
+        text-align:center;
+    }
+   
+}
+
+/*---------------------------------------------grow START----------------*/
+.testare{
+    text-align:center;
+}
+.AJKrypingrowboxmain{
+   #AJKrypingrowboxcontent{
+       display:flex;
+       align-items:center;
+       justify-content: center;
+   }
+    #growmainbox{
+        padding:0; 
+	    margin:10px 32px; 
+	    height:95px;
+        ul
+        {
+            margin-left: 0;
+            padding-left: 0;
+            white-space: nowrap;
+            li  
+            {
+                display: inline;
+                list-style-type: none;
+                float:left;
+                min-height:80px;
+                width:45px;
+                background-image:url("http://www.barnensbibliotek.se/DesktopModules/AJBarnensKrypin/webbilds/growbghylla.png");
+            } 
+        }
+    } 
+
+    .itmimg{ 
+        min-height:85px; 
+        background-repeat:no-repeat;
+     }
+    .itmimga{display:none;}
+    .itmadm{
+        min-height:80px;
+        width:45px;
+        border:1px dashed #999;
+        a{
+            display:block; 
+            white-space:pre-line; 
+            text-align:center; 
+            color:#666; 
+            text-decoration:none; 
+            margin-top:12px;
+        }
+        &:hover{background-color:#ddd;}
+    }
+    .editGrow a{padding:0px;margin:0px;}
+    #AJKrypingrowdelbox{margin-left:40px;}
+    .itmimgadel{display:none;}
+    #growhelpbox a{float:right; background-image:url(""); display:block; height:10px; width:10px;}
+    #growhelpbox a:hover{
+	    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	    filter: alpha(opacity=50);	
+	    -moz-opacity:0.5;
+	    -khtml-opacity: 0.5;
+	    opacity: 0.5;
+    }
+    #AJKrypInBarnbiblContent p{ font-size:0.8em; color:#333;}
+    #AJKrypingrowInfo{
+        padding:4px;
+        background-color: #fff;
+        margin-right: 10%;
+    }
+}
+/*---------------------------------------------grow END----------------*/
+
+.highscoreItems{
+    overflow:hidden; 
+    h2{text-align:left;}
+    ul{
+        margin-top:1rem;
+        list-style:none;
+        li{
+            float:left;
+            img{max-width:42px; padding:.2rem;}
+        }
+    }
+    
+}

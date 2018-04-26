@@ -1,0 +1,50 @@
+﻿#bb_aj_shop_Mod{
+    .bb_aj_shopAdd{
+        display:none;
+
+    }
+    .bb_aj_shopSettings{
+        display:none;
+
+    }
+    .shopitem-card{
+        @extend .bookitem-card;
+        margin-left:0px;
+        margin-right:0px;
+        margin-bottom:1rem;
+        .bookitem-button{
+            max-width:32px;               
+            }
+        }
+        .bookitem-image{
+             background-color:#999999;           
+        }    
+        .bookitem-info{
+            text-align:left!important;
+            padding-right:.2rem;
+            padding-left:.2rem;
+            .shop_prisblock{
+                margin-right:-.2rem;
+                margin-left:-.2rem;
+                padding-right:.2rem;
+                padding-left:.2rem;
+                background:#339933;
+                padding-top:.2rem;
+                padding-bottom:.1rem;
+                &.forsale{
+                    background:#ff9900;
+                    
+                }
+            } 
+        }
+        margin-right:0rem;
+        margin-left:0rem;
+        p{font-size:.7rem;}
+        .invitmtyp{
+            padding-top:.5rem;
+            padding-left:.2rem;
+            h6{font-size:0.7rem!important; font-weight:900;}
+            img{max-width:24px;margin-bottom:.5rem; text-align:right;}
+        }
+    }
+

@@ -24,7 +24,6 @@
 <fortyfingers:STYLEHELPER ID="headMeta2" AddToHead='<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">' runat="server" />
 <fortyfingers:STYLEHELPER ID="headreferrer" AddToHead='<meta name="referrer" content="origin">' runat="server" />
 
-<fortyfingers:STYLEHELPER ID="proximanova" AddCssFile="http://fast.fonts.net/cssapi/085f8d62-8591-4fba-80a2-a4c05e7b90a4.css" runat="server" />
 <%--<fortyfingers:STYLEHELPER ID="STYLEHELPER2" AddCssFile="layout/styles/framework.css" runat="server" />--%>
 <fortyfingers:STYLEHELPER ID="mediaqueriesCSS" AddCssFile="layout/styles/mediaqueries.css" runat="server" />
 <fortyfingers:STYLEHELPER ID="STYLEHELPER1" AddCssFile="layout/styles/slicknav.css" runat="server" />
@@ -152,5 +151,8 @@
 <span id="barnensbiblCurrentUserid"><%= UserController.Instance.GetCurrentUserInfo().UserID%></span>
 <fortyfingers:STYLEHELPER ID="scriptmobile" AddJsFile="layout/scripts/jquery.slicknav.min.js" runat="server" />
 <fortyfingers:STYLEHELPER ID="addcustomjs" AddJsFile="layout/scripts/custom.js" runat="server" />
+<fortyfingers:STYLEHELPER ID="blommor" AddJsFile="../../../../DesktopModules/AJBarnensKrypin/js/growbox.js" runat="server" />
 <fortyfingers:STYLEHELPER ID="krypinbundlejs" AddJsFile="public/js/aj_bb_Krypinbundle.js" runat="server" />
+<%--<fortyfingers:STYLEHELPER ID="proximanova" AddCssFile="http://fast.fonts.net/cssapi/085f8d62-8591-4fba-80a2-a4c05e7b90a4.css" runat="server" />--%>
+
 

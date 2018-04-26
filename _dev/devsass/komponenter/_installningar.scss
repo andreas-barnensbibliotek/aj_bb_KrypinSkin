@@ -1,0 +1,59 @@
+﻿.basecurrentImgstyle{
+    max-width:150px;
+    margin-left:1rem;
+}
+.listbasestyle{
+    list-style: none;
+    float: left;
+    width: 50px;
+    margin: 5px 1px 0 0;
+}
+
+#bb_aj_installningar_Mod
+{
+    .bb_aj_installningarAdd{
+        display:none;
+
+    }
+    .bb_aj_installningarSettings{
+        display:none;
+    }
+    .alternativblock{
+        padding-bottom:1rem;
+        ___border-bottom:1px solid #000;
+        margin-bottom:2.5rem;
+        .avatar_current {
+            img{
+                @extend .basecurrentImgstyle;
+            }            
+        }
+        .avatar_alternativ{
+           #avatar_maingallery{
+                li {
+                     @extend .listbasestyle;
+                }
+                img{
+                    max-width:40px;
+                }
+            }
+        }
+        .skin_current {
+            img{
+                @extend .basecurrentImgstyle;
+                border:2px solid #fff;
+            }            
+        }
+        .skin_alternativ{
+           #skin_maingallery{
+                li {
+                    @extend .listbasestyle;
+                    width: 90px;
+                }
+                img{
+                    max-width:80px;
+                }
+            }
+        }
+    }
+   
+}

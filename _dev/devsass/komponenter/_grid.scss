@@ -8,8 +8,9 @@ $demoHollyDark: rgba(102, 51, 255, 0.25);
 
 
 body {
-  
-  font: 100 1em/150% "proxima-nova", Helvetica, sans-serif;
+
+  font: 100 1em/150% 'Hind Siliguri', Helvetica, sans-serif;
+  /*font: 100 1em/150% "proxima-nova", Helvetica, sans-serif;*/
 }
 
 .wrapper{
@@ -18,16 +19,23 @@ body {
   //border: 1px solid red;
 }
 
-h1, h2, h3, h4 {  
+h1, h2, h3, h4, h5, h6 {  
   font-weight: 900;
   color: #333;
   margin: 1.5em 0 0.5em;
+  font-family:'Hind Siliguri', sans-serif;
 }
 
 h1 {font-size: 2em;}
 h2 {font-size: 1.8em;}
 h3 {font-size: 1.5em;}
 h4 {font-size: 1.3em;}
+h5 {font-size: 1.10em!important;
+        font-weight: 600;
+}
+h6 {font-size: 1.05em!important;
+        font-weight: 500;
+}
 
 strong {font-weight: 600;}
 

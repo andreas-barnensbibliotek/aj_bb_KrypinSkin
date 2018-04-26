@@ -1,20 +1,18 @@
-﻿.bookitem-card{
-    position:relative;
-     margin-right:1rem;
-     margin-left:1rem;
-    .bookitem-image{
-
-    }
+﻿
+.bibblomon-card{
+    @extend .bookitem-card;
+    background-color:$black;
+    border-radius:10px;
+    
     .bookitem-info{
-        text-align:center;
-        background-color:#fff;
-        
+        border:3px solid $black;  
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;      
     }
-    .bookitem-button{
-        text-align:right;
-        position:absolute;
-        right:0;
-       
-    }
-
 }
+.badgeitem-card{
+    @extend .bookitem-card;
+    margin-right:0rem;
+    margin-left:0rem;
+}
+

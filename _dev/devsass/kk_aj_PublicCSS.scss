@@ -4,6 +4,10 @@
 @import 'komponenter/_krypinpageBase';
 @import 'komponenter/_booklistPage';
 @import 'komponenter/_bookItemBlock';
+@import 'komponenter/_startpage';
+@import 'komponenter/_inventory';
+@import 'komponenter/_shop';
+@import 'komponenter/_installningar';
 
 /* Global krypinskin*/
 .aj_bb_KrypinSkin{
@@ -18,3 +22,5 @@
         background-color:#000;
     }
 }
+
+.Grid-cell .dnnModuleManager{padding:0px!important;}
