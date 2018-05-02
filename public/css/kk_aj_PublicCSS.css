@@ -620,63 +620,66 @@ hr {
   /* line 42, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_greenbg #aj_bb_krypinNav li:hover {
     background-color: #c1df89; }
+  /* line 48, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_greenbg .bb_aj_valdBG {
+    background-color: #c1df89; }
 
 /*Tema med brunt*/
-/* line 50, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 54, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_brownbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/brunblomma.jpg") !important; }
-  /* line 52, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 56, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_brownbg .aj_bb_krypinNavBlock {
     background-color: #BCA575; }
-  /* line 55, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 59, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_brownbg .bb_aj_gridItem {
     background-color: #BCA575; }
-  /* line 61, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 65, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_brownbg #aj_bb_krypinNav li:hover {
     background-color: #62533B; }
 
 /*Tema med Blå*/
-/* line 69, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 73, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_bluebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/BlueFlowers_light.jpg") !important; }
-  /* line 71, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 75, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_bluebg .aj_bb_krypinNavBlock {
     background-color: #C3ECF3 !important; }
-  /* line 74, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 78, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_bluebg .bb_aj_gridItem {
     background-color: #C3ECF3; }
-  /* line 79, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 83, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_bluebg #aj_bb_krypinNav li:hover {
     background-color: #C3ECF3; }
 
 /*Tema med svart*/
-/* line 87, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 91, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_blackbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg") !important; }
-  /* line 89, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 93, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_blackbg h1, .aj_bb_blackbg h2, .aj_bb_blackbg h3, .aj_bb_blackbg h4, .aj_bb_blackbg h5, .aj_bb_blackbg p {
     color: #fff !important; }
-  /* line 93, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 97, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_blackbg .aj_bb_krypinNavBlock {
     background-color: #444343 !important; }
-  /* line 96, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 100, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_blackbg .bb_aj_gridItem {
     background-color: #444343; }
-  /* line 101, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 105, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_blackbg #aj_bb_krypinNav li:hover {
     background-color: #ccc; }
 
 /*Tema med svart*/
-/* line 109, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 113, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_beigebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/LjusbeigeBin.jpg") !important; }
-  /* line 111, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 115, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_beigebg .aj_bb_krypinNavBlock {
     background-color: #FBE2B3 !important; }
-  /* line 114, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 118, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_beigebg .bb_aj_gridItem {
     background-color: #FBE2B3; }
-  /* line 119, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 123, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_beigebg #aj_bb_krypinNav li:hover {
     background-color: #E8B16D; }
 

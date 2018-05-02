@@ -1,4 +1,4 @@
-var msg = require("./jsmoduler/main.js");
+var msg = require("./jsmoduler/pageloader.js");
 var $ = require("jquery");
 
 $(function(){
