@@ -13,9 +13,8 @@
              padding:0px;
              list-style:none;
              li{
-                &:hover{
-                    
-                    
+                 margin-top:.3rem; 
+                 &:hover{
                     margin-left:-.5rem;
                     margin-right:-.5rem;
                     img{
@@ -23,10 +22,7 @@
                         margin-right:.5rem;
                     }
                  }
-                 margin-top:.3rem;
-                 img{
-                  
-                 }
+                                
              }
         }
      }
@@ -51,4 +47,14 @@
         right:0;       
     }
 
+}
+
+.bb_aj_valdmeny{
+    margin-left:-.5rem;
+    margin-right:-.5rem;                   
+    background-color:$darkgreen;   
+    img{
+        margin-left:.5rem;
+        margin-right:.5rem;
+    }
 }

@@ -24,6 +24,8 @@ $orangeLight: #e2974a;
 $beige      :#efebde;
 $beigelight :#f7f5ef;
 $browngrey  :#949086;
+$menygreen: #c1df89;
+$menybrown: #62533B;
 
 /*Tema med grönt*/
 .aj_bb_greenbg{
@@ -40,13 +42,13 @@ $browngrey  :#949086;
     #aj_bb_krypinNav{
          li{ 
             &:hover{
-                 background-color:#c1df89;
+                 background-color:$menygreen;
              }
             
         }
     }
     .bb_aj_valdBG{
-        background-color:#c1df89;
+        background-color:$menygreen;
     }
 }
 
@@ -63,7 +65,7 @@ $browngrey  :#949086;
     #aj_bb_krypinNav{
          li{ 
             &:hover{
-                 background-color:#62533B;
+                 background-color:$menybrown;
              }
         }
     }
