@@ -1,10 +1,13 @@
 ﻿var _ = require("lodash");
 var $ = require("jquery");
+var bb_pagebehaviors = require("./app_modules/krypinPageBahavior.js");
+var bb_containerbehaviors = require("./app_modules/krypinContainerBehavior.js");
+
 module.exports = {
-    init: function (value) {
-        $('.kk_bb_openSkrivbok').addClass('bb_aj_valdmeny');
-
-
+    init: function (value) {        
+        let moduleName = 'Skrivbok'
+        bb_containerbehaviors.init(moduleName);
+        bb_pagebehaviors.init(moduleName);
         /////////////////////////////////////////////////////
 
     }

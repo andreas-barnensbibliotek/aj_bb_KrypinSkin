@@ -732,6 +732,12 @@ hr {
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
+/* line 25, _dev/devsass/komponenter/_krypinpageBase.scss */
+.bb_aj_CloseContainer {
+  position: absolute;
+  right: -6px;
+  top: 0px; }
+
 /* line 2, _dev/devsass/komponenter/_booklistPage.scss */
 #bb_aj_booklist_Mod .bb_aj_BooklistAdd {
   display: none; }

@@ -1,9 +1,11 @@
 ﻿var _ = require("lodash");
 var $ = require("jquery");
-module.exports = {
-    init: function (value) {
-        $('.kk_bb_openBibblomon').addClass('bb_aj_valdmeny');
+var bb_pagebehaviors = require("./app_modules/krypinPageBahavior.js");
 
+module.exports = {
+    init: function (value) {        
+        let moduleName = 'Bibblomon';
+        bb_pagebehaviors.init(moduleName);
 
         /////////////////////////////////////////////////////
 

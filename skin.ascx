@@ -38,7 +38,9 @@
              <img id="logoimg" src= "images/bblogo2.png" runat="server" />        
         </div>
         <div id="topboxheader" class="headermaincol">
+           
             <span id="topheader">
+                
                  <span id="HeaderPane" runat="server"></span>
                
             </span>

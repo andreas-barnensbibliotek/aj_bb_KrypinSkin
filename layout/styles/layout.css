@@ -3,11 +3,14 @@ html {
 }
 
 body {
-     background-color: #A5C1CE;
-background-image: url("http://www.barnensbibliotek.se/Portals/_default/Skins/bb_BALNAB/images/Nalle_Barnensbibliotek_bg.jpg");
-     color: #919191;
-     background-repeat: no-repeat;
-    background-attachment: fixed;
+      background-color: #A5C1CE;
+    background-image: url("http://www.barnensbibliotek.se/Portals/_default/Skins/bb_BALNAB/images/Nalle_Barnensbibliotek_bg.jpg");
+	background-color: #8cc4df;
+	background-image: url("http://localdev.kivdev.se/Portals/_default/Skins/bb_DAGOBAH_krypin/images/Nalle_Barnensbibliotek_BG.png");
+
+    color: #919191;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
     background-position: center top; 
     
 }

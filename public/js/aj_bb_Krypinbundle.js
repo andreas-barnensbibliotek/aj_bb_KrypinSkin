@@ -45,7 +45,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var pageloader = __webpack_require__(1);
-	var appsettingsobject = __webpack_require__(14);
+	var appsettingsobject = __webpack_require__(16);
 	var $ = __webpack_require__(5);
 
 	$(function () {
@@ -75,14 +75,14 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var startpage = __webpack_require__(2);
-	var booklistpage = __webpack_require__(6);
-	var skrivbokenpage = __webpack_require__(7);
-	var boktipspage = __webpack_require__(8);
-	var scoreboardpage = __webpack_require__(9);
-	var bibblomonpage = __webpack_require__(10);
-	var inventorypage = __webpack_require__(11);
-	var shoppage = __webpack_require__(12);
-	var installningarpage = __webpack_require__(13);
+	var booklistpage = __webpack_require__(7);
+	var skrivbokenpage = __webpack_require__(9);
+	var boktipspage = __webpack_require__(10);
+	var scoreboardpage = __webpack_require__(11);
+	var bibblomonpage = __webpack_require__(12);
+	var inventorypage = __webpack_require__(13);
+	var shoppage = __webpack_require__(14);
+	var installningarpage = __webpack_require__(15);
 
 	var $ = __webpack_require__(5);
 	module.exports = {
@@ -126,11 +126,7 @@
 	                'bb_aj_setup_krypin': function () {
 	                    installningarpage.init();
 	                    return false;
-	                },
-	                'bb_aj_setup_krypin': function () {
-	                    booklistpage.init();
-	                    return false;
-	                },
+	                },                
 	                'default': function () {
 	                    startpage.init();
 	                    return false;
@@ -150,11 +146,13 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+	var bb_pagebehaviors = __webpack_require__(6);
 	module.exports = {
 	    init: function (value) {
-	        $('.kk_bb_openAvatars').addClass('bb_aj_valdmeny');
+	        let moduleName = 'Start';
+	        bb_pagebehaviors.init(moduleName);
 
-
+	        
 	        /////////////////////////////////////////////////////
 
 	    }
@@ -27663,31 +27661,58 @@
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	var $ = __webpack_require__(5);
+	// sköter globala settings och sidövergripande händelser och inställningar dynamiskt satta on runtime. måste skicka med modulens namn (moduletypID) tex Booklist, Skrivbok, bibblomon m.m
+	module.exports = {
+	    init: function (moduletypID) {
+	        this.cacheDom(moduletypID);
+	        this.BindEvent();
+	        this.Settings();
+	    },
+	    cacheDom: function (modtypID) {
+	        this.$cmdMenyOpen=  $('.kk_bb_open' + modtypID);
+	    },
+	    BindEvent: function () {        
+	    },
+	    Settings: function () {
+	        this.$cmdMenyOpen.addClass('bb_aj_valdmeny');
+	    }
+	}
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_containerbehaviors = __webpack_require__(8);
+
 	module.exports = {
 	    init: function (value) {
+	        let moduleName = 'Booklist'
+	        bb_containerbehaviors.init(moduleName);
+	        bb_pagebehaviors.init(moduleName);
+	        //$('.kk_bb_openBooklists').addClass('bb_aj_valdmeny');
+	        ////lodash.init();
+	        //// booklist mainblock buttons
+	        //// visa addboklist menyn
 
-	        $('.kk_bb_openBooklists').addClass('bb_aj_valdmeny');
-	        //lodash.init();
-	        // booklist mainblock buttons
-	        // visa addboklist menyn
-
-	        $('#bb_aj_setupbooklist').on('click', function () {
-	            $('.bb_aj_installningarSettings').slideToggle(500);
-	            if ($('.bb_aj_installningarAdd').is(':visible')) {
-	                $('.bb_aj_installningarAdd').hide(500);
-	            };
-	        });
-	        // visa boklist settings menyn
-	        $('#bb_aj_addbooklist').on('click', function () {
-	            $('.bb_aj_installningarAdd').slideToggle(500);
-	            if ($('.bb_aj_installningarSettings').is(':visible')) {
-	                $('.bb_aj_installningarSettings').hide(500);
-	            };
-	        });
+	        //$('#bb_aj_setupbooklist').on('click', function () {
+	        //    $('.bb_aj_installningarSettings').slideToggle(500);
+	        //    if ($('.bb_aj_installningarAdd').is(':visible')) {
+	        //        $('.bb_aj_installningarAdd').hide(500);
+	        //    };
+	        //});
+	        //// visa boklist settings menyn
+	        //$('#bb_aj_addbooklist').on('click', function () {
+	        //    $('.bb_aj_installningarAdd').slideToggle(500);
+	        //    if ($('.bb_aj_installningarSettings').is(':visible')) {
+	        //        $('.bb_aj_installningarSettings').hide(500);
+	        //    };
+	        //});
 	        /////////////////////////////////////////////////////
-	        test();
+	        //test();
 	    }
 
 	};
@@ -27697,45 +27722,166 @@
 	    { 'user': 'pebbles', 'age': 1,  'active': true }
 	];
 
-	  var test = function () {
-	      var namn = $('.kk_aj_CurrentPageType').html();
-	      var t = _.find(users, function (o) { return o.age == 40; });
-	      
-
-	  }
+	var test = function () {
+	    var namn = $('.kk_aj_CurrentPageType').html();
+	    var t = _.find(users, function (o) { return o.age == 40; });
 
 
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+	}
 
-	var _ = __webpack_require__(3);
-	var $ = __webpack_require__(5);
-	module.exports = {
-	    init: function (value) {
-	        $('.kk_bb_openSkrivbok').addClass('bb_aj_valdmeny');
+	//var bb_containerbehaviors = {
+	//    init: function (moduletypID) {
+	//        this.cacheDom(moduletypID);
+	//        this.bindEvent();
+	//        this.render();
+	//    },
+	//    cacheDom: function (modtypid) {
+	//        this.$bb_aj_cmdAdd = $('#bb_aj_cmdAdd_' + modtypid);
+	//        this.$bb_aj_cmdSetting = $('#bb_aj_cmdSetting_' + modtypid);
+	//        this.$bb_aj_Container = $('.bb_aj_Container');
+	//        this.$bb_aj_AddContainer = $('.bb_aj_AddContainer_' + modtypid);
+	//        this.$bb_aj_SettingsContainer = $('.bb_aj_SettingsContainer_' + modtypid);
+	//    },
+	//    bindEvent: function () {        
+	//        this.$bb_aj_cmdAdd.on('click', this.addboxbehavior.bind(this));
+	//        this.$bb_aj_cmdSetting.on('click', this.settingsboxbehavior.bind(this));
+	//    },
+	//    render: function () {
+	//        this.$bb_aj_Container.hide();
+	//    },        
+	//    addboxbehavior: function () {        
+	//        this.$bb_aj_AddContainer.slideToggle(500);
+	//        if (this.$bb_aj_SettingsContainer.is(':visible')) {
+	//            this.$bb_aj_SettingsContainer.hide(500);
+	//        };
+	//    },
+	//    settingsboxbehavior: function () {
+	        
+	//        this.$bb_aj_SettingsContainer.slideToggle(500);
+	//        if (this.$bb_aj_AddContainer.is(':visible')) {
+	//            this.$bb_aj_AddContainer.hide(500);
+	//        };
+	//    }
+	//};
 
 
-	        /////////////////////////////////////////////////////
+	//var boklistSettingModule = (function () {
+	//    //cacheDom
+	//    var $el = $('#bb_aj_booklist_Mod');
+	//    var $bb_aj_setupbooklist = $('#bb_aj_setupbooklist');
+	//    var $bb_aj_addbooklist = $('#bb_aj_addbooklist');
+	//    var $bb_aj_installningarSettings = $('.bb_aj_installningarSettings');
+	//    var $bb_aj_installningarAdd = $('.bb_aj_installningarAdd');
 
-	    }
-	};
+	//    //BindEvent
+	//    $bb_aj_setupbooklist.on('click', settingsboxbehavior);
+	//    $bb_aj_addbooklist.on('click', addboxbehavior);
+
+	//    var settingsboxbehavior = function () {
+	//        $bb_aj_installningarSettings.slideToggle(500);
+	//        if ($bb_aj_installningarAdd.is(':visible')) {
+	//            $bb_aj_installningarAdd.hide(500);
+	//        };
+	//    };
+	//    var addboxbehavior = function () {
+	//        $bb_aj_installningarAdd.slideToggle(500);
+	//        if ($bb_aj_installningarSettings.is(':visible')) {
+	//            $bb_aj_installningarSettings.hide(500);
+	//        };
+	//    };
+	//    return {
+	//        openSettings: settingsboxbehavior,
+	//        openadd: addboxbehavior
+	//    };
+	//})();
+
+
+	//(function () {
+
+	    //var boklistSettingModule = {
+	    //    init: function () {
+	    //        this.cacheDom();
+	    //        this.bindEvent();
+	    //        this.render();
+	    //    },
+	    //    cacheDom: function () {           
+	    //        this.$bb_aj_cmdaddbooklist = $('#bb_aj_cmdaddbooklist');
+	    //        this.$bb_aj_cmesetupbooklist = $('#bb_aj_cmesetupbooklist');
+	    //        this.$bb_aj_BooklistAddContainer = $('.bb_aj_BooklistAddContainer');
+	    //        this.$bb_aj_BooklistSettingscontainer = $('.bb_aj_BooklistSettingscontainer');
+	            
+	    //    },
+	    //    bindEvent: function () {
+	    //        this.$bb_aj_cmesetupbooklist.on('click', this.settingsboxbehavior.bind(this));
+	    //        this.$bb_aj_cmdaddbooklist.on('click', this.addboxbehavior.bind(this));
+	    //    },
+	    //    render: function () {
+	    //        this.$bb_aj_BooklistAddContainer.hide();
+	    //        this.$bb_aj_BooklistSettingscontainer.hide();
+	    //    },
+	    //    settingsboxbehavior: function () {
+	    //        this.$bb_aj_BooklistSettingscontainer.slideToggle(500);
+	    //        if (this.$bb_aj_BooklistAddContainer.is(':visible')) {
+	    //            this.$bb_aj_BooklistAddContainer.hide(500);
+	    //        };
+	    //    },
+	    //    addboxbehavior: function () {
+	    //        this.$bb_aj_BooklistAddContainer.slideToggle(500);
+	    //        if (this.$bb_aj_BooklistSettingscontainer.is(':visible')) {
+	    //            this.$bb_aj_BooklistSettingscontainer.hide(500);
+	    //        };
+	    //    }
+	    //};
+	    
+
+	//})
+
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+	// sköter slidning och öppning av settingsblocken. måste skicka med modulens namn (moduletypID) tex Booklist, Skrivbok, bibblomon m.m.
 	module.exports = {
-	    init: function (value) {
-	        $('.kk_bb_openBoktips').addClass('bb_aj_valdmeny');
-
-
-	        /////////////////////////////////////////////////////
-
+	    init: function (moduletypID) {
+	        this.cacheDom(moduletypID);
+	        this.bindEvent();
+	        this.render();
+	    },
+	    cacheDom: function (modtypid) {
+	        this.$bb_aj_cmdAdd = $('#bb_aj_cmdAdd_' + modtypid);
+	        this.$bb_aj_cmdSetting = $('#bb_aj_cmdSetting_' + modtypid);
+	        this.$bb_aj_Container = $('.bb_aj_Container');
+	        this.$bb_aj_AddContainer = $('.bb_aj_AddContainer_' + modtypid);
+	        this.$bb_aj_SettingsContainer = $('.bb_aj_SettingsContainer_' + modtypid);
+	        this.$bb_aj_cmdClose = $('.bb_aj_CloseContainer');
+	    },
+	    bindEvent: function () {
+	        this.$bb_aj_cmdAdd.on('click', this.addboxbehavior.bind(this));
+	        this.$bb_aj_cmdSetting.on('click', this.settingsboxbehavior.bind(this));
+	        this.$bb_aj_cmdClose.on('click', this.closeboxbehavior.bind(this));
+	    },
+	    render: function () {
+	        this.$bb_aj_Container.hide();
+	    },
+	    addboxbehavior: function () {
+	        this.$bb_aj_AddContainer.slideToggle(500);
+	        if (this.$bb_aj_SettingsContainer.is(':visible')) {
+	            this.$bb_aj_SettingsContainer.hide(500);
+	        };
+	    },
+	    settingsboxbehavior: function () {
+	        this.$bb_aj_SettingsContainer.slideToggle(500);
+	        if (this.$bb_aj_AddContainer.is(':visible')) {
+	            this.$bb_aj_AddContainer.hide(500);
+	        };
+	    },
+	    closeboxbehavior: function () {
+	        this.$bb_aj_Container.hide(500);
 	    }
 	};
+
 
 
 /***/ }),
@@ -27744,11 +27890,14 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_containerbehaviors = __webpack_require__(8);
+
 	module.exports = {
-	    init: function (value) {
-	        $('.kk_bb_openScoreboard').addClass('bb_aj_valdmeny');
-
-
+	    init: function (value) {        
+	        let moduleName = 'Skrivbok'
+	        bb_containerbehaviors.init(moduleName);
+	        bb_pagebehaviors.init(moduleName);
 	        /////////////////////////////////////////////////////
 
 	    }
@@ -27758,17 +27907,21 @@
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(3);
+	/* WEBPACK VAR INJECTION */(function(_) {_ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_containerbehaviors = __webpack_require__(8);
+
 	module.exports = {
 	    init: function (value) {
-	        $('.kk_bb_openBibblomon').addClass('bb_aj_valdmeny');
-
-
+	        let moduleName = 'Boktips'
+	        bb_containerbehaviors.init(moduleName);
+	        bb_pagebehaviors.init(moduleName);
 	        /////////////////////////////////////////////////////
 
 	    }
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 11 */
@@ -27776,10 +27929,12 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	module.exports = {
-	    init: function (value) {
-	        $('.kk_bb_openInventorys').addClass('bb_aj_valdmeny');
+	var bb_pagebehaviors = __webpack_require__(6);
 
+	module.exports = {
+	    init: function (value) {       
+	        let moduleName = 'Scoreboard';
+	        bb_pagebehaviors.init(moduleName);
 
 	        /////////////////////////////////////////////////////
 
@@ -27792,10 +27947,12 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	module.exports = {
-	    init: function (value) {
-	        $('.kk_bb_openShop').addClass('bb_aj_valdmeny');
+	var bb_pagebehaviors = __webpack_require__(6);
 
+	module.exports = {
+	    init: function (value) {        
+	        let moduleName = 'Bibblomon';
+	        bb_pagebehaviors.init(moduleName);
 
 	        /////////////////////////////////////////////////////
 
@@ -27808,10 +27965,11 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+	var bb_pagebehaviors = __webpack_require__(6);
 	module.exports = {
-	    init: function (value) {
-	        $('.kk_bb_openSetup').addClass('bb_aj_valdmeny');
-
+	    init: function (value) {       
+	        let moduleName = 'Inventory';
+	        bb_pagebehaviors.init(moduleName);
 
 	        /////////////////////////////////////////////////////
 
@@ -27820,6 +27978,41 @@
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var _ = __webpack_require__(3);
+	var $ = __webpack_require__(5);
+	var bb_pagebehaviors = __webpack_require__(6);
+	module.exports = {
+	    init: function (value) {        
+	        let moduleName = 'Shop';
+	        bb_pagebehaviors.init(moduleName);
+
+	        /////////////////////////////////////////////////////
+
+	    }
+	};
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var _ = __webpack_require__(3);
+	var $ = __webpack_require__(5);
+	var bb_pagebehaviors = __webpack_require__(6);
+	module.exports = {
+	    init: function (value) {
+	        let moduleName = 'Setup';
+	        bb_pagebehaviors.init(moduleName);
+
+
+	        /////////////////////////////////////////////////////
+
+	    }
+	};
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports) {
 
 	

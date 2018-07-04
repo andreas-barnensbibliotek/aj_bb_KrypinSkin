@@ -1,10 +1,13 @@
-﻿var _ = require("lodash");
+﻿_ = require("lodash");
 var $ = require("jquery");
+var bb_pagebehaviors = require("./app_modules/krypinPageBahavior.js");
+var bb_containerbehaviors = require("./app_modules/krypinContainerBehavior.js");
+
 module.exports = {
     init: function (value) {
-        $('.kk_bb_openBoktips').addClass('bb_aj_valdmeny');
-
-
+        let moduleName = 'Boktips'
+        bb_containerbehaviors.init(moduleName);
+        bb_pagebehaviors.init(moduleName);
         /////////////////////////////////////////////////////
 
     }

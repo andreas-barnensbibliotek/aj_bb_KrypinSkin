@@ -1,8 +1,10 @@
 ﻿var _ = require("lodash");
 var $ = require("jquery");
+var bb_pagebehaviors = require("./app_modules/krypinPageBahavior.js");
 module.exports = {
     init: function (value) {
-        $('.kk_bb_openSetup').addClass('bb_aj_valdmeny');
+        let moduleName = 'Setup';
+        bb_pagebehaviors.init(moduleName);
 
 
         /////////////////////////////////////////////////////

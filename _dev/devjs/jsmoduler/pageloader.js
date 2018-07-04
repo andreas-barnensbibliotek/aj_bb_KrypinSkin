@@ -50,11 +50,7 @@ module.exports = {
                 'bb_aj_setup_krypin': function () {
                     installningarpage.init();
                     return false;
-                },
-                'bb_aj_setup_krypin': function () {
-                    booklistpage.init();
-                    return false;
-                },
+                },                
                 'default': function () {
                     startpage.init();
                     return false;
