@@ -72,6 +72,7 @@ hr {
   transition: background-color 0.3s ease;
   border: 0px!important;
   border-radius: 3px;
+  overflow:hidden;
   &:after {
     content: "";
     display: block;

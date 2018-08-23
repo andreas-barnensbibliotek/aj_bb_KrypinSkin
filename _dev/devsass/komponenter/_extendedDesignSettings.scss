@@ -1,0 +1,13 @@
+﻿
+%formmainstyle{
+    text-align:left;
+    padding:.5rem;
+    button{
+        margin:.2rem .2rem 0 0;
+    }
+}
+
+%spinnerhover{
+    transition: transform .5s;
+    transform: rotate(360deg);            
+}

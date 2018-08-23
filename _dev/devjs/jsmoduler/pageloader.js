@@ -7,20 +7,22 @@ var bibblomonpage = require("./krypinBibblomon.js");
 var inventorypage = require("./krypinInventory.js");
 var shoppage = require("./krypinShop.js");
 var installningarpage = require("./krypinInstallningar.js");
-
+var appsettings = require("./appsettings.js");
 var $ = require("jquery");
+
 module.exports = {
-    pagerequest: function (page) {      
+    pagerequest: function (page, userid) {      
      
-        var loadpage = function (tmppage) {
-            
+        var loadpage = function (tmppage, tmpuserid) {
+            jplist.init();
             let requestpage = {
                 'bb_aj_Start_Krypin': function () {
                     startpage.init();
+                    console.log("logga detta " + appsettings.config.globalconfig.dnnURL);
                     return false;
                 },
                 'bb_aj_Boklistor_Krypin': function () {
-                    booklistpage.init();
+                    booklistpage.init(tmpuserid);
                     return false;
                 },
                 'bb_aj_Skrivboken_Krypin': function () {
@@ -59,6 +61,6 @@ module.exports = {
             return (requestpage[tmppage] || requestpage['default'])();
         }
 
-        loadpage(page);
+        loadpage(page, userid);
     }
 }

@@ -45,13 +45,13 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var pageloader = __webpack_require__(1);
-	var appsettingsobject = __webpack_require__(16);
+	var appsettingsobject = __webpack_require__(11);
 	var $ = __webpack_require__(5);
 
 	$(function () {
 
 	    var appsettings = appsettingsobject.config;
-	    appsettings.userinfo.userid = $('.kk_aj_userid').html();
+	    appsettings.userinfo.userid =7017 // $('.kk_aj_userid').html();
 
 	    var currentpage = $('.kk_aj_CurrentPageType').html();
 	    
@@ -61,8 +61,8 @@
 	        
 	        
 	    var init = function () {
-	        pageloader.pagerequest(currentpage);
-
+	        pageloader.pagerequest(currentpage, appsettings.userinfo.userid);
+	      
 	    }
 
 	    init();
@@ -76,21 +76,21 @@
 
 	var startpage = __webpack_require__(2);
 	var booklistpage = __webpack_require__(7);
-	var skrivbokenpage = __webpack_require__(9);
-	var boktipspage = __webpack_require__(10);
-	var scoreboardpage = __webpack_require__(11);
-	var bibblomonpage = __webpack_require__(12);
-	var inventorypage = __webpack_require__(13);
-	var shoppage = __webpack_require__(14);
-	var installningarpage = __webpack_require__(15);
-	var appsettings = __webpack_require__(16);
-
+	var skrivbokenpage = __webpack_require__(12);
+	var boktipspage = __webpack_require__(13);
+	var scoreboardpage = __webpack_require__(14);
+	var bibblomonpage = __webpack_require__(15);
+	var inventorypage = __webpack_require__(16);
+	var shoppage = __webpack_require__(17);
+	var installningarpage = __webpack_require__(18);
+	var appsettings = __webpack_require__(11);
 	var $ = __webpack_require__(5);
+
 	module.exports = {
-	    pagerequest: function (page) {      
+	    pagerequest: function (page, userid) {      
 	     
-	        var loadpage = function (tmppage) {
-	            
+	        var loadpage = function (tmppage, tmpuserid) {
+	            jplist.init();
 	            let requestpage = {
 	                'bb_aj_Start_Krypin': function () {
 	                    startpage.init();
@@ -98,7 +98,7 @@
 	                    return false;
 	                },
 	                'bb_aj_Boklistor_Krypin': function () {
-	                    booklistpage.init();
+	                    booklistpage.init(tmpuserid);
 	                    return false;
 	                },
 	                'bb_aj_Skrivboken_Krypin': function () {
@@ -137,7 +137,7 @@
 	            return (requestpage[tmppage] || requestpage['default'])();
 	        }
 
-	        loadpage(page);
+	        loadpage(page, userid);
 	    }
 	}
 
@@ -27689,47 +27689,97 @@
 	var $ = __webpack_require__(5);
 	var bb_pagebehaviors = __webpack_require__(6);
 	var bb_containerbehaviors = __webpack_require__(8);
+	var bb_API = __webpack_require__(9);
+	var bb_HB_Handler = __webpack_require__(10);
+	var appsettingsobject = __webpack_require__(11);
+	var appsettings = appsettingsobject.config;
 
 	module.exports = {
-	    init: function (value) {
-	        let moduleName = 'Booklist'
+	    init: function (userid) {       
+	        
+	        let moduleName = 'Booklist';
 	        bb_containerbehaviors.init(moduleName);
 	        bb_pagebehaviors.init(moduleName);
-	        //$('.kk_bb_openBooklists').addClass('bb_aj_valdmeny');
-	        ////lodash.init();
-	        //// booklist mainblock buttons
-	        //// visa addboklist menyn
+	        this.cacheDom();
+	        this.BindEvent(userid);
+	        this.initbooklist(userid);
+	       
+	    },
+	    cacheDom: function () {                     
+	        this.$bb_aj_booklistMain = $('#bb_aj_booklistMain');
+	       
+	    },
+	    BindEvent: function (userid) {
+	        let that = this;
+	        this.$bb_aj_booklistMain.on('click', '#bb_aj_cmdAdd_Booklist', function (e) { alert('#bb_aj_cmdAdd_Booklist') });
+	        this.$bb_aj_booklistMain.on('click', '.buttonitem_booktip', function (e) { alert('.buttonitem_booktip') });
+	        
+	        this.$bb_aj_booklistMain.on('click', '.buttonitem_tabort', function (e) {
+	            let bokid = $(this).attr("data-itemid");
+	            let booklistid = $(this).attr("data-bookistid");
+	            that.delbookitemfromlist(booklistid, bokid, userid)
+	        });        
+	    },    
+	    Apiupdate: function (apiurl, userid) {
+	        let that = this; //spara this
+	        bb_API.getjsondata(apiurl, function (data) {
+	            that.initbooklist(userid);
+	        });
+	    },
+	    getbooklist : function (apiurl, userid) {
+	        let handlebartemplate = appsettings.handlebartemplate.hb_booklist_tmp;
+	        this.Render(apiurl, handlebartemplate, userid);       
+	    },
+	    initbooklist : function (userid) {    
+	        let apiurl = appsettings.api.boklistor.getuserboklist;
+	        this.getbooklist(apiurl(userid), userid);        
+	    },
+	    delbookitemfromlist: function (booklistid, bokid, userid) {        
+	        let apiurl = appsettings.api.boklistor.deluserbokitem; //get apiurl funktionen från appsettings
+	        let handlebartemplate = appsettings.handlebartemplate.hb_booklist_tmp;
 
-	        //$('#bb_aj_setupbooklist').on('click', function () {
-	        //    $('.bb_aj_installningarSettings').slideToggle(500);
-	        //    if ($('.bb_aj_installningarAdd').is(':visible')) {
-	        //        $('.bb_aj_installningarAdd').hide(500);
-	        //    };
-	        //});
-	        //// visa boklist settings menyn
-	        //$('#bb_aj_addbooklist').on('click', function () {
-	        //    $('.bb_aj_installningarAdd').slideToggle(500);
-	        //    if ($('.bb_aj_installningarSettings').is(':visible')) {
-	        //        $('.bb_aj_installningarSettings').hide(500);
-	        //    };
-	        //});
-	        /////////////////////////////////////////////////////
-	        //test();
+	        this.Apiupdate(apiurl(booklistid, bokid, userid), userid);
+	    }, Render: function (apiurl, handlebartemplate, userid) {
+	        bb_API.getjsondata(apiurl, function (data) {
+	            bb_HB_Handler.injecthtmltemplate("#bb_aj_booklistMain", handlebartemplate, data, function () {
+	                jplist.init();
+	            });
+	        });
 	    }
-
+	    
 	};
-	var users = [
-	    { 'user': 'barney',  'age': 36, 'active': true },
-	    { 'user': 'fred',    'age': 40, 'active': false },
-	    { 'user': 'pebbles', 'age': 1,  'active': true }
-	];
-
-	var test = function () {
-	    var namn = $('.kk_aj_CurrentPageType').html();
-	    var t = _.find(users, function (o) { return o.age == 40; });
 
 
-	}
+
+
+	//var initbooklist = function (userid) {    
+	//    var apiurl = appsettings.api.boklistor.getuserboklist;
+	//    getbooklist(apiurl(userid), userid);
+	//}
+
+	//var getbooklist = function (apiurl, userid) {
+
+	//    var handlebartemplate = appsettings.handlebartemplate.hb_booklist_tmp;
+
+	//    bb_API.getjsondata(apiurl, function (data) {
+	//        bb_HB_Handler.injecthtmltemplate("#bb_aj_booklistMain", handlebartemplate, data);
+	//    });
+	//}
+
+
+
+	//var users = [
+	//    { 'user': 'barney',  'age': 36, 'active': true },
+	//    { 'user': 'fred',    'age': 40, 'active': false },
+	//    { 'user': 'pebbles', 'age': 1,  'active': true }
+	//];
+
+	//var test = function () {
+	//    var namn = $('.kk_aj_CurrentPageType').html();
+	//    var t = _.find(users, function (o) { return o.age == 40; });
+
+
+	//}
 
 	//var bb_containerbehaviors = {
 	//    init: function (moduletypID) {
@@ -27890,6 +27940,140 @@
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	var $ = __webpack_require__(5);
+
+	module.exports = {   
+	    getjsondata: function (url, callback) {
+	        if (!url) {
+	            return false;
+	        } else{
+	            //console.log("Searchservicen hämtar Arrangemangdata");
+	            $.ajax({
+	                async: true,
+	                type: "get",
+	                dataType: 'jsonp',
+	                url: url,
+	                success: function (data) {
+	                    console.log("Search Detalj arrangemang hämtat: ");
+	                    callback(data);
+	                },
+	                error: function (xhr, ajaxOptions, thrownError) {
+	                    alert("Nått blev fel vid hämtning av arrangemang!");
+	                }
+	            })
+	        };
+	    },
+	    postjsondata: function (url, postdata, callback) {
+	        if (!url) {
+	            return false;
+	        } else {
+	            //console.log("Searchservicen hämtar Arrangemangdata");
+	            $.ajax({
+	                async: true,
+	                type: "post",
+	                url: url,
+	                data: postdata,
+	                success: function (data) {
+	                    console.log("Hämtar Data: ");
+	                    callback(data);
+	                },
+	                error: function (xhr, ajaxOptions, thrownError) {
+	                    alert("Nått blev fel vid hämtning av json!");
+	                }
+	            })
+	        };
+	    }
+	}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(5);
+	var appsettingsobject = __webpack_require__(11);
+
+
+	module.exports = {   
+	    injecthtmltemplate: function (targetClass, usetemplateName, currentdata, callback) {
+	       
+	        $.get(usetemplateName, function (data) {
+	            var temptpl = Handlebars.compile(data);
+	            $(targetClass).html(temptpl(currentdata));
+	            callback();
+	        }, 'html');
+	    }
+	}
+	String.prototype.replaceAt = function (index, char) {
+	    return this.substr(0, index) + char + this.substr(index + 1);
+	    //   this will 'replace' the character at index with char ^
+	}
+
+	Handlebars.registerHelper('datagroupname', function (name) {
+	    var ind = name.indexOf("i", 0);
+	    name.replaceAt(ind, "o");
+	    return name.replace(/\s/g, "");
+	});
+	var Counter = 1;
+	Handlebars.registerHelper('count', function (index) {
+	    return "grupp" + index;
+	});
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+	
+	module.exports = {
+	    config:  (function(){
+	        let _apiserver = "http://localhost:59015";
+	        let _dnnURL = "http://localdev.kivdev.se";
+	        let _devkey = "alf";
+	        let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
+	        let _localOrServerURL = "";
+	        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";
+
+	        let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
+	        let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
+	        let _fn_userboklist = function (userid) {
+	            return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
+	        }
+	        let _fn_deluserbokItem = function (booklistid, bookid, userid) {
+	            return _apiserver + "/Api_v3.1/booklist/typ/delbook/blistid/" + booklistid +"/value/" +bookid+ "/uid/" + userid+ _apidevkeyend;
+	        }        
+
+	        return {
+	            apiserver: _apiserver,
+	            dnnURL: _dnnURL,
+	            localOrServerURL: _localOrServerURL,
+	            htmltemplateurl: _dnnURL + _htmltemplateURL,
+	            devkey: _devkey,
+	            handlebartemplate: {
+	                hb_booklist_tmp: _hb_booklist_template,
+	                bh_booklistitm_tmp: _hb_booklistItem_template
+	            },
+	            api:{
+	                boklistor:{
+	                    getuserboklist: _fn_userboklist,
+	                    deluserbokitem: _fn_deluserbokItem
+	                },
+	                devkeyend : _apidevkeyend
+	            },
+	            userinfo: {
+	                userid: "",
+	                rollid: "",
+	                skin: ""
+	            },
+	            debug: "false"
+	        }
+	    })()
+	}
+
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
 	var bb_pagebehaviors = __webpack_require__(6);
@@ -27906,7 +28090,7 @@
 	};
 
 /***/ }),
-/* 10 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_) {_ = __webpack_require__(3);
@@ -27926,7 +28110,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -27944,7 +28128,7 @@
 	};
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -27962,7 +28146,7 @@
 	};
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -27979,7 +28163,7 @@
 	};
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -27996,7 +28180,7 @@
 	};
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -28012,31 +28196,6 @@
 
 	    }
 	};
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-	
-
-
-	module.exports = {
-	    config: {
-	        globalconfig: {
-	            apiserver: "",
-	            dnnURL: "http://localdev.kivdev.se",
-	            localOrServerURL: "",
-	            htmltemplateURL: "http://localdev.kivdev.se/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates"
-	        },
-	        userinfo: {
-	            userid: "",
-	            rollid: "",
-	            skin: ""
-	        },
-	        currentpage: "",
-	        debug: "false" // true / false
-	    }
-	}
 
 /***/ })
 /******/ ]);

@@ -12,6 +12,9 @@
              margin:0px;
              padding:0px;
              list-style:none;
+             img{
+                 min-width:48px;
+             }
              li{
                  margin-top:.3rem; 
                  &:hover{
@@ -31,10 +34,14 @@
  /* item baseblock för alla listitems*/
 .bookitem-card{
     position:relative;
-     margin-right:1rem;
-     margin-left:1rem;
-    .bookitem-image{
-
+     margin-right:.5rem;
+     margin-left:.5rem;
+     min-width:160px;
+     max-width:180px;
+     max-height:300px;
+    
+    &:hover{
+        transform: scale(1.01);
     }
     .bookitem-info{
         text-align:center;
@@ -44,9 +51,16 @@
     .bookitem-button{
         text-align:right;
         position:absolute;
-        right:0;       
+        right:0; 
+        a{float:left;}      
     }
-
+    .buttonitem_booktip{
+        img{
+            &:hover{
+                @extend %spinnerhover;
+            }
+        }
+    }
 }
 
 .bb_aj_valdmeny{

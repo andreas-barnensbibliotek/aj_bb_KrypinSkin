@@ -154,7 +154,7 @@
 <fortyfingers:STYLEHELPER ID="scriptmobile" AddJsFile="layout/scripts/jquery.slicknav.min.js" runat="server" />
 <fortyfingers:STYLEHELPER ID="addcustomjs" AddJsFile="layout/scripts/custom.js" runat="server" />
 <fortyfingers:STYLEHELPER ID="blommor" AddJsFile="public/js/growbox.js" runat="server" />
-<fortyfingers:STYLEHELPER ID="krypinbundlejs" AddJsFile="public/js/aj_bb_Krypinbundle.js" runat="server" />
+<fortyfingers:STYLEHELPER ID="krypinbundlejs" AddJsFile="public/js/aj_bb_Krypinbundle.1.0.0.js" runat="server" />
 <%--<fortyfingers:STYLEHELPER ID="proximanova" AddCssFile="http://fast.fonts.net/cssapi/085f8d62-8591-4fba-80a2-a4c05e7b90a4.css" runat="server" />--%>
 
 

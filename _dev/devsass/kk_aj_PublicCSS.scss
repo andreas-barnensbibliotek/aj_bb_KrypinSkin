@@ -1,3 +1,4 @@
+@import 'komponenter/_extendedDesignSettings';
 @import 'komponenter/_colortemplate';
 @import 'komponenter/_base';
 @import 'komponenter/_grid.scss';
@@ -8,7 +9,7 @@
 @import 'komponenter/_inventory';
 @import 'komponenter/_shop';
 @import 'komponenter/_installningar';
-
+@import 'komponenter/_jplist';
 /* Global krypinskin*/
 .aj_bb_KrypinSkin{
     padding-top: 2rem !important;
@@ -24,3 +25,20 @@
 }
 
 .Grid-cell .dnnModuleManager{padding:0px!important;}
+
+.item{
+  height:auto!important;
+}
+
+.loading{
+    
+        animation: loading 1s linear infinite;
+ @keyframes loading {
+  0% { 
+    transform: rotate(0); 
+  }
+  100% { 
+    transform: rotate(360deg);
+  }
+ }
+}

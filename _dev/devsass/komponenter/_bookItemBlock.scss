@@ -3,7 +3,11 @@
     @extend .bookitem-card;
     background-color:$black;
     border-radius:10px;
-    
+    &:hover{
+        transition: transform .5s;
+        transform: rotate(360deg);
+        transition-delay: .3s;
+    }
     .bookitem-info{
         border:3px solid $black;  
         border-bottom-left-radius: 10px;
@@ -14,5 +18,52 @@
     @extend .bookitem-card;
     margin-right:0rem;
     margin-left:0rem;
+    min-width:115px;
+     max-width:180px;
 }
+
+.hoverinfocontainer {
+    position: relative;
+    &:hover .image {
+        opacity: 0.3;
+    }
+
+    &:hover .iteminfoblock {
+        opacity: 1;
+    }
+    .image {
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+    .iteminfoblock {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: left;
+      width:90%;
+      height:90%;
+    }
+    .iteminfocontent {
+      background-color:black;
+      color: orange;
+      font-size: 0.7rem;
+      width:100%;
+      height:100%;
+      padding-left: .3rem;
+      overflow-y:auto;
+      h1{
+           color: inherit;
+      }
+    }
+}
+
+
 

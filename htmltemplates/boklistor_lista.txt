@@ -1,0 +1,83 @@
+﻿<!-- item loop START -->
+{{#each Booklists}}
+<div
+    style="display: none"
+    data-jplist-control="hidden-sort"
+    data-group="bb_aj_group_{{count @index}}"
+    data-path=".titel"
+    data-order="asc"
+    data-type="text">
+</div>            
+         <div >
+	<!-- boklista START-->
+	<div class="bb_aj_gridItem content-1of1" data-jplist-group="bb_aj_group_{{count @index}}">   
+	
+		<!-- boklistaHeader start-->                 
+		<div class="aj_bb_KrypinMainGrid Grid--gutters Grid--cols-2" data-bookistid="{{BlID}}">
+			<div class="Grid-cell">
+				<div class="bb_aj_gridItem content-1of2"><h2 class="bb_aj_booklistname">{{Booklistname}}</h2></div>
+			</div>
+			<div class="Grid-cell">
+				<div class="bb_aj_gridItem booklistSettings">
+					<input
+					class="listfilter"
+                    data-jplist-control="textbox-filter"
+                    data-group="bb_aj_group_{{count @index}}"
+                    data-name="my-filter-{{BIID}}"
+                    data-path=".titel"
+                    type="text"
+                    value=""
+                    data-clear-btn-id="name-clear-btn"
+                    placeholder="filtrera på titel" />
+					<button type="button" id="title-clear-btn">Rensa</button>     
+					<a href="#" title="Skriv ut" class="booklistPrint"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/print_32.png" /></a>
+					<a href="#" title="Maila listan" class="booklistMail"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/mail_32.png" /></a>
+					
+					<a href="#" title="Ändra namn" class="booklisteditname"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/booklistSetup.png"></a>
+					<a href="#" title="Ta bort boklistan" class="booklistDelete"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png"></a>
+					
+				</div>
+			</div>
+		</div>
+		<!-- boklistaHeader slut-->
+	
+		<hr />
+		<!-- boklistaContent top start -->
+		
+		<div class="aj_bb_KrypinMainGrid container u-textCenter bookitems">
+			<!-- boklistaContent top slut -->
+		{{#each BooklistItems}}				
+			
+			<!-- bookitem start -->	
+			<div id="products" class="row list-group">              
+				<div class="item col-xs-4 col-lg-4" data-jplist-item>
+					<div class="bookitem-card" data-itemid="{{Bookid}}" >
+						<div class="bookitem-button">
+							<a href="#1" title="Skriv boktips om boken" class="buttonitem_booktip" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_booktipbtn.png" /></a>
+							<a href="#2" title="Ta bort från listan" class="buttonitem_tabort"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png" /></a>
+						</div>
+						<a href="#3" class="buttonitem_bokpost">
+							<div class="bookitem-image">
+							  <img src="{{imageurl}}">
+							</div>
+							<div class="bookitem-info">
+							  <h5 class="titel">{{title}}</h5>
+							  <h6>{{Forfattare}}</h6>
+							</div>
+						</a>
+					</div>	            
+				</div>
+			</div>
+			<!-- bookitem slut-->
+			
+		{{/each}}
+			<!-- boklistaContent bottom start --><div data-jplist-control="no-results" data-group="bb_aj_group_{{count @index}}" data-name="no-results">Det finns inget att visa</div>			
+		</div>	
+		<!-- boklistaContent bottom slut -->
+	 </div>
+	 <!-- boklista SLUT -->
+	 <!-- no results control -->
+           
+ {{/each}}
+ 
+<!-- item loop STOP -->

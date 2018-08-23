@@ -7,4 +7,20 @@
         display:none;
 
     }
+    .addboklistform{
+        @extend %formmainstyle;
+    }
+
+    .booklistSettings{
+         img {
+            height: 100%;
+            max-width: 32px;
+            padding-left:.2rem;
+            &:hover{
+                @extend %spinnerhover;
+            }
+        }
+        button {margin-right:2rem;}
+    }
+
 }

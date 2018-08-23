@@ -30,6 +30,7 @@ var gulp = require('gulp'),
 	var srcPath={		
 		'scss': './_dev/devsass',	
 		'publik': './public',
+		'jsbundle': './_dev/jsbundle',
         'devjs':'./_dev/devjs'
 	}
 	
@@ -65,15 +66,66 @@ gulp.task('webpackjs', function() {
     .pipe(gulp.dest(srcPath.publik +'/'));	
 });
 
+gulp.task('jsconcatfiles', ['webpackjs'], function () {
+    return gulp.src(
+            [                
+                srcPath.jsbundle + '/jplist/jplist.min.js',
+                srcPath.jsbundle + '/handelbars/handlebars.js',
+                srcPath.jsbundle + '/bb_aj_js/aj_bb_KrypinbundleWebpack.1.0.js',
+            ]
+        )
+       .pipe(sourcemaps.init())
+       .pipe(concat('aj_bb_krypinbundle.1.0.0.js'))
+       .pipe(sourcemaps.write())
+       .pipe(gulp.dest(srcPath.publik + '/js/'));
+});
 	 
+gulp.task('pub_jsconcatfiles', function () {
+    return gulp.src(
+            [
+                srcPath.jsbundle + '/jplist/jplist.min.js',
+                srcPath.jsbundle + '/handelbars/handlebars.js',
+                srcPath.jsbundle + '/bb_aj_js/aj_bb_KrypinbundleWebpack.1.0.babel.js',
+            ]
+        )
+       .pipe(sourcemaps.init())
+       .pipe(concat('aj_bb_krypinbundle.1.0.0.js'))
+       .pipe(sourcemaps.write())
+       .pipe(gulp.dest(srcPath.publik + '/js/'));
+});
+
+gulp.task('jsbabel', ['webpackjs'], function () {
+    return gulp.src(
+             srcPath.jsbundle + '/bb_aj_js/aj_bb_KrypinbundleWebpack.1.0.js'
+        )
+        .pipe(babel({
+            presets: ['env']
+        }))
+        .pipe(rename('aj_bb_KrypinbundleWebpack.1.0.babel.js'))
+       .pipe(gulp.dest(srcPath.jsbundle + '/bb_aj_js/'));
+});
+
 
 //Watch task
 gulp.task('default',function() {
     gulp.watch('_dev/devsass/**/*.scss', ['SassToCssSrc']); 
-	gulp.watch('_dev/devjs/**/*.js', ['webpackjs']);       
+    gulp.watch('_dev/devjs/**/*.js', ['jsconcatfiles']);
    
 });
 
-gulp.task('publicera',function() {
-    gulp.watch(srcPath.scss +'/**/*.scss', ['SassToCssSrcPub']);   
+gulp.task('csspub',function() {
+    gulp.watch(srcPath.scss + '/**/*.scss', ['SassToCssSrcPub']);
+});
+
+gulp.task('jspub', ['jsbabel', 'pub_jsconcatfiles'], function () {
+    return gulp.src(
+            srcPath.publik + '/js/aj_bb_krypinbundle.1.0.0.js'
+        )
+        .pipe(minify({
+            mangle: {
+                keepClassName: true
+            }
+        }))
+        .pipe(rename('aj_bb_krypinbundle.1.0.0.min.js'))
+       .pipe(gulp.dest(srcPath.publik + '/js/'));
 });

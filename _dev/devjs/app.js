@@ -5,7 +5,7 @@ var $ = require("jquery");
 $(function () {
 
     var appsettings = appsettingsobject.config;
-    appsettings.userinfo.userid = $('.kk_aj_userid').html();
+    appsettings.userinfo.userid =7017 // $('.kk_aj_userid').html();
 
     var currentpage = $('.kk_aj_CurrentPageType').html();
     
@@ -15,8 +15,8 @@ $(function () {
         
         
     var init = function () {
-        pageloader.pagerequest(currentpage);
-
+        pageloader.pagerequest(currentpage, appsettings.userinfo.userid);
+      
     }
 
     init();
