@@ -3,7 +3,7 @@
 $snow        : #F9F9F9;
 $vapor       : #F6F6F6;
 $white-smoke : #F5F5F5;
-// $silver      : #EFEFEF;
+ $silver      : #EFEFEF;
  $smoke       : #EEEEEE;
 $gainsboro   : #DDDDDD;
  $iron        : #CCCCCC;
@@ -38,17 +38,21 @@ $menybrown: #62533B;
     .bb_aj_gridItem {
         background-color:#fdf28b;
     }
-
-    #aj_bb_krypinNav{
-         li{ 
-            &:hover{
+       
+    .item {
+         &:hover{
                  background-color:$menygreen;
              }
-            
-        }
     }
     .bb_aj_valdBG{
         background-color:$menygreen;
+    }
+    .bookitem-card{
+        &:hover{
+            //opacity:.9;
+            background-color:$menygreen;
+            //border:1px solid $black;
+        }
     }
 }
 
@@ -69,6 +73,13 @@ $menybrown: #62533B;
              }
         }
     }
+    .bookitem-card{
+        &:hover{
+            //opacity:.9;
+            background-color:$menybrown;
+            //border:1px solid $black;
+        }
+    }
 }
 
 /*Tema med Blå*/
@@ -85,6 +96,13 @@ $menybrown: #62533B;
             &:hover{
                  background-color:#C3ECF3;
              }
+        }
+    }
+    .bookitem-card{
+        &:hover{
+            //opacity:.9;
+            background-color:#C3ECF3;
+            //border:1px solid $black;
         }
     }
 }
@@ -105,8 +123,15 @@ $menybrown: #62533B;
     #aj_bb_krypinNav{
          li{ 
             &:hover{
-                 background-color:#ccc;
+                 background-color:$iron;
              }
+        }
+    }
+    .bookitem-card{        
+        &:hover{
+            //opacity:.9;
+            background-color:$iron;
+            //border:1px solid $black;
         }
     }
 }
@@ -125,6 +150,13 @@ $menybrown: #62533B;
             &:hover{
                  background-color:#E8B16D;
              }
+        }
+    }
+    .bookitem-card{
+        &:hover{
+            //opacity:.9;
+            background-color:#E8B16D;
+            //border:1px solid $black;
         }
     }
 }

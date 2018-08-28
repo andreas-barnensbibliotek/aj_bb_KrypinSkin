@@ -10,12 +10,15 @@
 </div>            
          <div >
 	<!-- boklista START-->
-	<div class="bb_aj_gridItem content-1of1" data-jplist-group="bb_aj_group_{{count @index}}">   
+	<div class="bb_aj_gridItem content-1of1 dragdrop-target" data-jplist-group="bb_aj_group_{{count @index}}" data-bookistid="{{BlID}}">   
 	
 		<!-- boklistaHeader start-->                 
 		<div class="aj_bb_KrypinMainGrid Grid--gutters Grid--cols-2" data-bookistid="{{BlID}}">
 			<div class="Grid-cell">
-				<div class="bb_aj_gridItem content-1of2"><h2 class="bb_aj_booklistname">{{Booklistname}}</h2></div>
+				<div class="bb_aj_gridItem content-1of2"><h2 class="bb_aj_booklistname bb_aj_booklistname{{BlID}}">{{Booklistname}}</h2><div class="bb_aj_editbooklistnamnBlock bb_aj_editbooklistnamnBlock{{BlID}}">
+				<input class="editBoklistanamn" name="editBoklistanamn" type="text" value="{{Booklistname}}" />
+                        <button class="cmdeditBoklista cmdeditBoklista{{BlID}}">Ändra</button><button class="cmdAvbryt cmdAvbryt{{BlID}}">Avbryt</button>
+				</div></div>
 			</div>
 			<div class="Grid-cell">
 				<div class="bb_aj_gridItem booklistSettings">
@@ -29,12 +32,12 @@
                     value=""
                     data-clear-btn-id="name-clear-btn"
                     placeholder="filtrera på titel" />
-					<button type="button" id="title-clear-btn">Rensa</button>     
+					<button type="button" class="title-clear-btn">Rensa</button>     
 					<a href="#" title="Skriv ut" class="booklistPrint"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/print_32.png" /></a>
 					<a href="#" title="Maila listan" class="booklistMail"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/mail_32.png" /></a>
 					
-					<a href="#" title="Ändra namn" class="booklisteditname"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/booklistSetup.png"></a>
-					<a href="#" title="Ta bort boklistan" class="booklistDelete"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png"></a>
+					<a href="#" title="Ändra namn" class="bb_aj_booklistEditname" data-bookistid="{{BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/booklistSetup.png"></a>
+					<a href="#" title="Ta bort boklistan" class="bb_aj_booklistDelete" data-bookistid="{{BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png"></a>
 					
 				</div>
 			</div>
@@ -51,12 +54,12 @@
 			<!-- bookitem start -->	
 			<div id="products" class="row list-group">              
 				<div class="item col-xs-4 col-lg-4" data-jplist-item>
-					<div class="bookitem-card" data-itemid="{{Bookid}}" >
+					<div class="bookitem-card dragdrop" data-itemid="{{Bookid}}" data-id="{{Bookid}}">
 						<div class="bookitem-button">
 							<a href="#1" title="Skriv boktips om boken" class="buttonitem_booktip" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_booktipbtn.png" /></a>
 							<a href="#2" title="Ta bort från listan" class="buttonitem_tabort"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png" /></a>
 						</div>
-						<a href="#3" class="buttonitem_bokpost">
+						<a href="#3" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
 							<div class="bookitem-image">
 							  <img src="{{imageurl}}">
 							</div>

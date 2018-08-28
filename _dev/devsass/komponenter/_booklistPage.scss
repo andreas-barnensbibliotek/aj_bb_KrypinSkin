@@ -3,6 +3,7 @@
         display:none;
 
     }
+    
     .bb_aj_BooklistSettings{
         display:none;
 
@@ -22,5 +23,15 @@
         }
         button {margin-right:2rem;}
     }
-
-}
+    .bb_aj_editbooklistnamnBlock{
+        display:none;
+        button{
+            height: 2rem !important;
+        }
+        .editBoklistanamn{
+            width:60%;
+            float:left;
+            height: 2rem;
+        }
+    }
+ }

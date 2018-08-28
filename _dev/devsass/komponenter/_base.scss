@@ -37,16 +37,20 @@
      margin-right:.5rem;
      margin-left:.5rem;
      min-width:160px;
-     max-width:180px;
+     //max-width:160px;
      max-height:300px;
-    
-    &:hover{
-        transform: scale(1.01);
+     text-align:center;
+     overflow:hidden;
+      
+    img{
+        &:hover{
+            border:1px solid $iron;
+        }
     }
     .bookitem-info{
         text-align:center;
-        background-color:#fff;
-        
+        /*background-color:$white;*/  
+       
     }
     .bookitem-button{
         text-align:right;
@@ -72,3 +76,5 @@
         margin-right:.5rem;
     }
 }
+
+

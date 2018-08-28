@@ -71,6 +71,7 @@ gulp.task('jsconcatfiles', ['webpackjs'], function () {
             [                
                 srcPath.jsbundle + '/jplist/jplist.min.js',
                 srcPath.jsbundle + '/handelbars/handlebars.js',
+                srcPath.jsbundle + '/draganddrop/dragdrop.js',
                 srcPath.jsbundle + '/bb_aj_js/aj_bb_KrypinbundleWebpack.1.0.js',
             ]
         )

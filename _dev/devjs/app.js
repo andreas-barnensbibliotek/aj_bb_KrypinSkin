@@ -16,6 +16,7 @@ $(function () {
         
     var init = function () {
         pageloader.pagerequest(currentpage, appsettings.userinfo.userid);
+       
       
     }
 

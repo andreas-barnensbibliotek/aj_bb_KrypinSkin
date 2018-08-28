@@ -1,12 +1,27 @@
 ﻿
 .bibblomon-card{
     @extend .bookitem-card;
+       
     background-color:$black;
     border-radius:10px;
+
+    h1, h2, h3, h4, h5, h6{
+        color:$white !important;
+    }
+    h3{
+        color:$orangeLight !important;
+    }
     &:hover{
         transition: transform .5s;
         transform: rotate(360deg);
         transition-delay: .3s;
+        background-color:$black!important;
+        
+    }
+    img{
+        &:hover{
+            border:0px;
+        }
     }
     .bookitem-info{
         border:3px solid $black;  

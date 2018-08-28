@@ -245,8 +245,8 @@ h6{
     margin: 0px 12px 2px 12px;
 }
 .item h5{
-    font-size: 1.1em;
-    margin: 0px 12px 2px 12px;
+     font-size: 1.2em;
+    margin: 10px 12px 2px 12px;
 }
 .item h6{
     font-size: 1.0em;
@@ -263,7 +263,7 @@ h6{
     color: #000;
 }
 
-.item a{text-decoration: underline; dhite-space: nowrap;}
+.item a{text-decoration: none; _hite-space: nowrap;}
 .item table{color:#000;}
 .boktipsbox a, .item ul a, .item ol a { text-decoration: none;}
 

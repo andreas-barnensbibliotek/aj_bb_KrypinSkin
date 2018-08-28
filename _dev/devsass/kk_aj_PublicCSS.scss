@@ -11,6 +11,10 @@
 @import 'komponenter/_installningar';
 @import 'komponenter/_jplist';
 /* Global krypinskin*/
+
+.kk_aj_conf{
+    display:none;
+}
 .aj_bb_KrypinSkin{
     padding-top: 2rem !important;
     padding-left: .5rem!important;
@@ -28,6 +32,16 @@
 
 .item{
   height:auto!important;
+  border-radius:10px;
+   a{
+       text-decoration: none !important;
+   }
+   h5{
+       font-size:1.1rem!important;
+   }
+   img {
+        max-height: 200px!important;
+   }
 }
 
 .loading{

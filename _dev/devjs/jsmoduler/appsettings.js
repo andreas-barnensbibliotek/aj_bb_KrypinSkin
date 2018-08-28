@@ -12,10 +12,23 @@ module.exports = {
         let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
         let _fn_userboklist = function (userid) {
             return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
-        }
+        };
+        let _fn_adduserbokItem = function (booklistid, bookid, userid) {
+            return _apiserver + "/Api_v3.1/booklist/typ/addbook/blistid/" + booklistid + "/value/" + bookid + "/uid/" + userid + _apidevkeyend;
+        };
         let _fn_deluserbokItem = function (booklistid, bookid, userid) {
-            return _apiserver + "/Api_v3.1/booklist/typ/delbook/blistid/" + booklistid +"/value/" +bookid+ "/uid/" + userid+ _apidevkeyend;
-        }        
+            return _apiserver + "/Api_v3.1/booklist/typ/delbook/blistid/" + booklistid + "/value/" + bookid + "/uid/" + userid + _apidevkeyend;
+        };
+        let _fn_addBooklist = function (boklistaNamn, userid) {
+            return _apiserver + "/Api_v3.1/booklist/typ/addbooklist/blistid/0/value/" + boklistaNamn + "/uid/" + userid + _apidevkeyend;
+        };
+        let _fn_editBooklist = function (booklistid, boklistaNamn, userid) {
+            return _apiserver + "/Api_v3.1/booklist/typ/editbooklist/blistid/" + booklistid + "/value/" + boklistaNamn + "/uid/" + userid + _apidevkeyend;
+        };
+        let _fn_delBooklist = function (booklistid, userid) {
+            return _apiserver + "/Api_v3.1/booklist/typ/delbooklist/blistid/" + booklistid + "/value/0/uid/" + userid + _apidevkeyend;
+        };
+        
 
         return {
             apiserver: _apiserver,
@@ -30,7 +43,11 @@ module.exports = {
             api:{
                 boklistor:{
                     getuserboklist: _fn_userboklist,
-                    deluserbokitem: _fn_deluserbokItem
+                    adduserbokitem: _fn_adduserbokItem,
+                    deluserbokitem: _fn_deluserbokItem,
+                    addbooklist: _fn_addBooklist,
+                    editbooklist: _fn_editBooklist,
+                    delbooklist: _fn_delBooklist
                 },
                 devkeyend : _apidevkeyend
             },
