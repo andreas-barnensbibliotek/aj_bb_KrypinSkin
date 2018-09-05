@@ -77,13 +77,13 @@
 
 	var startpage = __webpack_require__(2);
 	var booklistpage = __webpack_require__(7);
-	var skrivbokenpage = __webpack_require__(13);
-	var boktipspage = __webpack_require__(14);
-	var scoreboardpage = __webpack_require__(15);
-	var bibblomonpage = __webpack_require__(16);
-	var inventorypage = __webpack_require__(17);
-	var shoppage = __webpack_require__(18);
-	var installningarpage = __webpack_require__(19);
+	var skrivbokenpage = __webpack_require__(14);
+	var boktipspage = __webpack_require__(15);
+	var scoreboardpage = __webpack_require__(16);
+	var bibblomonpage = __webpack_require__(17);
+	var inventorypage = __webpack_require__(18);
+	var shoppage = __webpack_require__(19);
+	var installningarpage = __webpack_require__(20);
 	var appsettings = __webpack_require__(12);
 	var $ = __webpack_require__(5);
 
@@ -95,7 +95,7 @@
 	            let requestpage = {
 	                'bb_aj_Start_Krypin': function () {
 	                    startpage.init();
-	                    console.log("logga detta " + appsettings.config.globalconfig.dnnURL);
+	                    console.log("logga detta " + appsettings.config.dnnURL);
 	                    return false;
 	                },
 	                'bb_aj_Boklistor_Krypin': function () {
@@ -103,7 +103,7 @@
 	                    return false;
 	                },
 	                'bb_aj_Skrivboken_Krypin': function () {
-	                    skrivbokenpage.init();
+	                    skrivbokenpage.init(tmpuserid);
 	                    return false;
 	                },
 	                'bb_aj_Boktips_Krypin': function () {
@@ -46744,11 +46744,11 @@
 
 	var $ = __webpack_require__(5);
 	var appsettingsobject = __webpack_require__(12);
-
+	var handelbarhelpers = __webpack_require__(13);
 
 	module.exports = {   
 	    injecthtmltemplate: function (targetClass, usetemplateName, currentdata, callback) {
-	       
+	        handelbarhelpers.init();
 	        $.get(usetemplateName, function (data) {
 	            var temptpl = Handlebars.compile(data);
 	            $(targetClass).html(temptpl(currentdata));
@@ -46761,15 +46761,7 @@
 	    //   this will 'replace' the character at index with char ^
 	}
 
-	Handlebars.registerHelper('datagroupname', function (name) {
-	    var ind = name.indexOf("i", 0);
-	    name.replaceAt(ind, "o");
-	    return name.replace(/\s/g, "");
-	});
-	var Counter = 1;
-	Handlebars.registerHelper('count', function (index) {
-	    return "grupp" + index;
-	});
+
 
 /***/ }),
 /* 12 */
@@ -46785,8 +46777,11 @@
 	        let _localOrServerURL = "";
 	        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";
 
+	        // Boklistor START
+	        //// template
 	        let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
 	        let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
+	        //// api
 	        let _fn_userboklist = function (userid) {
 	            return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
 	        };
@@ -46806,7 +46801,15 @@
 	            return _apiserver + "/Api_v3.1/booklist/typ/delbooklist/blistid/" + booklistid + "/value/0/uid/" + userid + _apidevkeyend;
 	        };
 	        
+	        // Skrivboken START
+	        //// Template
+	        let _hb_skrivbokenlist_template = _dnnURL + _htmltemplateURL + "skrivboken_lista.txt";
+	        //// API
+	        let _fn_userSkrivbokenlist = function (userid) {
+	            return _apiserver + "/Api_v3.1/skrivboken/cmdtyp/ByUserID/val/" + userid + "/typ/2/ap/0/pub/0/" + _apidevkeyend;
+	        };
 
+	        
 	        return {
 	            apiserver: _apiserver,
 	            dnnURL: _dnnURL,
@@ -46815,7 +46818,7 @@
 	            devkey: _devkey,
 	            handlebartemplate: {
 	                hb_booklist_tmp: _hb_booklist_template,
-	                bh_booklistitm_tmp: _hb_booklistItem_template
+	                hb_skrivbokenlist_tmp: _hb_skrivbokenlist_template
 	            },
 	            api:{
 	                boklistor:{
@@ -46826,6 +46829,9 @@
 	                    editbooklist: _fn_editBooklist,
 	                    delbooklist: _fn_delBooklist
 	                },
+	                skrivbokenlistor:{
+	                    getuserskribokenlist: _fn_userSkrivbokenlist,
+	                },
 	                devkeyend : _apidevkeyend
 	            },
 	            userinfo: {
@@ -46833,8 +46839,106 @@
 	                rollid: "",
 	                skin: ""
 	            },
+
 	            debug: "false"
 	        }
+	    })(),
+	    skrivbokimages: (function () {
+	        return {
+	            catimgbase: "/DesktopModules/bb_aj_Skrivboken_Krypin/images/",
+	            catimagesrc: [
+	                {
+	                    "catid": "1",
+	                    "catname": "ovrigt",
+	                    "imgsrc": "skrivbok_ovrigt256_36.png"
+	                },
+	                {
+	                    "catid": "2",
+	                    "catname": "ovrigt",
+	                    "imgsrc": "skrivbok_ovrigt256_36.png"
+	                },
+	                {
+	                    "catid": "3",
+	                    "catname": "Berattelse",
+	                    "imgsrc": "skrivbok_ovrigt256_36.png"
+	                },
+	                {
+	                    "catid": "4",
+	                    "catname": "Dikt",
+	                    "imgsrc": "skrivbok_deckare 256_36.png"
+	                },
+	                {
+	                    "catid": "5",
+	                    "catname": "Tankar",
+	                    "imgsrc": "skrivbok_tankar256_36.png"
+	                },
+	                {
+	                    "catid": "6",
+	                    "catname": "Ovrigt",
+	                    "imgsrc": "skrivbok_ovrigt256_36.png"
+	                },
+	                {
+	                    "catid": "8",
+	                    "catname": "Deckare",
+	                    "imgsrc": "skrivbok_deckare 256_36.png"
+	                },
+	                {
+	                    "catid": "9",
+	                    "catname": "Djur",
+	                    "imgsrc": "skrivbok_djur256_36.png"
+	                },
+	                {
+	                    "catid": "10",
+	                    "catname": "Fantasy",
+	                    "imgsrc": "skrivbok_fantasy256_36.png"
+	                },
+	                {
+	                    "catid": "11",
+	                    "catname": "Skrack",
+	                    "imgsrc": "skrivbok_skrack256_36.png"
+	                },
+	                {
+	                    "catid": "12",
+	                    "catname": "Karlek",
+	                    "imgsrc": "skrivbok_karlek 256_36.png"
+	                },
+	                {
+	                    "catid": "13",
+	                    "catname": "Ramsa",
+	                    "imgsrc": "skrivbok_ramsa256_36.png"
+	                },
+	                {
+	                    "catid": "15",
+	                    "catname": "Sorgligt",
+	                    "imgsrc": "skrivbok_sorgligt256_36.png"
+	                },
+	                {
+	                    "catid": "16",
+	                    "catname": "Humor",
+	                    "imgsrc": "skrivbok_skratta256_36.png"
+	                },
+	                {
+	                    "catid": "17",
+	                    "catname": "Spanning",
+	                    "imgsrc": "skrivbok_spanning256_36.png"
+	                },
+	                {
+	                    "catid": "18",
+	                    "catname": "Spoken",
+	                    "imgsrc": "skrivbok_spoken 256_36.png"
+	                },
+	                {
+	                    "catid": "19",
+	                    "catname": "Aventyr",
+	                    "imgsrc": "skrivbok_aventyr 256_36.png"
+	                },
+	                {
+	                    "catid": "21",
+	                    "catname": "Hastar",
+	                    "imgsrc": "skrivbok_hastar256_36.png"
+	                }
+	            ]                
+	        };          
 	    })()
 	}
 
@@ -46846,21 +46950,96 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	var bb_pagebehaviors = __webpack_require__(6);
-	var bb_containerbehaviors = __webpack_require__(9);
+	var appsettingsobject = __webpack_require__(12);
 
 	module.exports = {
-	    init: function (value) {        
-	        let moduleName = 'Skrivbok'
-	        bb_containerbehaviors.init(moduleName);
-	        bb_pagebehaviors.init(moduleName);
-	        /////////////////////////////////////////////////////
+	    init: function () {
 
+	        //Handlebars.registerHelper('datagroupname', function (name) {            
+	        //    return name.replace(/\s/g, "");
+	        //});
+
+	        Handlebars.registerHelper('datagroupname', function (name) {
+	            var ind = name.indexOf("i", 0);
+	            name.replaceAt(ind, "o");
+	            return name.replace(/\s/g, "");
+	        });
+
+	        let Counter = 1;
+	        Handlebars.registerHelper('count', function (index) {
+	            return "grupp" + index;
+	        });
+	        
+	        Handlebars.registerHelper('categoryimg', function (catid) {
+	            let settingsobj = appsettingsobject.skrivbokimages;
+	            let imglist = settingsobj.catimagesrc;
+
+	            let catimgobj = _.find(imglist, function (o) { return o.catid == catid; });
+	            let retimg = settingsobj.catimgbase + catimgobj.imgsrc;
+	            return retimg;
+	        });
 	    }
-	};
+	}
+
+
+
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var _ = __webpack_require__(3);
+	var $ = __webpack_require__(5);
+	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_containerbehaviors = __webpack_require__(9);
+	var bb_API = __webpack_require__(10);
+	var bb_HB_Handler = __webpack_require__(11);
+	var appsettingsobject = __webpack_require__(12);
+	var appsettings = appsettingsobject.config;
+
+	module.exports = {
+	    init: function (userid) {
+
+	        let moduleName = 'Skrivbok';
+	        bb_containerbehaviors.init(moduleName);
+	        bb_pagebehaviors.init(moduleName);
+	        this.cacheDom();
+	        this.BindEvent(userid);
+	        this.initbooklist(userid);
+
+	    },
+	    cacheDom: function () {
+	        
+	    },
+	    BindEvent: function (userid) {
+	        let that = this;               
+
+	    },    
+	    getskrivbooklist: function (apiurl, userid) {
+	        let handlebartemplate = appsettings.handlebartemplate.hb_skrivbokenlist_tmp;
+	        this.Render(apiurl, handlebartemplate, userid);
+	    },
+	    initbooklist: function (userid) {
+	        let apiurl = appsettings.api.skrivbokenlistor.getuserskribokenlist;
+	        this.getskrivbooklist(apiurl(userid), userid);
+	    },    
+
+	    Render: function (apiurl, handlebartemplate, userid) {
+	        let that = this; //spara this
+
+	        bb_API.getjsondata(apiurl, function (data) {
+	            bb_HB_Handler.injecthtmltemplate("#bb_aj_skrivbokentemplatecontainer", handlebartemplate, data, function () {
+	                jplist.init();
+
+	            });
+	        });
+	    }
+	};
+
+
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_) {_ = __webpack_require__(3);
@@ -46880,7 +47059,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -46898,7 +47077,7 @@
 	};
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -46916,7 +47095,7 @@
 	};
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -46933,7 +47112,7 @@
 	};
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -46950,7 +47129,7 @@
 	};
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);

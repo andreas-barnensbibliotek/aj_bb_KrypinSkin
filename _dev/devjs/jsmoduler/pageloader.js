@@ -18,7 +18,7 @@ module.exports = {
             let requestpage = {
                 'bb_aj_Start_Krypin': function () {
                     startpage.init();
-                    console.log("logga detta " + appsettings.config.globalconfig.dnnURL);
+                    console.log("logga detta " + appsettings.config.dnnURL);
                     return false;
                 },
                 'bb_aj_Boklistor_Krypin': function () {
@@ -26,7 +26,7 @@ module.exports = {
                     return false;
                 },
                 'bb_aj_Skrivboken_Krypin': function () {
-                    skrivbokenpage.init();
+                    skrivbokenpage.init(tmpuserid);
                     return false;
                 },
                 'bb_aj_Boktips_Krypin': function () {

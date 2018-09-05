@@ -54,12 +54,12 @@
 			<!-- bookitem start -->	
 			<div id="products" class="row list-group">              
 				<div class="item col-xs-4 col-lg-4" data-jplist-item>
-					<div class="bookitem-card dragdrop" data-itemid="{{Bookid}}" data-id="{{Bookid}}">
+					<div class="booklist-card dragdrop" data-itemid="{{Bookid}}" data-id="{{Bookid}}">
 						<div class="bookitem-button">
 							<a href="#1" title="Skriv boktips om boken" class="buttonitem_booktip" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_booktipbtn.png" /></a>
 							<a href="#2" title="Ta bort från listan" class="buttonitem_tabort"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png" /></a>
 						</div>
-						<a href="#3" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
+						<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{Bookid}}" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
 							<div class="bookitem-image">
 							  <img src="{{imageurl}}">
 							</div>

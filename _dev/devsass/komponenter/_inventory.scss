@@ -10,7 +10,10 @@
     .inventoryitem-card{
         @extend .bookitem-card;
         .bookitem-image{
-             background-color:#999999;
+             //background-color:#999999;
+             //background:linear-gradient(circle, #ddd, #eee);
+             background-image: radial-gradient(circle, #ddd, #eee, #a7a7a7);
+
         }    
         .bookitem-info{
             text-align:left;

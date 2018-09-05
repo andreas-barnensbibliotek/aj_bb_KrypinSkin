@@ -52,7 +52,7 @@
               <dnn:USER ID="USER1" CssClass="userbox" runat="server" Text="Bli medlem" LegacyMode="false" />
               <dnn:LOGIN ID="LOGIN2" CssClass="loginbox" runat="server" Text="Logga in" LegacyMode="false" />
               <span id="searchboxen">
-              <dnn:SEARCH runat="server" id="dnnSEARCH" CssClass="ServerSkinWidget" UseDropDownList="true" Submit="<img src=http://www.barnensbibliotek.se/Portals/0/Skins/nydesigntest/images/zoom.png border=&quot;0&quot; alt=&quot;Search&quot; /&gt;" />
+              <dnn:SEARCH runat="server" id="dnnSEARCH" CssClass="ServerSkinWidget" UseDropDownList="true" Submit="<img src=/Portals/0/Skins/nydesigntest/images/zoom.png border=&quot;0&quot; alt=&quot;Search&quot; /&gt;" />
               </span> 
               
             </div>
@@ -127,9 +127,9 @@
 
 <div id="licbox" class="wrapper row4">
   <div id="copyright" class="clear">
-    <p class="fl_left">&copy; <a href="http://www.barnensbibliotek.se/Hem/Regler/tabid/865/Default.aspx">L&aring;na av oss</a> - <a href="#">barnensbibliotek.se</a></p>
+    <p class="fl_left">&copy; <a href="/Hem/Regler/tabid/865/Default.aspx">L&aring;na av oss</a> - <a href="#">barnensbibliotek.se</a></p>
     <p class="fl_right">        
-        <span style="display:none;"> by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></span>
+        
     </p>
   
   </div>

@@ -7,8 +7,8 @@
     var _imgbasesrc = "http://localdev.kivdev.se/desktopmodules/ajbarnenskrypin/webbilds/";
     var serverUrl = "http://localdev.kivdev.se/desktopmodules";
 
-    var _userid = $('.jsuserid').html();
-    var _visituserid = $('.jsvisituserid').html();
+    var _userid = $('#barnensbiblCurrentUserid').html();
+    var _visituserid = $('#barnensbiblCurrentUserid').html();
     var _aktuellUserid;
     var _visitKrypin = false;
     var _usrboxid = $('.usrboxid').html();
@@ -18,6 +18,10 @@
     var _itemArrNamn = new Array();
     var _itemArrLev = new Array();
     var _itemArrSrc = new Array();
+
+    var $mainbox = $(".aj_bb_KrypinSkin");
+
+
 
     if (_userid != _visituserid) {
         _aktuellUserid = _visituserid;
@@ -41,7 +45,7 @@
 
     // CLICK EVENTS ------------------------------------------------------------------------------------------------------------------
     /////////////// ------------------------------------------------------------------------------------------------------------------
-    $('.itmbox').on("click", function () {
+    $mainbox.on("click",".itmbox", function () {
         if (_visitKrypin) {
 
         } else {
@@ -63,7 +67,7 @@
         return false;
     });
 
-    $('.itmadm').on("click", function () {
+    $mainbox.on("click",".itmadm", function () {
         if (_visitKrypin) {
 
         } else {
@@ -78,7 +82,7 @@
         return false;
     });
 
-    $('.itmCancel').on("click", function () {
+    $mainbox.on("click",".itmCancel", function () {
         if (_visitKrypin) {
 
         } else {
@@ -88,7 +92,7 @@
         return false;
     });
 
-    $('.itmNext').on("click", function () {
+    $mainbox.on("click",".itmNext", function () {
         if (_visitKrypin) {
 
         } else {
@@ -110,7 +114,8 @@
         return false;
     });
 
-    $('.imgitm').on("click", function () {
+   
+   $mainbox.on("click",".imgitm", function () {
         if (_visitKrypin) {
 
         } else {
@@ -126,7 +131,8 @@
         return false;
     });
 
-    $('.itmimgadel').on('click', function () {
+  
+       $mainbox.on("click",".itmimgadel", function () {
         if (_visitKrypin) {
 
         } else {
@@ -141,7 +147,8 @@
         }
         return false;
     });
-    $('#AJKrypingrowdelbox').on('click', function () {
+    
+        $mainbox.on("click","#AJKrypingrowdelbox", function () {
         if (_visitKrypin) {
 
         } else {
@@ -150,7 +157,7 @@
         return false;
     });
 
-    $('#growhelpbox').on('click', function () {
+    $mainbox.on("click","#growhelpbox", function () {
         $('#AJKrypingrowInfo').toggle();
         return false;
     });
@@ -393,7 +400,7 @@
             }
         });
     }
-    $('.krypinfavoapprove').on('click', function () {
+   $mainbox.on("click",".krypinfavoapprove", function () {
         var tousr = $(this).attr('rev'); //to userid
         var fromusr = $(this).attr('rel'); //fromusr
         if (updatekrypinfavorit(fromusr, tousr)) {

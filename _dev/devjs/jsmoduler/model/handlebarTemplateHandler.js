@@ -1,10 +1,10 @@
 ﻿var $ = require("jquery");
 var appsettingsobject = require("./../appsettings.js");
-
+var handelbarhelpers = require("./handlebarHelpers.js");
 
 module.exports = {   
     injecthtmltemplate: function (targetClass, usetemplateName, currentdata, callback) {
-       
+        handelbarhelpers.init();
         $.get(usetemplateName, function (data) {
             var temptpl = Handlebars.compile(data);
             $(targetClass).html(temptpl(currentdata));
@@ -17,12 +17,3 @@ String.prototype.replaceAt = function (index, char) {
     //   this will 'replace' the character at index with char ^
 }
 
-Handlebars.registerHelper('datagroupname', function (name) {
-    var ind = name.indexOf("i", 0);
-    name.replaceAt(ind, "o");
-    return name.replace(/\s/g, "");
-});
-var Counter = 1;
-Handlebars.registerHelper('count', function (index) {
-    return "grupp" + index;
-});
