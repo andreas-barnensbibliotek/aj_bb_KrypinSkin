@@ -104,13 +104,19 @@
 }
 .skrivbokenitem-card{
    @extend .bookitem-card;
-   
+    .buttonitem_edit{
+            &:hover{
+                    @extend %spinnerhover;
+                }
+        }
     .bookitem-image{
         img{
             max-width:200px!important;
             max-height:200px;
         }
+        
     } 
+    
 }
 
 // infoblocket som ligger över kortet tex biblomon-card

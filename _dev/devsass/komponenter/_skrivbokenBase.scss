@@ -1,7 +1,87 @@
-﻿.aj_bb_KrypinSkin {
+﻿#bb_aj_skrivboken_Mod {
     .skrivbokenExempleimg{
         .bookitem-button{
             display:none;  
         }
     } 
+    textarea {
+        resize: vertical;        
+    }
+
+    
+.skrivbokreadhead {
+    /*margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;*/
+    width: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    .close {
+        //position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        &:hover {
+            color: #06D85F;
+        }
+    }
+    .content {
+      max-height: 30%;
+      overflow: auto;
+    }
+}
+
+
+    .skrivbokreadtextenBlock{
+        margin-left:1.0rem;
+        margin-right: 1.0rem;
+    }
+    .skrivbokreadfoot {
+        .Grid-cell{
+            min-height:50px!important;
+            &:hover{ background-color:transparent;}
+            .catblock{
+                display:flex;
+                align-items: center;
+                justify-content:flex-end;
+                border-top:1px solid $black; 
+                margin-top:2rem;
+               
+                img{   
+                  height:30px!important;
+                   width:30px!important;
+                }
+            }     
+        }
+                  
+    }
+}
+
+
+.bb_aj_modalContainer{
+    position: fixed;  
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.bb_aj_modalcontent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color:#fff;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
 }

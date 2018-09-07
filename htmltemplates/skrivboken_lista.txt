@@ -8,14 +8,14 @@
 	<!-- bookitem start -->	
 	<div id="products" class="row list-group">              
 		<div class="item col-xs-4 col-lg-4" data-jplist-item>
-			<div class="skrivbokenitem-card dragdrop" data-itemid="{{SkrivID}}" data-id="{{SkrivID}}">
+			<div class="skrivbokenitem-card dragdrop" >
 				<div class="bookitem-button">
-					<a href="#1" title="Skriv boktips om boken" class="buttonitem_booktip" ><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_booktipbtn.png" /></a>
-					<a href="#2" title="Ta bort från listan" class="buttonitem_tabort" ><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png" /></a>
+					<a href="#1" title="Ändra i texten" class="buttonitem_edit" data-id="{{SkrivID}}" ><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_edit-24.png" /></a>
+					<a href="#2" title="Ta bort från listan" class="buttonitem_tabort" data-id="{{SkrivID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png" /></a>
 				</div>
-				<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{SkrivID}}" class="buttonitem_bokpost">
+				<a href="#" class="buttonitem_bokpost bb_aj_openInModal" data-id="{{SkrivID}}">
 					<div class="bookitem-image">
-						<img src="{{#categoryimg Category}}{{/categoryimg}}" /> 
+					{{#categoryimg Category}}{{/categoryimg}} 
 					</div>
 					<div class="bookitem-info">
 						<h5 class="titel">{{Title}}</h5>

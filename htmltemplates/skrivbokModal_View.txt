@@ -1,0 +1,12 @@
+﻿{{#each SkrivbokenList}}
+<div class="bb_aj_modalcontent" data-id="{{SkrivID}}">
+        <div class="bb_aj_modalheader">
+            <button type="button" class=" bb_aj_closeModal">×</button>
+            <h2>{{Title}}</h2>
+        </div>
+        <div class="bb_aj_modalbody">
+            {{{Story}}}
+        </div>
+        
+    </div>
+{{/each}}

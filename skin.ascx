@@ -151,6 +151,7 @@
     </div>
 </div>
 <span id="barnensbiblCurrentUserid"><%= UserController.Instance.GetCurrentUserInfo().UserID%></span>
+<fortyfingers:STYLEHELPER ID="tinymce" AddJsFile="public/js/tinymce/tinymce.min.js" runat="server" />
 <fortyfingers:STYLEHELPER ID="scriptmobile" AddJsFile="layout/scripts/jquery.slicknav.min.js" runat="server" />
 <fortyfingers:STYLEHELPER ID="addcustomjs" AddJsFile="layout/scripts/custom.js" runat="server" />
 <fortyfingers:STYLEHELPER ID="blommor" AddJsFile="public/js/growbox.js" runat="server" />
