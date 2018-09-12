@@ -28,6 +28,7 @@ module.exports = {
             //console.log("Searchservicen hämtar Arrangemangdata");
             $.ajax({
                 async: true,
+                
                 type: "post",
                 url: url,
                 data: postdata,
@@ -36,7 +37,7 @@ module.exports = {
                     callback(data);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    alert("Nått blev fel vid hämtning av json!");
+                    alert("Nått blev fel vid hämtning av POST json!");
                 }
             })
         };

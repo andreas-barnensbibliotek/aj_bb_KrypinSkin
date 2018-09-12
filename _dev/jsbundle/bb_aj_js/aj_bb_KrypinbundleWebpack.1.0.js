@@ -79,11 +79,11 @@
 	var booklistpage = __webpack_require__(7);
 	var skrivbokenpage = __webpack_require__(14);
 	var boktipspage = __webpack_require__(18);
-	var scoreboardpage = __webpack_require__(19);
-	var bibblomonpage = __webpack_require__(20);
-	var inventorypage = __webpack_require__(21);
-	var shoppage = __webpack_require__(22);
-	var installningarpage = __webpack_require__(23);
+	var scoreboardpage = __webpack_require__(20);
+	var bibblomonpage = __webpack_require__(21);
+	var inventorypage = __webpack_require__(22);
+	var shoppage = __webpack_require__(23);
+	var installningarpage = __webpack_require__(24);
 	var appsettings = __webpack_require__(12);
 	var $ = __webpack_require__(5);
 
@@ -91,7 +91,7 @@
 	    pagerequest: function (page, userid) {      
 	     
 	        var loadpage = function (tmppage, tmpuserid) {
-	            jplist.init();
+	            //jplist.init();
 	            let requestpage = {
 	                'bb_aj_Start_Krypin': function () {
 	                    startpage.init();
@@ -107,31 +107,31 @@
 	                    return false;
 	                },
 	                'bb_aj_Boktips_Krypin': function () {
-	                    boktipspage.init();
+	                    boktipspage.init(tmpuserid);
 	                    return false;
 	                },
 	                'bb_aj_Scoreboard_Krypin': function () {
-	                    scoreboardpage.init();
+	                    scoreboardpage.init(tmpuserid);
 	                    return false;
 	                },
 	                'bb_aj_Bibblomon_Krypin': function () {
-	                    bibblomonpage.init();
+	                    bibblomonpage.init(tmpuserid);
 	                    return false;
 	                },
 	                'bb_aj_Inventarie_Krypin': function () {
-	                    inventorypage.init();
+	                    inventorypage.init(tmpuserid);
 	                    return false;
 	                },
 	                'bb_aj_shop_Krypin': function () {
-	                    shoppage.init();
+	                    shoppage.init(tmpuserid);
 	                    return false;
 	                },
 	                'bb_aj_setup_krypin': function () {
-	                    installningarpage.init();
+	                    installningarpage.init(tmpuserid);
 	                    return false;
 	                },                
 	                'default': function () {
-	                    startpage.init();
+	                    startpage.init(tmpuserid);
 	                    return false;
 	                }
 	            };
@@ -46723,6 +46723,7 @@
 	            //console.log("Searchservicen hämtar Arrangemangdata");
 	            $.ajax({
 	                async: true,
+	                
 	                type: "post",
 	                url: url,
 	                data: postdata,
@@ -46731,7 +46732,7 @@
 	                    callback(data);
 	                },
 	                error: function (xhr, ajaxOptions, thrownError) {
-	                    alert("Nått blev fel vid hämtning av json!");
+	                    alert("Nått blev fel vid hämtning av POST json!");
 	                }
 	            })
 	        };
@@ -46749,8 +46750,9 @@
 	module.exports = {   
 	    injecthtmltemplate: function (targetClass, usetemplateName, currentdata, callback) {
 	        handelbarhelpers.init();
+	        
 	        $.get(usetemplateName, function (data) {
-	            var temptpl = Handlebars.compile(data);
+	            var temptpl = Handlebars.compile(data);           
 	            $(targetClass).html(temptpl(currentdata));
 	            callback();
 	        }, 'html');
@@ -46782,6 +46784,7 @@
 	        let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
 	        let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
 	        let _hb_skrivbokModal_View_template = _dnnURL + _htmltemplateURL + "skrivbokModal_View.txt";
+	        let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
 	        //// api
 	        let _fn_userboklist = function (userid) {
 	            return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
@@ -46812,16 +46815,36 @@
 	        let _fn_userSkrivbokenByID = function (bookid, userid) {
 	            return _apiserver + "/Api_v3.1/skrivboken/cmdtyp/BySkrivid/val/" + bookid + "/typ/" + userid + "/ap/0/pub/0" + _apidevkeyend;
 	        };
-	        let _fn_addskribokenItem = function () {
-	            return _apiserver + "/Api_v3.1/skrivboken/typ/addskrivboken" +  _apidevkeyend;
+	        let _fn_addskrivbokenItem = function () {
+	            return _apiserver + "/Api_v3.1/skrivboken/typ/addskrivboken/devkey/" + _devkey //+  _apidevkeyend;
 	        };
-	        let _fn_editskribokenItem = function () {
-	            return _apiserver + "/Api_v3.1/skrivboken/typ/editskrivboken" + _apidevkeyend;
+	        let _fn_editskrivbokenItem = function () {
+	            return _apiserver + "/Api_v3.1/skrivboken/typ/editskrivboken/devkey/" + _devkey //+ _apidevkeyend;
 	        };
-	        let _fn_delskribokenItem = function () {
-	            return _apiserver + "/Api_v3.1/skrivboken/typ/deleteskrivboken" + _apidevkeyend;
+	        let _fn_delskrivbokenItem = function () {
+	            return _apiserver + "/Api_v3.1/skrivboken/typ/deleteskrivbok/devkey/" + _devkey //+ _apidevkeyend;
 	        };
-
+	        
+	        // Boktips START
+	        //// Template
+	        let _hb_Boktipslist_template = _dnnURL + _htmltemplateURL + "boktips_lista.txt";
+	        //// API
+	        let _fn_userBoktipslist = function (userid) {
+	            return _apiserver + "/Api_v3.1/boktips/typ/ByUserId/val/" + userid + "/txtval/0" + _apidevkeyend;        
+	        };
+	        let _fn_userBoktipsByTipID = function (tipid, userid) {
+	            return _apiserver + "/Api_v3.1/boktips/typ/ByTipId/val/" + tipid + "/txtval/0" + _apidevkeyend;
+	        };
+	        //API POST
+	        let _fn_addBoktipsItem = function () {
+	            return _apiserver + "/Api_v3.1/boktips/typ/addboktips/devkey/" + _devkey //+  _apidevkeyend;           
+	        };
+	        let _fn_editBoktipsItem = function () {
+	            return _apiserver + "/Api_v3.1/boktips/typ/editboktips/devkey/" + _devkey //+ _apidevkeyend;
+	        };
+	        let _fn_delBoktipsItem = function () {
+	            return _apiserver + "/Api_v3.1/boktips/typ/deleteboktips/devkey/" + _devkey //+ _apidevkeyend;
+	        };
 	        
 	        return {
 	            apiserver: _apiserver,
@@ -46832,7 +46855,9 @@
 	            handlebartemplate: {
 	                hb_booklist_tmp: _hb_booklist_template,
 	                hb_skrivbokenlist_tmp: _hb_skrivbokenlist_template,
-	                hb_skrivbokModalView_tmp: _hb_skrivbokModal_View_template
+	                hb_skrivbokModalView_tmp: _hb_skrivbokModal_View_template,
+	                hb_boktipslist_tmp: _hb_Boktipslist_template,
+	                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template
 	            },
 	            api:{
 	                boklistor:{
@@ -46846,10 +46871,16 @@
 	                skrivbokenlistor:{
 	                    getuserskribokenlist: _fn_userSkrivbokenlist,
 	                    getuserskribokenByID: _fn_userSkrivbokenByID,
-	                    addskribokenItem: _fn_addskribokenItem,
-	                    editskribokenItem: _fn_editskribokenItem,
-	                    delskribokenItem: _fn_delskribokenItem
-
+	                    addskribokenItem: _fn_addskrivbokenItem,
+	                    editskribokenItem: _fn_editskrivbokenItem,
+	                    delskribokenItem: _fn_delskrivbokenItem
+	                },
+	                boktipslistor: {
+	                    getuserboktipslist: _fn_userBoktipslist,
+	                    getuserboktipsByTipID: _fn_userBoktipsByTipID,
+	                    addboktipsItem: _fn_addBoktipsItem,
+	                    editboktipsItem: _fn_editBoktipsItem,
+	                    delboktipsItem: _fn_delBoktipsItem
 	                },
 	                devkeyend : _apidevkeyend
 	            },
@@ -46866,6 +46897,11 @@
 	        return {
 	            catimgbase: "/DesktopModules/bb_aj_Skrivboken_Krypin/images/",
 	            catimagesrc: [
+	                 {
+	                     "catid": "0",
+	                     "catname": "&Ouml;vrigt",
+	                     "imgsrc": "skrivbok_default256_36.png"
+	                },
 	                {
 	                    "catid": "1",
 	                    "catname": "&Ouml;vrigt",
@@ -46879,12 +46915,12 @@
 	                {
 	                    "catid": "3",
 	                    "catname": "Ber&auml;ttelse",
-	                    "imgsrc": "skrivbok_ovrigt256_36.png"
+	                    "imgsrc": "skrivbok_berattelse-256_36.png"
 	                },
 	                {
 	                    "catid": "4",
 	                    "catname": "Dikt",
-	                    "imgsrc": "skrivbok_deckare 256_36.png"
+	                    "imgsrc": "skrivbok_dikt-256_36.png"
 	                },
 	                {
 	                    "catid": "5",
@@ -46899,7 +46935,7 @@
 	                {
 	                    "catid": "8",
 	                    "catname": "Deckare",
-	                    "imgsrc": "skrivbok_deckare 256_36.png"
+	                    "imgsrc": "skrivbok_deckare256_36.png"
 	                },
 	                {
 	                    "catid": "9",
@@ -46919,7 +46955,7 @@
 	                {
 	                    "catid": "12",
 	                    "catname": "K&auml;rlek",
-	                    "imgsrc": "skrivbok_karlek 256_36.png"
+	                    "imgsrc": "skrivbok_karlek256_36.png"
 	                },
 	                {
 	                    "catid": "13",
@@ -46944,12 +46980,12 @@
 	                {
 	                    "catid": "18",
 	                    "catname": "Sp&ouml;ken",
-	                    "imgsrc": "skrivbok_spoken 256_36.png"
+	                    "imgsrc": "skrivbok_spoken256_36.png"
 	                },
 	                {
 	                    "catid": "19",
 	                    "catname": "&Auml;ventyr",
-	                    "imgsrc": "skrivbok_aventyr 256_36.png"
+	                    "imgsrc": "skrivbok_aventyr256_36.png"
 	                },
 	                {
 	                    "catid": "21",
@@ -46994,6 +47030,9 @@
 	            let imglist = settingsobj.catimagesrc;
 
 	            let catimgobj = _.find(imglist, function (o) { return o.catid == catid; });
+	            if (!catimgobj) {
+	                catimgobj=  _.find(imglist, function (o) { return o.catid == 0; });
+	            };
 	            let tmpimg = settingsobj.catimgbase + catimgobj.imgsrc;
 	            let retimg = "<img title=" + catimgobj.catname + " src=" + tmpimg + " />";
 	            return retimg;
@@ -47025,9 +47064,11 @@
 	    init: function (userid) {
 	        let moduleName = 'Skrivbok';
 	        modalobj.init();
+	        
 	        formeditObj.init(userid);
 	        bb_containerbehaviors.init(moduleName);
 	        bb_pagebehaviors.init(moduleName);
+	        
 	        this.cacheDom();
 	        this.BindEvent(userid);
 	        this.initbooklist(userid);
@@ -47036,9 +47077,17 @@
 	    cacheDom: function () {
 	        this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
 	        this.$bb_aj_ModalMainContainer = $('#bb_aj_modalContainer');
+	        this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
+	        this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
+	        this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
+	        this.$bb_aj_Form_exempleImg = $(".skrivbokenExempleimg .bookitem-image img"); 
+	        this.$bb_aj_berattelseCatdrp = $("#drpTypavBerattelse");
+	        this.$bb_aj_aj_bb_formBlock = $('.aj_bb_formBlock');
+	        this.$bb_aj_cmdAdd = $('#bb_aj_cmdAdd');
 	    },
 	    BindEvent: function (userid) {
-	        let that = this;        
+	        let that = this;
+	        
 	        editorHandler.init();      
 
 	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.bb_aj_closeModal', function (e) {
@@ -47053,12 +47102,80 @@
 	        });
 	        
 	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.buttonitem_edit', function (e) {            
+	            $("html, body").animate({ scrollTop: $('.bb_aj_gridItem_Header').offset().top }, "slow");
+
 	            let skrivbokid = $(this).attr("data-id");
+	            that.$bb_aj_Form_cmdSend.attr("data-cmd", "edit");
+	            that.$bb_aj_Form_cmdSend.html("&Auml;ndra");
+	            that.$bb_aj_aj_bb_formBlock.show("slow");
 	            that.updskrivbookEdiorbyID(skrivbokid, userid);            
 	            return false;
 	        });
+	        this.$bb_aj_Form_cmdSend.on('click', function (e) {
+	            let cmdtyp = $(this).attr("data-cmd");
+
+	            if (cmdtyp == "add") {
+	                if (confirm("Är du säker på att du vill lägga till texten?")) {                   
+	                    formeditObj.addSkrivbokItem(userid, function () {
+	                        // rensa och uppdatera sidan
+	                        that.formupdate(userid);                        
+	                    });
+	                };
+	            };
+
+	            if (cmdtyp == "edit") {
+	                if (confirm("Är du säker på att du vill ändra texten?")) {                 
+	                    formeditObj.editSkrivbokItem(userid, function () {
+	                        // rensa och uppdatera sidan
+	                        that.formupdate(userid);
+	                       
+	                    });                    
+	                    // sätt sendbutton till default
+	                    that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
+	                    that.$bb_aj_Form_cmdSend.html("Spara"); 
+	                };
+	            };
+	           
+	            return false;
+	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
+	            let skrivbokid = $(this).attr("data-id");
+
+	            if (confirm("Är du säker på att du vill tabort texten?")) {
+	                formeditObj.deleteSkrivbokItem(skrivbokid, userid, function () {
+	                    that.formupdate(userid);                    
+	                });                
+	            };
+	            return false;
+	        });
+
+	        this.$bb_aj_Form_cmdReset.on('click', function (e) {
+	            formeditObj.rensaEditform();
+	            that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
+	            that.$bb_aj_Form_cmdSend.html("Spara");
+	            return false;
+	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on('change', '#drpTypavBerattelse', function (e) {
+	            let valdcat = $(this).val();
+	            that.$bb_aj_Form_exempleImg.attr('src', formeditObj.getimageHelper(valdcat));
+	            return false;
+	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.skrivboklistshow', function (e) {
+	            $('.aj_bb_formBlock').toggle("slow");
+	            $(this).toggleClass("grader180");
+	            return false;
+	        });
 	        
-	        
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '#bb_aj_cmdAdd', function (e) {
+	            $('.aj_bb_formBlock').toggle("slow");
+	            $(this).toggleClass("grader180");
+	            formeditObj.rensaEditform();
+	            return false;
+	        });
+
 	    },    
 	    getskrivbooklist: function (apiurl, userid) {
 	        let handlebartemplate = appsettings.handlebartemplate.hb_skrivbokenlist_tmp;
@@ -47070,21 +47187,31 @@
 	    updskrivbookEdiorbyID: function (skrivbokid, userid) {
 	        formeditObj.updskrivbookEditor(skrivbokid, userid);
 	    },
+	    formupdate : function (userid) {
+	        formeditObj.rensaEditform();
+	        this.initbooklist(userid)
+	    },
 	    initbooklist: function (userid) {
 	        let apiurl = appsettings.api.skrivbokenlistor.getuserskribokenlist;
 	        this.getskrivbooklist(apiurl(userid), userid);
-	    },    
-
-	    Render: function (apiurl, handlebartemplate, userid) {
+	    },   
+	    Render: function (apiurl, handlebartemplate, userid, ordername) {
 	        let that = this; //spara this
+	        ordername = ordername || "asc";
 
 	        bb_API.getjsondata(apiurl, function (data) {
-	            bb_HB_Handler.injecthtmltemplate("#bb_aj_skrivbokentemplatecontainer", handlebartemplate, data, function () {
-	                jplist.init();
+	            let skrivboken = data.SkrivbokenList;
+	            data.SkrivbokenList = _.orderBy(skrivboken, ['Title'], [ordername]);           
 
+	            bb_HB_Handler.injecthtmltemplate("#bb_aj_skrivbokentemplatecontainer", handlebartemplate, data, function () {               
+	                //jplist.init();            
 	            });
 	        });
+	        
 	    }
+	  
+
+
 	};
 
 
@@ -47541,24 +47668,310 @@
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(_) {_ = __webpack_require__(3);
+	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+	var editorHandler = __webpack_require__(15);
+	var modalobj = __webpack_require__(16);
 	var bb_pagebehaviors = __webpack_require__(6);
 	var bb_containerbehaviors = __webpack_require__(9);
+	var bb_API = __webpack_require__(10);
+	var bb_HB_Handler = __webpack_require__(11);
+	var formeditObj = __webpack_require__(19);
+
+	var appsettingsobject = __webpack_require__(12);
+	var appsettings = appsettingsobject.config;
 
 	module.exports = {
-	    init: function (value) {
+	    init: function (userid) {
 	        let moduleName = 'Boktips'
+	        
+	        modalobj.init();
+
+	        formeditObj.init(userid);
 	        bb_containerbehaviors.init(moduleName);
 	        bb_pagebehaviors.init(moduleName);
-	        /////////////////////////////////////////////////////
+
+	        this.cacheDom();
+	        this.BindEvent(userid);
+	        this.initbooklist(userid);      
+	    },
+	    cacheDom: function () {
+	        this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
+	        this.$bb_aj_ModalMainContainer = $('#bb_aj_modalContainer');
+	        this.$bb_aj_Form_txtboktipsTitle = $("#txtboktipsTitle");
+	        this.$bb_aj_Form_cmdSend = $("#cmdSendBoktipsForm");
+	        this.$bb_aj_Form_cmdReset = $("#cmdResetBoktipsForm");
+	        this.$bb_aj_Form_exempleImg = $(".boktipsExempleimg .bookitem-image img");
+	        this.$bb_aj_bb_formBlock = $('.aj_bb_formBlock');
+	        this.$bb_aj_cmdAdd = $('#bb_aj_cmdAdd');
+	    },
+	    BindEvent: function (userid) {
+	        let that = this;
+
+	        editorHandler.init();
+
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.bb_aj_closeModal', function (e) {
+	            modalobj.closeModal();
+	            return false;
+	        });
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.bb_aj_openInModal', function (e) {
+	            let skrivbokid = $(this).attr("data-id");
+	            that.getboktipsbyID(skrivbokid, userid);
+	            modalobj.openInModal();
+	            return false;
+	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.buttonitem_edit', function (e) {
+	            $("html, body").animate({ scrollTop: $('.bb_aj_gridItem_Header').offset().top }, "slow");
+
+	            let tipid = $(this).attr("data-id");
+	            that.$bb_aj_Form_cmdSend.attr("data-cmd", "edit");
+	            that.$bb_aj_Form_cmdSend.html("&Auml;ndra");
+	            that.$bb_aj_bb_formBlock.show("slow");
+	            that.updboktipsEdiorbyID(tipid, userid);
+	            return false;
+	        });
+	        this.$bb_aj_Form_cmdSend.on('click', function (e) {
+	            let cmdtyp = $(this).attr("data-cmd");
+
+	            if (cmdtyp == "add") {
+	                if (confirm("Är du säker på att du vill lägga till texten?")) {
+	                    formeditObj.addBoktipsItem(userid, function () {
+	                        // rensa och uppdatera sidan
+	                        that.formupdate(userid);
+	                    });
+	                };
+	            };
+
+	            if (cmdtyp == "edit") {
+	                if (confirm("Är du säker på att du vill ändra texten?")) {
+	                    formeditObj.editBoktipsItem(userid, function () {
+	                        // rensa och uppdatera sidan
+	                        that.formupdate(userid);
+	                    });
+	                    // sätt sendbutton till default
+	                    that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
+	                    that.$bb_aj_Form_cmdSend.html("Spara");
+	                };
+	            };
+
+	            return false;
+	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
+	            let tipid = $(this).attr("data-id");
+
+	            if (confirm("Är du säker på att du vill tabort boktipset?")) {
+	                formeditObj.deleteBoktipsItem(tipid, userid, function () {
+	                    that.formupdate(userid);
+	                });
+	            };
+	            return false;
+	        });
+
+	        this.$bb_aj_Form_cmdReset.on('click', function (e) {
+	            formeditObj.rensaEditform();
+	            that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
+	            that.$bb_aj_Form_cmdSend.html("Spara");
+	            return false;
+	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on('change', '#drpTypavBerattelse', function (e) {
+	            let valdcat = $(this).val();
+	            
+	            return false;
+	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.skrivboklistshow', function (e) {
+	            $('.aj_bb_formBlock').toggle("slow");
+	            $(this).toggleClass("grader180");
+	            return false;
+	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '#bb_aj_cmdAdd', function (e) {
+	            $('.aj_bb_formBlock').toggle("slow");
+	            $(this).toggleClass("grader180");
+	            formeditObj.rensaEditform();
+	            return false;
+	        });
+
+	    },
+	    getboktipslist: function (apiurl, userid) {
+	        let handlebartemplate = appsettings.handlebartemplate.hb_boktipslist_tmp;
+	        this.Render(apiurl, handlebartemplate, userid);
+	    },
+	    getboktipsbyID: function (tipid, userid) {
+	        formeditObj.getBoktipsByIdForEdit(tipid, userid);
+	    },
+	    updboktipsEdiorbyID: function (tipid, userid) {
+	        formeditObj.updBoktipsEditor(tipid, userid);
+	    },
+	    formupdate: function (userid) {
+	        formeditObj.rensaEditform();
+	        this.initbooklist(userid)
+	    },
+	    initbooklist: function (userid) {
+	        let apiurl = appsettings.api.boktipslistor.getuserboktipslist;
+	        this.getboktipslist(apiurl(userid), userid);
+	    },
+	    Render: function (apiurl, handlebartemplate, userid, ordername) {
+	        let that = this; //spara this
+	        ordername = ordername || "asc";
+
+	        bb_API.getjsondata(apiurl, function (data) {
+	            let boktipsobj = data.Boktips;
+	            data.Boktips = _.orderBy(boktipsobj, ['Title'], [ordername]);
+
+	            bb_HB_Handler.injecthtmltemplate("#bb_aj_boktipstemplatecontainer", handlebartemplate, data, function () {
+	                //jplist.init();            
+	            });
+	        });
 
 	    }
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
 
 /***/ }),
 /* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(5);
+	var bb_API = __webpack_require__(10);
+	var bb_HB_Handler = __webpack_require__(11);
+	var appsettingsobject = __webpack_require__(12);
+	var appsettings = appsettingsobject.config;
+	let _formObj = {
+	    Approved: "0",
+	    Author: "",
+	    Bookid: "0",
+	    Title: "",
+	    Userage: "0",
+	    HighAge: "0",
+	    LowAge: "0",
+	    Review: "",
+	    Tiptype: "0",
+	    Userid: "0",
+	    UserName: "",
+	    Category: "0",
+	    TipID: "0"
+	}
+
+	module.exports = {
+	    init: function (userid) {
+	        this.cacheDom();              
+	    },
+	    cacheDom: function () {
+	        this.$bb_aj_Form_txtboktipsTitle = $("#txtboktipsTitle");
+	        this.$bb_aj_Form_cmdSend = $("#cmdSendBoktipsForm");
+	        this.$bb_aj_Form_cmdReset = $("#cmdResetBoktipsForm");
+	        this.$bb_aj_Form_exempleImg = $(".boktipsExempleimg .bookitem-image img");
+	    },
+	    
+	    getBoktipsByIdForEdit: function (tipid, userid) {
+	        let apiurl = appsettings.api.boktipslistor.getuserboktipsByTipID;
+	        let handlebartemplate = appsettings.handlebartemplate.hb_boktipsModalView_tmp;
+
+	        this.Render(apiurl(tipid, userid), handlebartemplate, userid);
+
+	    },
+	    updBoktipsEditor: function (tipid, userid) {
+	        let that = this;
+	        let apiurl = appsettings.api.boktipslistor.getuserboktipsByTipID;
+	        
+	        this.rensaEditform();
+	        bb_API.getjsondata(apiurl(tipid, userid), function (data) {
+
+	            $.each(data.Boktips, function (index, item) {
+	                that.$bb_aj_Form_cmdSend.attr("data-id", item.tipid);
+	                that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
+	                tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
+	                                
+	                that.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
+	                that.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
+	                that.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
+
+	                                
+	                
+	            });
+	        });
+	    },
+	    rensaEditform: function () {
+	        this.$bb_aj_Form_txtboktipsTitle.val("");
+	        tinyMCE.activeEditor.setContent('');
+	        this.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), "1");
+	        this.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), "1");
+	        this.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), "1");
+	                
+	        this.$bb_aj_Form_cmdSend.attr("data-id", "0");
+	       
+	        
+	    },
+	    addBoktipsItem: function (userid, callback) {
+	        let apiurl = appsettings.api.boktipslistor.addboktipsItem;
+	        this.ApiPostHandler(apiurl(),userid, function () {
+	            callback();
+	        });
+	    },
+	    editBoktipsItem: function (userid, callback) {
+	        let apiurl = appsettings.api.boktipslistor.editboktipsItem;
+	        this.ApiPostHandler(apiurl(), userid, function () {            
+	            callback();
+	        }); },
+	    deleteBoktipsItem: function (tipid, userid,callback) {
+	        let apiurl = appsettings.api.boktipslistor.delboktipsItem;
+	        
+	        _formObj.TipID = tipid;
+	        _formObj.Userid = userid;
+	        bb_API.postjsondata(apiurl(), _formObj, function (data) {
+	            callback();
+	        });
+	    },
+	    ApiPostHandler: function (apiurl, userid, callback) {
+	        let itmdata = this.HelpercollectFormValues(userid);
+
+	        bb_API.postjsondata(apiurl,itmdata, function (data) {           
+	            callback();
+	        });
+	    },
+	    Render: function (apiurl, handlebartemplate, userid) {
+	        let that = this; //spara this
+
+	        bb_API.getjsondata(apiurl, function (data) {
+
+	            bb_HB_Handler.injecthtmltemplate("#bb_aj_modalContainer", handlebartemplate, data, function () {
+	                console.log("api kört!");
+	            });
+	        });
+	    },
+	    HelpersetSelectedIndex: function (s, valsearch) {
+	        // Loop through all the items in drop down list
+	        for (i = 0; i < s.options.length; i++) {
+	            if (s.options[i].value == valsearch) {
+	                // Item is found. Set its property and exit
+	                s.options[i].selected = true;
+	                break;
+	            };
+	        };
+	        return;
+	    },
+	    HelpercollectFormValues: function (userid) {
+	        _formObj.SkrivID = this.$bb_aj_Form_cmdSend.attr("data-id");
+	        _formObj.UserID = userid;
+	        _formObj.Approved = 0;
+	        _formObj.Title = this.$bb_aj_Form_txtboktipsTitle.val();
+	        _formObj.Review = tinyMCE.activeEditor.getContent();
+	        _formObj.Category = document.getElementById("drpBoktipAmnen").value;
+	        _formObj.Publish = document.getElementById("drp_AJKrypInWritedelad").value;
+
+	        return _formObj;
+	    }
+	};
+
+
+
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -47576,7 +47989,7 @@
 	};
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -47594,7 +48007,7 @@
 	};
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -47611,7 +48024,7 @@
 	};
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -47628,7 +48041,7 @@
 	};
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);

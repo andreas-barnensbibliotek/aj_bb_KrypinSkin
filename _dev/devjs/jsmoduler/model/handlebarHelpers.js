@@ -25,6 +25,9 @@ module.exports = {
             let imglist = settingsobj.catimagesrc;
 
             let catimgobj = _.find(imglist, function (o) { return o.catid == catid; });
+            if (!catimgobj) {
+                catimgobj=  _.find(imglist, function (o) { return o.catid == 0; });
+            };
             let tmpimg = settingsobj.catimgbase + catimgobj.imgsrc;
             let retimg = "<img title=" + catimgobj.catname + " src=" + tmpimg + " />";
             return retimg;

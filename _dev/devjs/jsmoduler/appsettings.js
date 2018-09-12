@@ -13,6 +13,7 @@ module.exports = {
         let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
         let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
         let _hb_skrivbokModal_View_template = _dnnURL + _htmltemplateURL + "skrivbokModal_View.txt";
+        let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
         //// api
         let _fn_userboklist = function (userid) {
             return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
@@ -43,16 +44,36 @@ module.exports = {
         let _fn_userSkrivbokenByID = function (bookid, userid) {
             return _apiserver + "/Api_v3.1/skrivboken/cmdtyp/BySkrivid/val/" + bookid + "/typ/" + userid + "/ap/0/pub/0" + _apidevkeyend;
         };
-        let _fn_addskribokenItem = function () {
-            return _apiserver + "/Api_v3.1/skrivboken/typ/addskrivboken" +  _apidevkeyend;
+        let _fn_addskrivbokenItem = function () {
+            return _apiserver + "/Api_v3.1/skrivboken/typ/addskrivboken/devkey/" + _devkey //+  _apidevkeyend;
         };
-        let _fn_editskribokenItem = function () {
-            return _apiserver + "/Api_v3.1/skrivboken/typ/editskrivboken" + _apidevkeyend;
+        let _fn_editskrivbokenItem = function () {
+            return _apiserver + "/Api_v3.1/skrivboken/typ/editskrivboken/devkey/" + _devkey //+ _apidevkeyend;
         };
-        let _fn_delskribokenItem = function () {
-            return _apiserver + "/Api_v3.1/skrivboken/typ/deleteskrivboken" + _apidevkeyend;
+        let _fn_delskrivbokenItem = function () {
+            return _apiserver + "/Api_v3.1/skrivboken/typ/deleteskrivbok/devkey/" + _devkey //+ _apidevkeyend;
         };
-
+        
+        // Boktips START
+        //// Template
+        let _hb_Boktipslist_template = _dnnURL + _htmltemplateURL + "boktips_lista.txt";
+        //// API
+        let _fn_userBoktipslist = function (userid) {
+            return _apiserver + "/Api_v3.1/boktips/typ/ByUserId/val/" + userid + "/txtval/0" + _apidevkeyend;        
+        };
+        let _fn_userBoktipsByTipID = function (tipid, userid) {
+            return _apiserver + "/Api_v3.1/boktips/typ/ByTipId/val/" + tipid + "/txtval/0" + _apidevkeyend;
+        };
+        //API POST
+        let _fn_addBoktipsItem = function () {
+            return _apiserver + "/Api_v3.1/boktips/typ/addboktips/devkey/" + _devkey //+  _apidevkeyend;           
+        };
+        let _fn_editBoktipsItem = function () {
+            return _apiserver + "/Api_v3.1/boktips/typ/editboktips/devkey/" + _devkey //+ _apidevkeyend;
+        };
+        let _fn_delBoktipsItem = function () {
+            return _apiserver + "/Api_v3.1/boktips/typ/deleteboktips/devkey/" + _devkey //+ _apidevkeyend;
+        };
         
         return {
             apiserver: _apiserver,
@@ -63,7 +84,9 @@ module.exports = {
             handlebartemplate: {
                 hb_booklist_tmp: _hb_booklist_template,
                 hb_skrivbokenlist_tmp: _hb_skrivbokenlist_template,
-                hb_skrivbokModalView_tmp: _hb_skrivbokModal_View_template
+                hb_skrivbokModalView_tmp: _hb_skrivbokModal_View_template,
+                hb_boktipslist_tmp: _hb_Boktipslist_template,
+                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template
             },
             api:{
                 boklistor:{
@@ -77,10 +100,16 @@ module.exports = {
                 skrivbokenlistor:{
                     getuserskribokenlist: _fn_userSkrivbokenlist,
                     getuserskribokenByID: _fn_userSkrivbokenByID,
-                    addskribokenItem: _fn_addskribokenItem,
-                    editskribokenItem: _fn_editskribokenItem,
-                    delskribokenItem: _fn_delskribokenItem
-
+                    addskribokenItem: _fn_addskrivbokenItem,
+                    editskribokenItem: _fn_editskrivbokenItem,
+                    delskribokenItem: _fn_delskrivbokenItem
+                },
+                boktipslistor: {
+                    getuserboktipslist: _fn_userBoktipslist,
+                    getuserboktipsByTipID: _fn_userBoktipsByTipID,
+                    addboktipsItem: _fn_addBoktipsItem,
+                    editboktipsItem: _fn_editBoktipsItem,
+                    delboktipsItem: _fn_delBoktipsItem
                 },
                 devkeyend : _apidevkeyend
             },
@@ -97,6 +126,11 @@ module.exports = {
         return {
             catimgbase: "/DesktopModules/bb_aj_Skrivboken_Krypin/images/",
             catimagesrc: [
+                 {
+                     "catid": "0",
+                     "catname": "&Ouml;vrigt",
+                     "imgsrc": "skrivbok_default256_36.png"
+                },
                 {
                     "catid": "1",
                     "catname": "&Ouml;vrigt",
@@ -110,12 +144,12 @@ module.exports = {
                 {
                     "catid": "3",
                     "catname": "Ber&auml;ttelse",
-                    "imgsrc": "skrivbok_ovrigt256_36.png"
+                    "imgsrc": "skrivbok_berattelse-256_36.png"
                 },
                 {
                     "catid": "4",
                     "catname": "Dikt",
-                    "imgsrc": "skrivbok_deckare 256_36.png"
+                    "imgsrc": "skrivbok_dikt-256_36.png"
                 },
                 {
                     "catid": "5",
@@ -130,7 +164,7 @@ module.exports = {
                 {
                     "catid": "8",
                     "catname": "Deckare",
-                    "imgsrc": "skrivbok_deckare 256_36.png"
+                    "imgsrc": "skrivbok_deckare256_36.png"
                 },
                 {
                     "catid": "9",
@@ -150,7 +184,7 @@ module.exports = {
                 {
                     "catid": "12",
                     "catname": "K&auml;rlek",
-                    "imgsrc": "skrivbok_karlek 256_36.png"
+                    "imgsrc": "skrivbok_karlek256_36.png"
                 },
                 {
                     "catid": "13",
@@ -175,12 +209,12 @@ module.exports = {
                 {
                     "catid": "18",
                     "catname": "Sp&ouml;ken",
-                    "imgsrc": "skrivbok_spoken 256_36.png"
+                    "imgsrc": "skrivbok_spoken256_36.png"
                 },
                 {
                     "catid": "19",
                     "catname": "&Auml;ventyr",
-                    "imgsrc": "skrivbok_aventyr 256_36.png"
+                    "imgsrc": "skrivbok_aventyr256_36.png"
                 },
                 {
                     "catid": "21",

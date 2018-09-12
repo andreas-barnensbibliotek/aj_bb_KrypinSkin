@@ -2,11 +2,12 @@
 
 <!-- boklistaContent top start -->	
 <div class="aj_bb_KrypinMainGrid container u-textCenter bookitems">
+
 <!-- boklistaContent top slut -->
 
-{{#each SkrivbokenList}}							
-	<!-- bookitem start -->	
-	<div id="products" class="row list-group">              
+{{#each SkrivbokenList}}	
+						
+	<!-- bookitem start -->              
 		<div class="item col-xs-4 col-lg-4" data-jplist-item>
 			<div class="skrivbokenitem-card dragdrop" >
 				<div class="bookitem-button">
@@ -24,12 +25,11 @@
 				</a>
 			</div>	            
 		</div>
-	</div>
-	<!-- bookitem slut-->
+	<!--bookitem slut-->
 			
 {{/each}}
 	<!-- boklistaContent bottom start -->
-	<div data-jplist-control="no-results" data-group="bb_aj_skrivbok_group" data-name="no-results">Det finns inget att visa</div>
+	
 	<!-- boklistaContent bottom slut -->			
 </div>	
 

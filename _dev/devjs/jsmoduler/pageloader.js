@@ -14,7 +14,7 @@ module.exports = {
     pagerequest: function (page, userid) {      
      
         var loadpage = function (tmppage, tmpuserid) {
-            jplist.init();
+            //jplist.init();
             let requestpage = {
                 'bb_aj_Start_Krypin': function () {
                     startpage.init();
@@ -30,31 +30,31 @@ module.exports = {
                     return false;
                 },
                 'bb_aj_Boktips_Krypin': function () {
-                    boktipspage.init();
+                    boktipspage.init(tmpuserid);
                     return false;
                 },
                 'bb_aj_Scoreboard_Krypin': function () {
-                    scoreboardpage.init();
+                    scoreboardpage.init(tmpuserid);
                     return false;
                 },
                 'bb_aj_Bibblomon_Krypin': function () {
-                    bibblomonpage.init();
+                    bibblomonpage.init(tmpuserid);
                     return false;
                 },
                 'bb_aj_Inventarie_Krypin': function () {
-                    inventorypage.init();
+                    inventorypage.init(tmpuserid);
                     return false;
                 },
                 'bb_aj_shop_Krypin': function () {
-                    shoppage.init();
+                    shoppage.init(tmpuserid);
                     return false;
                 },
                 'bb_aj_setup_krypin': function () {
-                    installningarpage.init();
+                    installningarpage.init(tmpuserid);
                     return false;
                 },                
                 'default': function () {
-                    startpage.init();
+                    startpage.init(tmpuserid);
                     return false;
                 }
             };

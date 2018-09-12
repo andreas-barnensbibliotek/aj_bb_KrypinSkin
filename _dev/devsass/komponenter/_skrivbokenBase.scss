@@ -7,7 +7,12 @@
     textarea {
         resize: vertical;        
     }
-
+.grader180{
+    img{
+        @extend %spinn180;
+    }
+   
+}
     
 .skrivbokreadhead {
     /*margin: 70px auto;

@@ -5,8 +5,9 @@ var handelbarhelpers = require("./handlebarHelpers.js");
 module.exports = {   
     injecthtmltemplate: function (targetClass, usetemplateName, currentdata, callback) {
         handelbarhelpers.init();
+        
         $.get(usetemplateName, function (data) {
-            var temptpl = Handlebars.compile(data);
+            var temptpl = Handlebars.compile(data);           
             $(targetClass).html(temptpl(currentdata));
             callback();
         }, 'html');

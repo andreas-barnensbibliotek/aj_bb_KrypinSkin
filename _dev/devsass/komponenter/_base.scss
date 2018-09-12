@@ -59,7 +59,14 @@
     z-index: 1000;
     cursor: pointer;
     .bb_aj_modalheader{
-        button{float:right;}
+        .buttonblock{
+            float:right;
+            a img{
+                &:hover{
+                    @extend %spinnerhover;
+                }
+            }
+        }
     }
 
     .bb_aj_modalcontent{

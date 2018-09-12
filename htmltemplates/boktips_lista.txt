@@ -1,0 +1,28 @@
+﻿<!-- boklistaContent top start -->	
+<div class="aj_bb_KrypinMainGrid container u-textCenter bookitems">
+<!-- boklistaContent top slut -->
+
+{{#each Boktips}}	
+						
+	<!-- bookitem start -->              
+		<div class="item col-xs-4 col-lg-4">
+			<div class="boktipsitem-card dragdrop" >
+				<div class="bookitem-button">
+					<a href="#1" title="Ändra i texten" class="buttonitem_edit" data-id="{{TipID}}" ><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_edit-24.png" /></a>
+					<a href="#2" title="Ta bort från listan" class="buttonitem_tabort" data-id="{{TipID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png" /></a>
+				</div>
+				<a href="#" class="buttonitem_bokpost bb_aj_openInModal" data-id="{{TipID}}">
+					<div class="bookitem-image">
+					<img title="{{Title}}" src="{{ImgSrc}}" />
+					</div>
+					<div class="bookitem-info">
+						<h5 class="titel">{{Title}}</h5>
+						<h6>{{UserName}}</h6>
+					</div>
+				</a>
+			</div>	            
+		</div>
+	<!--bookitem slut-->
+			
+{{/each}}	 		
+</div>	

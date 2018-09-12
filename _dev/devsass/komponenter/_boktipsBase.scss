@@ -1,0 +1,68 @@
+﻿#bb_aj_boktips_Mod {
+    .boktipsenExempleimg{
+        .bookitem-button{
+            display:none;  
+        }
+    } 
+    textarea {
+        resize: vertical;        
+    }
+.grader180{
+    img{
+        @extend %spinn180;
+    }
+   
+}
+    
+.boktipsreadhead {
+    /*margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;*/
+    width: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    .close {
+        //position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        &:hover {
+            color: #06D85F;
+        }
+    }
+    .content {
+      max-height: 30%;
+      overflow: auto;
+    }
+}
+
+
+    .boktipsreadtextenBlock{
+        margin-left:1.0rem;
+        margin-right: 1.0rem;
+    }
+    .boktipsreadfoot {
+        .Grid-cell{
+            min-height:50px!important;
+            &:hover{ background-color:transparent;}
+            .catblock{
+                display:flex;
+                align-items: center;
+                justify-content:flex-end;
+                border-top:1px solid $black; 
+                margin-top:2rem;
+               
+                img{   
+                  height:30px!important;
+                   width:30px!important;
+                }
+            }     
+        }
+                  
+    }
+}
