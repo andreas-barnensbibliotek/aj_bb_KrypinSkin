@@ -1,6 +1,7 @@
 ﻿var $ = require("jquery");
 var bb_API = require("./model/apiServiceHandler.js");
 var bb_HB_Handler = require("./model/handlebarTemplateHandler.js");
+var helperobj = require("./app_modules/krypinHelperFunctions.js");
 var appsettingsobject = require("./appsettings.js");
 var appsettings = appsettingsobject.config;
 let _formObj = {
@@ -16,7 +17,8 @@ let _formObj = {
     Userid: "0",
     UserName: "",
     Category: "0",
-    TipID: "0"
+    TipID: "0",
+    ImgSrc: ""
 }
 
 module.exports = {
@@ -27,7 +29,8 @@ module.exports = {
         this.$bb_aj_Form_txtboktipsTitle = $("#txtboktipsTitle");
         this.$bb_aj_Form_cmdSend = $("#cmdSendBoktipsForm");
         this.$bb_aj_Form_cmdReset = $("#cmdResetBoktipsForm");
-        this.$bb_aj_Form_exempleImg = $(".boktipsExempleimg .bookitem-image img");
+        this.$bb_aj_boktipsFormMeta = $('#bb_aj_boktipsFormMeta');
+        this.$bb_aj_boktipsForm_exempleImg = $(".boktipsExempleimg .bookitem-image img");
     },
     
     getBoktipsByIdForEdit: function (tipid, userid) {
@@ -45,28 +48,37 @@ module.exports = {
         bb_API.getjsondata(apiurl(tipid, userid), function (data) {
 
             $.each(data.Boktips, function (index, item) {
-                that.$bb_aj_Form_cmdSend.attr("data-id", item.tipid);
+                that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
                 that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
                 tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
                                 
-                that.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
-                that.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
-                that.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
-
-                                
-                
+                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
+                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
+                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
+                that.$bb_aj_boktipsFormMeta.attr('data-approved', item.Approved);
+                that.$bb_aj_boktipsFormMeta.attr('data-author', item.Author);
+                that.$bb_aj_boktipsFormMeta.attr('data-bookid', item.Bookid);
+                that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
+                that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
+                that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
+               
             });
         });
     },
     rensaEditform: function () {
+        this.$bb_aj_Form_cmdSend.attr("data-id", "0");
         this.$bb_aj_Form_txtboktipsTitle.val("");
         tinyMCE.activeEditor.setContent('');
-        this.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), "1");
-        this.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), "1");
-        this.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), "1");
-                
-        this.$bb_aj_Form_cmdSend.attr("data-id", "0");
-       
+        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), "1");
+        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), "1");
+        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), "1");
+        this.$bb_aj_boktipsFormMeta.attr('data-approved', "0");
+        this.$bb_aj_boktipsFormMeta.attr('data-author', "");
+        this.$bb_aj_boktipsFormMeta.attr('data-bookid', "0");
+        this.$bb_aj_boktipsFormMeta.attr('data-usernamn', "");
+        this.$bb_aj_boktipsFormMeta.attr('data-Userage', "0");
+        this.$bb_aj_boktipsForm_exempleImg.attr('src', helperobj.getimageHelper("0"));        
+        this.$bb_aj_Form_cmdSend.attr("data-id", "0");     
         
     },
     addBoktipsItem: function (userid, callback) {
@@ -105,27 +117,23 @@ module.exports = {
                 console.log("api kört!");
             });
         });
-    },
-    HelpersetSelectedIndex: function (s, valsearch) {
-        // Loop through all the items in drop down list
-        for (i = 0; i < s.options.length; i++) {
-            if (s.options[i].value == valsearch) {
-                // Item is found. Set its property and exit
-                s.options[i].selected = true;
-                break;
-            };
-        };
-        return;
-    },
-    HelpercollectFormValues: function (userid) {
-        _formObj.SkrivID = this.$bb_aj_Form_cmdSend.attr("data-id");
-        _formObj.UserID = userid;
-        _formObj.Approved = 0;
-        _formObj.Title = this.$bb_aj_Form_txtboktipsTitle.val();
-        _formObj.Review = tinyMCE.activeEditor.getContent();
+    },    
+    HelpercollectFormValues: function (userid) {    
+        
+        _formObj.Approved = this.$bb_aj_boktipsFormMeta.attr('data-approved');
+        _formObj.Author = this.$bb_aj_boktipsFormMeta.attr('data-author');
+        _formObj.Bookid = this.$bb_aj_boktipsFormMeta.attr('data-bookid');
+        _formObj.Title= this.$bb_aj_Form_txtboktipsTitle.val();
+        _formObj.Userage = this.$bb_aj_boktipsFormMeta.attr('data-Userage');
+        _formObj.HighAge= document.getElementById("drpBoktipSuitableAgeMax").value;
+        _formObj.LowAge= document.getElementById("drpBoktipSuitableAgeMin").value;
+        _formObj.Review= tinyMCE.activeEditor.getContent();
+        _formObj.Tiptype= "0",
+        _formObj.Userid= userid;
+        _formObj.UserName = this.$bb_aj_boktipsFormMeta.attr('data-usernamn');
         _formObj.Category = document.getElementById("drpBoktipAmnen").value;
-        _formObj.Publish = document.getElementById("drp_AJKrypInWritedelad").value;
-
+        _formObj.TipID = this.$bb_aj_Form_cmdSend.attr("data-id");
+        _formObj.ImgSrc = this.$bb_aj_boktipsForm_exempleImg.attr('src');
         return _formObj;
     }
 };

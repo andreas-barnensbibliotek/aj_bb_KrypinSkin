@@ -29,11 +29,11 @@ module.exports = {
         this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
         this.$bb_aj_ModalMainContainer = $('#bb_aj_modalContainer');
         this.$bb_aj_Form_txtboktipsTitle = $("#txtboktipsTitle");
-        this.$bb_aj_Form_cmdSend = $("#cmdSendBoktipsForm");
-        this.$bb_aj_Form_cmdReset = $("#cmdResetBoktipsForm");
-        this.$bb_aj_Form_exempleImg = $(".boktipsExempleimg .bookitem-image img");
-        this.$bb_aj_bb_formBlock = $('.aj_bb_formBlock');
-        this.$bb_aj_cmdAdd = $('#bb_aj_cmdAdd');
+        this.$bb_aj_boktipsForm_cmdSend = $("#cmdSendBoktipsForm");
+        this.$bb_aj_boktipsForm_cmdReset = $("#cmdResetBoktipsForm");
+        this.$bb_aj_boktipsForm_exempleImg = $(".boktipsExempleimg .bookitem-image img");
+        this.$bb_aj_bb_boktipsFormBlock = $('.aj_bb_formBlock');
+        this.$bb_aj_boktipsCmdAdd = $('#bb_aj_cmdAdd');
     },
     BindEvent: function (userid) {
         let that = this;
@@ -55,13 +55,13 @@ module.exports = {
             $("html, body").animate({ scrollTop: $('.bb_aj_gridItem_Header').offset().top }, "slow");
 
             let tipid = $(this).attr("data-id");
-            that.$bb_aj_Form_cmdSend.attr("data-cmd", "edit");
-            that.$bb_aj_Form_cmdSend.html("&Auml;ndra");
-            that.$bb_aj_bb_formBlock.show("slow");
+            that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "edit");
+            that.$bb_aj_boktipsForm_cmdSend.html("&Auml;ndra");
+            that.$bb_aj_bb_boktipsFormBlock.show("slow");
             that.updboktipsEdiorbyID(tipid, userid);
             return false;
         });
-        this.$bb_aj_Form_cmdSend.on('click', function (e) {
+        this.$bb_aj_boktipsForm_cmdSend.on('click', function (e) {
             let cmdtyp = $(this).attr("data-cmd");
 
             if (cmdtyp == "add") {
@@ -80,8 +80,8 @@ module.exports = {
                         that.formupdate(userid);
                     });
                     // sätt sendbutton till default
-                    that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
-                    that.$bb_aj_Form_cmdSend.html("Spara");
+                    that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
+                    that.$bb_aj_boktipsForm_cmdSend.html("Spara");
                 };
             };
 
@@ -99,10 +99,10 @@ module.exports = {
             return false;
         });
 
-        this.$bb_aj_Form_cmdReset.on('click', function (e) {
+        this.$bb_aj_boktipsForm_cmdReset.on('click', function (e) {
             formeditObj.rensaEditform();
-            that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
-            that.$bb_aj_Form_cmdSend.html("Spara");
+            that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
+            that.$bb_aj_boktipsForm_cmdSend.html("Spara");
             return false;
         });
 
@@ -118,7 +118,7 @@ module.exports = {
             return false;
         });
 
-        this.$bb_aj_MainKrypinSkinContainer.on('click', '#bb_aj_cmdAdd', function (e) {
+        this.$bb_aj_MainKrypinSkinContainer.on('click', '#bb_aj_boktipsCmdAdd', function (e) {
             $('.aj_bb_formBlock').toggle("slow");
             $(this).toggleClass("grader180");
             formeditObj.rensaEditform();

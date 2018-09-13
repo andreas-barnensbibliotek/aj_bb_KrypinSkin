@@ -1,6 +1,7 @@
 ﻿var $ = require("jquery");
 var bb_API = require("./model/apiServiceHandler.js");
 var bb_HB_Handler = require("./model/handlebarTemplateHandler.js");
+var helperobj = require("./app_modules/krypinHelperFunctions.js");
 var appsettingsobject = require("./appsettings.js");
 var appsettings = appsettingsobject.config;
 let _formObj = {
@@ -72,8 +73,8 @@ module.exports = {
                 that.$bb_aj_Form_txtWriterTitle.val(item.Title);
                 that.$bb_aj_Form_cmdSend.attr("data-id", item.SkrivID);
 
-                that.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), item.Category);
-                that.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), item.Publish);
+                helperobj.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), item.Category);
+                helperobj.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), item.Publish);
 
                 tinymce.activeEditor.execCommand("mceInsertContent", false, item.Story);                
                 
@@ -83,8 +84,8 @@ module.exports = {
     rensaEditform: function () {
         this.$bb_aj_Form_txtWriterTitle.val("");
 
-        this.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), "0");
-        this.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), "1");
+        helperobj.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), "0");
+        helperobj.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), "1");
         
         this.$bb_aj_Form_cmdSend.attr("data-id", "0");
 
@@ -119,18 +120,7 @@ module.exports = {
 
             });
         });
-    },
-    HelpersetSelectedIndex: function (s, valsearch) {
-        // Loop through all the items in drop down list
-        for (i = 0; i < s.options.length; i++) {
-            if (s.options[i].value == valsearch) {
-                // Item is found. Set its property and exit
-                s.options[i].selected = true;
-                break;
-            };
-        };
-        return;
-    },
+    },    
     HelpercollectFormValues: function (userid) {
         _formObj.SkrivID = this.$bb_aj_Form_cmdSend.attr("data-id");
         _formObj.UserID = userid;

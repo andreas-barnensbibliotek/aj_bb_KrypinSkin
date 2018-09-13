@@ -78,12 +78,12 @@
 	var startpage = __webpack_require__(2);
 	var booklistpage = __webpack_require__(7);
 	var skrivbokenpage = __webpack_require__(14);
-	var boktipspage = __webpack_require__(18);
-	var scoreboardpage = __webpack_require__(20);
-	var bibblomonpage = __webpack_require__(21);
-	var inventorypage = __webpack_require__(22);
-	var shoppage = __webpack_require__(23);
-	var installningarpage = __webpack_require__(24);
+	var boktipspage = __webpack_require__(19);
+	var scoreboardpage = __webpack_require__(21);
+	var bibblomonpage = __webpack_require__(22);
+	var inventorypage = __webpack_require__(23);
+	var shoppage = __webpack_require__(24);
+	var installningarpage = __webpack_require__(25);
 	var appsettings = __webpack_require__(12);
 	var $ = __webpack_require__(5);
 
@@ -47518,6 +47518,7 @@
 	var $ = __webpack_require__(5);
 	var bb_API = __webpack_require__(10);
 	var bb_HB_Handler = __webpack_require__(11);
+	var helperobj = __webpack_require__(18);
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
 	let _formObj = {
@@ -47589,8 +47590,8 @@
 	                that.$bb_aj_Form_txtWriterTitle.val(item.Title);
 	                that.$bb_aj_Form_cmdSend.attr("data-id", item.SkrivID);
 
-	                that.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), item.Category);
-	                that.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), item.Publish);
+	                helperobj.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), item.Category);
+	                helperobj.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), item.Publish);
 
 	                tinymce.activeEditor.execCommand("mceInsertContent", false, item.Story);                
 	                
@@ -47600,8 +47601,8 @@
 	    rensaEditform: function () {
 	        this.$bb_aj_Form_txtWriterTitle.val("");
 
-	        this.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), "0");
-	        this.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), "1");
+	        helperobj.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), "0");
+	        helperobj.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), "1");
 	        
 	        this.$bb_aj_Form_cmdSend.attr("data-id", "0");
 
@@ -47636,18 +47637,7 @@
 
 	            });
 	        });
-	    },
-	    HelpersetSelectedIndex: function (s, valsearch) {
-	        // Loop through all the items in drop down list
-	        for (i = 0; i < s.options.length; i++) {
-	            if (s.options[i].value == valsearch) {
-	                // Item is found. Set its property and exit
-	                s.options[i].selected = true;
-	                break;
-	            };
-	        };
-	        return;
-	    },
+	    },    
 	    HelpercollectFormValues: function (userid) {
 	        _formObj.SkrivID = this.$bb_aj_Form_cmdSend.attr("data-id");
 	        _formObj.UserID = userid;
@@ -47668,6 +47658,40 @@
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	/* WEBPACK VAR INJECTION */(function(_) {var appsettingsobject = __webpack_require__(12);
+
+	module.exports = {
+	    init: function () {
+	    },
+	    HelpersetSelectedIndex: function (s, valsearch) {
+	        // Loop through all the items in drop down list
+	        for (i = 0; i < s.options.length; i++) {
+	            if (s.options[i].value == valsearch) {
+	                // Item is found. Set its property and exit
+	                s.options[i].selected = true;
+	                break;
+	            };
+	        };
+	        return;
+	    },
+	    getimageHelper: function (catid) {
+	        let settingsobj = appsettingsobject.skrivbokimages;
+	        let imglist = settingsobj.catimagesrc;
+
+	        let catimgobj = _.find(imglist, function (o) { return o.catid == catid; });
+	        if (!catimgobj) {
+	            catimgobj = _.find(imglist, function (o) { return o.catid == 0; });
+	        };
+	        return settingsobj.catimgbase + catimgobj.imgsrc;
+
+	    }
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
 	var editorHandler = __webpack_require__(15);
@@ -47676,7 +47700,7 @@
 	var bb_containerbehaviors = __webpack_require__(9);
 	var bb_API = __webpack_require__(10);
 	var bb_HB_Handler = __webpack_require__(11);
-	var formeditObj = __webpack_require__(19);
+	var formeditObj = __webpack_require__(20);
 
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
@@ -47699,11 +47723,11 @@
 	        this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
 	        this.$bb_aj_ModalMainContainer = $('#bb_aj_modalContainer');
 	        this.$bb_aj_Form_txtboktipsTitle = $("#txtboktipsTitle");
-	        this.$bb_aj_Form_cmdSend = $("#cmdSendBoktipsForm");
-	        this.$bb_aj_Form_cmdReset = $("#cmdResetBoktipsForm");
-	        this.$bb_aj_Form_exempleImg = $(".boktipsExempleimg .bookitem-image img");
-	        this.$bb_aj_bb_formBlock = $('.aj_bb_formBlock');
-	        this.$bb_aj_cmdAdd = $('#bb_aj_cmdAdd');
+	        this.$bb_aj_boktipsForm_cmdSend = $("#cmdSendBoktipsForm");
+	        this.$bb_aj_boktipsForm_cmdReset = $("#cmdResetBoktipsForm");
+	        this.$bb_aj_boktipsForm_exempleImg = $(".boktipsExempleimg .bookitem-image img");
+	        this.$bb_aj_bb_boktipsFormBlock = $('.aj_bb_formBlock');
+	        this.$bb_aj_boktipsCmdAdd = $('#bb_aj_cmdAdd');
 	    },
 	    BindEvent: function (userid) {
 	        let that = this;
@@ -47725,13 +47749,13 @@
 	            $("html, body").animate({ scrollTop: $('.bb_aj_gridItem_Header').offset().top }, "slow");
 
 	            let tipid = $(this).attr("data-id");
-	            that.$bb_aj_Form_cmdSend.attr("data-cmd", "edit");
-	            that.$bb_aj_Form_cmdSend.html("&Auml;ndra");
-	            that.$bb_aj_bb_formBlock.show("slow");
+	            that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "edit");
+	            that.$bb_aj_boktipsForm_cmdSend.html("&Auml;ndra");
+	            that.$bb_aj_bb_boktipsFormBlock.show("slow");
 	            that.updboktipsEdiorbyID(tipid, userid);
 	            return false;
 	        });
-	        this.$bb_aj_Form_cmdSend.on('click', function (e) {
+	        this.$bb_aj_boktipsForm_cmdSend.on('click', function (e) {
 	            let cmdtyp = $(this).attr("data-cmd");
 
 	            if (cmdtyp == "add") {
@@ -47750,8 +47774,8 @@
 	                        that.formupdate(userid);
 	                    });
 	                    // sätt sendbutton till default
-	                    that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
-	                    that.$bb_aj_Form_cmdSend.html("Spara");
+	                    that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
+	                    that.$bb_aj_boktipsForm_cmdSend.html("Spara");
 	                };
 	            };
 
@@ -47769,10 +47793,10 @@
 	            return false;
 	        });
 
-	        this.$bb_aj_Form_cmdReset.on('click', function (e) {
+	        this.$bb_aj_boktipsForm_cmdReset.on('click', function (e) {
 	            formeditObj.rensaEditform();
-	            that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
-	            that.$bb_aj_Form_cmdSend.html("Spara");
+	            that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
+	            that.$bb_aj_boktipsForm_cmdSend.html("Spara");
 	            return false;
 	        });
 
@@ -47788,7 +47812,7 @@
 	            return false;
 	        });
 
-	        this.$bb_aj_MainKrypinSkinContainer.on('click', '#bb_aj_cmdAdd', function (e) {
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '#bb_aj_boktipsCmdAdd', function (e) {
 	            $('.aj_bb_formBlock').toggle("slow");
 	            $(this).toggleClass("grader180");
 	            formeditObj.rensaEditform();
@@ -47832,12 +47856,13 @@
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(5);
 	var bb_API = __webpack_require__(10);
 	var bb_HB_Handler = __webpack_require__(11);
+	var helperobj = __webpack_require__(18);
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
 	let _formObj = {
@@ -47853,7 +47878,8 @@
 	    Userid: "0",
 	    UserName: "",
 	    Category: "0",
-	    TipID: "0"
+	    TipID: "0",
+	    ImgSrc: ""
 	}
 
 	module.exports = {
@@ -47864,7 +47890,8 @@
 	        this.$bb_aj_Form_txtboktipsTitle = $("#txtboktipsTitle");
 	        this.$bb_aj_Form_cmdSend = $("#cmdSendBoktipsForm");
 	        this.$bb_aj_Form_cmdReset = $("#cmdResetBoktipsForm");
-	        this.$bb_aj_Form_exempleImg = $(".boktipsExempleimg .bookitem-image img");
+	        this.$bb_aj_boktipsFormMeta = $('#bb_aj_boktipsFormMeta');
+	        this.$bb_aj_boktipsForm_exempleImg = $(".boktipsExempleimg .bookitem-image img");
 	    },
 	    
 	    getBoktipsByIdForEdit: function (tipid, userid) {
@@ -47882,28 +47909,37 @@
 	        bb_API.getjsondata(apiurl(tipid, userid), function (data) {
 
 	            $.each(data.Boktips, function (index, item) {
-	                that.$bb_aj_Form_cmdSend.attr("data-id", item.tipid);
+	                that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
 	                that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
 	                tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
 	                                
-	                that.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
-	                that.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
-	                that.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
-
-	                                
-	                
+	                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
+	                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
+	                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
+	                that.$bb_aj_boktipsFormMeta.attr('data-approved', item.Approved);
+	                that.$bb_aj_boktipsFormMeta.attr('data-author', item.Author);
+	                that.$bb_aj_boktipsFormMeta.attr('data-bookid', item.Bookid);
+	                that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
+	                that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
+	                that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
+	               
 	            });
 	        });
 	    },
 	    rensaEditform: function () {
+	        this.$bb_aj_Form_cmdSend.attr("data-id", "0");
 	        this.$bb_aj_Form_txtboktipsTitle.val("");
 	        tinyMCE.activeEditor.setContent('');
-	        this.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), "1");
-	        this.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), "1");
-	        this.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), "1");
-	                
-	        this.$bb_aj_Form_cmdSend.attr("data-id", "0");
-	       
+	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), "1");
+	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), "1");
+	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), "1");
+	        this.$bb_aj_boktipsFormMeta.attr('data-approved', "0");
+	        this.$bb_aj_boktipsFormMeta.attr('data-author', "");
+	        this.$bb_aj_boktipsFormMeta.attr('data-bookid', "0");
+	        this.$bb_aj_boktipsFormMeta.attr('data-usernamn', "");
+	        this.$bb_aj_boktipsFormMeta.attr('data-Userage', "0");
+	        this.$bb_aj_boktipsForm_exempleImg.attr('src', helperobj.getimageHelper("0"));        
+	        this.$bb_aj_Form_cmdSend.attr("data-id", "0");     
 	        
 	    },
 	    addBoktipsItem: function (userid, callback) {
@@ -47942,27 +47978,23 @@
 	                console.log("api kört!");
 	            });
 	        });
-	    },
-	    HelpersetSelectedIndex: function (s, valsearch) {
-	        // Loop through all the items in drop down list
-	        for (i = 0; i < s.options.length; i++) {
-	            if (s.options[i].value == valsearch) {
-	                // Item is found. Set its property and exit
-	                s.options[i].selected = true;
-	                break;
-	            };
-	        };
-	        return;
-	    },
-	    HelpercollectFormValues: function (userid) {
-	        _formObj.SkrivID = this.$bb_aj_Form_cmdSend.attr("data-id");
-	        _formObj.UserID = userid;
-	        _formObj.Approved = 0;
-	        _formObj.Title = this.$bb_aj_Form_txtboktipsTitle.val();
-	        _formObj.Review = tinyMCE.activeEditor.getContent();
+	    },    
+	    HelpercollectFormValues: function (userid) {    
+	        
+	        _formObj.Approved = this.$bb_aj_boktipsFormMeta.attr('data-approved');
+	        _formObj.Author = this.$bb_aj_boktipsFormMeta.attr('data-author');
+	        _formObj.Bookid = this.$bb_aj_boktipsFormMeta.attr('data-bookid');
+	        _formObj.Title= this.$bb_aj_Form_txtboktipsTitle.val();
+	        _formObj.Userage = this.$bb_aj_boktipsFormMeta.attr('data-Userage');
+	        _formObj.HighAge= document.getElementById("drpBoktipSuitableAgeMax").value;
+	        _formObj.LowAge= document.getElementById("drpBoktipSuitableAgeMin").value;
+	        _formObj.Review= tinyMCE.activeEditor.getContent();
+	        _formObj.Tiptype= "0",
+	        _formObj.Userid= userid;
+	        _formObj.UserName = this.$bb_aj_boktipsFormMeta.attr('data-usernamn');
 	        _formObj.Category = document.getElementById("drpBoktipAmnen").value;
-	        _formObj.Publish = document.getElementById("drp_AJKrypInWritedelad").value;
-
+	        _formObj.TipID = this.$bb_aj_Form_cmdSend.attr("data-id");
+	        _formObj.ImgSrc = this.$bb_aj_boktipsForm_exempleImg.attr('src');
 	        return _formObj;
 	    }
 	};
@@ -47971,7 +48003,7 @@
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -47989,7 +48021,7 @@
 	};
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48007,7 +48039,7 @@
 	};
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48024,7 +48056,7 @@
 	};
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48041,7 +48073,7 @@
 	};
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
