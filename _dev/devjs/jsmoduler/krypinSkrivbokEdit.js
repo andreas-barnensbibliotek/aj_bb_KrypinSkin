@@ -25,7 +25,8 @@ module.exports = {
     cacheDom: function () {
         this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
         this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
-        this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");       
+        this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
+        this.$bb_aj_skrivbokenForm_exempleImg = $(".skrivbokenExempleimg .bookitem-image img");
     },
     BindEvent: function (userid) {
         let that = this;
@@ -75,7 +76,7 @@ module.exports = {
 
                 helperobj.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), item.Category);
                 helperobj.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), item.Publish);
-
+                that.$bb_aj_skrivbokenForm_exempleImg.attr('src', helperobj.getimageHelper(item.Category));
                 tinymce.activeEditor.execCommand("mceInsertContent", false, item.Story);                
                 
             });

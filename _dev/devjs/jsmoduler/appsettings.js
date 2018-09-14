@@ -126,7 +126,12 @@ module.exports = {
         return {
             catimgbase: "/DesktopModules/bb_aj_Skrivboken_Krypin/images/",
             catimagesrc: [
-                 {
+                {
+                    "catid": "001",
+                    "catname": "Bild saknas",
+                    "imgsrc": "foto_saknas.jpg"
+                },
+                {
                      "catid": "0",
                      "catname": "&Ouml;vrigt",
                      "imgsrc": "skrivbok_default256_36.png"

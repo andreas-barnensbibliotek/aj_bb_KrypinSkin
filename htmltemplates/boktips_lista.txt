@@ -13,7 +13,7 @@
 				</div>
 				<a href="#" class="buttonitem_bokpost bb_aj_openInModal" data-id="{{TipID}}">
 					<div class="bookitem-image">
-					<img title="{{Title}}" src="{{ImgSrc}}" />
+					<img title="{{Title}}" src="{{#categoryUrlimg ImgSrc}}{{/categoryUrlimg}}" />
 					</div>
 					<div class="bookitem-info">
 						<h5 class="titel">{{Title}}</h5>

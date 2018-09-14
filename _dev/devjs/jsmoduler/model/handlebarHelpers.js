@@ -32,6 +32,18 @@ module.exports = {
             let retimg = "<img title=" + catimgobj.catname + " src=" + tmpimg + " />";
             return retimg;
         });
+
+        Handlebars.registerHelper('categoryUrlimg', function (imgsrc) {          
+
+            if (!imgsrc) {
+                let settingsobj = appsettingsobject.skrivbokimages;
+                let imglist = settingsobj.catimagesrc;
+                let catimgobj = _.find(imglist, function (o) { return o.catid == 001; });
+                imgsrc = settingsobj.catimgbase + catimgobj.imgsrc;
+            };
+            
+            return imgsrc
+        });
     }
 }
 

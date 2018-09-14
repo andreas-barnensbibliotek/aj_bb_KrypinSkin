@@ -46897,7 +46897,12 @@
 	        return {
 	            catimgbase: "/DesktopModules/bb_aj_Skrivboken_Krypin/images/",
 	            catimagesrc: [
-	                 {
+	                {
+	                    "catid": "001",
+	                    "catname": "Bild saknas",
+	                    "imgsrc": "foto_saknas.jpg"
+	                },
+	                {
 	                     "catid": "0",
 	                     "catname": "&Ouml;vrigt",
 	                     "imgsrc": "skrivbok_default256_36.png"
@@ -47037,6 +47042,18 @@
 	            let retimg = "<img title=" + catimgobj.catname + " src=" + tmpimg + " />";
 	            return retimg;
 	        });
+
+	        Handlebars.registerHelper('categoryUrlimg', function (imgsrc) {          
+
+	            if (!imgsrc) {
+	                let settingsobj = appsettingsobject.skrivbokimages;
+	                let imglist = settingsobj.catimagesrc;
+	                let catimgobj = _.find(imglist, function (o) { return o.catid == 001; });
+	                imgsrc = settingsobj.catimgbase + catimgobj.imgsrc;
+	            };
+	            
+	            return imgsrc
+	        });
 	    }
 	}
 
@@ -47055,7 +47072,8 @@
 	var bb_containerbehaviors = __webpack_require__(9);
 	var bb_API = __webpack_require__(10);
 	var bb_HB_Handler = __webpack_require__(11);
-	var formeditObj = __webpack_require__(17);
+	var helperobj = __webpack_require__(17);
+	var formeditObj = __webpack_require__(18);
 
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
@@ -47159,7 +47177,7 @@
 
 	        this.$bb_aj_MainKrypinSkinContainer.on('change', '#drpTypavBerattelse', function (e) {
 	            let valdcat = $(this).val();
-	            that.$bb_aj_Form_exempleImg.attr('src', formeditObj.getimageHelper(valdcat));
+	            that.$bb_aj_Form_exempleImg.attr('src', helperobj.getimageHelper(valdcat));
 	            return false;
 	        });
 
@@ -47515,10 +47533,44 @@
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	/* WEBPACK VAR INJECTION */(function(_) {var appsettingsobject = __webpack_require__(12);
+
+	module.exports = {
+	    init: function () {
+	    },
+	    HelpersetSelectedIndex: function (s, valsearch) {
+	        // Loop through all the items in drop down list
+	        for (i = 0; i < s.options.length; i++) {
+	            if (s.options[i].value == valsearch) {
+	                // Item is found. Set its property and exit
+	                s.options[i].selected = true;
+	                break;
+	            };
+	        };
+	        return;
+	    },
+	    getimageHelper: function (catid) {
+	        let settingsobj = appsettingsobject.skrivbokimages;
+	        let imglist = settingsobj.catimagesrc;
+
+	        let catimgobj = _.find(imglist, function (o) { return o.catid == catid; });
+	        if (!catimgobj) {
+	            catimgobj = _.find(imglist, function (o) { return o.catid == 0; });
+	        };
+	        return settingsobj.catimgbase + catimgobj.imgsrc;
+
+	    }
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	var $ = __webpack_require__(5);
 	var bb_API = __webpack_require__(10);
 	var bb_HB_Handler = __webpack_require__(11);
-	var helperobj = __webpack_require__(18);
+	var helperobj = __webpack_require__(17);
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
 	let _formObj = {
@@ -47542,7 +47594,8 @@
 	    cacheDom: function () {
 	        this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
 	        this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
-	        this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");       
+	        this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
+	        this.$bb_aj_skrivbokenForm_exempleImg = $(".skrivbokenExempleimg .bookitem-image img");
 	    },
 	    BindEvent: function (userid) {
 	        let that = this;
@@ -47592,7 +47645,7 @@
 
 	                helperobj.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), item.Category);
 	                helperobj.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), item.Publish);
-
+	                that.$bb_aj_skrivbokenForm_exempleImg.attr('src', helperobj.getimageHelper(item.Category));
 	                tinymce.activeEditor.execCommand("mceInsertContent", false, item.Story);                
 	                
 	            });
@@ -47653,40 +47706,6 @@
 
 
 
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(_) {var appsettingsobject = __webpack_require__(12);
-
-	module.exports = {
-	    init: function () {
-	    },
-	    HelpersetSelectedIndex: function (s, valsearch) {
-	        // Loop through all the items in drop down list
-	        for (i = 0; i < s.options.length; i++) {
-	            if (s.options[i].value == valsearch) {
-	                // Item is found. Set its property and exit
-	                s.options[i].selected = true;
-	                break;
-	            };
-	        };
-	        return;
-	    },
-	    getimageHelper: function (catid) {
-	        let settingsobj = appsettingsobject.skrivbokimages;
-	        let imglist = settingsobj.catimagesrc;
-
-	        let catimgobj = _.find(imglist, function (o) { return o.catid == catid; });
-	        if (!catimgobj) {
-	            catimgobj = _.find(imglist, function (o) { return o.catid == 0; });
-	        };
-	        return settingsobj.catimgbase + catimgobj.imgsrc;
-
-	    }
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 19 */
@@ -47862,7 +47881,7 @@
 	var $ = __webpack_require__(5);
 	var bb_API = __webpack_require__(10);
 	var bb_HB_Handler = __webpack_require__(11);
-	var helperobj = __webpack_require__(18);
+	var helperobj = __webpack_require__(17);
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
 	let _formObj = {

@@ -6,6 +6,7 @@ var bb_pagebehaviors = require("./app_modules/krypinPageBahavior.js");
 var bb_containerbehaviors = require("./app_modules/krypinContainerBehavior.js");
 var bb_API = require("./model/apiServiceHandler.js");
 var bb_HB_Handler = require("./model/handlebarTemplateHandler.js");
+var helperobj = require("./app_modules/krypinHelperFunctions.js");
 var formeditObj = require("./krypinSkrivbokEdit.js");
 
 var appsettingsobject = require("./appsettings.js");
@@ -110,7 +111,7 @@ module.exports = {
 
         this.$bb_aj_MainKrypinSkinContainer.on('change', '#drpTypavBerattelse', function (e) {
             let valdcat = $(this).val();
-            that.$bb_aj_Form_exempleImg.attr('src', formeditObj.getimageHelper(valdcat));
+            that.$bb_aj_Form_exempleImg.attr('src', helperobj.getimageHelper(valdcat));
             return false;
         });
 
