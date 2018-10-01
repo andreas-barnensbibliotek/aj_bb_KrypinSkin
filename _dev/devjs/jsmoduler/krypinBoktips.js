@@ -2,9 +2,12 @@
 var $ = require("jquery");
 var editorHandler = require("./jsExternal/tinymceEditorSettings.js");
 var modalobj = require("./jsExternal/modal_plugin.js");
+var PubSubHandler = require("./model/PubSubHandler.js");
+var autocompleteobj = require("./jsExternal/autocompleteModule.js");
 var bb_pagebehaviors = require("./app_modules/krypinPageBahavior.js");
 var bb_containerbehaviors = require("./app_modules/krypinContainerBehavior.js");
 var bb_API = require("./model/apiServiceHandler.js");
+var bb_requestObj = require("./model/urlRequestHandler.js");
 var bb_HB_Handler = require("./model/handlebarTemplateHandler.js");
 var formeditObj = require("./krypinBoktipsEdit.js");
 
@@ -12,18 +15,19 @@ var appsettingsobject = require("./appsettings.js");
 var appsettings = appsettingsobject.config;
 
 module.exports = {
-    init: function (userid) {
+    init: function (userid) {        
         let moduleName = 'Boktips'
-        
+        let reqObj = bb_requestObj.checkparamsinurl();
+        autocompleteobj.init('#txtboktipsTitle');
         modalobj.init();
-
-        formeditObj.init(userid);
+       
+        formeditObj.init(userid, reqObj.bookid);        
         bb_containerbehaviors.init(moduleName);
         bb_pagebehaviors.init(moduleName);
-
+       
         this.cacheDom();
         this.BindEvent(userid);
-        this.initbooklist(userid);      
+        this.initbooklist(userid,reqObj.bookid);      
     },
     cacheDom: function () {
         this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
@@ -39,6 +43,10 @@ module.exports = {
         let that = this;
 
         editorHandler.init();
+        
+        PubSubHandler.callEvents.on("updateImg", function (data) {
+            that.updboktipsbyBookID(data);
+        });
 
         this.$bb_aj_MainKrypinSkinContainer.on('click', '.bb_aj_closeModal', function (e) {
             modalobj.closeModal();
@@ -136,13 +144,19 @@ module.exports = {
     updboktipsEdiorbyID: function (tipid, userid) {
         formeditObj.updBoktipsEditor(tipid, userid);
     },
+    updboktipsbyBookID: function (bookid) {
+        formeditObj.updBoktipsEditorByBookid(bookid);
+    },
     formupdate: function (userid) {
         formeditObj.rensaEditform();
         this.initbooklist(userid)
     },
-    initbooklist: function (userid) {
+    initbooklist: function (userid, bookid) {
         let apiurl = appsettings.api.boktipslistor.getuserboktipslist;
         this.getboktipslist(apiurl(userid), userid);
+        if (bookid) {
+            formeditObj.updBoktipsEditorByBookid(bookid);
+        };
     },
     Render: function (apiurl, handlebartemplate, userid, ordername) {
         let that = this; //spara this

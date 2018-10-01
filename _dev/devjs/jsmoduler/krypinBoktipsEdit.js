@@ -22,7 +22,11 @@ let _formObj = {
 }
 
 module.exports = {
-    init: function (userid) {
+    init: function (userid, booktipID) {
+
+        if (booktipID) {
+
+        }
         this.cacheDom();              
     },
     cacheDom: function () {
@@ -48,19 +52,20 @@ module.exports = {
         bb_API.getjsondata(apiurl(tipid, userid), function (data) {
 
             $.each(data.Boktips, function (index, item) {
-                that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
-                that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
-                tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
+                that.HelperUpdateFormValues(item);
+                //that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
+                //that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
+                //tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
                                 
-                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
-                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
-                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
-                that.$bb_aj_boktipsFormMeta.attr('data-approved', item.Approved);
-                that.$bb_aj_boktipsFormMeta.attr('data-author', item.Author);
-                that.$bb_aj_boktipsFormMeta.attr('data-bookid', item.Bookid);
-                that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
-                that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
-                that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
+                //helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
+                //helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
+                //helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
+                //that.$bb_aj_boktipsFormMeta.attr('data-approved', item.Approved);
+                //that.$bb_aj_boktipsFormMeta.attr('data-author', item.Author);
+                //that.$bb_aj_boktipsFormMeta.attr('data-bookid', item.Bookid);
+                //that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
+                //that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
+                //that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
                
             });
         });
@@ -101,6 +106,17 @@ module.exports = {
             callback();
         });
     },
+    updBoktipsEditorByBookid: function (bookid) {
+        let that = this;
+        let apiurl = appsettings.api.boktipslistor.getbookContextByBookID;
+
+        //this.rensaEditform();
+        bb_API.getjsondata(apiurl(bookid), function (data) {
+            $.each(data.Boktips, function (index, item) {
+                that.HelperUpdateFormValues(item);               
+            });
+        });
+    },
     ApiPostHandler: function (apiurl, userid, callback) {
         let itmdata = this.HelpercollectFormValues(userid);
 
@@ -135,6 +151,23 @@ module.exports = {
         _formObj.TipID = this.$bb_aj_Form_cmdSend.attr("data-id");
         _formObj.ImgSrc = this.$bb_aj_boktipsForm_exempleImg.attr('src');
         return _formObj;
+    },
+    HelperUpdateFormValues: function (item) {
+        let that = this;
+        that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
+        that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
+        tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
+
+        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
+        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
+        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
+        that.$bb_aj_boktipsFormMeta.attr('data-approved', item.Approved);
+        that.$bb_aj_boktipsFormMeta.attr('data-author', item.Author);
+        that.$bb_aj_boktipsFormMeta.attr('data-bookid', item.Bookid);
+        that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
+        that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
+        that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
+        return item;
     }
 };
 

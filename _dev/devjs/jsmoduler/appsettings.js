@@ -14,6 +14,8 @@ module.exports = {
         let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
         let _hb_skrivbokModal_View_template = _dnnURL + _htmltemplateURL + "skrivbokModal_View.txt";
         let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
+        let _hb_bibblomonlist_template = _dnnURL + _htmltemplateURL + "Bibblomon_lista.txt";
+        let _hb_bibblomonItem_template = _dnnURL + _htmltemplateURL + "Bibblomon_Item.txt";
         //// api
         let _fn_userboklist = function (userid) {
             return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
@@ -64,6 +66,9 @@ module.exports = {
         let _fn_userBoktipsByTipID = function (tipid, userid) {
             return _apiserver + "/Api_v3.1/boktips/typ/ByTipId/val/" + tipid + "/txtval/0" + _apidevkeyend;
         };
+        let _fn_bookContextByBookID = function (bookid) {
+            return _apiserver + "/Api_v3.1/boktips/typ/ByBookId/val/" + bookid + "/txtval/0/" + _apidevkeyend;
+        };
         //API POST
         let _fn_addBoktipsItem = function () {
             return _apiserver + "/Api_v3.1/boktips/typ/addboktips/devkey/" + _devkey //+  _apidevkeyend;           
@@ -73,6 +78,15 @@ module.exports = {
         };
         let _fn_delBoktipsItem = function () {
             return _apiserver + "/Api_v3.1/boktips/typ/deleteboktips/devkey/" + _devkey //+ _apidevkeyend;
+        };
+        // autocompleteURL
+        let _fn_autocompleteURL = function (antal) {
+            return _apiserver + "/Api_v3.1/katalogen/cmdtyp/autocomplete/antal/"+ antal +"/devkey/" + _devkey +  "/?type=json";  
+           
+        };
+        // Bibblomon
+        let _fn_userBibblomonlist = function (userid) {
+            return _apiserver + "/Api_v3.1/bibblomon/cmdtyp/usrmon/uid/" + userid + "/monid/0/devkey/" + _devkey + "/?type=jsonp";            
         };
         
         return {
@@ -86,7 +100,9 @@ module.exports = {
                 hb_skrivbokenlist_tmp: _hb_skrivbokenlist_template,
                 hb_skrivbokModalView_tmp: _hb_skrivbokModal_View_template,
                 hb_boktipslist_tmp: _hb_Boktipslist_template,
-                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template
+                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template,
+                hb_bibblomonlist_tmp: _hb_bibblomonlist_template,
+                hb_bibblomonItem_tmp: _hb_bibblomonItem_template
             },
             api:{
                 boklistor:{
@@ -107,9 +123,17 @@ module.exports = {
                 boktipslistor: {
                     getuserboktipslist: _fn_userBoktipslist,
                     getuserboktipsByTipID: _fn_userBoktipsByTipID,
+                    getbookContextByBookID: _fn_bookContextByBookID,
                     addboktipsItem: _fn_addBoktipsItem,
                     editboktipsItem: _fn_editBoktipsItem,
                     delboktipsItem: _fn_delBoktipsItem
+                },
+                bibblomonlistor: {
+                    getuserbibblomonlist: _fn_userBibblomonlist
+                    
+                },
+                autocomplete: {
+                    geturl: _fn_autocompleteURL
                 },
                 devkeyend : _apidevkeyend
             },

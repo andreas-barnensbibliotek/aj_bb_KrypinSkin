@@ -12,6 +12,7 @@
 @import 'komponenter/_shop';
 @import 'komponenter/_installningar';
 @import 'komponenter/_jplist';
+@import 'komponenter/_auto_complete';
 /* Global krypinskin*/
 
 .kk_aj_conf{
@@ -35,7 +36,7 @@
 .item{
     height:auto!important;
     border-radius:10px;
-    display: flex;
+    __display: flex;
     align-items: top;
     justify-content: center;
     margin-left:.02rem!important;

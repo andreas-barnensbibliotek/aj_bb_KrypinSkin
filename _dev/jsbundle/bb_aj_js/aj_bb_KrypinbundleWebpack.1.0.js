@@ -79,11 +79,11 @@
 	var booklistpage = __webpack_require__(7);
 	var skrivbokenpage = __webpack_require__(14);
 	var boktipspage = __webpack_require__(19);
-	var scoreboardpage = __webpack_require__(21);
-	var bibblomonpage = __webpack_require__(22);
-	var inventorypage = __webpack_require__(23);
-	var shoppage = __webpack_require__(24);
-	var installningarpage = __webpack_require__(25);
+	var scoreboardpage = __webpack_require__(24);
+	var bibblomonpage = __webpack_require__(25);
+	var inventorypage = __webpack_require__(26);
+	var shoppage = __webpack_require__(27);
+	var installningarpage = __webpack_require__(28);
 	var appsettings = __webpack_require__(12);
 	var $ = __webpack_require__(5);
 
@@ -46785,6 +46785,8 @@
 	        let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
 	        let _hb_skrivbokModal_View_template = _dnnURL + _htmltemplateURL + "skrivbokModal_View.txt";
 	        let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
+	        let _hb_bibblomonlist_template = _dnnURL + _htmltemplateURL + "Bibblomon_lista.txt";
+	        let _hb_bibblomonItem_template = _dnnURL + _htmltemplateURL + "Bibblomon_Item.txt";
 	        //// api
 	        let _fn_userboklist = function (userid) {
 	            return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
@@ -46835,6 +46837,9 @@
 	        let _fn_userBoktipsByTipID = function (tipid, userid) {
 	            return _apiserver + "/Api_v3.1/boktips/typ/ByTipId/val/" + tipid + "/txtval/0" + _apidevkeyend;
 	        };
+	        let _fn_bookContextByBookID = function (bookid) {
+	            return _apiserver + "/Api_v3.1/boktips/typ/ByBookId/val/" + bookid + "/txtval/0/" + _apidevkeyend;
+	        };
 	        //API POST
 	        let _fn_addBoktipsItem = function () {
 	            return _apiserver + "/Api_v3.1/boktips/typ/addboktips/devkey/" + _devkey //+  _apidevkeyend;           
@@ -46844,6 +46849,15 @@
 	        };
 	        let _fn_delBoktipsItem = function () {
 	            return _apiserver + "/Api_v3.1/boktips/typ/deleteboktips/devkey/" + _devkey //+ _apidevkeyend;
+	        };
+	        // autocompleteURL
+	        let _fn_autocompleteURL = function (antal) {
+	            return _apiserver + "/Api_v3.1/katalogen/cmdtyp/autocomplete/antal/"+ antal +"/devkey/" + _devkey +  "/?type=json";  
+	           
+	        };
+	        // Bibblomon
+	        let _fn_userBibblomonlist = function (userid) {
+	            return _apiserver + "/Api_v3.1/bibblomon/cmdtyp/usrmon/uid/" + userid + "/monid/0/devkey/" + _devkey + "/?type=jsonp";            
 	        };
 	        
 	        return {
@@ -46857,7 +46871,9 @@
 	                hb_skrivbokenlist_tmp: _hb_skrivbokenlist_template,
 	                hb_skrivbokModalView_tmp: _hb_skrivbokModal_View_template,
 	                hb_boktipslist_tmp: _hb_Boktipslist_template,
-	                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template
+	                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template,
+	                hb_bibblomonlist_tmp: _hb_bibblomonlist_template,
+	                hb_bibblomonItem_tmp: _hb_bibblomonItem_template
 	            },
 	            api:{
 	                boklistor:{
@@ -46878,9 +46894,17 @@
 	                boktipslistor: {
 	                    getuserboktipslist: _fn_userBoktipslist,
 	                    getuserboktipsByTipID: _fn_userBoktipsByTipID,
+	                    getbookContextByBookID: _fn_bookContextByBookID,
 	                    addboktipsItem: _fn_addBoktipsItem,
 	                    editboktipsItem: _fn_editBoktipsItem,
 	                    delboktipsItem: _fn_delBoktipsItem
+	                },
+	                bibblomonlistor: {
+	                    getuserbibblomonlist: _fn_userBibblomonlist
+	                    
+	                },
+	                autocomplete: {
+	                    geturl: _fn_autocompleteURL
 	                },
 	                devkeyend : _apidevkeyend
 	            },
@@ -47011,6 +47035,7 @@
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
 	var appsettingsobject = __webpack_require__(12);
+	var appsettings = appsettingsobject.config;
 
 	module.exports = {
 	    init: function () {
@@ -47054,6 +47079,8 @@
 	            
 	            return imgsrc
 	        });
+
+	       
 	    }
 	}
 
@@ -47715,28 +47742,32 @@
 	var $ = __webpack_require__(5);
 	var editorHandler = __webpack_require__(15);
 	var modalobj = __webpack_require__(16);
+	var PubSubHandler = __webpack_require__(20);
+	var autocompleteobj = __webpack_require__(21);
 	var bb_pagebehaviors = __webpack_require__(6);
 	var bb_containerbehaviors = __webpack_require__(9);
 	var bb_API = __webpack_require__(10);
+	var bb_requestObj = __webpack_require__(22);
 	var bb_HB_Handler = __webpack_require__(11);
-	var formeditObj = __webpack_require__(20);
+	var formeditObj = __webpack_require__(23);
 
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
 
 	module.exports = {
-	    init: function (userid) {
+	    init: function (userid) {        
 	        let moduleName = 'Boktips'
-	        
+	        let reqObj = bb_requestObj.checkparamsinurl();
+	        autocompleteobj.init('#txtboktipsTitle');
 	        modalobj.init();
-
-	        formeditObj.init(userid);
+	       
+	        formeditObj.init(userid, reqObj.bookid);        
 	        bb_containerbehaviors.init(moduleName);
 	        bb_pagebehaviors.init(moduleName);
-
+	       
 	        this.cacheDom();
 	        this.BindEvent(userid);
-	        this.initbooklist(userid);      
+	        this.initbooklist(userid,reqObj.bookid);      
 	    },
 	    cacheDom: function () {
 	        this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
@@ -47752,6 +47783,10 @@
 	        let that = this;
 
 	        editorHandler.init();
+	        
+	        PubSubHandler.callEvents.on("updateImg", function (data) {
+	            that.updboktipsbyBookID(data);
+	        });
 
 	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.bb_aj_closeModal', function (e) {
 	            modalobj.closeModal();
@@ -47849,13 +47884,19 @@
 	    updboktipsEdiorbyID: function (tipid, userid) {
 	        formeditObj.updBoktipsEditor(tipid, userid);
 	    },
+	    updboktipsbyBookID: function (bookid) {
+	        formeditObj.updBoktipsEditorByBookid(bookid);
+	    },
 	    formupdate: function (userid) {
 	        formeditObj.rensaEditform();
 	        this.initbooklist(userid)
 	    },
-	    initbooklist: function (userid) {
+	    initbooklist: function (userid, bookid) {
 	        let apiurl = appsettings.api.boktipslistor.getuserboktipslist;
 	        this.getboktipslist(apiurl(userid), userid);
+	        if (bookid) {
+	            formeditObj.updBoktipsEditorByBookid(bookid);
+	        };
 	    },
 	    Render: function (apiurl, handlebartemplate, userid, ordername) {
 	        let that = this; //spara this
@@ -47876,6 +47917,152 @@
 
 /***/ }),
 /* 20 */
+/***/ (function(module, exports) {
+
+	//events - a super-basic Javascript (publish subscribe) pattern
+
+
+	module.exports = {
+	    callEvents: {
+	        events: {},
+	        on: function (eventName, fn) {
+	            this.events[eventName] = this.events[eventName] || [];
+	            this.events[eventName].push(fn);
+	        },
+	        off: function (eventName, fn) {
+	            if (this.events[eventName]) {
+	                for (var i = 0; i < this.events[eventName].length; i++) {
+	                    if (this.events[eventName][i] === fn) {
+	                        this.events[eventName].splice(i, 1);
+	                        break;
+	                    }
+	                };
+	            }
+	        },
+	        emit: function (eventName, data) {
+	            if (this.events[eventName]) {
+	                this.events[eventName].forEach(function (fn) {
+	                    fn(data);
+	                });
+	            }
+	        }
+	    }
+	};
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(5);
+	var PubSubHandler = __webpack_require__(20);
+	var appsettingsobject = __webpack_require__(12);
+	var appsettings = appsettingsobject.config;
+
+	module.exports = {
+	    init: function (ControlID) {
+	        var auto = new autoComplete({
+	            selector: ControlID,
+	            minChars: 2,
+	            source: function (term, response) {
+	                let url = appsettings.api.autocomplete.geturl;
+	                let test = url(10);
+	                let searchdata = { "Searchstr": term };
+	                $.ajax({
+	                    async: true,
+	                    type: "post",
+	                    dataType: 'json',
+	                    data:searchdata,
+	                    url: url(10),
+	                    success: function (data) {
+	                        let suggestions = [];
+
+	                        $.each(data.BookList, function (item, val) {
+	                            
+	                            suggestions.push([val.Title,val.Bookid]);
+	                            
+	                        });
+	                        
+	                        response(suggestions);
+	                    },
+	                    error: function (xhr, ajaxOptions, thrownError) {
+	                        alert("Nått blev fel vid hämtning av arrangemang!");
+	                    }
+	                })
+
+	            },
+	            renderItem: function (item, search){
+	                //search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+	                //var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+	                // return '<div class="autocomplete-suggestion" data-bookid="' + item[1] + '">' + item[0].replace(re, "<b>$1</b>") + '</div>';
+	                return '<div class="autocomplete-suggestion" data-bookid="' + item[1] + '">' + item[0] + '</div>';
+
+	            },
+	            onSelect: function (e, term, item) {
+
+	                // Kör Event: UpdateImg på alla som är subsciber på eventet
+	                PubSubHandler.callEvents.emit("updateImg", item.dataset.bookid);
+	               
+	                return false;
+	            }
+	        });
+	    },
+	    demo: function () {
+	        let demo = new autoComplete({
+	            selector: '#txtboktipsTitle',
+	            minChars: 1,
+	            source: function (term, suggest) {
+	                term = term.toLowerCase();
+	                var choices = ['ActionScript', 'AppleScript', 'Asp', 'Assembly', 'BASIC', 'Batch', 'C', 'C++', 'CSS', 'Clojure', 'COBOL', 'ColdFusion', 'Erlang', 'Fortran', 'Groovy', 'Haskell', 'HTML', 'Java', 'JavaScript', 'Lisp', 'Perl', 'PHP', 'PowerShell', 'Python', 'Ruby', 'Scala', 'Scheme', 'SQL', 'TeX', 'XML'];
+	                var suggestions = [];
+	                for (i = 0; i < choices.length; i++)
+	                    if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+	                suggest(suggestions);
+	            }
+	        });
+	    }
+	};
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+	//// ta hand om querystring parametrar och lagra dom i ett jsonobject urlparam.
+
+	module.exports = {
+	    checkparamsinurl: function (parmid) {
+	        let urlParams = {};
+	        let match,
+	            pl = /\+/g,  // Regex for replacing addition symbol with a space
+	            search = /([^&=]+)=?([^&]*)/g,
+	            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+	            query = window.location.search.substring(1);
+	               
+	        while (match = search.exec(query))
+	            urlParams[decode(match[1])] = decode(match[2]);
+
+	        if (!urlParams.tab) {
+	            let sPageURL = window.location.href.split('/');
+	            let index = sPageURL.indexOf("bookid");
+	            if (index > 0) {
+	                urlParams.bookid = sPageURL[index + 1];
+	            };
+	            index = sPageURL.indexOf("typ");
+	            if (index > 0) {
+	                urlParams.typ = sPageURL[index + 1];
+	            };
+	            //index = sPageURL.indexOf("id");
+	            //if (index > 0) {
+	            //    urlParams.arrid = sPageURL[index + 1];
+	            //};
+	            //console.log(urlParams.bookid);
+	            //console.log(urlParams.typ);
+	        }
+	        return urlParams;
+	    }
+	}
+
+/***/ }),
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(5);
@@ -47902,7 +48089,11 @@
 	}
 
 	module.exports = {
-	    init: function (userid) {
+	    init: function (userid, booktipID) {
+
+	        if (booktipID) {
+
+	        }
 	        this.cacheDom();              
 	    },
 	    cacheDom: function () {
@@ -47928,19 +48119,20 @@
 	        bb_API.getjsondata(apiurl(tipid, userid), function (data) {
 
 	            $.each(data.Boktips, function (index, item) {
-	                that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
-	                that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
-	                tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
+	                that.HelperUpdateFormValues(item);
+	                //that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
+	                //that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
+	                //tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
 	                                
-	                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
-	                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
-	                helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
-	                that.$bb_aj_boktipsFormMeta.attr('data-approved', item.Approved);
-	                that.$bb_aj_boktipsFormMeta.attr('data-author', item.Author);
-	                that.$bb_aj_boktipsFormMeta.attr('data-bookid', item.Bookid);
-	                that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
-	                that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
-	                that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
+	                //helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
+	                //helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
+	                //helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
+	                //that.$bb_aj_boktipsFormMeta.attr('data-approved', item.Approved);
+	                //that.$bb_aj_boktipsFormMeta.attr('data-author', item.Author);
+	                //that.$bb_aj_boktipsFormMeta.attr('data-bookid', item.Bookid);
+	                //that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
+	                //that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
+	                //that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
 	               
 	            });
 	        });
@@ -47981,6 +48173,17 @@
 	            callback();
 	        });
 	    },
+	    updBoktipsEditorByBookid: function (bookid) {
+	        let that = this;
+	        let apiurl = appsettings.api.boktipslistor.getbookContextByBookID;
+
+	        //this.rensaEditform();
+	        bb_API.getjsondata(apiurl(bookid), function (data) {
+	            $.each(data.Boktips, function (index, item) {
+	                that.HelperUpdateFormValues(item);               
+	            });
+	        });
+	    },
 	    ApiPostHandler: function (apiurl, userid, callback) {
 	        let itmdata = this.HelpercollectFormValues(userid);
 
@@ -48015,6 +48218,23 @@
 	        _formObj.TipID = this.$bb_aj_Form_cmdSend.attr("data-id");
 	        _formObj.ImgSrc = this.$bb_aj_boktipsForm_exempleImg.attr('src');
 	        return _formObj;
+	    },
+	    HelperUpdateFormValues: function (item) {
+	        let that = this;
+	        that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
+	        that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
+	        tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
+
+	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
+	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
+	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
+	        that.$bb_aj_boktipsFormMeta.attr('data-approved', item.Approved);
+	        that.$bb_aj_boktipsFormMeta.attr('data-author', item.Author);
+	        that.$bb_aj_boktipsFormMeta.attr('data-bookid', item.Bookid);
+	        that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
+	        that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
+	        that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
+	        return item;
 	    }
 	};
 
@@ -48022,7 +48242,7 @@
 
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48040,25 +48260,69 @@
 	};
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+	__webpack_require__(8);
 	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_containerbehaviors = __webpack_require__(9);
+	var PubSubHandler = __webpack_require__(20);
+	var bb_API = __webpack_require__(10);
+	var bb_HB_Handler = __webpack_require__(11);
+	var appsettingsobject = __webpack_require__(12);
+	var appsettings = appsettingsobject.config;
 
 	module.exports = {
-	    init: function (value) {        
+	    init: function (userid) {
 	        let moduleName = 'Bibblomon';
+	        bb_containerbehaviors.init(moduleName);
 	        bb_pagebehaviors.init(moduleName);
+	        this.cacheDom();
+	        this.BindEvent(userid);
+	        this.initbibblomonList(userid);
+	        
+	    },
+	    cacheDom: function () {
+	        this.$bb_bb_aj_MainScore = $('.bb_aj_MainScore');
+	        //this.$bb_aj_booklist_Mod = $('#bb_aj_booklist_Mod');
+	        //this.$bb_aj_addbooklist = $('#cmdNyBoklista');        
+	    },
+	    BindEvent: function (userid) {
+	        let that = this;
+	                
+	        PubSubHandler.callEvents.on("userScoreupdate", function (highscore) {
+	            that.$bb_bb_aj_MainScore.html(highscore + " xp");
+	        });
+	    },    
+	    
+	    getbibblomonList : function (apiurl, userid) {
+	        let handlebartemplate = appsettings.handlebartemplate.hb_bibblomonlist_tmp;
+	        this.Render(apiurl, handlebartemplate, userid);       
+	    },
+	    initbibblomonList: function (userid) {        
+	        let apiurl = appsettings.api.bibblomonlistor.getuserbibblomonlist;
+	        this.getbibblomonList(apiurl(userid), userid);
+	    },        
+	    Render: function (apiurl, handlebartemplate, userid) {
+	        let that = this; //spara this
 
-	        /////////////////////////////////////////////////////
-
-	    }
+	        bb_API.getjsondata(apiurl, function (data) {
+	            let d = data;
+	            // Kör Event: UpdateImg på alla som är subsciber på eventet
+	            PubSubHandler.callEvents.emit("userScoreupdate", data.Monvalue);
+	            bb_HB_Handler.injecthtmltemplate("#bb_aj_bibblomonlistMain", handlebartemplate, data, function () {
+	                jplist.init();
+	                
+	            });
+	        });
+	    }    
 	};
 
+
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48075,7 +48339,7 @@
 	};
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48092,7 +48356,7 @@
 	};
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);

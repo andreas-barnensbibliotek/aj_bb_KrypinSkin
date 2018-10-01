@@ -786,8 +786,13 @@ hr {
     /* line 14, _dev/devsass/komponenter/_krypinpageBase.scss */
     .ikonheaderBlock .booklistSetup img {
       margin-right: .1rem; }
+  /* line 18, _dev/devsass/komponenter/_krypinpageBase.scss */
+  .ikonheaderBlock .scoreBlock {
+    position: absolute;
+    right: 0px;
+    top: 0px; }
 
-/* line 20, _dev/devsass/komponenter/_krypinpageBase.scss */
+/* line 25, _dev/devsass/komponenter/_krypinpageBase.scss */
 .booklistSettings {
   display: -webkit-box;
   display: -webkit-flex;
@@ -798,7 +803,7 @@ hr {
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
-/* line 25, _dev/devsass/komponenter/_krypinpageBase.scss */
+/* line 30, _dev/devsass/komponenter/_krypinpageBase.scss */
 .bb_aj_CloseContainer {
   position: absolute;
   right: -6px;
@@ -1000,7 +1005,7 @@ hr {
   position: relative;
   margin-right: .5rem;
   margin-left: .5rem;
-  min-width: 160px;
+  __min-width: 160px;
   max-height: 280px;
   text-align: center;
   overflow: hidden;
@@ -1017,10 +1022,6 @@ hr {
     height: auto;
     overflow: hidden;
     width: 100% !important;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-align: top;
     -webkit-align-items: top;
         -ms-flex-align: top;
@@ -1031,11 +1032,7 @@ hr {
             justify-content: center; }
     /* line 23, _dev/devsass/komponenter/_bookItemBlock.scss */
     .bookitem-card .bookitem-image img, .bibblomon-card .bookitem-image img, .booklist-card .bookitem-image img, .badgeitem-card .bookitem-image img, .skrivbokenitem-card .bookitem-image img, .boktipsitem-card .bookitem-image img, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-image img, #bb_aj_shop_Mod .shopitem-card .bookitem-image img {
-      max-width: 150px;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
+      __max-width: 150px;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
           -ms-flex-pack: center;
@@ -1044,31 +1041,40 @@ hr {
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center; }
-  /* line 31, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 30, _dev/devsass/komponenter/_bookItemBlock.scss */
   .bookitem-card .bookitem-info, .bibblomon-card .bookitem-info, .booklist-card .bookitem-info, .badgeitem-card .bookitem-info, .skrivbokenitem-card .bookitem-info, .boktipsitem-card .bookitem-info, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-info, #bb_aj_shop_Mod .shopitem-card .bookitem-info {
     text-align: center;
     /*background-color:$white;*/ }
-  /* line 36, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 35, _dev/devsass/komponenter/_bookItemBlock.scss */
   .bookitem-card .bookitem-button, .bibblomon-card .bookitem-button, .booklist-card .bookitem-button, .badgeitem-card .bookitem-button, .skrivbokenitem-card .bookitem-button, .boktipsitem-card .bookitem-button, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-button, #bb_aj_shop_Mod .shopitem-card .bookitem-button {
     text-align: right;
     position: absolute;
     right: 0; }
-    /* line 40, _dev/devsass/komponenter/_bookItemBlock.scss */
+    /* line 39, _dev/devsass/komponenter/_bookItemBlock.scss */
     .bookitem-card .bookitem-button a, .bibblomon-card .bookitem-button a, .booklist-card .bookitem-button a, .badgeitem-card .bookitem-button a, .skrivbokenitem-card .bookitem-button a, .boktipsitem-card .bookitem-button a, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-button a, #bb_aj_shop_Mod .shopitem-card .bookitem-button a {
       float: left; }
 
-/* line 51, _dev/devsass/komponenter/_bookItemBlock.scss */
+/* line 50, _dev/devsass/komponenter/_bookItemBlock.scss */
 .bibblomon-card {
   background-color: #000000;
   -webkit-border-radius: 10px;
-          border-radius: 10px; }
-  /* line 58, _dev/devsass/komponenter/_bookItemBlock.scss */
+          border-radius: 10px;
+  padding-bottom: 2rem; }
+  /* line 57, _dev/devsass/komponenter/_bookItemBlock.scss */
   .bibblomon-card h1, .bibblomon-card h2, .bibblomon-card h3, .bibblomon-card h4, .bibblomon-card h5, .bibblomon-card h6 {
     color: #FFFFFF !important; }
-  /* line 61, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 60, _dev/devsass/komponenter/_bookItemBlock.scss */
   .bibblomon-card h3 {
     color: #e2974a !important; }
-  /* line 64, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 63, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card p {
+    color: #FFFFFF !important;
+    margin-bottom: 0px;
+    padding-bottom: 0px; }
+  /* line 69, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card ul li {
+    font-size: .8rem; }
+  /* line 73, _dev/devsass/komponenter/_bookItemBlock.scss */
   .bibblomon-card:hover {
     -webkit-transition: -webkit-transform .5s;
     transition: -webkit-transform .5s;
@@ -1080,10 +1086,13 @@ hr {
     -webkit-transition-delay: .3s;
             transition-delay: .3s;
     background-color: #000000 !important; }
-  /* line 72, _dev/devsass/komponenter/_bookItemBlock.scss */
-  .bibblomon-card img:hover {
-    border: 0px; }
-  /* line 76, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 80, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card img {
+    margin-top: .5rem; }
+    /* line 82, _dev/devsass/komponenter/_bookItemBlock.scss */
+    .bibblomon-card img:hover {
+      border: 0px; }
+  /* line 86, _dev/devsass/komponenter/_bookItemBlock.scss */
   .bibblomon-card .bookitem-info {
     border: 3px solid #000000;
     -webkit-border-bottom-left-radius: 10px;
@@ -1091,37 +1100,52 @@ hr {
     -webkit-border-bottom-right-radius: 10px;
             border-bottom-right-radius: 10px; }
 
-/* line 83, _dev/devsass/komponenter/_bookItemBlock.scss */
+/* line 93, _dev/devsass/komponenter/_bookItemBlock.scss */
 #bb_aj_cmdSetting_Booklist {
   display: none; }
 
-/* line 98, _dev/devsass/komponenter/_bookItemBlock.scss */
+/* line 99, _dev/devsass/komponenter/_bookItemBlock.scss */
+.booklist-card .bookitem-image img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+/* line 109, _dev/devsass/komponenter/_bookItemBlock.scss */
 .badgeitem-card {
   margin-right: 0rem;
   margin-left: 0rem;
-  min-width: 115px;
+  _min-width: 115px;
   max-width: 180px; }
 
-/* line 113, _dev/devsass/komponenter/_bookItemBlock.scss */
+/* line 124, _dev/devsass/komponenter/_bookItemBlock.scss */
 .skrivbokenitem-card .bookitem-image img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   max-width: 200px !important;
   max-height: 200px; }
 
-/* line 130, _dev/devsass/komponenter/_bookItemBlock.scss */
+/* line 142, _dev/devsass/komponenter/_bookItemBlock.scss */
 .boktipsitem-card .bookitem-image img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   max-width: 200px !important;
   max-height: 200px; }
 
-/* line 140, _dev/devsass/komponenter/_bookItemBlock.scss */
+/* line 153, _dev/devsass/komponenter/_bookItemBlock.scss */
 .hoverinfocontainer {
   position: relative; }
-  /* line 142, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 155, _dev/devsass/komponenter/_bookItemBlock.scss */
   .hoverinfocontainer:hover .image {
     opacity: 0.3; }
-  /* line 146, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 159, _dev/devsass/komponenter/_bookItemBlock.scss */
   .hoverinfocontainer:hover .iteminfoblock {
     opacity: 1; }
-  /* line 149, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 162, _dev/devsass/komponenter/_bookItemBlock.scss */
   .hoverinfocontainer .image {
     opacity: 1;
     display: block;
@@ -1131,7 +1155,7 @@ hr {
     transition: .5s ease;
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden; }
-  /* line 157, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 170, _dev/devsass/komponenter/_bookItemBlock.scss */
   .hoverinfocontainer .iteminfoblock {
     -webkit-transition: .5s ease;
     transition: .5s ease;
@@ -1145,7 +1169,7 @@ hr {
     text-align: left;
     width: 90%;
     height: 90%; }
-  /* line 169, _dev/devsass/komponenter/_bookItemBlock.scss */
+  /* line 182, _dev/devsass/komponenter/_bookItemBlock.scss */
   .hoverinfocontainer .iteminfocontent {
     background-color: black;
     color: orange;
@@ -1154,9 +1178,14 @@ hr {
     height: 100%;
     padding-left: .3rem;
     overflow-y: auto; }
-    /* line 177, _dev/devsass/komponenter/_bookItemBlock.scss */
+    /* line 190, _dev/devsass/komponenter/_bookItemBlock.scss */
     .hoverinfocontainer .iteminfocontent h1 {
       color: inherit; }
+    /* line 193, _dev/devsass/komponenter/_bookItemBlock.scss */
+    .hoverinfocontainer .iteminfocontent .bb_aj_gotoWiki {
+      color: #FFFFFF;
+      position: absolute;
+      bottom: 0px; }
 
 /* line 1, _dev/devsass/komponenter/_startpage.scss */
 h3 {
@@ -1677,34 +1706,68 @@ h3 {
 .jplist-slider.jplist-slider-vertical .jplist-slider-range {
   width: 100%;
   height: 0; }
+/* line 1, _dev/devsass/komponenter/_auto_complete.scss */
+.autocomplete-suggestions {
+  text-align: left;
+  cursor: default;
+  border: 1px solid #ccc;
+  border-top: 0;
+  background: #fff;
+  -webkit-box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.1);
+  /* core styles should not be changed */
+  position: absolute;
+  display: none;
+  z-index: 9999;
+  max-height: 254px;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+/* line 18, _dev/devsass/komponenter/_auto_complete.scss */
+.autocomplete-suggestion {
+  position: relative;
+  padding: 0 .6em;
+  line-height: 23px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.02em;
+  color: #333333; }
+  /* line 28, _dev/devsass/komponenter/_auto_complete.scss */
+  .autocomplete-suggestion b {
+    font-weight: normal;
+    color: #1f8dd6; }
+  /* line 32, _dev/devsass/komponenter/_auto_complete.scss */
+  .autocomplete-suggestion .selected {
+    background: #f0f0f0; }
+
 /* Global krypinskin*/
-/* line 17, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 18, _dev/devsass/kk_aj_PublicCSS.scss */
 .kk_aj_conf {
   display: none; }
 
-/* line 20, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 21, _dev/devsass/kk_aj_PublicCSS.scss */
 .aj_bb_KrypinSkin {
   padding-top: 2rem !important;
   padding-left: 0.5rem !important;
   padding-right: .5rem !important; }
-  /* line 27, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 28, _dev/devsass/kk_aj_PublicCSS.scss */
   .aj_bb_KrypinSkin hr {
     margin-top: 0px;
     background-color: #000; }
 
-/* line 33, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 34, _dev/devsass/kk_aj_PublicCSS.scss */
 .Grid-cell .dnnModuleManager {
   padding: 0px !important; }
 
-/* line 35, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 36, _dev/devsass/kk_aj_PublicCSS.scss */
 .item {
   height: auto !important;
   -webkit-border-radius: 10px;
           border-radius: 10px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  __display: flex;
   -webkit-box-align: top;
   -webkit-align-items: top;
       -ms-flex-align: top;
@@ -1716,17 +1779,17 @@ h3 {
   margin-left: 0.02rem !important;
   margin-right: .02rem !important;
   min-height: 300px !important; }
-  /* line 45, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 46, _dev/devsass/kk_aj_PublicCSS.scss */
   .item a {
     text-decoration: none !important; }
-  /* line 48, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 49, _dev/devsass/kk_aj_PublicCSS.scss */
   .item h5 {
     font-size: 1.1rem !important; }
-  /* line 51, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 52, _dev/devsass/kk_aj_PublicCSS.scss */
   .item img {
     max-height: 200px !important; }
 
-/* line 57, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 58, _dev/devsass/kk_aj_PublicCSS.scss */
 .loading {
   -webkit-animation: loading 1s linear infinite;
           animation: loading 1s linear infinite; }
@@ -1747,6 +1810,6 @@ h3 {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
-/* line 69, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 70, _dev/devsass/kk_aj_PublicCSS.scss */
 #mceu_17 {
   display: none; }

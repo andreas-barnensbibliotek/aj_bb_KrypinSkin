@@ -1,6 +1,7 @@
 ﻿var _ = require("lodash");
 var $ = require("jquery");
 var appsettingsobject = require("./../appsettings.js");
+var appsettings = appsettingsobject.config;
 
 module.exports = {
     init: function () {
@@ -44,6 +45,8 @@ module.exports = {
             
             return imgsrc
         });
+
+       
     }
 }
 
