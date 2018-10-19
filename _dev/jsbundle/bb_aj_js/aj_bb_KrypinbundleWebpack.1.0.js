@@ -80,10 +80,10 @@
 	var skrivbokenpage = __webpack_require__(14);
 	var boktipspage = __webpack_require__(19);
 	var scoreboardpage = __webpack_require__(24);
-	var bibblomonpage = __webpack_require__(25);
-	var inventorypage = __webpack_require__(26);
-	var shoppage = __webpack_require__(27);
-	var installningarpage = __webpack_require__(28);
+	var bibblomonpage = __webpack_require__(26);
+	var inventorypage = __webpack_require__(27);
+	var shoppage = __webpack_require__(28);
+	var installningarpage = __webpack_require__(29);
 	var appsettings = __webpack_require__(12);
 	var $ = __webpack_require__(5);
 
@@ -27708,7 +27708,8 @@
 	        this.initbooklist(userid);
 	       
 	    },
-	    cacheDom: function () {                     
+	    cacheDom: function () {
+	        this.$aj_bb_KrypinMainGrid = $('.bb_aj_krypincontainer');
 	        this.$bb_aj_booklistMain = $('#bb_aj_booklistMain');
 	        this.$bb_aj_booklist_Mod = $('#bb_aj_booklist_Mod');
 	        this.$bb_aj_addbooklist = $('#cmdNyBoklista');        
@@ -27795,6 +27796,7 @@
 	            return false;
 	        });
 
+	       
 	       
 	    },    
 	    Apiupdate: function (apiurl, userid) {
@@ -46774,6 +46776,8 @@
 	    config:  (function(){
 	        let _apiserver = "http://localhost:59015";
 	        let _dnnURL = "http://localdev.kivdev.se";
+	        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
+	        //let _dnnURL = "http://dev1.barnensbibliotek.se";
 	        let _devkey = "alf";
 	        let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
 	        let _localOrServerURL = "";
@@ -46787,6 +46791,11 @@
 	        let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
 	        let _hb_bibblomonlist_template = _dnnURL + _htmltemplateURL + "Bibblomon_lista.txt";
 	        let _hb_bibblomonItem_template = _dnnURL + _htmltemplateURL + "Bibblomon_Item.txt";
+
+	        let _hb_Skribokenbadges_template = _dnnURL + _htmltemplateURL + "badges_skrivboken_lista.txt";
+	        let _hb_Boktipsbadges_template = _dnnURL + _htmltemplateURL + "badges_boktips_lista.txt";
+	        let _hb_Specialbadges_template = _dnnURL + _htmltemplateURL + "badges_special_lista.txt";
+	        let _hb_Highscorebadges_template = _dnnURL + _htmltemplateURL + "badges_highscore_lista.txt";
 	        //// api
 	        let _fn_userboklist = function (userid) {
 	            return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
@@ -46859,7 +46868,10 @@
 	        let _fn_userBibblomonlist = function (userid) {
 	            return _apiserver + "/Api_v3.1/bibblomon/cmdtyp/usrmon/uid/" + userid + "/monid/0/devkey/" + _devkey + "/?type=jsonp";            
 	        };
-	        
+	        // Scoreboard/ badges
+	        let _fn_userBadgeslist = function (userid) {
+	            return _apiserver + "/Api_v3.1/award/cmdtyp/byuserid/uid/" + userid + "/ag/0/devkey/" + _devkey + "/?type=jsonp";            
+	        };
 	        return {
 	            apiserver: _apiserver,
 	            dnnURL: _dnnURL,
@@ -46873,7 +46885,13 @@
 	                hb_boktipslist_tmp: _hb_Boktipslist_template,
 	                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template,
 	                hb_bibblomonlist_tmp: _hb_bibblomonlist_template,
-	                hb_bibblomonItem_tmp: _hb_bibblomonItem_template
+	                hb_bibblomonItem_tmp: _hb_bibblomonItem_template,
+
+	                hb_skribokenbadges_tmp: _hb_Skribokenbadges_template,
+	                hb_boktipsbadges_tmp: _hb_Boktipsbadges_template,
+	                hb_specialbadges_tmp: _hb_Specialbadges_template,
+	                hb_highscorebadges_tmp: _hb_Highscorebadges_template
+	                 
 	            },
 	            api:{
 	                boklistor:{
@@ -46900,8 +46918,10 @@
 	                    delboktipsItem: _fn_delBoktipsItem
 	                },
 	                bibblomonlistor: {
-	                    getuserbibblomonlist: _fn_userBibblomonlist
-	                    
+	                    getuserbibblomonlist: _fn_userBibblomonlist                    
+	                },
+	                scoreboard: {
+	                    getuserbadgeslist:_fn_userBadgeslist
 	                },
 	                autocomplete: {
 	                    geturl: _fn_autocompleteURL
@@ -47160,7 +47180,8 @@
 	            let cmdtyp = $(this).attr("data-cmd");
 
 	            if (cmdtyp == "add") {
-	                if (confirm("Är du säker på att du vill lägga till texten?")) {                   
+	                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till texten?");
+	                if (confirm(msg)) {                   
 	                    formeditObj.addSkrivbokItem(userid, function () {
 	                        // rensa och uppdatera sidan
 	                        that.formupdate(userid);                        
@@ -47169,12 +47190,10 @@
 	            };
 
 	            if (cmdtyp == "edit") {
-	                if (confirm("Är du säker på att du vill ändra texten?")) {                 
-	                    formeditObj.editSkrivbokItem(userid, function () {
-	                        // rensa och uppdatera sidan
-	                        that.formupdate(userid);
-	                       
-	                    });                    
+	                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra texten?");
+	                if (confirm(msg)) {                       
+	                    formeditObj.updateSkrivbokItem(userid);
+	                    that.formupdate(userid);
 	                    // sätt sendbutton till default
 	                    that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
 	                    that.$bb_aj_Form_cmdSend.html("Spara"); 
@@ -47187,7 +47206,8 @@
 	        this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
 	            let skrivbokid = $(this).attr("data-id");
 
-	            if (confirm("Är du säker på att du vill tabort texten?")) {
+	            let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort texten?");
+	            if (confirm(msg)) { 
 	                formeditObj.deleteSkrivbokItem(skrivbokid, userid, function () {
 	                    that.formupdate(userid);                    
 	                });                
@@ -47220,7 +47240,7 @@
 	            formeditObj.rensaEditform();
 	            return false;
 	        });
-
+	       
 	    },    
 	    getskrivbooklist: function (apiurl, userid) {
 	        let handlebartemplate = appsettings.handlebartemplate.hb_skrivbokenlist_tmp;
@@ -47586,7 +47606,12 @@
 	        };
 	        return settingsobj.catimgbase + catimgobj.imgsrc;
 
-	    }
+	    },
+	    htmlencoderHelper: function (str) { // ändra html tex &auml; (ä) till text
+	        var textArea = document.createElement('textarea');
+	        textArea.innerHTML = str;
+	        return textArea.value;
+	    },
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
@@ -47615,43 +47640,14 @@
 
 	module.exports = {
 	    init: function (userid) {
-	        this.cacheDom();
-	        this.BindEvent(userid);
+	        this.cacheDom();        
 	    },
 	    cacheDom: function () {
 	        this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
 	        this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
 	        this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
 	        this.$bb_aj_skrivbokenForm_exempleImg = $(".skrivbokenExempleimg .bookitem-image img");
-	    },
-	    BindEvent: function (userid) {
-	        let that = this;
-
-	        this.$bb_aj_Form_cmdReset.on('click', function (e) {
-	            that.rensaEditform();
-	            return false;
-	        });
-
-	        this.$bb_aj_Form_cmdSend.on('click', function (e) {
-	            let cmdtyp = $(this).attr("data-cmd");
-
-	            if (cmdtyp == "add") {
-	                if (confirm("Är du säker på att du vill ")) {
-	                    that.addSkrivbokItem(userid);
-	                    that.rensaEditform();
-
-	                };
-	            };
-	            if (cmdtyp == "edit") {
-	                if (confirm("Är du säker på att du vill ")) {
-	                    that.editSkrivbokItem(userid);
-	                    that.rensaEditform();
-	                };
-	            };
-	                        
-	            return false;
-	        });
-	    },
+	    },   
 	    getskrivbookByIdForEdit: function (skrivbokid, userid) {
 	        let apiurl = appsettings.api.skrivbokenlistor.getuserskribokenByID;
 	        let handlebartemplate = appsettings.handlebartemplate.hb_skrivbokModalView_tmp;
@@ -47732,8 +47728,6 @@
 	};
 
 
-
-
 /***/ }),
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -47748,6 +47742,7 @@
 	var bb_containerbehaviors = __webpack_require__(9);
 	var bb_API = __webpack_require__(10);
 	var bb_requestObj = __webpack_require__(22);
+	var helperobj = __webpack_require__(17);
 	var bb_HB_Handler = __webpack_require__(11);
 	var formeditObj = __webpack_require__(23);
 
@@ -47813,7 +47808,8 @@
 	            let cmdtyp = $(this).attr("data-cmd");
 
 	            if (cmdtyp == "add") {
-	                if (confirm("Är du säker på att du vill lägga till texten?")) {
+	                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till boktipset?");
+	                if (confirm(msg)) {
 	                    formeditObj.addBoktipsItem(userid, function () {
 	                        // rensa och uppdatera sidan
 	                        that.formupdate(userid);
@@ -47822,25 +47818,27 @@
 	            };
 
 	            if (cmdtyp == "edit") {
-	                if (confirm("Är du säker på att du vill ändra texten?")) {
-	                    formeditObj.editBoktipsItem(userid, function () {
-	                        // rensa och uppdatera sidan
-	                        that.formupdate(userid);
-	                    });
-	                    // sätt sendbutton till default
-	                    that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
-	                    that.$bb_aj_boktipsForm_cmdSend.html("Spara");
+	                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra i boktipset?");
+	                if (confirm(msg)) {                    
+	                        formeditObj.editBoktipsItem(userid, function () {
+	                            // rensa och uppdatera sidan
+	                            that.formupdate(userid);
+	                        });
+	                        // sätt sendbutton till default
+	                        that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
+	                        that.$bb_aj_boktipsForm_cmdSend.html("Spara");
+	                    };
 	                };
-	            };
 
-	            return false;
+	                return false;
+	            
 	        });
 
 	        this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
 	            let tipid = $(this).attr("data-id");
-
-	            if (confirm("Är du säker på att du vill tabort boktipset?")) {
-	                formeditObj.deleteBoktipsItem(tipid, userid, function () {
+	            let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort boktipset?");
+	            if (confirm(msg)) { 
+	            formeditObj.deleteBoktipsItem(tipid, userid, function () {
 	                    that.formupdate(userid);
 	                });
 	            };
@@ -47870,6 +47868,12 @@
 	            $('.aj_bb_formBlock').toggle("slow");
 	            $(this).toggleClass("grader180");
 	            formeditObj.rensaEditform();
+	            return false;
+	        });
+	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.boktipslistshow', function (e) {
+	            
+	            $('.aj_bb_formBlock').toggle("slow");
+	            $(this).toggleClass("grader180");
 	            return false;
 	        });
 
@@ -48247,20 +48251,344 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
+
 	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_containerbehaviors = __webpack_require__(9);
+	var PubSubHandler = __webpack_require__(20);
+	var bb_API = __webpack_require__(10);
+	var bb_HB_Handler = __webpack_require__(11);
+	var bb_scoreboardHelper = __webpack_require__(25);
+	var appsettingsobject = __webpack_require__(12);
+	var appsettings = appsettingsobject.config;
 
 	module.exports = {
-	    init: function (value) {       
+	    init: function (userid) {       
 	        let moduleName = 'Scoreboard';
 	        bb_pagebehaviors.init(moduleName);
-
+	        this.cacheDom();
+	        this.BindEvent(userid);
+	        this.initBadges(userid);
 	        /////////////////////////////////////////////////////
 
+	    },
+	    cacheDom: function () {
+	        // badge main block
+	        this.$aj_bb_KrypinMainGrid = $('.aj_bb_KrypinMainGrid');
+	        // skrivboken badges fasta 6st        
+	        this.$bb_aj_skrivbokenbadgeblock = $('#bb_aj_skrivbokenbadgeblock');
+	        // boktips badges fasta 5st 
+	        this.$bb_aj_boktipsbadgeblock = $('#bb_aj_boktipsbadgeblock');
+	        // Lista på övriga badges dynamiskt antal 
+	        this.$bb_aj_specialbadgeblock = $('#bb_aj_specialbadgeblock');
+	        // lista med alla highscorebadges mindre i storlek
+	        this.$bb_aj_highscorebadgeblock = $('#bb_aj_highscorebadgeblock');
+	        // scorebox endast poäng boxen
+	        this.$bb_aj_scoreBox = $('.bb_aj_scoreBox');
+	    },
+	    BindEvent: function (userid) {
+	        let that = this;
+	    },
+	    initBadges: function (userid) {
+	        let apiurl = appsettings.api.scoreboard.getuserbadgeslist;
+	        let handlebartemplate = appsettings.handlebartemplate.hb_boktipslist_tmp;
+
+	        this.Render(apiurl(userid), handlebartemplate, userid);
+	        
+	    },   
+	    SkribokenbadgesBlock_upd: function (listdata) {
+	        let handlebartemplate = appsettings.handlebartemplate.hb_skribokenbadges_tmp;
+	        bb_HB_Handler.injecthtmltemplate("#bb_aj_skrivbokenbadgeblock", handlebartemplate, listdata, function () {
+	            console.log("skrivboken badges");
+	        });
+	    },
+	    BoktipsbadgesBlock_upd: function (listdata) {
+	        let handlebartemplate = appsettings.handlebartemplate.hb_boktipsbadges_tmp;
+	        bb_HB_Handler.injecthtmltemplate("#bb_aj_boktipsbadgeblock", handlebartemplate, listdata, function () {
+	            console.log("boktips badges");
+	        });
+	    },
+	    SpecialbadgesBlock_upd: function (listdata) {
+	        let handlebartemplate = appsettings.handlebartemplate.hb_specialbadges_tmp;
+	        bb_HB_Handler.injecthtmltemplate("#bb_aj_specialbadgeblock", handlebartemplate, listdata, function () {
+	            console.log("skrivboken badges");
+	        });
+	    },
+	    HighscorebadgesBlock_upd: function (listdata) {
+	        let handlebartemplate = appsettings.handlebartemplate.hb_highscorebadges_tmp;
+	        bb_HB_Handler.injecthtmltemplate("#bb_aj_highscorebadgeblock", handlebartemplate, listdata, function () {
+	            console.log("skrivboken badges");
+	        });
+	    },
+	    Render: function (apiurl, handlebartemplate, userid) {
+	        let that = this;
+	        bb_API.getjsondata(apiurl, function (data) {
+	            bb_scoreboardHelper.collectBadgeblock(data, function (badgesObj) {
+	                console.log("function collectbadges klar");
+	                that.SkribokenbadgesBlock_upd(badgesObj);
+	                that.BoktipsbadgesBlock_upd(badgesObj);
+	                that.SpecialbadgesBlock_upd(badgesObj);
+	                that.HighscorebadgesBlock_upd(badgesObj);                
+	            });            
+	        });
 	    }
 	};
 
+
+
 /***/ }),
 /* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var _ = __webpack_require__(3);
+	var $ = __webpack_require__(5);
+
+
+	module.exports = {   
+	    collectBadgeblock: function (data, callback) {
+	        let that = this;
+	        let retobj = badgeslistObj;
+	        $.each(data.Bokmarkelser, function (index, item) {
+
+	            switch (item.AwardGroup) {
+	                case 1:
+	                    retobj.skrivbokenlist = that.createskrivbokenlist(item);
+	                    break;
+	                case 2:
+	                    retobj.boktipslist = that.createboktipslist(item);
+	                    break;
+	                default:
+	                    if (item.Occures == 1) {
+	                        retobj.highscorelist.push(item);
+	                    } else {
+	                        retobj.specialbadgeslist.push(item);
+	                    };
+	                    break;
+	            };
+
+	        });
+	        callback(retobj);
+	    },
+	    createskrivbokenlist: function (skrivbokenobj) {
+	        let retobj = badgeslistObj
+	        let i =1;
+	        $.each(retobj.skrivbokenlist, function (index, item) {
+	            if (i < skrivbokenobj.UserLevel) {
+	                retobj.skrivbokenlist[index].Badgesrc = item.Badgesrc.substring(0, item.Badgesrc.length - 9) + ".png";
+	                retobj.skrivbokenlist[index].Beskrivning = "Du innehar: " + retobj.skrivbokentitel[index].titel + " Level " + i;
+	                retobj.skrivbokenlist[index].AwardName = retobj.skrivbokentitel[index].titel;
+	            }
+	            if (i == skrivbokenobj.UserLevel) {
+	                retobj.skrivbokenlist[index] = skrivbokenobj
+	            }
+	            i++;
+	        });
+	        return retobj.skrivbokenlist;
+	    },
+	    createboktipslist: function (boktipsobj) {
+	        let retobj = badgeslistObj
+	        let i = 1;
+	        $.each(retobj.boktipslist, function (index, item) {
+	            if (i < boktipsobj.UserLevel) {
+	                retobj.boktipslist[index].Badgesrc = item.Badgesrc.substring(0, item.Badgesrc.length - 9) + ".png";
+	                retobj.boktipslist[index].Beskrivning = "Du innehar: " + retobj.boktipstitel[index].titel + " Level " + i;
+	                retobj.boktipslist[index].AwardName = retobj.boktipstitel[index].titel;
+	            }
+	            if (i == boktipsobj.UserLevel) {
+	                retobj.boktipslist[index] = boktipsobj
+	            }
+	            i++;
+	        });
+	        
+	        return retobj.boktipslist;
+	    }
+	}
+
+
+	var badgeslistObj= (function () {
+	    return {
+	        skrivbokenlist: [{
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/Lv1_Berattar_grey.png",
+	                "Beskrivning":  decodeURIComponent(escape("ej uppnådd berättare Level 1")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/Lv2_Berattare_grey.png",
+	                "Beskrivning":  decodeURIComponent(escape("ej uppnådd berättare Level 2")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/Lv3_Skribent_grey.png",
+	                "Beskrivning":  decodeURIComponent(escape("ej uppnådd Level 3 Skribent")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/Lv4_Storskribent_grey.png",
+	                "Beskrivning":  decodeURIComponent(escape("ej uppnådd Level 4 Storskribent")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/Lv5_Forfattare_grey.png",
+	                "Beskrivning":  decodeURIComponent(escape("ej uppnådd Level 5 Författare")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/Lv6_Guldforfattare_grey.png",
+	                "Beskrivning":  decodeURIComponent(escape("ej uppnådd Level 6 Guldförfattare")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            }
+	        ],
+	        boktipslist: [{
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/btLv1_Boktipsar_grey.png",
+	                "Beskrivning":  decodeURIComponent(escape("ej uppnådd Level 1 Boktipsar")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/btLv2_Boktipsare_grey.png",
+	                "Beskrivning": decodeURIComponent(escape("ej uppnådd Level 2 Boktipsare")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/btLv3_Storboktipsare_grey.png",
+	                "Beskrivning": decodeURIComponent(escape("ej uppnådd Level 3 Storboktipsare")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/btLv4_Massboktipsare_grey.png",
+	                "Beskrivning": decodeURIComponent(escape("ej uppnådd Level 4 Massboktipsare")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            },
+	            {
+	                "Userid": "0",
+	                "Awardid": "0",
+	                "Counter": "0",
+	                "UserLevel": "0",
+	                "AwardName": "",
+	                "Badgesrc": "/Portals/0/bokmarkelser/btLv5_BoktokTipsare_grey.png",
+	                "Beskrivning": decodeURIComponent(escape("ej uppnådd Level 5 Boktoktipsare")),
+	                "Occures": "",
+	                "AwardGroup": "",
+	                "TolevelUp": "",
+	                "EarnFuncID": ""
+	            }
+	        ],
+	        specialbadgeslist: [],
+	        highscorelist: [],
+	        skrivbokentitel: [
+	            { "titel": decodeURIComponent(escape("Berättar")) },
+	            { "titel": decodeURIComponent(escape("Berättare")) },
+	            { "titel": decodeURIComponent(escape("Skribent")) },
+	            { "titel": decodeURIComponent(escape("Storskribent")) },
+	            { "titel": decodeURIComponent(escape("Författare")) },
+	            { "titel": decodeURIComponent(escape("Guldförfattare")) },
+	        ],
+	        boktipstitel: [
+	            { "titel": "Boktipsar" },
+	            { "titel": "Boktipsare" },
+	            { "titel": "Storboktipsare" },
+	            { "titel": "MassBoktipsare" },
+	            { "titel": "BoktokTipsare" }
+	        ]
+	    };
+	})();
+
+	// använd alltid decodeURIComponent(escape(sträng)) för att koda om åäö 
+	// highscorelist: [{
+	//"Userid": "",
+	//"Awardid": "",
+	//"Counter": "",
+	//"UserLevel": "",
+	//"AwardName": "",
+	//"Badgesrc": "",
+	//"Beskrivning": "",
+	//"Occures": "",
+	//"AwardGroup": "",
+	//"TolevelUp": "",
+	//"EarnFuncID": ""
+	//}]
+
+
+/***/ }),
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48322,7 +48650,7 @@
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48339,7 +48667,7 @@
 	};
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
@@ -48356,7 +48684,7 @@
 	};
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);

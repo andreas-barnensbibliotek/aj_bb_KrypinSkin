@@ -5,7 +5,7 @@
 {{#each Boktips}}	
 						
 	<!-- bookitem start -->              
-		<div class="item col-xs-4 col-lg-4">
+		<div class="item ">
 			<div class="boktipsitem-card dragdrop" >
 				<div class="bookitem-button">
 					<a href="#1" title="Ändra i texten" class="buttonitem_edit" data-id="{{TipID}}" ><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_edit-24.png" /></a>

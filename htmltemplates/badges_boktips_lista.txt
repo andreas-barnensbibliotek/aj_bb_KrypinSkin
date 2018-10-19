@@ -1,0 +1,17 @@
+﻿{{#each boktipslist}}	
+	<!-- badgeitem start -->
+	<div class="col-6 col-sm-4 col-md-2" >                             
+		<div class="badgeitem-card" data-awardid="{{Awardid}}>  
+			<div class="bookitem-button">
+				<h2></h2>
+			</div>                                  
+			<div class="bookitem-image">				
+				<img src="{{Badgesrc}}" title="{{Beskrivning}}" alt="{{Beskrivning}}" />                                        
+			</div>
+			<div class="bookitem-info">
+				<h5>{{AwardName}}</h5>                                      
+			</div>                                                                        
+		</div>   
+	</div>
+	<!-- badgeitem slut-->			
+{{/each}}	 			

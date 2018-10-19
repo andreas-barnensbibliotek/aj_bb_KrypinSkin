@@ -67,7 +67,8 @@ module.exports = {
             let cmdtyp = $(this).attr("data-cmd");
 
             if (cmdtyp == "add") {
-                if (confirm("Är du säker på att du vill lägga till texten?")) {                   
+                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till texten?");
+                if (confirm(msg)) {                   
                     formeditObj.addSkrivbokItem(userid, function () {
                         // rensa och uppdatera sidan
                         that.formupdate(userid);                        
@@ -76,12 +77,10 @@ module.exports = {
             };
 
             if (cmdtyp == "edit") {
-                if (confirm("Är du säker på att du vill ändra texten?")) {                 
-                    formeditObj.editSkrivbokItem(userid, function () {
-                        // rensa och uppdatera sidan
-                        that.formupdate(userid);
-                       
-                    });                    
+                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra texten?");
+                if (confirm(msg)) {                       
+                    formeditObj.updateSkrivbokItem(userid);
+                    that.formupdate(userid);
                     // sätt sendbutton till default
                     that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
                     that.$bb_aj_Form_cmdSend.html("Spara"); 
@@ -94,7 +93,8 @@ module.exports = {
         this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
             let skrivbokid = $(this).attr("data-id");
 
-            if (confirm("Är du säker på att du vill tabort texten?")) {
+            let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort texten?");
+            if (confirm(msg)) { 
                 formeditObj.deleteSkrivbokItem(skrivbokid, userid, function () {
                     that.formupdate(userid);                    
                 });                
@@ -127,7 +127,7 @@ module.exports = {
             formeditObj.rensaEditform();
             return false;
         });
-
+       
     },    
     getskrivbooklist: function (apiurl, userid) {
         let handlebartemplate = appsettings.handlebartemplate.hb_skrivbokenlist_tmp;

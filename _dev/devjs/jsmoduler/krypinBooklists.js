@@ -20,7 +20,8 @@ module.exports = {
         this.initbooklist(userid);
        
     },
-    cacheDom: function () {                     
+    cacheDom: function () {
+        this.$aj_bb_KrypinMainGrid = $('.bb_aj_krypincontainer');
         this.$bb_aj_booklistMain = $('#bb_aj_booklistMain');
         this.$bb_aj_booklist_Mod = $('#bb_aj_booklist_Mod');
         this.$bb_aj_addbooklist = $('#cmdNyBoklista');        
@@ -107,6 +108,7 @@ module.exports = {
             return false;
         });
 
+       
        
     },    
     Apiupdate: function (apiurl, userid) {

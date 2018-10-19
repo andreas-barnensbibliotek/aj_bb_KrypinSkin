@@ -24,5 +24,10 @@ module.exports = {
         };
         return settingsobj.catimgbase + catimgobj.imgsrc;
 
-    }
+    },
+    htmlencoderHelper: function (str) { // ändra html tex &auml; (ä) till text
+        var textArea = document.createElement('textarea');
+        textArea.innerHTML = str;
+        return textArea.value;
+    },
 }

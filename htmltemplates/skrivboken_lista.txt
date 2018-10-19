@@ -8,7 +8,7 @@
 {{#each SkrivbokenList}}	
 						
 	<!-- bookitem start -->              
-		<div class="item col-xs-4 col-lg-4" data-jplist-item>
+		<div class="item" data-jplist-item>
 			<div class="skrivbokenitem-card dragdrop" >
 				<div class="bookitem-button">
 					<a href="#1" title="Ändra i texten" class="buttonitem_edit" data-id="{{SkrivID}}" ><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_edit-24.png" /></a>

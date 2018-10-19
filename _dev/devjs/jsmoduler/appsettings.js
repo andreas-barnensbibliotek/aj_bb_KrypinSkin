@@ -3,6 +3,8 @@ module.exports = {
     config:  (function(){
         let _apiserver = "http://localhost:59015";
         let _dnnURL = "http://localdev.kivdev.se";
+        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
+        //let _dnnURL = "http://dev1.barnensbibliotek.se";
         let _devkey = "alf";
         let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
         let _localOrServerURL = "";
@@ -16,6 +18,11 @@ module.exports = {
         let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
         let _hb_bibblomonlist_template = _dnnURL + _htmltemplateURL + "Bibblomon_lista.txt";
         let _hb_bibblomonItem_template = _dnnURL + _htmltemplateURL + "Bibblomon_Item.txt";
+
+        let _hb_Skribokenbadges_template = _dnnURL + _htmltemplateURL + "badges_skrivboken_lista.txt";
+        let _hb_Boktipsbadges_template = _dnnURL + _htmltemplateURL + "badges_boktips_lista.txt";
+        let _hb_Specialbadges_template = _dnnURL + _htmltemplateURL + "badges_special_lista.txt";
+        let _hb_Highscorebadges_template = _dnnURL + _htmltemplateURL + "badges_highscore_lista.txt";
         //// api
         let _fn_userboklist = function (userid) {
             return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
@@ -88,7 +95,10 @@ module.exports = {
         let _fn_userBibblomonlist = function (userid) {
             return _apiserver + "/Api_v3.1/bibblomon/cmdtyp/usrmon/uid/" + userid + "/monid/0/devkey/" + _devkey + "/?type=jsonp";            
         };
-        
+        // Scoreboard/ badges
+        let _fn_userBadgeslist = function (userid) {
+            return _apiserver + "/Api_v3.1/award/cmdtyp/byuserid/uid/" + userid + "/ag/0/devkey/" + _devkey + "/?type=jsonp";            
+        };
         return {
             apiserver: _apiserver,
             dnnURL: _dnnURL,
@@ -102,7 +112,13 @@ module.exports = {
                 hb_boktipslist_tmp: _hb_Boktipslist_template,
                 hb_boktipsModalView_tmp: _hb_boktipsModal_View_template,
                 hb_bibblomonlist_tmp: _hb_bibblomonlist_template,
-                hb_bibblomonItem_tmp: _hb_bibblomonItem_template
+                hb_bibblomonItem_tmp: _hb_bibblomonItem_template,
+
+                hb_skribokenbadges_tmp: _hb_Skribokenbadges_template,
+                hb_boktipsbadges_tmp: _hb_Boktipsbadges_template,
+                hb_specialbadges_tmp: _hb_Specialbadges_template,
+                hb_highscorebadges_tmp: _hb_Highscorebadges_template
+                 
             },
             api:{
                 boklistor:{
@@ -129,8 +145,10 @@ module.exports = {
                     delboktipsItem: _fn_delBoktipsItem
                 },
                 bibblomonlistor: {
-                    getuserbibblomonlist: _fn_userBibblomonlist
-                    
+                    getuserbibblomonlist: _fn_userBibblomonlist                    
+                },
+                scoreboard: {
+                    getuserbadgeslist:_fn_userBadgeslist
                 },
                 autocomplete: {
                     geturl: _fn_autocompleteURL

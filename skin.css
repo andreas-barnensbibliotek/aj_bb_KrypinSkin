@@ -8,5 +8,7 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 
 
 @import url('https://fonts.googleapis.com/css?family=Hind+Siliguri|Questrial|Roboto');
+@import url(public/css/bootstrap-grid.css);
 @import url(public/css/kk_aj_PublicCSS.css);
+
 

@@ -1,7 +1,8 @@
 ﻿
  /* item baseblock för alla listitems*/
 .bookitem-card{
-    position:relative;    
+    position:relative; 
+    //display:flex;   
     margin-right:.5rem;
     margin-left:.5rem;
     __min-width:160px;
@@ -108,6 +109,7 @@
 
 .badgeitem-card{
     @extend .bookitem-card;
+    margin-bottom:1rem;
     margin-right:0rem;
     margin-left:0rem;
     _min-width:115px;

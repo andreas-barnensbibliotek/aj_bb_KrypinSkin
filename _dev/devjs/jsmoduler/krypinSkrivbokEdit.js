@@ -19,43 +19,14 @@ let _formObj = {
 
 module.exports = {
     init: function (userid) {
-        this.cacheDom();
-        this.BindEvent(userid);
+        this.cacheDom();        
     },
     cacheDom: function () {
         this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
         this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
         this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
         this.$bb_aj_skrivbokenForm_exempleImg = $(".skrivbokenExempleimg .bookitem-image img");
-    },
-    BindEvent: function (userid) {
-        let that = this;
-
-        this.$bb_aj_Form_cmdReset.on('click', function (e) {
-            that.rensaEditform();
-            return false;
-        });
-
-        this.$bb_aj_Form_cmdSend.on('click', function (e) {
-            let cmdtyp = $(this).attr("data-cmd");
-
-            if (cmdtyp == "add") {
-                if (confirm("Är du säker på att du vill ")) {
-                    that.addSkrivbokItem(userid);
-                    that.rensaEditform();
-
-                };
-            };
-            if (cmdtyp == "edit") {
-                if (confirm("Är du säker på att du vill ")) {
-                    that.editSkrivbokItem(userid);
-                    that.rensaEditform();
-                };
-            };
-                        
-            return false;
-        });
-    },
+    },   
     getskrivbookByIdForEdit: function (skrivbokid, userid) {
         let apiurl = appsettings.api.skrivbokenlistor.getuserskribokenByID;
         let handlebartemplate = appsettings.handlebartemplate.hb_skrivbokModalView_tmp;
@@ -134,5 +105,3 @@ module.exports = {
         return _formObj;
     }
 };
-
-

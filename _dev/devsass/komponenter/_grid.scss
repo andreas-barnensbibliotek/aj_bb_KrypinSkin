@@ -318,10 +318,11 @@ $gutter: 1em;
     flex: 0 0 30%;
   }
   .Grid--1of4 > .Grid-cell:first-of-type {
-    flex: 0 0 50%;
+    
+     flex: 0 0 25%;
   }
   .Grid--1of3 > .Grid-cell:first-of-type {
-    flex: 0 0 100%;
+    flex: 0 0 66.6666%;
   }
   .Grid--2of3 > .Grid-cell:first-of-type {
     flex: 0 0 75%;
