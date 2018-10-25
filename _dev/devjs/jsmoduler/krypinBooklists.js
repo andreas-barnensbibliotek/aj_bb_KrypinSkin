@@ -7,6 +7,7 @@ var bb_API = require("./model/apiServiceHandler.js");
 var bb_HB_Handler = require("./model/handlebarTemplateHandler.js");
 var appsettingsobject = require("./appsettings.js");
 var appsettings = appsettingsobject.config;
+var globalmessages = appsettingsobject.usermessages;
 const _myboolistID = "1000000000";
 
 module.exports = {
@@ -29,8 +30,8 @@ module.exports = {
     BindEvent: function (userid) {
         let that = this;
 
-        this.$bb_aj_booklistMain.on('click', '#bb_aj_cmdAdd_Booklist', function (e) { alert('#bb_aj_cmdAdd_Booklist') });
-        this.$bb_aj_booklistMain.on('click', '.buttonitem_booktip', function (e) { alert('.buttonitem_booktip') });
+        this.$bb_aj_booklistMain.on('click', '#bb_aj_cmdAdd_Booklist', function (e) { return true; });
+        this.$bb_aj_booklistMain.on('click', '.buttonitem_booktip', function (e) { return true; });
         
        
         this.$bb_aj_booklist_Mod.on('click', '#cmdAvbryt', function (e) {
@@ -48,11 +49,11 @@ module.exports = {
             let boklistanamnElement =$("#txtBoklistanamn");
             let boklistanamn = boklistanamnElement.val();
             if (!boklistanamn) {
-                alert("Du måste skriva något!");
+                alert(globalmessages.boklist.confirmAlert);
                 boklistanamnElement.focus();
                 return false;
             };
-            let result = confirm("Vill du lägga till denna boklista?");
+            let result = confirm(globalmessages.boklist.confirmADD);
             if (result) {                             
                     that.addBooklist(boklistanamn, userid);                    
             };            
@@ -61,7 +62,7 @@ module.exports = {
         this.$bb_aj_booklistMain.on('click', '.bb_aj_booklistDelete', function (e) {
             let booklistid = $(this).attr("data-bookistid");
             if (!isBooklistMybooks(booklistid)) { // mina böcker går inte att tabort
-                let result = confirm("Vill du ta bort boklistan?");
+                let result = confirm(globalmessages.boklist.confirmDel);
                 if (result) {
                     that.delBooklist(booklistid, userid);
                 };
@@ -83,7 +84,7 @@ module.exports = {
             let textnyttnamn = $(this).siblings(".editBoklistanamn").val();
             
             if (!isBooklistMybooks(booklistid)) { // mina böcker går inte att tabort
-                let result = confirm("Vill du byta namn?");
+                let result = confirm(globalmessages.boklist.confirmEdit);
                 if (result) {
                     if (textnyttnamn && booklistid) {
                         that.editBooklist(booklistid, textnyttnamn, userid);
@@ -91,8 +92,7 @@ module.exports = {
                         $('.bb_aj_editbooklistnamnBlock' + booklistid).hide();
                     };
                 };
-            };
-                        
+            };                        
             return false;
         });
 
@@ -108,8 +108,6 @@ module.exports = {
             return false;
         });
 
-       
-       
     },    
     Apiupdate: function (apiurl, userid) {
         let that = this; //spara this

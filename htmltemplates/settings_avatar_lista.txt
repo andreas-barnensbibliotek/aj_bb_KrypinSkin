@@ -1,0 +1,10 @@
+﻿<!-- Avatar Gallery -->
+{{#each SettingOptionList}}
+
+<li>
+    <a href="#" class="bk_aj_setup_avatar_item" data-avataritm="{{SettingsID}}">
+        <img src="/DesktopModules/AJBarnensKrypin/webbilds/{{SettingSrc}}" alt="{{SettingName}} ">
+    </a>        
+</li>
+
+{{/each}}

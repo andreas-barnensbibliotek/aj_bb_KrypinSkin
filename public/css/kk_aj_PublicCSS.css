@@ -29,90 +29,90 @@
 
 /*Tema med grönt*/
 /* line 31, _dev/devsass/komponenter/_colortemplate.scss */
-.aj_bb_greenbg {
+.aj_bb_skin_greenbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg") !important; }
   /* line 38, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_greenbg .bb_aj_gridItem {
+  .aj_bb_skin_greenbg .bb_aj_gridItem {
     background-color: #fdf28b; }
   /* line 43, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_greenbg .item:hover {
+  .aj_bb_skin_greenbg .item:hover {
     background-color: #c1df89; }
   /* line 47, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_greenbg .bb_aj_valdBG {
+  .aj_bb_skin_greenbg .bb_aj_valdBG {
     background-color: #c1df89; }
   /* line 51, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_greenbg .bookitem-card:hover, .aj_bb_greenbg .bibblomon-card:hover, .aj_bb_greenbg .booklist-card:hover, .aj_bb_greenbg .badgeitem-card:hover, .aj_bb_greenbg .skrivbokenitem-card:hover, .aj_bb_greenbg .boktipsitem-card:hover, .aj_bb_greenbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_greenbg .inventoryitem-card:hover, .aj_bb_greenbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_greenbg .shopitem-card:hover {
+  .aj_bb_skin_greenbg .bookitem-card:hover, .aj_bb_skin_greenbg .bibblomon-card:hover, .aj_bb_skin_greenbg .booklist-card:hover, .aj_bb_skin_greenbg .badgeitem-card:hover, .aj_bb_skin_greenbg .skrivbokenitem-card:hover, .aj_bb_skin_greenbg .boktipsitem-card:hover, .aj_bb_skin_greenbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_greenbg .inventoryitem-card:hover, .aj_bb_skin_greenbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_greenbg .shopitem-card:hover {
     background-color: #c1df89; }
 
 /*Tema med brunt*/
 /* line 60, _dev/devsass/komponenter/_colortemplate.scss */
-.aj_bb_brownbg {
+.aj_bb_skin_brownbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/brunblomma.jpg") !important; }
   /* line 62, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_brownbg .aj_bb_krypinNavBlock {
+  .aj_bb_skin_brownbg .aj_bb_krypinNavBlock {
     background-color: #BCA575; }
   /* line 65, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_brownbg .bb_aj_gridItem {
+  .aj_bb_skin_brownbg .bb_aj_gridItem {
     background-color: #BCA575; }
   /* line 71, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_brownbg #aj_bb_krypinNav li:hover {
+  .aj_bb_skin_brownbg #aj_bb_krypinNav li:hover {
     background-color: #62533B; }
   /* line 77, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_brownbg .bookitem-card:hover, .aj_bb_brownbg .bibblomon-card:hover, .aj_bb_brownbg .booklist-card:hover, .aj_bb_brownbg .badgeitem-card:hover, .aj_bb_brownbg .skrivbokenitem-card:hover, .aj_bb_brownbg .boktipsitem-card:hover, .aj_bb_brownbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_brownbg .inventoryitem-card:hover, .aj_bb_brownbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_brownbg .shopitem-card:hover {
+  .aj_bb_skin_brownbg .bookitem-card:hover, .aj_bb_skin_brownbg .bibblomon-card:hover, .aj_bb_skin_brownbg .booklist-card:hover, .aj_bb_skin_brownbg .badgeitem-card:hover, .aj_bb_skin_brownbg .skrivbokenitem-card:hover, .aj_bb_skin_brownbg .boktipsitem-card:hover, .aj_bb_skin_brownbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_brownbg .inventoryitem-card:hover, .aj_bb_skin_brownbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_brownbg .shopitem-card:hover {
     background-color: #62533B; }
 
 /*Tema med Blå*/
 /* line 86, _dev/devsass/komponenter/_colortemplate.scss */
-.aj_bb_bluebg {
+.aj_bb_skin_bluebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/BlueFlowers_light.jpg") !important; }
   /* line 88, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_bluebg .aj_bb_krypinNavBlock {
+  .aj_bb_skin_bluebg .aj_bb_krypinNavBlock {
     background-color: #C3ECF3 !important; }
   /* line 91, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_bluebg .bb_aj_gridItem {
+  .aj_bb_skin_bluebg .bb_aj_gridItem {
     background-color: #C3ECF3; }
   /* line 96, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_bluebg #aj_bb_krypinNav li:hover {
+  .aj_bb_skin_bluebg #aj_bb_krypinNav li:hover {
     background-color: #C3ECF3; }
   /* line 102, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_bluebg .bookitem-card:hover, .aj_bb_bluebg .bibblomon-card:hover, .aj_bb_bluebg .booklist-card:hover, .aj_bb_bluebg .badgeitem-card:hover, .aj_bb_bluebg .skrivbokenitem-card:hover, .aj_bb_bluebg .boktipsitem-card:hover, .aj_bb_bluebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_bluebg .inventoryitem-card:hover, .aj_bb_bluebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_bluebg .shopitem-card:hover {
+  .aj_bb_skin_bluebg .bookitem-card:hover, .aj_bb_skin_bluebg .bibblomon-card:hover, .aj_bb_skin_bluebg .booklist-card:hover, .aj_bb_skin_bluebg .badgeitem-card:hover, .aj_bb_skin_bluebg .skrivbokenitem-card:hover, .aj_bb_skin_bluebg .boktipsitem-card:hover, .aj_bb_skin_bluebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_bluebg .inventoryitem-card:hover, .aj_bb_skin_bluebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_bluebg .shopitem-card:hover {
     background-color: #C3ECF3; }
 
 /*Tema med svart*/
 /* line 111, _dev/devsass/komponenter/_colortemplate.scss */
-.aj_bb_blackbg {
+.aj_bb_skin_blackbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg") !important; }
   /* line 113, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_blackbg h1, .aj_bb_blackbg h2, .aj_bb_blackbg h3, .aj_bb_blackbg h4, .aj_bb_blackbg h5, .aj_bb_blackbg p {
+  .aj_bb_skin_blackbg h1, .aj_bb_skin_blackbg h2, .aj_bb_skin_blackbg h3, .aj_bb_skin_blackbg h4, .aj_bb_skin_blackbg h5, .aj_bb_skin_blackbg p {
     color: #fff !important; }
   /* line 117, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_blackbg .aj_bb_krypinNavBlock {
+  .aj_bb_skin_blackbg .aj_bb_krypinNavBlock {
     background-color: #444343 !important; }
   /* line 120, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_blackbg .bb_aj_gridItem {
+  .aj_bb_skin_blackbg .bb_aj_gridItem {
     background-color: #444343; }
   /* line 125, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_blackbg #aj_bb_krypinNav li:hover {
+  .aj_bb_skin_blackbg #aj_bb_krypinNav li:hover {
     background-color: #CCCCCC; }
   /* line 131, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_blackbg .bookitem-card:hover, .aj_bb_blackbg .bibblomon-card:hover, .aj_bb_blackbg .booklist-card:hover, .aj_bb_blackbg .badgeitem-card:hover, .aj_bb_blackbg .skrivbokenitem-card:hover, .aj_bb_blackbg .boktipsitem-card:hover, .aj_bb_blackbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_blackbg .inventoryitem-card:hover, .aj_bb_blackbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_blackbg .shopitem-card:hover {
+  .aj_bb_skin_blackbg .bookitem-card:hover, .aj_bb_skin_blackbg .bibblomon-card:hover, .aj_bb_skin_blackbg .booklist-card:hover, .aj_bb_skin_blackbg .badgeitem-card:hover, .aj_bb_skin_blackbg .skrivbokenitem-card:hover, .aj_bb_skin_blackbg .boktipsitem-card:hover, .aj_bb_skin_blackbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_blackbg .inventoryitem-card:hover, .aj_bb_skin_blackbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_blackbg .shopitem-card:hover {
     background-color: #CCCCCC; }
 
 /*Tema med svart*/
 /* line 140, _dev/devsass/komponenter/_colortemplate.scss */
-.aj_bb_beigebg {
+.aj_bb_skin_beigebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/LjusbeigeBin.jpg") !important; }
   /* line 142, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_beigebg .aj_bb_krypinNavBlock {
+  .aj_bb_skin_beigebg .aj_bb_krypinNavBlock {
     background-color: #FBE2B3 !important; }
   /* line 145, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_beigebg .bb_aj_gridItem {
+  .aj_bb_skin_beigebg .bb_aj_gridItem {
     background-color: #FBE2B3; }
   /* line 150, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_beigebg #aj_bb_krypinNav li:hover {
+  .aj_bb_skin_beigebg #aj_bb_krypinNav li:hover {
     background-color: #E8B16D; }
   /* line 156, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_beigebg .bookitem-card:hover, .aj_bb_beigebg .bibblomon-card:hover, .aj_bb_beigebg .booklist-card:hover, .aj_bb_beigebg .badgeitem-card:hover, .aj_bb_beigebg .skrivbokenitem-card:hover, .aj_bb_beigebg .boktipsitem-card:hover, .aj_bb_beigebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_beigebg .inventoryitem-card:hover, .aj_bb_beigebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_beigebg .shopitem-card:hover {
+  .aj_bb_skin_beigebg .bookitem-card:hover, .aj_bb_skin_beigebg .bibblomon-card:hover, .aj_bb_skin_beigebg .booklist-card:hover, .aj_bb_skin_beigebg .badgeitem-card:hover, .aj_bb_skin_beigebg .skrivbokenitem-card:hover, .aj_bb_skin_beigebg .boktipsitem-card:hover, .aj_bb_skin_beigebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_beigebg .inventoryitem-card:hover, .aj_bb_skin_beigebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_beigebg .shopitem-card:hover {
     background-color: #E8B16D; }
 
 /* line 3, _dev/devsass/komponenter/_base.scss */
@@ -284,7 +284,7 @@ hr {
 .bb_aj_gridItem {
   padding: .5rem .5rem 0;
   margin-bottom: 1em;
-  background: rgba(51, 153, 204, 0.2);
+  /*background: $demoMain;*/
   -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
   border: 0px !important;
@@ -800,7 +800,7 @@ hr {
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
-/* line 30, _dev/devsass/komponenter/_krypinpageBase.scss */
+/* line 31, _dev/devsass/komponenter/_krypinpageBase.scss */
 .bb_aj_CloseContainer {
   position: absolute;
   right: -6px;
@@ -1122,7 +1122,7 @@ hr {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-width: 200px !important;
+  /*max-width:200px!important;*/
   max-height: 200px; }
 
 /* line 144, _dev/devsass/komponenter/_bookItemBlock.scss */

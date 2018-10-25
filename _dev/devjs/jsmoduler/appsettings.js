@@ -8,8 +8,11 @@ module.exports = {
         let _devkey = "alf";
         let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
         let _localOrServerURL = "";
-        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";
-
+        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";        
+        // settings src
+        let _src_setting_base = _dnnURL + "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/";
+        let _src_avatar = _src_setting_base + "avatars/";
+        let _src_skinbg = _src_setting_base + "bakgrunder/";
         // Boklistor START
         //// template
         let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
@@ -23,6 +26,10 @@ module.exports = {
         let _hb_Boktipsbadges_template = _dnnURL + _htmltemplateURL + "badges_boktips_lista.txt";
         let _hb_Specialbadges_template = _dnnURL + _htmltemplateURL + "badges_special_lista.txt";
         let _hb_Highscorebadges_template = _dnnURL + _htmltemplateURL + "badges_highscore_lista.txt";
+        
+        // Inställningar
+        let _hb_settingsAvatar_template = _dnnURL + _htmltemplateURL + "settings_avatar_lista.txt";
+        let _hb_settingsSkins_template = _dnnURL + _htmltemplateURL + "settings_skin_lista.txt";
         //// api
         let _fn_userboklist = function (userid) {
             return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
@@ -74,7 +81,7 @@ module.exports = {
             return _apiserver + "/Api_v3.1/boktips/typ/ByTipId/val/" + tipid + "/txtval/0" + _apidevkeyend;
         };
         let _fn_bookContextByBookID = function (bookid) {
-            return _apiserver + "/Api_v3.1/boktips/typ/ByBookId/val/" + bookid + "/txtval/0/" + _apidevkeyend;
+            return _apiserver + "/Api_v3.1/boktips/typ/ByBookId/val/" + bookid + "/txtval/0" + _apidevkeyend;
         };
         //API POST
         let _fn_addBoktipsItem = function () {
@@ -88,8 +95,7 @@ module.exports = {
         };
         // autocompleteURL
         let _fn_autocompleteURL = function (antal) {
-            return _apiserver + "/Api_v3.1/katalogen/cmdtyp/autocomplete/antal/"+ antal +"/devkey/" + _devkey +  "/?type=json";  
-           
+            return _apiserver + "/Api_v3.1/katalogen/cmdtyp/autocomplete/antal/"+ antal +"/devkey/" + _devkey +  "/?type=json"; 
         };
         // Bibblomon
         let _fn_userBibblomonlist = function (userid) {
@@ -99,6 +105,15 @@ module.exports = {
         let _fn_userBadgeslist = function (userid) {
             return _apiserver + "/Api_v3.1/award/cmdtyp/byuserid/uid/" + userid + "/ag/0/devkey/" + _devkey + "/?type=jsonp";            
         };
+        // AVATAR src
+        let _fn_avatar = function (userid) {
+            return _apiserver + "/Api_v3.1/settings/cmdtyp/get/uid/" + userid + "/setid/0/setval/0/devkey/" + _devkey + "/?type=jsonp";
+        };
+        let _fn_updateSetting = function(userid,typ,setting){
+            return _apiserver + "/Api_v3.1/settings/cmdtyp/settings/uid/" + userid + "/setid/" + typ + "/setval/" + setting + "/devkey/" + _devkey + "/?type=jsonp";
+        }
+       
+
         return {
             apiserver: _apiserver,
             dnnURL: _dnnURL,
@@ -117,7 +132,10 @@ module.exports = {
                 hb_skribokenbadges_tmp: _hb_Skribokenbadges_template,
                 hb_boktipsbadges_tmp: _hb_Boktipsbadges_template,
                 hb_specialbadges_tmp: _hb_Specialbadges_template,
-                hb_highscorebadges_tmp: _hb_Highscorebadges_template
+                hb_highscorebadges_tmp: _hb_Highscorebadges_template,
+                
+                hb_settingsAvatar_tmp: _hb_settingsAvatar_template,
+                hb_settingsSkins_tmp: _hb_settingsSkins_template
                  
             },
             api:{
@@ -153,12 +171,26 @@ module.exports = {
                 autocomplete: {
                     geturl: _fn_autocompleteURL
                 },
+                installningar:{
+                    src: _fn_avatar,
+                    curAvatarsrc: _src_avatar,
+                    curSkinsrc: _src_skinbg,
+                    updatesettings: _fn_updateSetting
+                },
                 devkeyend : _apidevkeyend
             },
             userinfo: {
+                avatarimg: "",
+                avatarid: "",
+                defaultavatarimg: "",
+                defaultavatarid: "",
+                skin: "",
+                skinid: "",
+                defaultskinimg: "",
+                defaultskinclass: "",
+                defaultskinid: "",
                 userid: "",
-                rollid: "",
-                skin: ""
+                rollid: ""
             },
 
             debug: "false"
@@ -270,6 +302,35 @@ module.exports = {
                 }
             ]                
         };          
+    })(),
+    usermessages: (function () {
+        return {
+            installningar:
+                {                    
+                    "confirmSave": decodeURIComponent(escape("Är du säker på att du vill spara ändringarna?"))
+                },
+            skrivbok:
+                {
+                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
+                    "confirmAdd": decodeURIComponent(escape("Är du säker på att du vill lägga till texten?")),
+                    "confirmEdit": decodeURIComponent(escape("Är du säker på att du vill ändra i i texten?")),
+                    "confirmDel": decodeURIComponent(escape("Är du säker på att du vill ta bort texten?"))
+                },
+            boktips:
+                {
+                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
+                    "confirmAdd": decodeURIComponent(escape("Är du säker på att du vill lägga till boktipset?")),                    
+                    "confirmEdit": decodeURIComponent(escape("Är du säker på att du vill ändra i boktipset?")),
+                    "confirmDel": decodeURIComponent(escape("Är du säker på att du vill ta bort boktipset?"))
+                },
+            boklist:
+                {
+                    "confirmAlert": decodeURIComponent(escape("Du måste skriva något!")),
+                    "confirmAdd": decodeURIComponent(escape("Vill du lägga till denna boklista?")),
+                    "confirmEdit": decodeURIComponent(escape("Vill du byta namn på boklistan?")),
+                    "confirmDel": "Vill du ta bort boklistan?"
+                }
+            };
     })()
 }
 

@@ -1,0 +1,10 @@
+﻿<!-- skin Gallery -->
+{{#each SettingOptionList}}
+
+<li>
+    <a href="#" class="bk_aj_setup_skin_item" data-skinitm="{{SettingsID}}" data-skinclass="{{SettingClass}}">
+        <img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/bakgrunder/{{SettingName}}.jpg" alt="{{SettingName}} ">
+    </a>
+</li>
+
+{{/each}}

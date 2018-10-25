@@ -11,6 +11,7 @@ var formeditObj = require("./krypinSkrivbokEdit.js");
 
 var appsettingsobject = require("./appsettings.js");
 var appsettings = appsettingsobject.config;
+var globalmessages = appsettingsobject.usermessages;
 
 module.exports = {
     init: function (userid) {
@@ -29,7 +30,8 @@ module.exports = {
     cacheDom: function () {
         this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
         this.$bb_aj_ModalMainContainer = $('#bb_aj_modalContainer');
-        this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
+        this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");    
+        
         this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
         this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
         this.$bb_aj_Form_exempleImg = $(".skrivbokenExempleimg .bookitem-image img"); 
@@ -67,23 +69,36 @@ module.exports = {
             let cmdtyp = $(this).attr("data-cmd");
 
             if (cmdtyp == "add") {
-                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till texten?");
-                if (confirm(msg)) {                   
-                    formeditObj.addSkrivbokItem(userid, function () {
+                //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till texten?");
+                if (confirm(globalmessages.skrivbok.confirmAdd)) {
+                    formeditObj.addSkrivbokItem(userid, function (retval) {
                         // rensa och uppdatera sidan
-                        that.formupdate(userid);                        
+                        if (retval) {
+                            that.formupdate(userid);
+                        } else {
+                            alert(globalmessages.skrivbok.confirmAlert);
+                        }
+                                              
                     });
                 };
             };
 
             if (cmdtyp == "edit") {
-                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra texten?");
-                if (confirm(msg)) {                       
-                    formeditObj.updateSkrivbokItem(userid);
-                    that.formupdate(userid);
-                    // sätt sendbutton till default
-                    that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
-                    that.$bb_aj_Form_cmdSend.html("Spara"); 
+               // let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra texten?");
+                if (confirm(globalmessages.skrivbok.confirmEdit)) {
+                    formeditObj.updateSkrivbokItem(userid, function (retval) {
+                        // sätt sendbutton till default
+                        that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
+                        that.$bb_aj_Form_cmdSend.html("Spara");
+                        if (retval) {
+                            that.formupdate(userid);
+                            // sätt sendbutton till default
+                            that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
+                            that.$bb_aj_Form_cmdSend.html("Spara");
+                        } else {
+                            alert(globalmessages.skrivbok.confirmAlert);
+                        };
+                    });
                 };
             };
            
@@ -93,8 +108,8 @@ module.exports = {
         this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
             let skrivbokid = $(this).attr("data-id");
 
-            let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort texten?");
-            if (confirm(msg)) { 
+            //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort texten?");
+            if (confirm(globalmessages.skrivbok.confirmDel)) {
                 formeditObj.deleteSkrivbokItem(skrivbokid, userid, function () {
                     that.formupdate(userid);                    
                 });                

@@ -31,6 +31,9 @@ module.exports = {
     },
     cacheDom: function () {
         this.$bb_aj_Form_txtboktipsTitle = $("#txtboktipsTitle");
+        this.$bb_aj_Form_lblboktipsTitle = $("#lblboktipsTitle");
+        this.$bb_aj_Form_lblAJKrypInWriteContent = $("#lblAJKrypInWriteContent");
+        
         this.$bb_aj_Form_cmdSend = $("#cmdSendBoktipsForm");
         this.$bb_aj_Form_cmdReset = $("#cmdResetBoktipsForm");
         this.$bb_aj_boktipsFormMeta = $('#bb_aj_boktipsFormMeta');
@@ -88,14 +91,14 @@ module.exports = {
     },
     addBoktipsItem: function (userid, callback) {
         let apiurl = appsettings.api.boktipslistor.addboktipsItem;
-        this.ApiPostHandler(apiurl(),userid, function () {
-            callback();
+        this.ApiPostHandler(apiurl(),userid, function (retval) {
+            callback(retval);
         });
     },
     editBoktipsItem: function (userid, callback) {
         let apiurl = appsettings.api.boktipslistor.editboktipsItem;
-        this.ApiPostHandler(apiurl(), userid, function () {            
-            callback();
+        this.ApiPostHandler(apiurl(), userid, function (retval) {
+            callback(retval);
         }); },
     deleteBoktipsItem: function (tipid, userid,callback) {
         let apiurl = appsettings.api.boktipslistor.delboktipsItem;
@@ -119,10 +122,13 @@ module.exports = {
     },
     ApiPostHandler: function (apiurl, userid, callback) {
         let itmdata = this.HelpercollectFormValues(userid);
-
-        bb_API.postjsondata(apiurl,itmdata, function (data) {           
-            callback();
-        });
+        if (this.validateSave(itmdata)){           
+            bb_API.postjsondata(apiurl,itmdata, function (data) {           
+                callback(true);
+            });
+        }else{
+            callback(false);
+        };
     },
     Render: function (apiurl, handlebartemplate, userid) {
         let that = this; //spara this
@@ -133,7 +139,24 @@ module.exports = {
                 console.log("api kört!");
             });
         });
-    },    
+    },
+    validateSave: function () {
+        let retobj =true;
+        let stylefalse= "color:red; font-weight:bold;"
+        if (!_formObj.Title) {
+            this.$bb_aj_Form_lblboktipsTitle.attr("style", stylefalse);
+            retobj= false;
+        }
+        if (!_formObj.Review) {
+            this.$bb_aj_Form_lblAJKrypInWriteContent.attr("style", stylefalse);
+            retobj = false;
+        }
+        if (retobj) {
+            this.$bb_aj_Form_lblboktipsTitle.removeAttr("style");
+            this.$bb_aj_Form_lblAJKrypInWriteContent.removeAttr("style")
+        }
+        return retobj;
+    }, 
     HelpercollectFormValues: function (userid) {    
         
         _formObj.Approved = this.$bb_aj_boktipsFormMeta.attr('data-approved');
@@ -156,7 +179,10 @@ module.exports = {
         let that = this;
         that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
         that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
-        tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
+        if (!item.Review) {
+            item.Review = "";
+        }
+        tinyMCE.activeEditor.execCommand("mceInsertContent", false, item.Review);
 
         helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
         helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);

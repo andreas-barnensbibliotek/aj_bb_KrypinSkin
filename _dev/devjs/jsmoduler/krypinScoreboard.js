@@ -71,8 +71,7 @@ module.exports = {
     Render: function (apiurl, handlebartemplate, userid) {
         let that = this;
         bb_API.getjsondata(apiurl, function (data) {
-            bb_scoreboardHelper.collectBadgeblock(data, function (badgesObj) {
-                console.log("function collectbadges klar");
+            bb_scoreboardHelper.collectBadgeblock(data, function (badgesObj) {                
                 that.SkribokenbadgesBlock_upd(badgesObj);
                 that.BoktipsbadgesBlock_upd(badgesObj);
                 that.SpecialbadgesBlock_upd(badgesObj);

@@ -8,16 +8,14 @@ $(function () {
     appsettings.userinfo.userid =7017 // $('.kk_aj_userid').html();
 
     var currentpage = $('.kk_aj_CurrentPageType').html();
-    
-        
-    //$("#mainapp").attr('style','background:#fff;')
-      //  .html("funkar!");
-        
-        
+
     var init = function () {
-        pageloader.pagerequest(currentpage, appsettings.userinfo.userid);
-       
       
+        let userskin = $('.bb_aj_userskinsetting').html();
+        $('#aj_bb_KrypinSkin').addClass(userskin);
+
+        pageloader.pagerequest(currentpage, appsettings.userinfo.userid);
+             
     }
 
     init();

@@ -11,7 +11,7 @@
 					<a href="#1" title="Ändra i texten" class="buttonitem_edit" data-id="{{TipID}}" ><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_edit-24.png" /></a>
 					<a href="#2" title="Ta bort från listan" class="buttonitem_tabort" data-id="{{TipID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png" /></a>
 				</div>
-				<a href="#" class="buttonitem_bokpost bb_aj_openInModal" data-id="{{TipID}}">
+				<a href="#" class="buttonitem_bokpost bb_aj_openInModal" data-id="{{TipID}}" data-bookid="{{Bookid}}">
 					<div class="bookitem-image">
 					<img title="{{Title}}" src="{{#categoryUrlimg ImgSrc}}{{/categoryUrlimg}}" />
 					</div>

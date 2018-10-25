@@ -62,7 +62,7 @@
 						</div>
 						<div class="iteminfoblock">
 							<div class="iteminfocontent">
-								<h2>{{Monsternamn}}</h2>
+								
 								<p>{{Bokemoninfo}}</p>
 								<ul>																		
 									<li>Bonus: {{Bonus}} %</li>

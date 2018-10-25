@@ -54,16 +54,14 @@
 	    appsettings.userinfo.userid =7017 // $('.kk_aj_userid').html();
 
 	    var currentpage = $('.kk_aj_CurrentPageType').html();
-	    
-	        
-	    //$("#mainapp").attr('style','background:#fff;')
-	      //  .html("funkar!");
-	        
-	        
+
 	    var init = function () {
-	        pageloader.pagerequest(currentpage, appsettings.userinfo.userid);
-	       
 	      
+	        let userskin = $('.bb_aj_userskinsetting').html();
+	        $('#aj_bb_KrypinSkin').addClass(userskin);
+
+	        pageloader.pagerequest(currentpage, appsettings.userinfo.userid);
+	             
 	    }
 
 	    init();
@@ -27695,6 +27693,7 @@
 	var bb_HB_Handler = __webpack_require__(11);
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
+	var globalmessages = appsettingsobject.usermessages;
 	const _myboolistID = "1000000000";
 
 	module.exports = {
@@ -27717,8 +27716,8 @@
 	    BindEvent: function (userid) {
 	        let that = this;
 
-	        this.$bb_aj_booklistMain.on('click', '#bb_aj_cmdAdd_Booklist', function (e) { alert('#bb_aj_cmdAdd_Booklist') });
-	        this.$bb_aj_booklistMain.on('click', '.buttonitem_booktip', function (e) { alert('.buttonitem_booktip') });
+	        this.$bb_aj_booklistMain.on('click', '#bb_aj_cmdAdd_Booklist', function (e) { return true; });
+	        this.$bb_aj_booklistMain.on('click', '.buttonitem_booktip', function (e) { return true; });
 	        
 	       
 	        this.$bb_aj_booklist_Mod.on('click', '#cmdAvbryt', function (e) {
@@ -27736,11 +27735,11 @@
 	            let boklistanamnElement =$("#txtBoklistanamn");
 	            let boklistanamn = boklistanamnElement.val();
 	            if (!boklistanamn) {
-	                alert("Du måste skriva något!");
+	                alert(globalmessages.boklist.confirmAlert);
 	                boklistanamnElement.focus();
 	                return false;
 	            };
-	            let result = confirm("Vill du lägga till denna boklista?");
+	            let result = confirm(globalmessages.boklist.confirmADD);
 	            if (result) {                             
 	                    that.addBooklist(boklistanamn, userid);                    
 	            };            
@@ -27749,7 +27748,7 @@
 	        this.$bb_aj_booklistMain.on('click', '.bb_aj_booklistDelete', function (e) {
 	            let booklistid = $(this).attr("data-bookistid");
 	            if (!isBooklistMybooks(booklistid)) { // mina böcker går inte att tabort
-	                let result = confirm("Vill du ta bort boklistan?");
+	                let result = confirm(globalmessages.boklist.confirmDel);
 	                if (result) {
 	                    that.delBooklist(booklistid, userid);
 	                };
@@ -27771,7 +27770,7 @@
 	            let textnyttnamn = $(this).siblings(".editBoklistanamn").val();
 	            
 	            if (!isBooklistMybooks(booklistid)) { // mina böcker går inte att tabort
-	                let result = confirm("Vill du byta namn?");
+	                let result = confirm(globalmessages.boklist.confirmEdit);
 	                if (result) {
 	                    if (textnyttnamn && booklistid) {
 	                        that.editBooklist(booklistid, textnyttnamn, userid);
@@ -27779,8 +27778,7 @@
 	                        $('.bb_aj_editbooklistnamnBlock' + booklistid).hide();
 	                    };
 	                };
-	            };
-	                        
+	            };                        
 	            return false;
 	        });
 
@@ -27796,8 +27794,6 @@
 	            return false;
 	        });
 
-	       
-	       
 	    },    
 	    Apiupdate: function (apiurl, userid) {
 	        let that = this; //spara this
@@ -46781,8 +46777,11 @@
 	        let _devkey = "alf";
 	        let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
 	        let _localOrServerURL = "";
-	        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";
-
+	        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";        
+	        // settings src
+	        let _src_setting_base = _dnnURL + "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/";
+	        let _src_avatar = _src_setting_base + "avatars/";
+	        let _src_skinbg = _src_setting_base + "bakgrunder/";
 	        // Boklistor START
 	        //// template
 	        let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
@@ -46796,6 +46795,10 @@
 	        let _hb_Boktipsbadges_template = _dnnURL + _htmltemplateURL + "badges_boktips_lista.txt";
 	        let _hb_Specialbadges_template = _dnnURL + _htmltemplateURL + "badges_special_lista.txt";
 	        let _hb_Highscorebadges_template = _dnnURL + _htmltemplateURL + "badges_highscore_lista.txt";
+	        
+	        // Inställningar
+	        let _hb_settingsAvatar_template = _dnnURL + _htmltemplateURL + "settings_avatar_lista.txt";
+	        let _hb_settingsSkins_template = _dnnURL + _htmltemplateURL + "settings_skin_lista.txt";
 	        //// api
 	        let _fn_userboklist = function (userid) {
 	            return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
@@ -46847,7 +46850,7 @@
 	            return _apiserver + "/Api_v3.1/boktips/typ/ByTipId/val/" + tipid + "/txtval/0" + _apidevkeyend;
 	        };
 	        let _fn_bookContextByBookID = function (bookid) {
-	            return _apiserver + "/Api_v3.1/boktips/typ/ByBookId/val/" + bookid + "/txtval/0/" + _apidevkeyend;
+	            return _apiserver + "/Api_v3.1/boktips/typ/ByBookId/val/" + bookid + "/txtval/0" + _apidevkeyend;
 	        };
 	        //API POST
 	        let _fn_addBoktipsItem = function () {
@@ -46861,8 +46864,7 @@
 	        };
 	        // autocompleteURL
 	        let _fn_autocompleteURL = function (antal) {
-	            return _apiserver + "/Api_v3.1/katalogen/cmdtyp/autocomplete/antal/"+ antal +"/devkey/" + _devkey +  "/?type=json";  
-	           
+	            return _apiserver + "/Api_v3.1/katalogen/cmdtyp/autocomplete/antal/"+ antal +"/devkey/" + _devkey +  "/?type=json"; 
 	        };
 	        // Bibblomon
 	        let _fn_userBibblomonlist = function (userid) {
@@ -46872,6 +46874,15 @@
 	        let _fn_userBadgeslist = function (userid) {
 	            return _apiserver + "/Api_v3.1/award/cmdtyp/byuserid/uid/" + userid + "/ag/0/devkey/" + _devkey + "/?type=jsonp";            
 	        };
+	        // AVATAR src
+	        let _fn_avatar = function (userid) {
+	            return _apiserver + "/Api_v3.1/settings/cmdtyp/get/uid/" + userid + "/setid/0/setval/0/devkey/" + _devkey + "/?type=jsonp";
+	        };
+	        let _fn_updateSetting = function(userid,typ,setting){
+	            return _apiserver + "/Api_v3.1/settings/cmdtyp/settings/uid/" + userid + "/setid/" + typ + "/setval/" + setting + "/devkey/" + _devkey + "/?type=jsonp";
+	        }
+	       
+
 	        return {
 	            apiserver: _apiserver,
 	            dnnURL: _dnnURL,
@@ -46890,7 +46901,10 @@
 	                hb_skribokenbadges_tmp: _hb_Skribokenbadges_template,
 	                hb_boktipsbadges_tmp: _hb_Boktipsbadges_template,
 	                hb_specialbadges_tmp: _hb_Specialbadges_template,
-	                hb_highscorebadges_tmp: _hb_Highscorebadges_template
+	                hb_highscorebadges_tmp: _hb_Highscorebadges_template,
+	                
+	                hb_settingsAvatar_tmp: _hb_settingsAvatar_template,
+	                hb_settingsSkins_tmp: _hb_settingsSkins_template
 	                 
 	            },
 	            api:{
@@ -46926,12 +46940,26 @@
 	                autocomplete: {
 	                    geturl: _fn_autocompleteURL
 	                },
+	                installningar:{
+	                    src: _fn_avatar,
+	                    curAvatarsrc: _src_avatar,
+	                    curSkinsrc: _src_skinbg,
+	                    updatesettings: _fn_updateSetting
+	                },
 	                devkeyend : _apidevkeyend
 	            },
 	            userinfo: {
+	                avatarimg: "",
+	                avatarid: "",
+	                defaultavatarimg: "",
+	                defaultavatarid: "",
+	                skin: "",
+	                skinid: "",
+	                defaultskinimg: "",
+	                defaultskinclass: "",
+	                defaultskinid: "",
 	                userid: "",
-	                rollid: "",
-	                skin: ""
+	                rollid: ""
 	            },
 
 	            debug: "false"
@@ -47043,6 +47071,35 @@
 	                }
 	            ]                
 	        };          
+	    })(),
+	    usermessages: (function () {
+	        return {
+	            installningar:
+	                {                    
+	                    "confirmSave": decodeURIComponent(escape("Är du säker på att du vill spara ändringarna?"))
+	                },
+	            skrivbok:
+	                {
+	                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
+	                    "confirmAdd": decodeURIComponent(escape("Är du säker på att du vill lägga till texten?")),
+	                    "confirmEdit": decodeURIComponent(escape("Är du säker på att du vill ändra i i texten?")),
+	                    "confirmDel": decodeURIComponent(escape("Är du säker på att du vill ta bort texten?"))
+	                },
+	            boktips:
+	                {
+	                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
+	                    "confirmAdd": decodeURIComponent(escape("Är du säker på att du vill lägga till boktipset?")),                    
+	                    "confirmEdit": decodeURIComponent(escape("Är du säker på att du vill ändra i boktipset?")),
+	                    "confirmDel": decodeURIComponent(escape("Är du säker på att du vill ta bort boktipset?"))
+	                },
+	            boklist:
+	                {
+	                    "confirmAlert": decodeURIComponent(escape("Du måste skriva något!")),
+	                    "confirmAdd": decodeURIComponent(escape("Vill du lägga till denna boklista?")),
+	                    "confirmEdit": decodeURIComponent(escape("Vill du byta namn på boklistan?")),
+	                    "confirmDel": "Vill du ta bort boklistan?"
+	                }
+	            };
 	    })()
 	}
 
@@ -47124,6 +47181,7 @@
 
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
+	var globalmessages = appsettingsobject.usermessages;
 
 	module.exports = {
 	    init: function (userid) {
@@ -47142,7 +47200,8 @@
 	    cacheDom: function () {
 	        this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
 	        this.$bb_aj_ModalMainContainer = $('#bb_aj_modalContainer');
-	        this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
+	        this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");    
+	        
 	        this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
 	        this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
 	        this.$bb_aj_Form_exempleImg = $(".skrivbokenExempleimg .bookitem-image img"); 
@@ -47180,23 +47239,36 @@
 	            let cmdtyp = $(this).attr("data-cmd");
 
 	            if (cmdtyp == "add") {
-	                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till texten?");
-	                if (confirm(msg)) {                   
-	                    formeditObj.addSkrivbokItem(userid, function () {
+	                //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till texten?");
+	                if (confirm(globalmessages.skrivbok.confirmAdd)) {
+	                    formeditObj.addSkrivbokItem(userid, function (retval) {
 	                        // rensa och uppdatera sidan
-	                        that.formupdate(userid);                        
+	                        if (retval) {
+	                            that.formupdate(userid);
+	                        } else {
+	                            alert(globalmessages.skrivbok.confirmAlert);
+	                        }
+	                                              
 	                    });
 	                };
 	            };
 
 	            if (cmdtyp == "edit") {
-	                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra texten?");
-	                if (confirm(msg)) {                       
-	                    formeditObj.updateSkrivbokItem(userid);
-	                    that.formupdate(userid);
-	                    // sätt sendbutton till default
-	                    that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
-	                    that.$bb_aj_Form_cmdSend.html("Spara"); 
+	               // let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra texten?");
+	                if (confirm(globalmessages.skrivbok.confirmEdit)) {
+	                    formeditObj.updateSkrivbokItem(userid, function (retval) {
+	                        // sätt sendbutton till default
+	                        that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
+	                        that.$bb_aj_Form_cmdSend.html("Spara");
+	                        if (retval) {
+	                            that.formupdate(userid);
+	                            // sätt sendbutton till default
+	                            that.$bb_aj_Form_cmdSend.attr("data-cmd", "add");
+	                            that.$bb_aj_Form_cmdSend.html("Spara");
+	                        } else {
+	                            alert(globalmessages.skrivbok.confirmAlert);
+	                        };
+	                    });
 	                };
 	            };
 	           
@@ -47206,8 +47278,8 @@
 	        this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
 	            let skrivbokid = $(this).attr("data-id");
 
-	            let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort texten?");
-	            if (confirm(msg)) { 
+	            //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort texten?");
+	            if (confirm(globalmessages.skrivbok.confirmDel)) {
 	                formeditObj.deleteSkrivbokItem(skrivbokid, userid, function () {
 	                    that.formupdate(userid);                    
 	                });                
@@ -47644,6 +47716,8 @@
 	    },
 	    cacheDom: function () {
 	        this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
+	        this.$bb_aj_Form_lblWriterTitle = $("#lblWriterTitle");
+	        this.$bb_aj_Form_lblAJKrypInWriteContent = $("#lblAJKrypInWriteContent");
 	        this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
 	        this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
 	        this.$bb_aj_skrivbokenForm_exempleImg = $(".skrivbokenExempleimg .bookitem-image img");
@@ -47679,29 +47753,37 @@
 
 	        helperobj.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), "0");
 	        helperobj.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), "1");
-	        
+	        this.$bb_aj_skrivbokenForm_exempleImg.attr("src", "/DesktopModules/bb_aj_Skrivboken_Krypin/images/skrivbok_default256_36.png");
 	        this.$bb_aj_Form_cmdSend.attr("data-id", "0");
 
 	        tinyMCE.activeEditor.setContent('');
 	    },
-	    addSkrivbokItem: function (userid) {
+	    addSkrivbokItem: function (userid, callback) {
 	        let apiurl = appsettings.api.skrivbokenlistor.addskribokenItem;
-	        this.ApiPostHandler(apiurl(), userid);
+	        this.ApiPostHandler(apiurl(), userid, function (retval) {
+	            callback(retval);
+	        });
 	    },
-	    updateSkrivbokItem: function (userid) {
+	    updateSkrivbokItem: function (userid, callback) {
 	        let apiurl = appsettings.api.skrivbokenlistor.editskribokenItem;
-	        this.ApiPostHandler(apiurl(), userid);
+	        this.ApiPostHandler(apiurl(), userid, function (retval) {
+	            callback(retval);
+	        });
 	    },
 	    deleteSkrivbokItem: function (userid) {
 	        let apiurl = appsettings.api.skrivbokenlistor.delskribokenItem;
 	        this.ApiPostHandler(apiurl(), userid);
 	    },
-	    ApiPostHandler: function (apiurl, userid) {
+	    ApiPostHandler: function (apiurl, userid, callback) {
 	        let itmdata = this.HelpercollectFormValues(userid);
-
-	        bb_API.postjsondata(apiurl,itmdata, function (data) {
-	            console.log("APIPOST KLAR!!!!");
-	        });
+	        if (this.validateSave(itmdata)) {
+	            bb_API.postjsondata(apiurl, itmdata, function (data) {
+	                callback(true);
+	            });
+	        } else {
+	            callback(false);
+	        };
+	        
 	    },
 	    Render: function (apiurl, handlebartemplate, userid) {
 	        let that = this; //spara this
@@ -47713,7 +47795,24 @@
 
 	            });
 	        });
-	    },    
+	    },
+	    validateSave: function () {
+	        let retobj = true;
+	        let stylefalse = "color:red; font-weight:bold;"
+	        if (!_formObj.Title) {
+	            this.$bb_aj_Form_lblWriterTitle.attr("style", stylefalse);
+	            retobj = false;
+	        }
+	        if (!_formObj.Story) {
+	            this.$bb_aj_Form_lblAJKrypInWriteContent.attr("style", stylefalse);
+	            retobj = false;
+	        }
+	        if (retobj) {           
+	            this.$bb_aj_Form_lblWriterTitle.removeAttr("style");
+	            this.$bb_aj_Form_lblAJKrypInWriteContent.removeAttr("style");
+	        }
+	        return retobj;
+	    },
 	    HelpercollectFormValues: function (userid) {
 	        _formObj.SkrivID = this.$bb_aj_Form_cmdSend.attr("data-id");
 	        _formObj.UserID = userid;
@@ -47748,6 +47847,7 @@
 
 	var appsettingsobject = __webpack_require__(12);
 	var appsettings = appsettingsobject.config;
+	var globalmessages = appsettingsobject.usermessages;
 
 	module.exports = {
 	    init: function (userid) {        
@@ -47789,6 +47889,7 @@
 	        });
 	        this.$bb_aj_MainKrypinSkinContainer.on('click', '.bb_aj_openInModal', function (e) {
 	            let skrivbokid = $(this).attr("data-id");
+	           
 	            that.getboktipsbyID(skrivbokid, userid);
 	            modalobj.openInModal();
 	            return false;
@@ -47808,27 +47909,36 @@
 	            let cmdtyp = $(this).attr("data-cmd");
 
 	            if (cmdtyp == "add") {
-	                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till boktipset?");
-	                if (confirm(msg)) {
-	                    formeditObj.addBoktipsItem(userid, function () {
+	                //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till boktipset?");
+	                if (confirm(globalmessages.boktips.confirmAdd)) {
+	                    formeditObj.addBoktipsItem(userid, function (retval) {
 	                        // rensa och uppdatera sidan
-	                        that.formupdate(userid);
+	                        if (retval) {
+	                            that.formupdate(userid);
+	                        } else {
+	                            alert(globalmessages.boktips.confirmAlert);
+	                        }
+	                        
 	                    });
 	                };
 	            };
 
 	            if (cmdtyp == "edit") {
-	                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra i boktipset?");
-	                if (confirm(msg)) {                    
-	                        formeditObj.editBoktipsItem(userid, function () {
+	                //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra i boktipset?");
+	                if (confirm(globalmessages.boktips.confirmEdit)) {
+	                    formeditObj.editBoktipsItem(userid, function (retval) {
 	                            // rensa och uppdatera sidan
+	                        if (retval) {
 	                            that.formupdate(userid);
-	                        });
-	                        // sätt sendbutton till default
-	                        that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
-	                        that.$bb_aj_boktipsForm_cmdSend.html("Spara");
-	                    };
+	                            // sätt sendbutton till default
+	                            that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
+	                            that.$bb_aj_boktipsForm_cmdSend.html("Spara");
+	                        } else {
+	                            alert(globalmessages.boktips.confirmAlert);
+	                        };
+	                    });                        
 	                };
+	            };
 
 	                return false;
 	            
@@ -47836,8 +47946,8 @@
 
 	        this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
 	            let tipid = $(this).attr("data-id");
-	            let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort boktipset?");
-	            if (confirm(msg)) { 
+	            //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort boktipset?");
+	            if (confirm(globalmessages.boktips.confirmDel)) {
 	            formeditObj.deleteBoktipsItem(tipid, userid, function () {
 	                    that.formupdate(userid);
 	                });
@@ -48102,6 +48212,9 @@
 	    },
 	    cacheDom: function () {
 	        this.$bb_aj_Form_txtboktipsTitle = $("#txtboktipsTitle");
+	        this.$bb_aj_Form_lblboktipsTitle = $("#lblboktipsTitle");
+	        this.$bb_aj_Form_lblAJKrypInWriteContent = $("#lblAJKrypInWriteContent");
+	        
 	        this.$bb_aj_Form_cmdSend = $("#cmdSendBoktipsForm");
 	        this.$bb_aj_Form_cmdReset = $("#cmdResetBoktipsForm");
 	        this.$bb_aj_boktipsFormMeta = $('#bb_aj_boktipsFormMeta');
@@ -48159,14 +48272,14 @@
 	    },
 	    addBoktipsItem: function (userid, callback) {
 	        let apiurl = appsettings.api.boktipslistor.addboktipsItem;
-	        this.ApiPostHandler(apiurl(),userid, function () {
-	            callback();
+	        this.ApiPostHandler(apiurl(),userid, function (retval) {
+	            callback(retval);
 	        });
 	    },
 	    editBoktipsItem: function (userid, callback) {
 	        let apiurl = appsettings.api.boktipslistor.editboktipsItem;
-	        this.ApiPostHandler(apiurl(), userid, function () {            
-	            callback();
+	        this.ApiPostHandler(apiurl(), userid, function (retval) {
+	            callback(retval);
 	        }); },
 	    deleteBoktipsItem: function (tipid, userid,callback) {
 	        let apiurl = appsettings.api.boktipslistor.delboktipsItem;
@@ -48190,10 +48303,13 @@
 	    },
 	    ApiPostHandler: function (apiurl, userid, callback) {
 	        let itmdata = this.HelpercollectFormValues(userid);
-
-	        bb_API.postjsondata(apiurl,itmdata, function (data) {           
-	            callback();
-	        });
+	        if (this.validateSave(itmdata)){           
+	            bb_API.postjsondata(apiurl,itmdata, function (data) {           
+	                callback(true);
+	            });
+	        }else{
+	            callback(false);
+	        };
 	    },
 	    Render: function (apiurl, handlebartemplate, userid) {
 	        let that = this; //spara this
@@ -48204,7 +48320,24 @@
 	                console.log("api kört!");
 	            });
 	        });
-	    },    
+	    },
+	    validateSave: function () {
+	        let retobj =true;
+	        let stylefalse= "color:red; font-weight:bold;"
+	        if (!_formObj.Title) {
+	            this.$bb_aj_Form_lblboktipsTitle.attr("style", stylefalse);
+	            retobj= false;
+	        }
+	        if (!_formObj.Review) {
+	            this.$bb_aj_Form_lblAJKrypInWriteContent.attr("style", stylefalse);
+	            retobj = false;
+	        }
+	        if (retobj) {
+	            this.$bb_aj_Form_lblboktipsTitle.removeAttr("style");
+	            this.$bb_aj_Form_lblAJKrypInWriteContent.removeAttr("style")
+	        }
+	        return retobj;
+	    }, 
 	    HelpercollectFormValues: function (userid) {    
 	        
 	        _formObj.Approved = this.$bb_aj_boktipsFormMeta.attr('data-approved');
@@ -48227,7 +48360,10 @@
 	        let that = this;
 	        that.$bb_aj_Form_cmdSend.attr("data-id", item.TipID);
 	        that.$bb_aj_Form_txtboktipsTitle.val(item.Title);
-	        tinymce.activeEditor.execCommand("mceInsertContent", false, item.Review);
+	        if (!item.Review) {
+	            item.Review = "";
+	        }
+	        tinyMCE.activeEditor.execCommand("mceInsertContent", false, item.Review);
 
 	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
 	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
@@ -48322,8 +48458,7 @@
 	    Render: function (apiurl, handlebartemplate, userid) {
 	        let that = this;
 	        bb_API.getjsondata(apiurl, function (data) {
-	            bb_scoreboardHelper.collectBadgeblock(data, function (badgesObj) {
-	                console.log("function collectbadges klar");
+	            bb_scoreboardHelper.collectBadgeblock(data, function (badgesObj) {                
 	                that.SkribokenbadgesBlock_upd(badgesObj);
 	                that.BoktipsbadgesBlock_upd(badgesObj);
 	                that.SpecialbadgesBlock_upd(badgesObj);
@@ -48690,16 +48825,170 @@
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
 	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_API = __webpack_require__(10);
+	var bb_HB_Handler = __webpack_require__(11);
+
+	var appsettingsobject = __webpack_require__(12);
+	var appsettings = appsettingsobject.config;
+	var globalmessages = appsettingsobject.usermessages;
+
 	module.exports = {
-	    init: function (value) {
+	    init: function (userid) {
 	        let moduleName = 'Setup';
 	        bb_pagebehaviors.init(moduleName);
+	       
+	        this.cacheDom();
+	        this.BindEvent(userid);
+	        this.initSettings(userid)
+	    },
+	    cacheDom: function () {
+	        this.$bb_aj_CurrentAvatar = $('#bk_aj_setup_avatar');
+	        this.$bb_aj_CurrentSkin = $('#bk_aj_setup_skin');
+	        this.$bb_aj_avatar_maingallery = $('#avatar_maingallery');
+	        this.$bb_aj_skin_maingallery = $('#skin_maingallery');
+	        this.$aj_bb_KrypinSkin = $(".aj_bb_KrypinSkin");
 
+	        this.$bb_aj_btnSettingSave = $('#btnSettingSave');
+	        this.$bb_aj_btnSettingTemp = $('#btnSettingTemp');
+	        this.$bb_aj_btnSettingAbort = $('#btnSettingAbort');
 
-	        /////////////////////////////////////////////////////
+	    },
+	    BindEvent: function (userid) {
+	        let that = this;
 
+	        this.$bb_aj_avatar_maingallery.on('click', '.bk_aj_setup_avatar_item', function (e) {
+	            let valdsrc = $(this).find('img').attr("src");
+	            let retID = $(this).attr("data-avataritm");
+
+	            that.$bb_aj_CurrentAvatar.attr("src", valdsrc);          
+	            appsettings.userinfo.avatarid = retID;
+	            return false;
+	        });
+
+	        this.$bb_aj_skin_maingallery.on('click', '.bk_aj_setup_skin_item', function (e) {
+	            let valdsrc = $(this).find('img').attr("src");
+	            let retID = $(this).attr("data-skinitm");
+	            let skinclass = $(this).attr("data-skinclass");
+
+	            that.$bb_aj_CurrentSkin.attr("src", valdsrc);            
+	            appsettings.userinfo.skinid = retID;
+	            that.$bb_aj_CurrentSkin.attr("data-skinclass", skinclass);
+	            return false;
+	        });
+
+	        this.$bb_aj_btnSettingTemp.on('click', function (e) {
+	            let skinclass = that.$bb_aj_CurrentSkin.attr("data-skinclass");
+	            that.tempupdateSkin(skinclass);
+
+	            return false;
+	        });
+
+	        this.$bb_aj_btnSettingAbort.on('click', function (e) {
+	            let skinclass = $(this).attr("data-default");
+	            that.$bb_aj_CurrentAvatar.attr("src", appsettings.userinfo.defaultavatarimg);
+	            that.$bb_aj_CurrentSkin.attr("src", appsettings.userinfo.defaultskinimg);
+	            that.$bb_aj_CurrentSkin.attr("data-skinclass", appsettings.userinfo.defaultskinclass);
+	            that.tempupdateSkin(skinclass);
+
+	            return false;
+	        });
+
+	        this.$bb_aj_btnSettingSave.on('click', function (e) {
+	            if (confirm(globalmessages.installningar.confirmSave)) {
+	                                
+	                that.updatesettings(userid, 1, appsettings.userinfo.avatarid, function (t) {                        
+	                    
+	                });
+	                that.updatesettings(userid, 2, appsettings.userinfo.skinid, function (x) {
+	                        return true;
+	                    });
+	            };
+	        });
+	        
+	    },
+	    updatesettings: function (userid, typ, value, callback) {
+	        let that = this;
+	        let apiurl = appsettings.api.installningar.updatesettings;
+	        bb_API.getjsondata(apiurl(userid, typ, value), function (data) {
+	            callback(data);
+	        });
+	    },
+	    tempupdateSkin: function (skinclass) {
+	        this.$aj_bb_KrypinSkin.removeClass(function (index, className) {
+	            return (className.match(/(^|\s)aj_bb_skin_\S+/g) || []).join(' ');
+	        }).addClass(skinclass);
+	    },
+	    getcurrentAvatarimg: function (settingslist) {
+	        let that = this; //spara this 
+	        let retobj = "defautlavatar_gubbeGlad";
+	        let retID = "33";
+	        let retsrc = appsettings.api.installningar.curAvatarsrc;
+
+	        $.each(settingslist.SettingOptionList, function (index, item) {
+	            if (item.SettingsID == settingslist.SettingValue) {
+	                retobj = item.SettingSrc;
+	                retID = item.SettingsID;
+	            };
+	        });       
+	        retsrc += retobj;
+	        that.$bb_aj_CurrentAvatar.attr("src", retsrc);
+	        appsettings.userinfo.avatarid = retID;
+	        appsettings.userinfo.defaultavatarimg = retsrc;
+	        appsettings.userinfo.defaultavatarid = retID;
+	               
+	        return true;
+	    },
+	    getcurrentskinimg: function (settingslist, getval) {
+	        let that = this; //spara this 
+	        let retobj = "GreenNycklpigeStyle";
+	        let retID = "2";
+	        let skinclass = "aj_bb_greenbg";
+	        let retsrc = appsettings.api.installningar.curSkinsrc;
+	               
+	        $.each(settingslist.SettingOptionList, function (index, item) {
+	            if (item.SettingsID == settingslist.SettingValue) {
+	                retobj = item.SettingName;
+	                retID = item.SettingsID;
+	                skinclass = item.SettingClass;
+	            };
+	        });
+
+	        retsrc += retobj + ".jpg";
+	        that.$bb_aj_CurrentSkin.attr("src", retsrc);              
+	        that.$bb_aj_CurrentSkin.attr("data-skinclass", skinclass);
+	        that.$bb_aj_btnSettingAbort.attr("data-default", skinclass);
+
+	        appsettings.userinfo.skinid = retID;
+	        appsettings.userinfo.defaultskinimg = retsrc;
+	        appsettings.userinfo.defaultskinclass = skinclass;
+	        appsettings.userinfo.defaultskinid = retID;
+	       
+	        return true;
+	    },
+	    initSettings: function (userid) {
+	        
+	        let apiurl = appsettings.api.installningar.src;
+	        this.render(userid, apiurl(userid));
+	        
+	    },
+	    render: function (userid, apiurl) {
+	        let that = this; //spara this        
+	        let handlebartemplateAvatar = appsettings.handlebartemplate.hb_settingsAvatar_tmp;
+	        let handlebartemplateSkin = appsettings.handlebartemplate.hb_settingsSkins_tmp;
+
+	        bb_API.getjsondata(apiurl, function (data) {
+	            
+	            that.getcurrentAvatarimg(data.SettingsList[0]);
+	            that.getcurrentskinimg(data.SettingsList[1]);
+
+	            bb_HB_Handler.injecthtmltemplate("#avatar_maingallery", handlebartemplateAvatar, data.SettingsList[0], function () {                
+	            });
+	            bb_HB_Handler.injecthtmltemplate("#skin_maingallery", handlebartemplateSkin, data.SettingsList[1], function () {                
+	            });
+	        });
 	    }
 	};
+
 
 /***/ })
 /******/ ]);

@@ -14,6 +14,7 @@ var formeditObj = require("./krypinBoktipsEdit.js");
 
 var appsettingsobject = require("./appsettings.js");
 var appsettings = appsettingsobject.config;
+var globalmessages = appsettingsobject.usermessages;
 
 module.exports = {
     init: function (userid) {        
@@ -55,6 +56,7 @@ module.exports = {
         });
         this.$bb_aj_MainKrypinSkinContainer.on('click', '.bb_aj_openInModal', function (e) {
             let skrivbokid = $(this).attr("data-id");
+           
             that.getboktipsbyID(skrivbokid, userid);
             modalobj.openInModal();
             return false;
@@ -74,27 +76,36 @@ module.exports = {
             let cmdtyp = $(this).attr("data-cmd");
 
             if (cmdtyp == "add") {
-                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till boktipset?");
-                if (confirm(msg)) {
-                    formeditObj.addBoktipsItem(userid, function () {
+                //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill l&auml;gga till boktipset?");
+                if (confirm(globalmessages.boktips.confirmAdd)) {
+                    formeditObj.addBoktipsItem(userid, function (retval) {
                         // rensa och uppdatera sidan
-                        that.formupdate(userid);
+                        if (retval) {
+                            that.formupdate(userid);
+                        } else {
+                            alert(globalmessages.boktips.confirmAlert);
+                        }
+                        
                     });
                 };
             };
 
             if (cmdtyp == "edit") {
-                let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra i boktipset?");
-                if (confirm(msg)) {                    
-                        formeditObj.editBoktipsItem(userid, function () {
+                //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill &auml;ndra i boktipset?");
+                if (confirm(globalmessages.boktips.confirmEdit)) {
+                    formeditObj.editBoktipsItem(userid, function (retval) {
                             // rensa och uppdatera sidan
+                        if (retval) {
                             that.formupdate(userid);
-                        });
-                        // sätt sendbutton till default
-                        that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
-                        that.$bb_aj_boktipsForm_cmdSend.html("Spara");
-                    };
+                            // sätt sendbutton till default
+                            that.$bb_aj_boktipsForm_cmdSend.attr("data-cmd", "add");
+                            that.$bb_aj_boktipsForm_cmdSend.html("Spara");
+                        } else {
+                            alert(globalmessages.boktips.confirmAlert);
+                        };
+                    });                        
                 };
+            };
 
                 return false;
             
@@ -102,8 +113,8 @@ module.exports = {
 
         this.$bb_aj_MainKrypinSkinContainer.on("click", ".buttonitem_tabort", function (e) {
             let tipid = $(this).attr("data-id");
-            let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort boktipset?");
-            if (confirm(msg)) { 
+            //let msg = helperobj.htmlencoderHelper("&Auml;r du s&auml;ker p&aring; att du vill ta bort boktipset?");
+            if (confirm(globalmessages.boktips.confirmDel)) {
             formeditObj.deleteBoktipsItem(tipid, userid, function () {
                     that.formupdate(userid);
                 });

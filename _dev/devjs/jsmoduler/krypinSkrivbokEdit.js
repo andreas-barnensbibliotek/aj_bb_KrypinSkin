@@ -23,6 +23,8 @@ module.exports = {
     },
     cacheDom: function () {
         this.$bb_aj_Form_txtWriterTitle = $("#txtWriterTitle");
+        this.$bb_aj_Form_lblWriterTitle = $("#lblWriterTitle");
+        this.$bb_aj_Form_lblAJKrypInWriteContent = $("#lblAJKrypInWriteContent");
         this.$bb_aj_Form_cmdSend = $("#cmdSendSkrivbokForm");
         this.$bb_aj_Form_cmdReset = $("#cmdResetSkrivbokForm");
         this.$bb_aj_skrivbokenForm_exempleImg = $(".skrivbokenExempleimg .bookitem-image img");
@@ -58,29 +60,37 @@ module.exports = {
 
         helperobj.HelpersetSelectedIndex(document.getElementById("drpTypavBerattelse"), "0");
         helperobj.HelpersetSelectedIndex(document.getElementById("drp_AJKrypInWritedelad"), "1");
-        
+        this.$bb_aj_skrivbokenForm_exempleImg.attr("src", "/DesktopModules/bb_aj_Skrivboken_Krypin/images/skrivbok_default256_36.png");
         this.$bb_aj_Form_cmdSend.attr("data-id", "0");
 
         tinyMCE.activeEditor.setContent('');
     },
-    addSkrivbokItem: function (userid) {
+    addSkrivbokItem: function (userid, callback) {
         let apiurl = appsettings.api.skrivbokenlistor.addskribokenItem;
-        this.ApiPostHandler(apiurl(), userid);
+        this.ApiPostHandler(apiurl(), userid, function (retval) {
+            callback(retval);
+        });
     },
-    updateSkrivbokItem: function (userid) {
+    updateSkrivbokItem: function (userid, callback) {
         let apiurl = appsettings.api.skrivbokenlistor.editskribokenItem;
-        this.ApiPostHandler(apiurl(), userid);
+        this.ApiPostHandler(apiurl(), userid, function (retval) {
+            callback(retval);
+        });
     },
     deleteSkrivbokItem: function (userid) {
         let apiurl = appsettings.api.skrivbokenlistor.delskribokenItem;
         this.ApiPostHandler(apiurl(), userid);
     },
-    ApiPostHandler: function (apiurl, userid) {
+    ApiPostHandler: function (apiurl, userid, callback) {
         let itmdata = this.HelpercollectFormValues(userid);
-
-        bb_API.postjsondata(apiurl,itmdata, function (data) {
-            console.log("APIPOST KLAR!!!!");
-        });
+        if (this.validateSave(itmdata)) {
+            bb_API.postjsondata(apiurl, itmdata, function (data) {
+                callback(true);
+            });
+        } else {
+            callback(false);
+        };
+        
     },
     Render: function (apiurl, handlebartemplate, userid) {
         let that = this; //spara this
@@ -92,7 +102,24 @@ module.exports = {
 
             });
         });
-    },    
+    },
+    validateSave: function () {
+        let retobj = true;
+        let stylefalse = "color:red; font-weight:bold;"
+        if (!_formObj.Title) {
+            this.$bb_aj_Form_lblWriterTitle.attr("style", stylefalse);
+            retobj = false;
+        }
+        if (!_formObj.Story) {
+            this.$bb_aj_Form_lblAJKrypInWriteContent.attr("style", stylefalse);
+            retobj = false;
+        }
+        if (retobj) {           
+            this.$bb_aj_Form_lblWriterTitle.removeAttr("style");
+            this.$bb_aj_Form_lblAJKrypInWriteContent.removeAttr("style");
+        }
+        return retobj;
+    },
     HelpercollectFormValues: function (userid) {
         _formObj.SkrivID = this.$bb_aj_Form_cmdSend.attr("data-id");
         _formObj.UserID = userid;
