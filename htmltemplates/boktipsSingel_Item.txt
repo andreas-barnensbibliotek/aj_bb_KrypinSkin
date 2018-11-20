@@ -1,0 +1,18 @@
+﻿<h2>Mitt senaste boktips</h2>
+
+{{#each Boktips}}	
+<div class="bookitem-card boktips-card-start" >
+		<div class="bookitem-button">			
+		</div>
+		<a href="#" class="buttonitem_bokpost bb_aj_openInModal" data-id="{{Boktips.TipID}}" data-bookid="{{Bookid}}">
+			<div class="bookitem-image bb_aj_smallsize">
+			<img title="{{Title}}" src="{{#categoryUrlimg ImgSrc}}{{/categoryUrlimg}}" />
+			</div>
+			<div class="bookitem-info">
+				<h5 class="titel">{{Title}}&nbsp;</h5>				
+			</div>
+		</a>
+	</div>	            
+</div>
+
+{{/each}}	

@@ -45,13 +45,14 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var pageloader = __webpack_require__(1);
-	var appsettingsobject = __webpack_require__(12);
+	var appsettingsobject = __webpack_require__(10);
 	var $ = __webpack_require__(5);
 
 	$(function () {
 
+
 	    var appsettings = appsettingsobject.config;
-	    appsettings.userinfo.userid =7017 // $('.kk_aj_userid').html();
+	    appsettings.userinfo.userid = $('#barnensbiblCurrentUserid').html();
 
 	    var currentpage = $('.kk_aj_CurrentPageType').html();
 
@@ -74,15 +75,15 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var startpage = __webpack_require__(2);
-	var booklistpage = __webpack_require__(7);
-	var skrivbokenpage = __webpack_require__(14);
-	var boktipspage = __webpack_require__(19);
+	var booklistpage = __webpack_require__(12);
+	var skrivbokenpage = __webpack_require__(15);
+	var boktipspage = __webpack_require__(20);
 	var scoreboardpage = __webpack_require__(24);
 	var bibblomonpage = __webpack_require__(26);
 	var inventorypage = __webpack_require__(27);
 	var shoppage = __webpack_require__(28);
 	var installningarpage = __webpack_require__(29);
-	var appsettings = __webpack_require__(12);
+	var appsettings = __webpack_require__(10);
 	var $ = __webpack_require__(5);
 
 	module.exports = {
@@ -92,7 +93,7 @@
 	            //jplist.init();
 	            let requestpage = {
 	                'bb_aj_Start_Krypin': function () {
-	                    startpage.init();
+	                    startpage.init(tmpuserid);
 	                    console.log("logga detta " + appsettings.config.dnnURL);
 	                    return false;
 	                },
@@ -147,15 +148,96 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_API = __webpack_require__(6);
+	var PubSubHandler = __webpack_require__(7);
+	var bb_pagebehaviors = __webpack_require__(8);
+	var bb_HB_Handler = __webpack_require__(9);
+	var appsettingsobject = __webpack_require__(10);
+	var appsettings = appsettingsobject.config;
 	module.exports = {
-	    init: function (value) {
+	    init: function (userid) {
 	        let moduleName = 'Start';
 	        bb_pagebehaviors.init(moduleName);
-
+	        this.cacheDom();
+	        this.BindEvent(userid);
+	        this.Render(userid);        
 	        
 	        /////////////////////////////////////////////////////
 
+	    },
+	    cacheDom: function () {
+	        this.$bb_bb_aj_MainScore = $('.bibblomonMainscore');
+	        
+	    },
+	    BindEvent: function (userid) {
+	        let that = this;
+
+	        PubSubHandler.callEvents.on("userScoreupdate", function (highscore) {
+	            that.$bb_bb_aj_MainScore.html(highscore + " xp");
+	        });
+	    },
+	    Renderbiblomon: function (userid) {
+	        let that = this;
+	        let apiurl = appsettings.api.bibblomonlistor.getuserbibblomonlist;
+
+	        bb_API.getjsondata(apiurl(userid), function (data) {
+	            let d = data;
+	            // Kör Event: UpdateImg på alla som är subsciber på eventet
+	            PubSubHandler.callEvents.emit("userScoreupdate", data.Monvalue);
+	            that.$bb_bb_aj_MainScore.html(data.Monvalue + " xp");
+	        });
+	    },
+	    Renderlaserjustnu: function (userid) {
+	        let divid = "#laserjustnuItems";
+	        let that = this;
+
+	        if (this.checkIfDivExist(divid)) {       
+	            let apiurl = appsettings.api.installningar.laserjustnu;
+	            let handlebartemplate = appsettings.handlebartemplate.hb_laserjustnu_tmp;
+	        
+	            bb_API.getjsondata(apiurl(userid), function (data) {
+	                       
+	                bb_HB_Handler.injecthtmltemplate(divid, handlebartemplate, data, function () {
+	                    //jplist.init();            
+	                });
+	             });
+	        };
+	    },
+	    RenderUserLatestBoktips: function (userid) {
+	        let that = this;
+	        let divid = "#bb_aj_userlatestboktips";
+
+	        if (this.checkIfDivExist(divid)) {            
+	            let apiurl = appsettings.api.installningar.userlatestboktips;
+	            let handlebartemplate = appsettings.handlebartemplate.hb_userlatestboktips_tmp;
+
+	            bb_API.getjsondata(apiurl(userid), function (data) {
+
+	                bb_HB_Handler.injecthtmltemplate(divid, handlebartemplate, data, function () {
+	                    //jplist.init();            
+	                });
+	            });
+	        };
+	    },
+	    RenderuserScoreupdate: function (userid) {
+	        let that = this;
+	        let apiurl = appsettings.api.bibblomonlistor.getuserbibblomonlist;
+
+	        bb_API.getjsondata(apiurl(userid), function (data) {
+	            let d = data;
+	            // Kör Event: UpdateImg på alla som är subsciber på eventet
+	            PubSubHandler.callEvents.emit("userScoreupdate", data.Monvalue);
+	            that.$bb_bb_aj_MainScore.html(data.Monvalue + " xp");
+	        });
+	    },
+	    Render: function (userid) {
+	        this.Renderlaserjustnu(userid);
+	        this.RenderUserLatestBoktips(userid);
+	        this.RenderuserScoreupdate(userid);
+	    },
+	    checkIfDivExist: function (divid) {
+	        let myElem = document.getElementById(divid);
+	        return (myElem === null) ? true : false;         
 	    }
 	};
 
@@ -27663,6 +27745,90 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(5);
+
+	module.exports = {   
+	    getjsondata: function (url, callback) {
+	        if (!url) {
+	            return false;
+	        } else{
+	            //console.log("Searchservicen hämtar Arrangemangdata");
+	            $.ajax({
+	                async: true,
+	                type: "get",
+	                dataType: 'jsonp',
+	                url: url,
+	                success: function (data) {
+	                    console.log("Search Detalj arrangemang hämtat: ");
+	                    callback(data);
+	                },
+	                error: function (xhr, ajaxOptions, thrownError) {
+	                    alert("Nått blev fel vid hämtning av arrangemang!");
+	                }
+	            })
+	        };
+	    },
+	    postjsondata: function (url, postdata, callback) {
+	        if (!url) {
+	            return false;
+	        } else {
+	            //console.log("Searchservicen hämtar Arrangemangdata");
+	            $.ajax({
+	                async: true,
+	                
+	                type: "post",
+	                url: url,
+	                data: postdata,
+	                success: function (data) {
+	                    console.log("Hämtar Data: ");
+	                    callback(data);
+	                },
+	                error: function (xhr, ajaxOptions, thrownError) {
+	                    alert("Nått blev fel vid hämtning av POST json!");
+	                }
+	            })
+	        };
+	    }
+	}
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	//events - a super-basic Javascript (publish subscribe) pattern
+
+
+	module.exports = {
+	    callEvents: {
+	        events: {},
+	        on: function (eventName, fn) {
+	            this.events[eventName] = this.events[eventName] || [];
+	            this.events[eventName].push(fn);
+	        },
+	        off: function (eventName, fn) {
+	            if (this.events[eventName]) {
+	                for (var i = 0; i < this.events[eventName].length; i++) {
+	                    if (this.events[eventName][i] === fn) {
+	                        this.events[eventName].splice(i, 1);
+	                        break;
+	                    }
+	                };
+	            }
+	        },
+	        emit: function (eventName, data) {
+	            if (this.events[eventName]) {
+	                this.events[eventName].forEach(function (fn) {
+	                    fn(data);
+	                });
+	            }
+	        }
+	    }
+	};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(5);
 	// sköter globala settings och sidövergripande händelser och inställningar dynamiskt satta on runtime. måste skicka med modulens namn (moduletypID) tex Booklist, Skrivbok, bibblomon m.m
 	module.exports = {
 	    init: function (moduletypID) {
@@ -27681,17 +27847,463 @@
 	}
 
 /***/ }),
-/* 7 */
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(5);
+	var appsettingsobject = __webpack_require__(10);
+	var handelbarhelpers = __webpack_require__(11);
+
+	module.exports = {   
+	    injecthtmltemplate: function (targetClass, usetemplateName, currentdata, callback) {
+	        handelbarhelpers.init();
+	        
+	        $.get(usetemplateName, function (data) {
+	            var temptpl = Handlebars.compile(data);           
+	            $(targetClass).html(temptpl(currentdata));
+	            callback();
+	        }, 'html');
+	    }
+	}
+	String.prototype.replaceAt = function (index, char) {
+	    return this.substr(0, index) + char + this.substr(index + 1);
+	    //   this will 'replace' the character at index with char ^
+	}
+
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+	
+	module.exports = {
+	    config:  (function(){
+	        let _apiserver = "http://localhost:59015";
+	        let _dnnURL = "http://localdev.kivdev.se";
+	        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
+	        //let _dnnURL = "http://dev1.barnensbibliotek.se";
+	        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
+	        //let _dnnURL = "http://nytt.barnensbibliotek.se";
+	        let _devkey = "alf";
+	        let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
+	        let _localOrServerURL = "";
+	        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";
+	        let _avatarimgsrc = "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/avatars/";
+	        // settings src
+	        let _src_setting_base = "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/";
+	        let _src_avatar = _src_setting_base + "avatars/";
+	        let _src_skinbg = _src_setting_base + "bakgrunder/";
+	        // Boklistor START
+	        //// template
+	        let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
+	        let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
+	        let _hb_skrivbokModal_View_template = _dnnURL + _htmltemplateURL + "skrivbokModal_View.txt";
+	        let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
+	        let _hb_bibblomonlist_template = _dnnURL + _htmltemplateURL + "Bibblomon_lista.txt";
+	        let _hb_bibblomonItem_template = _dnnURL + _htmltemplateURL + "Bibblomon_Item.txt";
+
+	        let _hb_Skribokenbadges_template = _dnnURL + _htmltemplateURL + "badges_skrivboken_lista.txt";
+	        let _hb_Boktipsbadges_template = _dnnURL + _htmltemplateURL + "badges_boktips_lista.txt";
+	        let _hb_Specialbadges_template = _dnnURL + _htmltemplateURL + "badges_special_lista.txt";
+	        let _hb_Highscorebadges_template = _dnnURL + _htmltemplateURL + "badges_highscore_lista.txt";
+	        let _hb_Laserjustnu_template = _dnnURL + _htmltemplateURL + "laserjustnu_item.txt";
+	        let _hb_userlatestboktips_template = _dnnURL + _htmltemplateURL + "boktipsSingel_Item.txt";
+	        
+	        // Inställningar
+	        let _hb_settingsAvatar_template = _dnnURL + _htmltemplateURL + "settings_avatar_lista.txt";
+	        let _hb_settingsSkins_template = _dnnURL + _htmltemplateURL + "settings_skin_lista.txt";
+	        //// api
+	        let _fn_userboklist = function (userid) {
+	            return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
+	        };
+	        let _fn_adduserbokItem = function (booklistid, bookid, userid) {
+	            return _apiserver + "/Api_v3.1/booklist/typ/addbook/blistid/" + booklistid + "/value/" + bookid + "/uid/" + userid + _apidevkeyend;
+	        };
+	        let _fn_deluserbokItem = function (booklistid, bookid, userid) {
+	            return _apiserver + "/Api_v3.1/booklist/typ/delbook/blistid/" + booklistid + "/value/" + bookid + "/uid/" + userid + _apidevkeyend;
+	        };
+	        let _fn_addBooklist = function (boklistaNamn, userid) {
+	            return _apiserver + "/Api_v3.1/booklist/typ/addbooklist/blistid/0/value/" + boklistaNamn + "/uid/" + userid + _apidevkeyend;
+	        };
+	        let _fn_editBooklist = function (booklistid, boklistaNamn, userid) {
+	            return _apiserver + "/Api_v3.1/booklist/typ/editbooklist/blistid/" + booklistid + "/value/" + boklistaNamn + "/uid/" + userid + _apidevkeyend;
+	        };
+	        let _fn_delBooklist = function (booklistid, userid) {
+	            return _apiserver + "/Api_v3.1/booklist/typ/delbooklist/blistid/" + booklistid + "/value/0/uid/" + userid + _apidevkeyend;
+	        };
+	        
+	        // Skrivboken START
+	        //// Template
+	        let _hb_skrivbokenlist_template = _dnnURL + _htmltemplateURL + "skrivboken_lista.txt";
+	        //// API
+	        let _fn_userSkrivbokenlist = function (userid) {
+	            return _apiserver + "/Api_v3.1/skrivboken/cmdtyp/ByUserID/val/" + userid + "/typ/2/ap/0/pub/0" + _apidevkeyend;
+	        };
+	        let _fn_userSkrivbokenByID = function (bookid, userid) {
+	            return _apiserver + "/Api_v3.1/skrivboken/cmdtyp/BySkrivid/val/" + bookid + "/typ/" + userid + "/ap/0/pub/0" + _apidevkeyend;
+	        };
+	        let _fn_addskrivbokenItem = function () {
+	            return _apiserver + "/Api_v3.1/skrivboken/typ/addskrivboken/devkey/" + _devkey //+  _apidevkeyend;
+	        };
+	        let _fn_editskrivbokenItem = function () {
+	            return _apiserver + "/Api_v3.1/skrivboken/typ/editskrivboken/devkey/" + _devkey //+ _apidevkeyend;
+	        };
+	        let _fn_delskrivbokenItem = function () {
+	            return _apiserver + "/Api_v3.1/skrivboken/typ/deleteskrivbok/devkey/" + _devkey //+ _apidevkeyend;
+	        };
+	        
+	        // Boktips START
+	        //// Template
+	        let _hb_Boktipslist_template = _dnnURL + _htmltemplateURL + "boktips_lista.txt";
+	        //// API
+	        let _fn_userBoktipslist = function (userid) {
+	            return _apiserver + "/Api_v3.1/boktips/typ/ByUserId/val/" + userid + "/txtval/0" + _apidevkeyend;        
+	        };
+	        let _fn_userBoktipsByTipID = function (tipid, userid) {
+	            return _apiserver + "/Api_v3.1/boktips/typ/ByTipId/val/" + tipid + "/txtval/0" + _apidevkeyend;
+	        };
+	        let _fn_bookContextByBookID = function (bookid) {
+	            return _apiserver + "/Api_v3.1/boktips/typ/ByBookId/val/" + bookid + "/txtval/0" + _apidevkeyend;
+	        };
+	        //API POST
+	        let _fn_addBoktipsItem = function () {
+	            return _apiserver + "/Api_v3.1/boktips/typ/addboktips/devkey/" + _devkey //+  _apidevkeyend;           
+	        };
+	        let _fn_editBoktipsItem = function () {
+	            return _apiserver + "/Api_v3.1/boktips/typ/editboktips/devkey/" + _devkey //+ _apidevkeyend;
+	        };
+	        let _fn_delBoktipsItem = function () {
+	            return _apiserver + "/Api_v3.1/boktips/typ/deleteboktips/devkey/" + _devkey //+ _apidevkeyend;
+	        };
+	        // autocompleteURL
+	        let _fn_autocompleteURL = function (antal) {
+	            return _apiserver + "/Api_v3.1/katalogen/cmdtyp/autocomplete/antal/"+ antal +"/devkey/" + _devkey +  "/?type=json"; 
+	        };
+	        // Bibblomon
+	        let _fn_userBibblomonlist = function (userid) {
+	            return _apiserver + "/Api_v3.1/bibblomon/cmdtyp/usrmon/uid/" + userid + "/monid/0/devkey/" + _devkey + "/?type=jsonp";            
+	        };
+	        // Scoreboard/ badges
+	        let _fn_userBadgeslist = function (userid) {
+	            return _apiserver + "/Api_v3.1/award/cmdtyp/byuserid/uid/" + userid + "/ag/0/devkey/" + _devkey + "/?type=jsonp";            
+	        };
+	        // INSTÄLLNINAR
+	        // AVATAR src
+	        let _fn_avatar = function (userid) {
+	            return _apiserver + "/Api_v3.1/settings/cmdtyp/get/uid/" + userid + "/setid/0/setval/0/devkey/" + _devkey + "/?type=jsonp";
+	        };
+	        let _fn_updateSetting = function(userid,typ,setting){
+	            return _apiserver + "/Api_v3.1/settings/cmdtyp/settings/uid/" + userid + "/setid/" + typ + "/setval/" + setting + "/devkey/" + _devkey + "/?type=jsonp";
+	        }
+	        // läser just nu
+	        let _fn_laserjustnu = function (userid) {            
+	            return _apiserver + "/Api_v3.1/settings/cmdtyp/getlasernu/uid/" + userid + "/setid/0/setval/0/devkey/" + _devkey + "/?type=jsonp";
+	        }
+	        // användarens senaste boktips
+	        let _fn_userlatestboktips = function (userid) {
+	            return _apiserver + "/Api_v3.1/boktips/typ/ByUserIdLatest/val/" + userid + "/txtval/0/devkey/" + _devkey + "/?type=jsonp";       
+	        }
+	        
+
+	        return {
+	            apiserver: _apiserver,
+	            dnnURL: _dnnURL,
+	            localOrServerURL: _localOrServerURL,
+	            htmltemplateurl: _dnnURL + _htmltemplateURL,
+	            devkey: _devkey,
+	            handlebartemplate: {
+	                hb_booklist_tmp: _hb_booklist_template,
+	                hb_skrivbokenlist_tmp: _hb_skrivbokenlist_template,
+	                hb_skrivbokModalView_tmp: _hb_skrivbokModal_View_template,
+	                hb_boktipslist_tmp: _hb_Boktipslist_template,
+	                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template,
+	                hb_bibblomonlist_tmp: _hb_bibblomonlist_template,
+	                hb_bibblomonItem_tmp: _hb_bibblomonItem_template,
+
+	                hb_skribokenbadges_tmp: _hb_Skribokenbadges_template,
+	                hb_boktipsbadges_tmp: _hb_Boktipsbadges_template,
+	                hb_specialbadges_tmp: _hb_Specialbadges_template,
+	                hb_highscorebadges_tmp: _hb_Highscorebadges_template,
+	                
+	                hb_settingsAvatar_tmp: _hb_settingsAvatar_template,
+	                hb_settingsSkins_tmp: _hb_settingsSkins_template,
+	                hb_laserjustnu_tmp: _hb_Laserjustnu_template,
+	                hb_userlatestboktips_tmp: _hb_userlatestboktips_template
+	                 
+	            },
+	            api:{
+	                boklistor:{
+	                    getuserboklist: _fn_userboklist,
+	                    adduserbokitem: _fn_adduserbokItem,
+	                    deluserbokitem: _fn_deluserbokItem,
+	                    addbooklist: _fn_addBooklist,
+	                    editbooklist: _fn_editBooklist,
+	                    delbooklist: _fn_delBooklist
+	                },
+	                skrivbokenlistor:{
+	                    getuserskribokenlist: _fn_userSkrivbokenlist,
+	                    getuserskribokenByID: _fn_userSkrivbokenByID,
+	                    addskribokenItem: _fn_addskrivbokenItem,
+	                    editskribokenItem: _fn_editskrivbokenItem,
+	                    delskribokenItem: _fn_delskrivbokenItem
+	                },
+	                boktipslistor: {
+	                    getuserboktipslist: _fn_userBoktipslist,
+	                    getuserboktipsByTipID: _fn_userBoktipsByTipID,
+	                    getbookContextByBookID: _fn_bookContextByBookID,
+	                    addboktipsItem: _fn_addBoktipsItem,
+	                    editboktipsItem: _fn_editBoktipsItem,
+	                    delboktipsItem: _fn_delBoktipsItem
+	                },
+	                bibblomonlistor: {
+	                    getuserbibblomonlist: _fn_userBibblomonlist                    
+	                },
+	                scoreboard: {
+	                    getuserbadgeslist:_fn_userBadgeslist
+	                },
+	                autocomplete: {
+	                    geturl: _fn_autocompleteURL
+	                },
+	                installningar:{
+	                    src: _fn_avatar,
+	                    curAvatarsrc: _src_avatar,
+	                    curSkinsrc: _src_skinbg,
+	                    updatesettings: _fn_updateSetting,
+	                    avatarimgsrc: _avatarimgsrc,
+	                    laserjustnu: _fn_laserjustnu,
+	                    userlatestboktips: _fn_userlatestboktips
+	                },
+	                devkeyend : _apidevkeyend
+	            },
+	            userinfo: {
+	                avatarimg: "",
+	                avatarid: "",
+	                defaultavatarimg: "",
+	                defaultavatarid: "",
+	                skin: "",
+	                skinid: "",
+	                defaultskinimg: "",
+	                defaultskinclass: "",
+	                defaultskinid: "",
+	                userid: "",
+	                rollid: ""
+	            },
+
+	            debug: "false"
+	        }
+	    })(),
+	    skrivbokimages: (function () {
+	        return {
+	            catimgbase: "/DesktopModules/bb_aj_Skrivboken_Krypin/images/",
+	            catimagesrc: [
+	                {
+	                    "catid": "001",
+	                    "catname": "Bild saknas",
+	                    "imgsrc": "foto_saknas.jpg"
+	                },
+	                {
+	                     "catid": "0",
+	                     "catname": "&Ouml;vrigt",
+	                     "imgsrc": "skrivbok_default256_36.png"
+	                },
+	                {
+	                    "catid": "1",
+	                    "catname": "&Ouml;vrigt",
+	                    "imgsrc": "skrivbok_ovrigt256_36.png"
+	                },
+	                {
+	                    "catid": "2",
+	                    "catname": "&Ouml;vrigt",
+	                    "imgsrc": "skrivbok_ovrigt256_36.png"
+	                },
+	                {
+	                    "catid": "3",
+	                    "catname": "Ber&auml;ttelse",
+	                    "imgsrc": "skrivbok_berattelse-256_36.png"
+	                },
+	                {
+	                    "catid": "4",
+	                    "catname": "Dikt",
+	                    "imgsrc": "skrivbok_dikt-256_36.png"
+	                },
+	                {
+	                    "catid": "5",
+	                    "catname": "Tankar",
+	                    "imgsrc": "skrivbok_tankar256_36.png"
+	                },
+	                {
+	                    "catid": "6",
+	                    "catname": "&Ouml;vrigt",
+	                    "imgsrc": "skrivbok_ovrigt256_36.png"
+	                },
+	                {
+	                    "catid": "8",
+	                    "catname": "Deckare",
+	                    "imgsrc": "skrivbok_deckare256_36.png"
+	                },
+	                {
+	                    "catid": "9",
+	                    "catname": "Djur",
+	                    "imgsrc": "skrivbok_djur256_36.png"
+	                },
+	                {
+	                    "catid": "10",
+	                    "catname": "Fantasy",
+	                    "imgsrc": "skrivbok_fantasy256_36.png"
+	                },
+	                {
+	                    "catid": "11",
+	                    "catname": "Skr&auml;ck",
+	                    "imgsrc": "skrivbok_skrack256_36.png"
+	                },
+	                {
+	                    "catid": "12",
+	                    "catname": "K&auml;rlek",
+	                    "imgsrc": "skrivbok_karlek256_36.png"
+	                },
+	                {
+	                    "catid": "13",
+	                    "catname": "Ramsa",
+	                    "imgsrc": "skrivbok_ramsa256_36.png"
+	                },
+	                {
+	                    "catid": "15",
+	                    "catname": "Sorgligt",
+	                    "imgsrc": "skrivbok_sorgligt256_36.png"
+	                },
+	                {
+	                    "catid": "16",
+	                    "catname": "Humor",
+	                    "imgsrc": "skrivbok_skratta256_36.png"
+	                },
+	                {
+	                    "catid": "17",
+	                    "catname": "Sp&auml;nning",
+	                    "imgsrc": "skrivbok_spanning256_36.png"
+	                },
+	                {
+	                    "catid": "18",
+	                    "catname": "Sp&ouml;ken",
+	                    "imgsrc": "skrivbok_spoken256_36.png"
+	                },
+	                {
+	                    "catid": "19",
+	                    "catname": "&Auml;ventyr",
+	                    "imgsrc": "skrivbok_aventyr256_36.png"
+	                },
+	                {
+	                    "catid": "21",
+	                    "catname": "Hastar",
+	                    "imgsrc": "skrivbok_hastar256_36.png"
+	                }
+	            ]                
+	        };          
+	    })(),
+	    usermessages: (function () {
+	        
+	        return {
+	            installningar:
+	                {                    
+	                    "confirmSave": decodeURIComponent(escape("är du säker på att du vill spara ändringarna?"))
+	                },
+	            skrivbok:
+	                {
+	                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
+	                    "confirmAdd": decodeURIComponent(escape("är du säker på att du vill lägga till texten?")),
+	                    "confirmEdit": decodeURIComponent(escape("r du säker på att du vill ändra i i texten?")),
+	                    "confirmDel": decodeURIComponent(escape("är du säker på att du vill ta bort texten?"))
+	                },
+	            boktips:
+	                {
+	                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
+	                    "confirmAdd": decodeURIComponent(escape("är du säker på att du vill lägga till boktipset?")),                    
+	                    "confirmEdit": decodeURIComponent(escape("är du säker på att du vill ändra i boktipset?")),
+	                    "confirmDel": decodeURIComponent(escape("är du säker på att du vill ta bort boktipset?"))
+	                },
+	            boklist:
+	                {
+	                    "confirmAlert": decodeURIComponent(escape("Du måste skriva något!")),
+	                    "confirmAdd": decodeURIComponent(escape("Vill du lägga till denna boklista?")),
+	                    "confirmEdit": decodeURIComponent(escape("Vill du byta namn på boklistan?")),
+	                    "confirmDel": "Vill du ta bort boklistan?"
+	                }
+	            };
+	    })()
+	}
+
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	__webpack_require__(8);
-	var bb_pagebehaviors = __webpack_require__(6);
-	var bb_containerbehaviors = __webpack_require__(9);
-	var bb_API = __webpack_require__(10);
-	var bb_HB_Handler = __webpack_require__(11);
-	var appsettingsobject = __webpack_require__(12);
+	var appsettingsobject = __webpack_require__(10);
+	var appsettings = appsettingsobject.config;
+
+	module.exports = {
+	    init: function () {
+
+	        //Handlebars.registerHelper('datagroupname', function (name) {            
+	        //    return name.replace(/\s/g, "");
+	        //});
+
+	        Handlebars.registerHelper('datagroupname', function (name) {
+	            var ind = name.indexOf("i", 0);
+	            name.replaceAt(ind, "o");
+	            return name.replace(/\s/g, "");
+	        });
+
+	        let Counter = 1;
+	        Handlebars.registerHelper('count', function (index) {
+	            return "grupp" + index;
+	        });
+	        
+	        Handlebars.registerHelper('categoryimg', function (catid) {
+	            let settingsobj = appsettingsobject.skrivbokimages;
+	            let imglist = settingsobj.catimagesrc;
+
+	            let catimgobj = _.find(imglist, function (o) { return o.catid == catid; });
+	            if (!catimgobj) {
+	                catimgobj=  _.find(imglist, function (o) { return o.catid == 0; });
+	            };
+	            let tmpimg = settingsobj.catimgbase + catimgobj.imgsrc;
+	            let retimg = "<img title=" + catimgobj.catname + " src=" + tmpimg + " />";
+	            return retimg;
+	        });
+
+	        Handlebars.registerHelper('categoryUrlimg', function (imgsrc) {          
+
+	            if (!imgsrc) {
+	                let settingsobj = appsettingsobject.skrivbokimages;
+	                let imglist = settingsobj.catimagesrc;
+	                let catimgobj = _.find(imglist, function (o) { return o.catid == 001; });
+	                imgsrc = settingsobj.catimgbase + catimgobj.imgsrc;
+	            };
+	            
+	            return imgsrc
+	        });
+
+	       
+	    }
+	}
+
+
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var _ = __webpack_require__(3);
+	var $ = __webpack_require__(5);
+	__webpack_require__(13);
+	var bb_pagebehaviors = __webpack_require__(8);
+	var bb_containerbehaviors = __webpack_require__(14);
+	var bb_API = __webpack_require__(6);
+	var bb_HB_Handler = __webpack_require__(9);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 	var globalmessages = appsettingsobject.usermessages;
 	const _myboolistID = "1000000000";
@@ -27930,7 +28542,7 @@
 	};
 
 /***/ }),
-/* 8 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! jQuery UI - v1.12.1 - 2016-09-14
@@ -46641,7 +47253,7 @@
 	}));
 
 /***/ }),
-/* 9 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(5);
@@ -46688,498 +47300,21 @@
 
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(5);
-
-	module.exports = {   
-	    getjsondata: function (url, callback) {
-	        if (!url) {
-	            return false;
-	        } else{
-	            //console.log("Searchservicen hämtar Arrangemangdata");
-	            $.ajax({
-	                async: true,
-	                type: "get",
-	                dataType: 'jsonp',
-	                url: url,
-	                success: function (data) {
-	                    console.log("Search Detalj arrangemang hämtat: ");
-	                    callback(data);
-	                },
-	                error: function (xhr, ajaxOptions, thrownError) {
-	                    alert("Nått blev fel vid hämtning av arrangemang!");
-	                }
-	            })
-	        };
-	    },
-	    postjsondata: function (url, postdata, callback) {
-	        if (!url) {
-	            return false;
-	        } else {
-	            //console.log("Searchservicen hämtar Arrangemangdata");
-	            $.ajax({
-	                async: true,
-	                
-	                type: "post",
-	                url: url,
-	                data: postdata,
-	                success: function (data) {
-	                    console.log("Hämtar Data: ");
-	                    callback(data);
-	                },
-	                error: function (xhr, ajaxOptions, thrownError) {
-	                    alert("Nått blev fel vid hämtning av POST json!");
-	                }
-	            })
-	        };
-	    }
-	}
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(5);
-	var appsettingsobject = __webpack_require__(12);
-	var handelbarhelpers = __webpack_require__(13);
-
-	module.exports = {   
-	    injecthtmltemplate: function (targetClass, usetemplateName, currentdata, callback) {
-	        handelbarhelpers.init();
-	        
-	        $.get(usetemplateName, function (data) {
-	            var temptpl = Handlebars.compile(data);           
-	            $(targetClass).html(temptpl(currentdata));
-	            callback();
-	        }, 'html');
-	    }
-	}
-	String.prototype.replaceAt = function (index, char) {
-	    return this.substr(0, index) + char + this.substr(index + 1);
-	    //   this will 'replace' the character at index with char ^
-	}
-
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-	
-	module.exports = {
-	    config:  (function(){
-	        let _apiserver = "http://localhost:59015";
-	        let _dnnURL = "http://localdev.kivdev.se";
-	        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
-	        //let _dnnURL = "http://dev1.barnensbibliotek.se";
-	        let _devkey = "alf";
-	        let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
-	        let _localOrServerURL = "";
-	        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";        
-	        // settings src
-	        let _src_setting_base = _dnnURL + "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/";
-	        let _src_avatar = _src_setting_base + "avatars/";
-	        let _src_skinbg = _src_setting_base + "bakgrunder/";
-	        // Boklistor START
-	        //// template
-	        let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
-	        let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
-	        let _hb_skrivbokModal_View_template = _dnnURL + _htmltemplateURL + "skrivbokModal_View.txt";
-	        let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
-	        let _hb_bibblomonlist_template = _dnnURL + _htmltemplateURL + "Bibblomon_lista.txt";
-	        let _hb_bibblomonItem_template = _dnnURL + _htmltemplateURL + "Bibblomon_Item.txt";
-
-	        let _hb_Skribokenbadges_template = _dnnURL + _htmltemplateURL + "badges_skrivboken_lista.txt";
-	        let _hb_Boktipsbadges_template = _dnnURL + _htmltemplateURL + "badges_boktips_lista.txt";
-	        let _hb_Specialbadges_template = _dnnURL + _htmltemplateURL + "badges_special_lista.txt";
-	        let _hb_Highscorebadges_template = _dnnURL + _htmltemplateURL + "badges_highscore_lista.txt";
-	        
-	        // Inställningar
-	        let _hb_settingsAvatar_template = _dnnURL + _htmltemplateURL + "settings_avatar_lista.txt";
-	        let _hb_settingsSkins_template = _dnnURL + _htmltemplateURL + "settings_skin_lista.txt";
-	        //// api
-	        let _fn_userboklist = function (userid) {
-	            return _apiserver + "/Api_v3.1/booklist/uid/" + userid + _apidevkeyend;
-	        };
-	        let _fn_adduserbokItem = function (booklistid, bookid, userid) {
-	            return _apiserver + "/Api_v3.1/booklist/typ/addbook/blistid/" + booklistid + "/value/" + bookid + "/uid/" + userid + _apidevkeyend;
-	        };
-	        let _fn_deluserbokItem = function (booklistid, bookid, userid) {
-	            return _apiserver + "/Api_v3.1/booklist/typ/delbook/blistid/" + booklistid + "/value/" + bookid + "/uid/" + userid + _apidevkeyend;
-	        };
-	        let _fn_addBooklist = function (boklistaNamn, userid) {
-	            return _apiserver + "/Api_v3.1/booklist/typ/addbooklist/blistid/0/value/" + boklistaNamn + "/uid/" + userid + _apidevkeyend;
-	        };
-	        let _fn_editBooklist = function (booklistid, boklistaNamn, userid) {
-	            return _apiserver + "/Api_v3.1/booklist/typ/editbooklist/blistid/" + booklistid + "/value/" + boklistaNamn + "/uid/" + userid + _apidevkeyend;
-	        };
-	        let _fn_delBooklist = function (booklistid, userid) {
-	            return _apiserver + "/Api_v3.1/booklist/typ/delbooklist/blistid/" + booklistid + "/value/0/uid/" + userid + _apidevkeyend;
-	        };
-	        
-	        // Skrivboken START
-	        //// Template
-	        let _hb_skrivbokenlist_template = _dnnURL + _htmltemplateURL + "skrivboken_lista.txt";
-	        //// API
-	        let _fn_userSkrivbokenlist = function (userid) {
-	            return _apiserver + "/Api_v3.1/skrivboken/cmdtyp/ByUserID/val/" + userid + "/typ/2/ap/0/pub/0" + _apidevkeyend;
-	        };
-	        let _fn_userSkrivbokenByID = function (bookid, userid) {
-	            return _apiserver + "/Api_v3.1/skrivboken/cmdtyp/BySkrivid/val/" + bookid + "/typ/" + userid + "/ap/0/pub/0" + _apidevkeyend;
-	        };
-	        let _fn_addskrivbokenItem = function () {
-	            return _apiserver + "/Api_v3.1/skrivboken/typ/addskrivboken/devkey/" + _devkey //+  _apidevkeyend;
-	        };
-	        let _fn_editskrivbokenItem = function () {
-	            return _apiserver + "/Api_v3.1/skrivboken/typ/editskrivboken/devkey/" + _devkey //+ _apidevkeyend;
-	        };
-	        let _fn_delskrivbokenItem = function () {
-	            return _apiserver + "/Api_v3.1/skrivboken/typ/deleteskrivbok/devkey/" + _devkey //+ _apidevkeyend;
-	        };
-	        
-	        // Boktips START
-	        //// Template
-	        let _hb_Boktipslist_template = _dnnURL + _htmltemplateURL + "boktips_lista.txt";
-	        //// API
-	        let _fn_userBoktipslist = function (userid) {
-	            return _apiserver + "/Api_v3.1/boktips/typ/ByUserId/val/" + userid + "/txtval/0" + _apidevkeyend;        
-	        };
-	        let _fn_userBoktipsByTipID = function (tipid, userid) {
-	            return _apiserver + "/Api_v3.1/boktips/typ/ByTipId/val/" + tipid + "/txtval/0" + _apidevkeyend;
-	        };
-	        let _fn_bookContextByBookID = function (bookid) {
-	            return _apiserver + "/Api_v3.1/boktips/typ/ByBookId/val/" + bookid + "/txtval/0" + _apidevkeyend;
-	        };
-	        //API POST
-	        let _fn_addBoktipsItem = function () {
-	            return _apiserver + "/Api_v3.1/boktips/typ/addboktips/devkey/" + _devkey //+  _apidevkeyend;           
-	        };
-	        let _fn_editBoktipsItem = function () {
-	            return _apiserver + "/Api_v3.1/boktips/typ/editboktips/devkey/" + _devkey //+ _apidevkeyend;
-	        };
-	        let _fn_delBoktipsItem = function () {
-	            return _apiserver + "/Api_v3.1/boktips/typ/deleteboktips/devkey/" + _devkey //+ _apidevkeyend;
-	        };
-	        // autocompleteURL
-	        let _fn_autocompleteURL = function (antal) {
-	            return _apiserver + "/Api_v3.1/katalogen/cmdtyp/autocomplete/antal/"+ antal +"/devkey/" + _devkey +  "/?type=json"; 
-	        };
-	        // Bibblomon
-	        let _fn_userBibblomonlist = function (userid) {
-	            return _apiserver + "/Api_v3.1/bibblomon/cmdtyp/usrmon/uid/" + userid + "/monid/0/devkey/" + _devkey + "/?type=jsonp";            
-	        };
-	        // Scoreboard/ badges
-	        let _fn_userBadgeslist = function (userid) {
-	            return _apiserver + "/Api_v3.1/award/cmdtyp/byuserid/uid/" + userid + "/ag/0/devkey/" + _devkey + "/?type=jsonp";            
-	        };
-	        // AVATAR src
-	        let _fn_avatar = function (userid) {
-	            return _apiserver + "/Api_v3.1/settings/cmdtyp/get/uid/" + userid + "/setid/0/setval/0/devkey/" + _devkey + "/?type=jsonp";
-	        };
-	        let _fn_updateSetting = function(userid,typ,setting){
-	            return _apiserver + "/Api_v3.1/settings/cmdtyp/settings/uid/" + userid + "/setid/" + typ + "/setval/" + setting + "/devkey/" + _devkey + "/?type=jsonp";
-	        }
-	       
-
-	        return {
-	            apiserver: _apiserver,
-	            dnnURL: _dnnURL,
-	            localOrServerURL: _localOrServerURL,
-	            htmltemplateurl: _dnnURL + _htmltemplateURL,
-	            devkey: _devkey,
-	            handlebartemplate: {
-	                hb_booklist_tmp: _hb_booklist_template,
-	                hb_skrivbokenlist_tmp: _hb_skrivbokenlist_template,
-	                hb_skrivbokModalView_tmp: _hb_skrivbokModal_View_template,
-	                hb_boktipslist_tmp: _hb_Boktipslist_template,
-	                hb_boktipsModalView_tmp: _hb_boktipsModal_View_template,
-	                hb_bibblomonlist_tmp: _hb_bibblomonlist_template,
-	                hb_bibblomonItem_tmp: _hb_bibblomonItem_template,
-
-	                hb_skribokenbadges_tmp: _hb_Skribokenbadges_template,
-	                hb_boktipsbadges_tmp: _hb_Boktipsbadges_template,
-	                hb_specialbadges_tmp: _hb_Specialbadges_template,
-	                hb_highscorebadges_tmp: _hb_Highscorebadges_template,
-	                
-	                hb_settingsAvatar_tmp: _hb_settingsAvatar_template,
-	                hb_settingsSkins_tmp: _hb_settingsSkins_template
-	                 
-	            },
-	            api:{
-	                boklistor:{
-	                    getuserboklist: _fn_userboklist,
-	                    adduserbokitem: _fn_adduserbokItem,
-	                    deluserbokitem: _fn_deluserbokItem,
-	                    addbooklist: _fn_addBooklist,
-	                    editbooklist: _fn_editBooklist,
-	                    delbooklist: _fn_delBooklist
-	                },
-	                skrivbokenlistor:{
-	                    getuserskribokenlist: _fn_userSkrivbokenlist,
-	                    getuserskribokenByID: _fn_userSkrivbokenByID,
-	                    addskribokenItem: _fn_addskrivbokenItem,
-	                    editskribokenItem: _fn_editskrivbokenItem,
-	                    delskribokenItem: _fn_delskrivbokenItem
-	                },
-	                boktipslistor: {
-	                    getuserboktipslist: _fn_userBoktipslist,
-	                    getuserboktipsByTipID: _fn_userBoktipsByTipID,
-	                    getbookContextByBookID: _fn_bookContextByBookID,
-	                    addboktipsItem: _fn_addBoktipsItem,
-	                    editboktipsItem: _fn_editBoktipsItem,
-	                    delboktipsItem: _fn_delBoktipsItem
-	                },
-	                bibblomonlistor: {
-	                    getuserbibblomonlist: _fn_userBibblomonlist                    
-	                },
-	                scoreboard: {
-	                    getuserbadgeslist:_fn_userBadgeslist
-	                },
-	                autocomplete: {
-	                    geturl: _fn_autocompleteURL
-	                },
-	                installningar:{
-	                    src: _fn_avatar,
-	                    curAvatarsrc: _src_avatar,
-	                    curSkinsrc: _src_skinbg,
-	                    updatesettings: _fn_updateSetting
-	                },
-	                devkeyend : _apidevkeyend
-	            },
-	            userinfo: {
-	                avatarimg: "",
-	                avatarid: "",
-	                defaultavatarimg: "",
-	                defaultavatarid: "",
-	                skin: "",
-	                skinid: "",
-	                defaultskinimg: "",
-	                defaultskinclass: "",
-	                defaultskinid: "",
-	                userid: "",
-	                rollid: ""
-	            },
-
-	            debug: "false"
-	        }
-	    })(),
-	    skrivbokimages: (function () {
-	        return {
-	            catimgbase: "/DesktopModules/bb_aj_Skrivboken_Krypin/images/",
-	            catimagesrc: [
-	                {
-	                    "catid": "001",
-	                    "catname": "Bild saknas",
-	                    "imgsrc": "foto_saknas.jpg"
-	                },
-	                {
-	                     "catid": "0",
-	                     "catname": "&Ouml;vrigt",
-	                     "imgsrc": "skrivbok_default256_36.png"
-	                },
-	                {
-	                    "catid": "1",
-	                    "catname": "&Ouml;vrigt",
-	                    "imgsrc": "skrivbok_ovrigt256_36.png"
-	                },
-	                {
-	                    "catid": "2",
-	                    "catname": "&Ouml;vrigt",
-	                    "imgsrc": "skrivbok_ovrigt256_36.png"
-	                },
-	                {
-	                    "catid": "3",
-	                    "catname": "Ber&auml;ttelse",
-	                    "imgsrc": "skrivbok_berattelse-256_36.png"
-	                },
-	                {
-	                    "catid": "4",
-	                    "catname": "Dikt",
-	                    "imgsrc": "skrivbok_dikt-256_36.png"
-	                },
-	                {
-	                    "catid": "5",
-	                    "catname": "Tankar",
-	                    "imgsrc": "skrivbok_tankar256_36.png"
-	                },
-	                {
-	                    "catid": "6",
-	                    "catname": "&Ouml;vrigt",
-	                    "imgsrc": "skrivbok_ovrigt256_36.png"
-	                },
-	                {
-	                    "catid": "8",
-	                    "catname": "Deckare",
-	                    "imgsrc": "skrivbok_deckare256_36.png"
-	                },
-	                {
-	                    "catid": "9",
-	                    "catname": "Djur",
-	                    "imgsrc": "skrivbok_djur256_36.png"
-	                },
-	                {
-	                    "catid": "10",
-	                    "catname": "Fantasy",
-	                    "imgsrc": "skrivbok_fantasy256_36.png"
-	                },
-	                {
-	                    "catid": "11",
-	                    "catname": "Skr&auml;ck",
-	                    "imgsrc": "skrivbok_skrack256_36.png"
-	                },
-	                {
-	                    "catid": "12",
-	                    "catname": "K&auml;rlek",
-	                    "imgsrc": "skrivbok_karlek256_36.png"
-	                },
-	                {
-	                    "catid": "13",
-	                    "catname": "Ramsa",
-	                    "imgsrc": "skrivbok_ramsa256_36.png"
-	                },
-	                {
-	                    "catid": "15",
-	                    "catname": "Sorgligt",
-	                    "imgsrc": "skrivbok_sorgligt256_36.png"
-	                },
-	                {
-	                    "catid": "16",
-	                    "catname": "Humor",
-	                    "imgsrc": "skrivbok_skratta256_36.png"
-	                },
-	                {
-	                    "catid": "17",
-	                    "catname": "Sp&auml;nning",
-	                    "imgsrc": "skrivbok_spanning256_36.png"
-	                },
-	                {
-	                    "catid": "18",
-	                    "catname": "Sp&ouml;ken",
-	                    "imgsrc": "skrivbok_spoken256_36.png"
-	                },
-	                {
-	                    "catid": "19",
-	                    "catname": "&Auml;ventyr",
-	                    "imgsrc": "skrivbok_aventyr256_36.png"
-	                },
-	                {
-	                    "catid": "21",
-	                    "catname": "Hastar",
-	                    "imgsrc": "skrivbok_hastar256_36.png"
-	                }
-	            ]                
-	        };          
-	    })(),
-	    usermessages: (function () {
-	        return {
-	            installningar:
-	                {                    
-	                    "confirmSave": decodeURIComponent(escape("Är du säker på att du vill spara ändringarna?"))
-	                },
-	            skrivbok:
-	                {
-	                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
-	                    "confirmAdd": decodeURIComponent(escape("Är du säker på att du vill lägga till texten?")),
-	                    "confirmEdit": decodeURIComponent(escape("Är du säker på att du vill ändra i i texten?")),
-	                    "confirmDel": decodeURIComponent(escape("Är du säker på att du vill ta bort texten?"))
-	                },
-	            boktips:
-	                {
-	                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
-	                    "confirmAdd": decodeURIComponent(escape("Är du säker på att du vill lägga till boktipset?")),                    
-	                    "confirmEdit": decodeURIComponent(escape("Är du säker på att du vill ändra i boktipset?")),
-	                    "confirmDel": decodeURIComponent(escape("Är du säker på att du vill ta bort boktipset?"))
-	                },
-	            boklist:
-	                {
-	                    "confirmAlert": decodeURIComponent(escape("Du måste skriva något!")),
-	                    "confirmAdd": decodeURIComponent(escape("Vill du lägga till denna boklista?")),
-	                    "confirmEdit": decodeURIComponent(escape("Vill du byta namn på boklistan?")),
-	                    "confirmDel": "Vill du ta bort boklistan?"
-	                }
-	            };
-	    })()
-	}
-
-
-
-/***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	var appsettingsobject = __webpack_require__(12);
-	var appsettings = appsettingsobject.config;
+	var editorHandler = __webpack_require__(16);
+	var modalobj = __webpack_require__(17);
+	var bb_pagebehaviors = __webpack_require__(8);
+	var bb_containerbehaviors = __webpack_require__(14);
+	var bb_API = __webpack_require__(6);
+	var bb_HB_Handler = __webpack_require__(9);
+	var helperobj = __webpack_require__(18);
+	var formeditObj = __webpack_require__(19);
 
-	module.exports = {
-	    init: function () {
-
-	        //Handlebars.registerHelper('datagroupname', function (name) {            
-	        //    return name.replace(/\s/g, "");
-	        //});
-
-	        Handlebars.registerHelper('datagroupname', function (name) {
-	            var ind = name.indexOf("i", 0);
-	            name.replaceAt(ind, "o");
-	            return name.replace(/\s/g, "");
-	        });
-
-	        let Counter = 1;
-	        Handlebars.registerHelper('count', function (index) {
-	            return "grupp" + index;
-	        });
-	        
-	        Handlebars.registerHelper('categoryimg', function (catid) {
-	            let settingsobj = appsettingsobject.skrivbokimages;
-	            let imglist = settingsobj.catimagesrc;
-
-	            let catimgobj = _.find(imglist, function (o) { return o.catid == catid; });
-	            if (!catimgobj) {
-	                catimgobj=  _.find(imglist, function (o) { return o.catid == 0; });
-	            };
-	            let tmpimg = settingsobj.catimgbase + catimgobj.imgsrc;
-	            let retimg = "<img title=" + catimgobj.catname + " src=" + tmpimg + " />";
-	            return retimg;
-	        });
-
-	        Handlebars.registerHelper('categoryUrlimg', function (imgsrc) {          
-
-	            if (!imgsrc) {
-	                let settingsobj = appsettingsobject.skrivbokimages;
-	                let imglist = settingsobj.catimagesrc;
-	                let catimgobj = _.find(imglist, function (o) { return o.catid == 001; });
-	                imgsrc = settingsobj.catimgbase + catimgobj.imgsrc;
-	            };
-	            
-	            return imgsrc
-	        });
-
-	       
-	    }
-	}
-
-
-
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var _ = __webpack_require__(3);
-	var $ = __webpack_require__(5);
-	var editorHandler = __webpack_require__(15);
-	var modalobj = __webpack_require__(16);
-	var bb_pagebehaviors = __webpack_require__(6);
-	var bb_containerbehaviors = __webpack_require__(9);
-	var bb_API = __webpack_require__(10);
-	var bb_HB_Handler = __webpack_require__(11);
-	var helperobj = __webpack_require__(17);
-	var formeditObj = __webpack_require__(18);
-
-	var appsettingsobject = __webpack_require__(12);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 	var globalmessages = appsettingsobject.usermessages;
 
@@ -47354,267 +47489,29 @@
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var jQuery = __webpack_require__(5);
 	module.exports = {
 	    init: function () {
-	        //tinyMCE.init({
-	        //    mode: "textareas",
-	        //    theme: "simple",
-	        //    content_css: "http://www.barnensbibliotek.se/DesktopModules/AJBarnensKrypin/css/editorStyle.css"
-	        //})
+	       
 	        window.editorobj = tinymce;
 	        window.editorobj.init({
 	            selector: '#txtAJKrypInWriteContent',
 	            menubar: false,
 	            toolbar: 'undo redo | styleselect | bold italic | link image'
-	        });
-
-	        //tinymce.get('arr_presentation').getContent()
+	        });    
+	        
 	    },//end init
 	    clear: function () {
 	        window.editorobj.activeEditor.setContent('');
 	    }
 	} //end moduleexport
 
-	var TINY = TINY || {},
-	T$ = T$ || function(i) {return document.getElementById(i)},
-	T$$$ = T$$$ || function() {return document.all?1 : 0};
-
-	TINY.editor = function() {
-	    var c = [], offset = -30;
-	    c['bold'] = [4, 'Bold', 'a', 'bold'];
-	    c['italic'] = [5, 'Italic', 'a', 'italic'];
-	    c['underline'] = [6, 'Underline', 'a', 'underline'];
-	    c['strikethrough'] = [7, 'Strikethrough', 'a', 'strikethrough'];
-	    c['subscript'] = [8, 'Subscript', 'a', 'subscript'];
-	    c['superscript'] = [9, 'Superscript', 'a', 'superscript'];
-	    c['orderedlist'] = [10, 'Insert Ordered List', 'a', 'insertorderedlist'];
-	    c['unorderedlist'] = [11, 'Insert Unordered List', 'a', 'insertunorderedlist'];
-	    c['outdent'] = [12, 'Outdent', 'a', 'outdent'];
-	    c['indent'] = [13, 'Indent', 'a', 'indent'];
-	    c['leftalign'] = [14, 'Left Align', 'a', 'justifyleft'];
-	    c['centeralign'] = [15, 'Center Align', 'a', 'justifycenter'];
-	    c['rightalign'] = [16, 'Right Align', 'a', 'justifyright'];
-	    c['blockjustify'] = [17, 'Block Justify', 'a', 'justifyfull'];
-	    c['undo'] = [18, 'Undo', 'a', 'undo'];
-	    c['redo'] = [19, 'Redo', 'a', 'redo'];
-	    c['image'] = [20, 'Insert Image', 'i', 'insertimage', 'Enter Image URL:', 'http://'];
-	    c['hr'] = [21, 'Insert Horizontal Rule', 'a', 'inserthorizontalrule'];
-	    c['link'] = [22, 'Insert Hyperlink', 'i', 'createlink', 'Enter URL:', 'http://'];
-	    c['unlink'] = [23, 'Remove Hyperlink', 'a', 'unlink'];
-	    c['unformat'] = [24, 'Remove Formatting', 'a', 'removeformat'];
-	    c['print'] = [25, 'Print', 'a', 'print'];
-	    function edit(n, obj) {
-	        this.n = n; window[n] = this; this.t = T$(obj.id); this.obj = obj; this.xhtml = obj.xhtml;
-	        var p = document.createElement('div'), w = document.createElement('div'), h = document.createElement('div'),
-			l = obj.controls.length, i = 0;
-	        this.i = document.createElement('iframe'); this.i.scrolling = 'no';
-	        this.i.width = obj.width || '500'; this.i.height = obj.height || '250'; this.ie = T$$$();
-	        h.className = obj.rowclass || 'tinyeditor-header'; p.className = obj.cssclass || 'tinyeditor'; p.style.width = this.i.width + 'px'; p.appendChild(h);
-	        for(i; i < l; i++) {
-	            var id = obj.controls[i];
-	            if(id == 'n') {
-	                h = document.createElement('div'); h.className = obj.rowclass || 'tinyeditor-header'; p.appendChild(h);
-	            } else if(id == '|') {
-	                var d = document.createElement('div'); d.className = obj.dividerclass || 'tinyeditor-divider'; h.appendChild(d);
-	            } else if(id == 'font') {
-	                var sel = document.createElement('select'), fonts = obj.fonts || ['Verdana', 'Arial', 'Georgia'], fl = fonts.length, x = 0;
-	                sel.className = 'tinyeditor-font'; sel.onchange = new Function(this.n + '.ddaction(this, "fontname")');
-	                sel.options[0] = new Option('Font', '');
-	                for(x; x < fl; x++) {
-	                    var font = fonts[x];
-	                    sel.options[x + 1] = new Option(font, font);
-	                }
-	                h.appendChild(sel)
-	            } else if(id == 'size') {
-	                var sel = document.createElement('select'), sizes = obj.sizes || [1, 2, 3, 4, 5, 6, 7], sl = sizes.length, x = 0;
-	                sel.className = 'tinyeditor-size'; sel.onchange = new Function(this.n + '.ddaction(this, "fontsize")');
-	                for(x; x < sl; x++) {
-	                    var size = sizes[x];
-	                    sel.options[x] = new Option(size, size);
-	                }
-	                h.appendChild(sel)
-	            } else if(id == 'style') {
-	                var sel = document.createElement('select'),
-	                styles = obj.styles || [['Style', ''], ['Paragraph', '<p>'], ['Header 1', '<h1>'], ['Header 2', '<h2>'], ['Header 3', '<h3>'], ['Header 4', '<h4>'], ['Header 5', '<h5>'], ['Header 6', '<h6>']],
-	                sl = styles.length, x = 0;
-	                sel.className = 'tinyeditor-style'; sel.onchange = new Function(this.n + '.ddaction(this, "formatblock")');
-	                for(x; x < sl; x++) {
-	                    var style = styles[x];
-	                    sel.options[x] = new Option(style[0], style[1]);
-	                }
-	                h.appendChild(sel);
-	            } else if(c[id]) {
-	                var div = document.createElement('div'), x = c[id], func = x[2], ex, pos = x[0] * offset;
-	                div.className = obj.controlclass;
-	                div.unselectable = 'on';
-	                div.style.backgroundPosition = '0px ' + pos + 'px';
-	                div.title = x[1];
-	                ex = func == 'a'?'.action("' + x[3] + '", 0, ' + (x[4] || 0) + ')' : '.insert("' + x[4] + '", "' + x[5] + '", "' + x[3] + '")';
-	                div.onmousedown = new Function(this.n + (id == 'print'?'.print()' : ex));
-	                div.onmouseover = new Function(this.n + '.hover(this, ' + pos + ', 1)');
-	                div.onmouseout = new Function(this.n + '.hover(this, ' + pos + ', 0)');
-	                h.appendChild(div);
-	                if(this.ie) {div.unselectable = 'on'}
-	            }
-	        }
-	        this.t.parentNode.insertBefore(p, this.t); this.t.style.width = this.i.width + 'px';
-	        w.appendChild(this.t); w.appendChild(this.i); p.appendChild(w); this.t.style.display = 'none';
-	        if(obj.footer) {
-	            var f = document.createElement('div'); f.className = obj.footerclass || 'tinyeditor-footer';
-	            if(obj.toggle) {
-	                var to = obj.toggle, ts = document.createElement('div');
-	                ts.className = to.cssclass || 'toggle'; ts.innerHTML = obj.toggletext || 'source';
-	                ts.onclick = new Function(this.n + '.toggle(0, this);return false');
-	                f.appendChild(ts);
-	            }
-	            if(obj.resize) {
-	                var ro = obj.resize, rs = document.createElement('div'); rs.className = ro.cssclass || 'resize';
-	                rs.onmousedown = new Function('event', this.n + '.resize(event);return false');
-	                rs.onselectstart = function() {return false};
-	                f.appendChild(rs);
-	            }
-	            p.appendChild(f);
-	        }
-	        this.e = this.i.contentWindow.document; this.e.open();
-	        var m = '<html><head>', bodyid = obj.bodyid?" id=\"" + obj.bodyid + "\"" : "";
-	        if(obj.cssfile) {m += '<link rel="stylesheet" href="' + obj.cssfile + '" />'}
-	        if(obj.css) {m += '<style type="text/css">' + obj.css + '</style>'}
-	        m += '</head><body' + bodyid + ' contenteditable="true">' + (obj.content || this.t.value);
-	        m += '</body></html>';
-	        this.e.write(m);
-	        this.e.close(); this.e.designMode = 'On'; this.d = 1;
-	        if(this.xhtml) {
-	            try{this.e.execCommand("styleWithCSS", 0, 0)}
-	            catch(e) {try{this.e.execCommand("useCSS", 0, 1)}catch(e) {}}
-	        }
-	    };
-	    edit.prototype.print = function() {
-	        this.i.contentWindow.print();
-	    };
-	    edit.prototype.hover = function(div, pos, dir) {
-	        this.getSelection();
-	        div.style.backgroundPosition = (dir ? '34px ' : '0px ') + (pos) + 'px';
-	    };
-	    edit.prototype.getSelection = function() {
-	        if(this.ie && this.e.getSelection) {
-	            this.sel = this.e.getSelection();
-	            if(this.sel.getRangeAt && this.sel.rangeCount) {
-	                this.range = this.sel.getRangeAt(0);
-	            }
-	        }
-	    };
-	    edit.prototype.restoreSelection = function() {
-	        if (this.range && this.ie) {
-	            if (this.e.getSelection) {
-	                this.sel = this.e.getSelection();
-	                this.sel.removeAllRanges();
-	                this.sel.addRange(this.range);
-	            }
-	        }
-	    };
-	    edit.prototype.ddaction = function(dd, a) {
-	        var i = dd.selectedIndex, v = dd.options[i].value;
-	        this.action(a, v);
-	    };
-	    edit.prototype.action = function(cmd, val, ie) {
-	        if(ie && !this.ie) {
-	            alert('Your browser does not support this function.')
-	        } else{
-	            this.restoreSelection();
-	            this.e.execCommand(cmd, 0, val || null);
-	        }
-	    };
-	    edit.prototype.insert = function(pro, msg, cmd) {
-	        var val = prompt(pro, msg);
-	        if(val!= null && val!= '') {this.e.execCommand(cmd, 0, val)}
-	    };
-	    edit.prototype.setfont = function() {
-	        this.restoreSelection();
-	        execCommand('formatblock', 0, hType);
-	    };
-	    edit.prototype.resize = function(e) {
-	        if(this.mv) {this.freeze()}
-	        this.i.bcs = TINY.cursor.top(e);
-	        this.mv = new Function('event', this.n + '.move(event)');
-	        this.sr = new Function(this.n + '.freeze()');
-	        if(this.ie) {
-	            document.attachEvent('onmousemove', this.mv); document.attachEvent('onmouseup', this.sr);
-	        } else{
-	            document.addEventListener('mousemove', this.mv, 1); document.addEventListener('mouseup', this.sr, 1);
-	        }
-	    };
-	    edit.prototype.move = function(e) {
-	        var pos = TINY.cursor.top(e);
-	        this.i.height = parseInt(this.i.height) + pos-this.i.bcs;
-	        this.i.bcs = pos;
-	    };
-	    edit.prototype.freeze = function() {
-	        if(this.ie) {
-	            document.detachEvent('onmousemove', this.mv); document.detachEvent('onmouseup', this.sr);
-	        } else{
-	            document.removeEventListener('mousemove', this.mv, 1); document.removeEventListener('mouseup', this.sr, 1);
-	        }
-	    };
-	    edit.prototype.toggle = function(post, div) {
-	        if(!this.d) {
-	            var v = this.t.value;
-	            if(div) {div.innerHTML = this.obj.toggletext || 'source'}
-	            if(this.xhtml && !this.ie) {
-	                v = v.replace(/<strong>(.*)<\/strong>/gi, '<span style="font-weight:bold;">$1</span>');
-	                v = v.replace(/<em>(.*)<\/em>/gi, '<span style="font-weight:italic;">$1</span>');
-	            }
-	            this.e.body.innerHTML = v;
-	            this.t.style.display = 'none'; this.i.style.display = 'block'; this.d = 1;
-	        } else{
-	            var v = this.e.body.innerHTML;
-	            if(this.xhtml) {
-	                v = v.replace(/<span class="apple-style-span">(.*)<\/span>/gi, '$1');
-	                v = v.replace(/ class="apple-style-span"/gi, '');
-	                v = v.replace(/<span style="">/gi, '');
-	                v = v.replace(/<br>/gi, '<br />');
-	                v = v.replace(/<br ?\/?>$/gi, '');
-	                v = v.replace(/^<br ?\/?>/gi, '');
-	                v = v.replace(/(<img [^>]+[^\/])>/gi, '$1 />');
-	                v = v.replace(/<b\b[^>]*>(.*?)<\/b[^>]*>/gi, '<strong>$1</strong>');
-	                v = v.replace(/<i\b[^>]*>(.*?)<\/i[^>]*>/gi, '<em>$1</em>');
-	                v = v.replace(/<u\b[^>]*>(.*?)<\/u[^>]*>/gi, '<span style="text-decoration:underline">$1</span>');
-	                v = v.replace(/<(b|strong|em|i|u) style="font-weight:normal;?">(.*)<\/(b|strong|em|i|u)>/gi, '$2');
-	                v = v.replace(/<(b|strong|em|i|u) style="(.*)">(.*)<\/(b|strong|em|i|u)>/gi, '<span style="$2"><$4>$3</$4></span>');
-	                v = v.replace(/<span style="font-weight:normal;?">(.*)<\/span>/gi, '$1');
-	                v = v.replace(/<span style="font-weight:bold;?">(.*)<\/span>/gi, '<strong>$1</strong>');
-	                v = v.replace(/<span style="font-style:italic;?">(.*)<\/span>/gi, '<em>$1</em>');
-	                v = v.replace(/<span style="font-weight:bold;?">(.*)<\/span>|<b\b[^>]*>(.*?)<\/b[^>]*>/gi, '<strong>$1</strong>');
-	            }
-	            if(div) {div.innerHTML = this.obj.toggletext || 'wysiwyg'}
-	            this.t.value = v;
-	            if(!post) {
-	                this.t.style.height = this.i.height + 'px';
-	                this.i.style.display = 'none'; this.t.style.display = 'block'; this.d = 0;
-	            }
-	        }
-	    };
-	    edit.prototype.post = function() {
-	        if(this.d) {
-	            this.toggle(1);
-	        }
-	    };
-	    return { edit : edit }
-	}();
-
-	TINY.cursor = function() {
-	    return {
-	        top : function(e) {
-	            return T$$$()?window.event.clientY + document.documentElement.scrollTop + document.body.scrollTop : e.clientY + window.scrollY;
-	        }
-	    }
-	}();
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var jQuery = __webpack_require__(5);
@@ -47649,10 +47546,10 @@
 	};
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(_) {var appsettingsobject = __webpack_require__(12);
+	/* WEBPACK VAR INJECTION */(function(_) {var appsettingsobject = __webpack_require__(10);
 
 	module.exports = {
 	    init: function () {
@@ -47688,14 +47585,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(5);
-	var bb_API = __webpack_require__(10);
-	var bb_HB_Handler = __webpack_require__(11);
-	var helperobj = __webpack_require__(17);
-	var appsettingsobject = __webpack_require__(12);
+	var bb_API = __webpack_require__(6);
+	var bb_HB_Handler = __webpack_require__(9);
+	var helperobj = __webpack_require__(18);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 	let _formObj = {
 	    Approved:"",
@@ -47828,24 +47725,24 @@
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	var editorHandler = __webpack_require__(15);
-	var modalobj = __webpack_require__(16);
-	var PubSubHandler = __webpack_require__(20);
+	var editorHandler = __webpack_require__(16);
+	var modalobj = __webpack_require__(17);
+	var PubSubHandler = __webpack_require__(7);
 	var autocompleteobj = __webpack_require__(21);
-	var bb_pagebehaviors = __webpack_require__(6);
-	var bb_containerbehaviors = __webpack_require__(9);
-	var bb_API = __webpack_require__(10);
+	var bb_pagebehaviors = __webpack_require__(8);
+	var bb_containerbehaviors = __webpack_require__(14);
+	var bb_API = __webpack_require__(6);
 	var bb_requestObj = __webpack_require__(22);
-	var helperobj = __webpack_require__(17);
-	var bb_HB_Handler = __webpack_require__(11);
+	var helperobj = __webpack_require__(18);
+	var bb_HB_Handler = __webpack_require__(9);
 	var formeditObj = __webpack_require__(23);
 
-	var appsettingsobject = __webpack_require__(12);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 	var globalmessages = appsettingsobject.usermessages;
 
@@ -48030,46 +47927,12 @@
 
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-	//events - a super-basic Javascript (publish subscribe) pattern
-
-
-	module.exports = {
-	    callEvents: {
-	        events: {},
-	        on: function (eventName, fn) {
-	            this.events[eventName] = this.events[eventName] || [];
-	            this.events[eventName].push(fn);
-	        },
-	        off: function (eventName, fn) {
-	            if (this.events[eventName]) {
-	                for (var i = 0; i < this.events[eventName].length; i++) {
-	                    if (this.events[eventName][i] === fn) {
-	                        this.events[eventName].splice(i, 1);
-	                        break;
-	                    }
-	                };
-	            }
-	        },
-	        emit: function (eventName, data) {
-	            if (this.events[eventName]) {
-	                this.events[eventName].forEach(function (fn) {
-	                    fn(data);
-	                });
-	            }
-	        }
-	    }
-	};
-
-/***/ }),
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(5);
-	var PubSubHandler = __webpack_require__(20);
-	var appsettingsobject = __webpack_require__(12);
+	var PubSubHandler = __webpack_require__(7);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 
 	module.exports = {
@@ -48180,10 +48043,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(5);
-	var bb_API = __webpack_require__(10);
-	var bb_HB_Handler = __webpack_require__(11);
-	var helperobj = __webpack_require__(17);
-	var appsettingsobject = __webpack_require__(12);
+	var bb_API = __webpack_require__(6);
+	var bb_HB_Handler = __webpack_require__(9);
+	var helperobj = __webpack_require__(18);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 	let _formObj = {
 	    Approved: "0",
@@ -48363,8 +48226,13 @@
 	        if (!item.Review) {
 	            item.Review = "";
 	        }
-	        tinyMCE.activeEditor.execCommand("mceInsertContent", false, item.Review);
-
+	        
+	        try {
+	            tinyMCE.activeEditor.execCommand("mceInsertContent", false, item.Review);
+	        }
+	        catch (e) {
+	            console.log("tinymce laddades inte som den skulle");
+	        }
 	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
 	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
 	        helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
@@ -48374,6 +48242,8 @@
 	        that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
 	        that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
 	        that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
+	        
+	        
 	        return item;
 	    }
 	};
@@ -48388,13 +48258,13 @@
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
 
-	var bb_pagebehaviors = __webpack_require__(6);
-	var bb_containerbehaviors = __webpack_require__(9);
-	var PubSubHandler = __webpack_require__(20);
-	var bb_API = __webpack_require__(10);
-	var bb_HB_Handler = __webpack_require__(11);
+	var bb_pagebehaviors = __webpack_require__(8);
+	var bb_containerbehaviors = __webpack_require__(14);
+	var PubSubHandler = __webpack_require__(7);
+	var bb_API = __webpack_require__(6);
+	var bb_HB_Handler = __webpack_require__(9);
 	var bb_scoreboardHelper = __webpack_require__(25);
-	var appsettingsobject = __webpack_require__(12);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 
 	module.exports = {
@@ -48728,13 +48598,13 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	__webpack_require__(8);
-	var bb_pagebehaviors = __webpack_require__(6);
-	var bb_containerbehaviors = __webpack_require__(9);
-	var PubSubHandler = __webpack_require__(20);
-	var bb_API = __webpack_require__(10);
-	var bb_HB_Handler = __webpack_require__(11);
-	var appsettingsobject = __webpack_require__(12);
+	__webpack_require__(13);
+	var bb_pagebehaviors = __webpack_require__(8);
+	var bb_containerbehaviors = __webpack_require__(14);
+	var PubSubHandler = __webpack_require__(7);
+	var bb_API = __webpack_require__(6);
+	var bb_HB_Handler = __webpack_require__(9);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 
 	module.exports = {
@@ -48790,7 +48660,7 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_pagebehaviors = __webpack_require__(8);
 	module.exports = {
 	    init: function (value) {       
 	        let moduleName = 'Inventory';
@@ -48807,7 +48677,7 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	var bb_pagebehaviors = __webpack_require__(6);
+	var bb_pagebehaviors = __webpack_require__(8);
 	module.exports = {
 	    init: function (value) {        
 	        let moduleName = 'Shop';
@@ -48824,11 +48694,11 @@
 
 	var _ = __webpack_require__(3);
 	var $ = __webpack_require__(5);
-	var bb_pagebehaviors = __webpack_require__(6);
-	var bb_API = __webpack_require__(10);
-	var bb_HB_Handler = __webpack_require__(11);
+	var bb_pagebehaviors = __webpack_require__(8);
+	var bb_API = __webpack_require__(6);
+	var bb_HB_Handler = __webpack_require__(9);
 
-	var appsettingsobject = __webpack_require__(12);
+	var appsettingsobject = __webpack_require__(10);
 	var appsettings = appsettingsobject.config;
 	var globalmessages = appsettingsobject.usermessages;
 
@@ -48847,7 +48717,8 @@
 	        this.$bb_aj_avatar_maingallery = $('#avatar_maingallery');
 	        this.$bb_aj_skin_maingallery = $('#skin_maingallery');
 	        this.$aj_bb_KrypinSkin = $(".aj_bb_KrypinSkin");
-
+	        this.$bk_aj_nav_avatar = $(".bk_aj_nav_avatar");
+	        
 	        this.$bb_aj_btnSettingSave = $('#btnSettingSave');
 	        this.$bb_aj_btnSettingTemp = $('#btnSettingTemp');
 	        this.$bb_aj_btnSettingAbort = $('#btnSettingAbort');
@@ -48879,7 +48750,7 @@
 	        this.$bb_aj_btnSettingTemp.on('click', function (e) {
 	            let skinclass = that.$bb_aj_CurrentSkin.attr("data-skinclass");
 	            that.tempupdateSkin(skinclass);
-
+	            that.tempupdateAvatar(that.$bb_aj_CurrentAvatar.attr('src'));
 	            return false;
 	        });
 
@@ -48888,6 +48759,7 @@
 	            that.$bb_aj_CurrentAvatar.attr("src", appsettings.userinfo.defaultavatarimg);
 	            that.$bb_aj_CurrentSkin.attr("src", appsettings.userinfo.defaultskinimg);
 	            that.$bb_aj_CurrentSkin.attr("data-skinclass", appsettings.userinfo.defaultskinclass);
+	            that.$bk_aj_nav_avatar.attr('src', appsettings.api.installningar.curAvatarsrc + 'menyavatars/nav_' + appsettings.userinfo.avatarimg);
 	            that.tempupdateSkin(skinclass);
 
 	            return false;
@@ -48895,14 +48767,18 @@
 
 	        this.$bb_aj_btnSettingSave.on('click', function (e) {
 	            if (confirm(globalmessages.installningar.confirmSave)) {
-	                                
+	               
 	                that.updatesettings(userid, 1, appsettings.userinfo.avatarid, function (t) {                        
-	                    
+	                                    
 	                });
 	                that.updatesettings(userid, 2, appsettings.userinfo.skinid, function (x) {
-	                        return true;
-	                    });
+	                    
+	                });
 	            };
+	            let skinclass = that.$bb_aj_CurrentSkin.attr("data-skinclass");
+	            that.tempupdateSkin(skinclass);
+	            that.tempupdateAvatar(that.$bb_aj_CurrentAvatar.attr('src'));
+	            return false;  
 	        });
 	        
 	    },
@@ -48917,6 +48793,10 @@
 	        this.$aj_bb_KrypinSkin.removeClass(function (index, className) {
 	            return (className.match(/(^|\s)aj_bb_skin_\S+/g) || []).join(' ');
 	        }).addClass(skinclass);
+	    },
+	    tempupdateAvatar: function (avatarsrc) {
+	        let currentavatarimg = avatarsrc.replace(appsettings.api.installningar.avatarimgsrc, '');
+	        this.$bk_aj_nav_avatar.attr('src', appsettings.api.installningar.curAvatarsrc  +'menyavatars/nav_' + currentavatarimg);
 	    },
 	    getcurrentAvatarimg: function (settingslist) {
 	        let that = this; //spara this 
@@ -48935,6 +48815,7 @@
 	        appsettings.userinfo.avatarid = retID;
 	        appsettings.userinfo.defaultavatarimg = retsrc;
 	        appsettings.userinfo.defaultavatarid = retID;
+	        appsettings.userinfo.avatarimg = retobj;
 	               
 	        return true;
 	    },

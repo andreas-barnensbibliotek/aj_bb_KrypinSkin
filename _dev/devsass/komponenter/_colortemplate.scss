@@ -26,35 +26,65 @@ $beigelight :#f7f5ef;
 $browngrey  :#949086;
 $menygreen: #c1df89;
 $menybrown: #62533B;
+$djunglegreen: #c1df89;
 
 /*Tema med grönt*/
-.aj_bb_skin_greenbg{
-    
-    background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg')!important;
-    .aj_bb_krypinNavBlock{
-        //background-color:#333!important;
-       // background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg');
+.aj_bb_skin_greenbg {
+    background-image: url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg') !important;
+
+    h1, h2, h3, h4, h5, p {
+        color: $black !important;
     }
+
     .bb_aj_gridItem {
-        background-color:#fdf28b;
+        background-color: #fdf28b;
     }
-       
+
     .item {
-         &:hover{
-                 background-color:$menygreen;
-             }
+        &:hover {
+            background-color: $menygreen;
+        }
     }
-    .bb_aj_valdBG{
-        background-color:$menygreen;
+
+    .bb_aj_valdBG {
+        background-color: $menygreen;
     }
-    .bookitem-card{
-        &:hover{
+
+    .bookitem-card {
+        &:hover {
             //opacity:.9;
-            background-color:$menygreen;
+            background-color: $menygreen;
             //border:1px solid $black;
         }
     }
 }
+
+/*Tema med grönt EMIL*/
+.aj_bb_skin_djungelbg {
+    background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenleaves.jpg") !important;
+    color: #fff;
+        
+    .bb_aj_gridItem {
+        background-color: #eaf2d3;
+    }
+
+    .item {
+        &:hover {
+            background-color: $djunglegreen;
+        }
+    }
+
+    .bb_aj_valdBG {
+        background-color: $djunglegreen;
+    }
+
+    .bookitem-card {
+        &:hover {            
+            background-color: $djunglegreen;            
+        }
+    }
+}
+
 
 /*Tema med brunt*/
 .aj_bb_skin_brownbg{
@@ -81,60 +111,157 @@ $menybrown: #62533B;
         }
     }
 }
+/*Tema med brunt EMIL*/
+.aj_bb_skin_catfishbg {
+    background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/brownbg-animals.jpg") !important;
+
+    .aj_bb_krypinNavBlock {
+        background-color: #BCA575;
+    }
+
+    .bb_aj_gridItem {
+        background-color: #e4cc73;
+    }
+
+    #aj_bb_krypinNav {
+        li {
+            &:hover {
+                background-color: $menybrown;
+            }
+        }
+    }
+
+    .bookitem-card {
+        &:hover {
+            //opacity:.9;
+            background-color: #e4b629;
+            //border:1px solid $black;
+        }
+    }
+}
 
 /*Tema med Blå*/
-.aj_bb_skin_bluebg{
-    background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/BlueFlowers_light.jpg')!important;
-    .aj_bb_krypinNavBlock{
-        background-color:#C3ECF3!important;        
+.aj_bb_skin_bluebg {
+    background-image: url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/BlueFlowers_light.jpg') !important;
+
+    h1, h2, h3, h4, h5, p {
+        color: $black !important;
     }
+
+    .aj_bb_krypinNavBlock {
+        background-color: #C3ECF3 !important;
+    }
+
     .bb_aj_gridItem {
-        background-color:#C3ECF3;
+        background-color: #C3ECF3;
     }
-    #aj_bb_krypinNav{
-         li{ 
-            &:hover{
-                 background-color:#C3ECF3;
-             }
+
+    #aj_bb_krypinNav {
+        li {
+            &:hover {
+                background-color: #C3ECF3;
+            }
         }
     }
-    .bookitem-card{
-        &:hover{
+
+    .bookitem-card {
+        &:hover {
             //opacity:.9;
-            background-color:#C3ECF3;
+            background-color: #C3ECF3;
+            //border:1px solid $black;
+        }
+    }
+}
+/*Tema med Blå EMIL*/
+.aj_bb_skin_blueCakebg {
+    background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/fastfood.jpg") !important;
+
+    .aj_bb_krypinNavBlock {
+        background-color: #C3ECF3 !important;
+    }
+
+    .bb_aj_gridItem {
+        background-color: #a6def2;
+    }
+
+    #aj_bb_krypinNav {
+        li {
+            &:hover {
+                background-color: #C3ECF3;
+            }
+        }
+    }
+
+    .bookitem-card {
+        &:hover {            
+            background-color: #20acde;
+        }
+    }
+}
+/*Tema med svart*/
+.aj_bb_skin_blackbg {
+    background-image: url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg') !important;
+
+    h1, h2, h3, h4, h5, p, label, fieldset {
+        color: #fff !important;
+    }
+
+    .aj_bb_krypinNavBlock {
+        background-color: #444343 !important;
+    }
+
+    .bb_aj_gridItem {
+        background-color: #444343;
+    }
+
+    #aj_bb_krypinNav {
+        li {
+            &:hover {
+                background-color: $iron;
+            }
+        }
+    }
+
+    .bookitem-card {
+        &:hover {
+            //opacity:.9;
+            background-color: $iron;
             //border:1px solid $black;
         }
     }
 }
 
-/*Tema med svart*/
-.aj_bb_skin_blackbg{
-    background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg')!important;
-    h1,h2,h3,h4,h5,p{
- color:#fff!important;
+/*Tema med svart EMIL*/
+.aj_bb_skin_blackskullbg {
+    background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/pirates2.jpg") !important;
+
+    h1, h2, h3, h4, h5, p {
+        color: $white !important;
     }
-   
-    .aj_bb_krypinNavBlock{
-        background-color:#444343!important;        
+
+    .aj_bb_krypinNavBlock {
+        background-color: #444343 !important;
     }
+
     .bb_aj_gridItem {
-        background-color:#444343;
+        background-color: #323232;
     }
-    #aj_bb_krypinNav{
-         li{ 
-            &:hover{
-                 background-color:$iron;
-             }
+
+    #aj_bb_krypinNav {
+        li {
+            &:hover {
+                background-color: $iron;
+            }
         }
     }
-    .bookitem-card{        
-        &:hover{
-            //opacity:.9;
-            background-color:$iron;
-            //border:1px solid $black;
+
+    .bookitem-card {
+        &:hover {
+            background-color: $iron;
         }
     }
 }
+
 
 /*Tema med svart*/
 .aj_bb_skin_beigebg{

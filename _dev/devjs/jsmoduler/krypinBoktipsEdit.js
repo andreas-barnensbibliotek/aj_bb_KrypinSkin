@@ -182,8 +182,13 @@ module.exports = {
         if (!item.Review) {
             item.Review = "";
         }
-        tinyMCE.activeEditor.execCommand("mceInsertContent", false, item.Review);
-
+        
+        try {
+            tinyMCE.activeEditor.execCommand("mceInsertContent", false, item.Review);
+        }
+        catch (e) {
+            console.log("tinymce laddades inte som den skulle");
+        }
         helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMin"), item.LowAge);
         helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipSuitableAgeMax"), item.HighAge);
         helperobj.HelpersetSelectedIndex(document.getElementById("drpBoktipAmnen"), item.Category);
@@ -193,6 +198,8 @@ module.exports = {
         that.$bb_aj_boktipsFormMeta.attr('data-usernamn', item.UserName);
         that.$bb_aj_boktipsFormMeta.attr('data-Userage', item.Userage);
         that.$bb_aj_boktipsForm_exempleImg.attr('src', item.ImgSrc);
+        
+        
         return item;
     }
 };

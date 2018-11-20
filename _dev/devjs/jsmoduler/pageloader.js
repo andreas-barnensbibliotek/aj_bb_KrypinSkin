@@ -17,7 +17,7 @@ module.exports = {
             //jplist.init();
             let requestpage = {
                 'bb_aj_Start_Krypin': function () {
-                    startpage.init();
+                    startpage.init(tmpuserid);
                     console.log("logga detta " + appsettings.config.dnnURL);
                     return false;
                 },

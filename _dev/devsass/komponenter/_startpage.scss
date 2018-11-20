@@ -7,43 +7,70 @@
     }
 }
 
-.BiblomoneyItems{
-   overflow:hidden; 
-    .bibblomoneyContent{
-        img{max-width:56px;}
-        min-height:10rem;
-        padding-top:2rem;
-        text-align:center;
-        
+.BiblomoneyItems {
+    overflow: hidden;
+
+    .bibblomoneyContent {
+        @extend .start-item-basestyle;
     }
-    .bibblomoneyFooter{
-        img{max-width:28px;}
-    }
-}
-.BiblomonItems{
-   overflow:hidden; 
-    .bibblomonContent{
-        img{max-width:56px;}
-        min-height:10rem;
-        padding-top:2rem;
-        text-align:center;
-    }
-    .bibblomonFooter{
-        img{max-width:28px;}
+
+    .bibblomoneyFooter {
+        img {
+            max-width: 28px;
+        }
     }
 }
-.laserjustnuItems{
-     
-    .bookitem-card{
-        padding-top:1rem;
-        text-align:center;
+.BiblomonItems {
+    overflow: hidden;
+
+    .bibblomonContent {
+        @extend .start-item-basestyle;
     }
+
+    .bibblomonFooter {
+        img {
+            max-width: 28px;
+        }
+    }
+}
+.boktips-card-start {
+    //.bookitem-image{padding-top: 1rem;}
+    @extend .start-item-basestyle;
+}
+.laserjustnuItems {
+
+    .bookitem-card {
+        padding-top: 1rem;
+        text-align: center;
+    }
+}
+.start-item-basestyle {
+    img {
+        max-width: 56px;
+    }
+
+    min-height: 10rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+.bb_aj_modpart {
+    
+        max-height: 230px !important;
+
+        img {
+            max-width: 110px !important;
+            max-height: 132px !important;
+        }
    
 }
-
+.bb_aj_smallsize {
+    img {
+        max-width: 56px !important;
+    }
+}
 /*---------------------------------------------grow START----------------*/
-.testare{
-    text-align:center;
+.testare {
+    text-align: center;
 }
 .AJKrypingrowboxmain{
    #AJKrypingrowboxcontent{
@@ -53,7 +80,7 @@
    }
     #growmainbox{
         padding:0; 
-	    margin:10px 32px; 
+	    margin:1rem; 
 	    height:95px;
         ul
         {
@@ -92,7 +119,7 @@
         &:hover{background-color:#ddd;}
     }
     .editGrow a{padding:0px;margin:0px;}
-    #AJKrypingrowdelbox{margin-left:40px;}
+    /*#AJKrypingrowdelbox{margin-left:40px;}*/
     .itmimgadel{display:none;}
     #growhelpbox a{float:right; background-image:url(""); display:block; height:10px; width:10px;}
     #growhelpbox a:hover{
@@ -106,7 +133,7 @@
     #AJKrypingrowInfo{
         padding:4px;
         background-color: #fff;
-        margin-right: 10%;
+        /*margin-right: 10%;*/
     }
 }
 /*---------------------------------------------grow END----------------*/

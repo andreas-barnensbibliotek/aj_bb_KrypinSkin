@@ -1,0 +1,18 @@
+﻿<h2>Läser just nu</h2>
+<div class="bookitem-card">
+    <div class="bookitem-button">
+        <a href="/Krypin/bk_aj_boktips_Krypin/tabid/1354/Default.aspx?bookid={{LaserJustNu}}&amp;typ=boktips" title="Skriv boktips om boken" class="buttonitem_booktip">
+            <img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_booktipbtn.png"></a>
+        <a href="#2" title="Ta bort från: läser just nu" class="buttonitem_tabort" data-itemid="{{LaserJustNu}}">
+            <img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png"></a>
+    </div>
+    <a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{LaserJustNu}}" class="buttonitem_bokpost">
+        <div class="bookitem-image">
+            <img src="{{LaserJustNuSrc}}">
+        </div>
+        <div class="bookitem-info">
+            <h5 class="titel">&nbsp;</h5>
+            <h6>&nbsp;</h6>
+        </div>
+    </a>
+</div>

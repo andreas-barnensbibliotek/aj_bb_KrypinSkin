@@ -23,7 +23,8 @@ module.exports = {
         this.$bb_aj_avatar_maingallery = $('#avatar_maingallery');
         this.$bb_aj_skin_maingallery = $('#skin_maingallery');
         this.$aj_bb_KrypinSkin = $(".aj_bb_KrypinSkin");
-
+        this.$bk_aj_nav_avatar = $(".bk_aj_nav_avatar");
+        
         this.$bb_aj_btnSettingSave = $('#btnSettingSave');
         this.$bb_aj_btnSettingTemp = $('#btnSettingTemp');
         this.$bb_aj_btnSettingAbort = $('#btnSettingAbort');
@@ -55,7 +56,7 @@ module.exports = {
         this.$bb_aj_btnSettingTemp.on('click', function (e) {
             let skinclass = that.$bb_aj_CurrentSkin.attr("data-skinclass");
             that.tempupdateSkin(skinclass);
-
+            that.tempupdateAvatar(that.$bb_aj_CurrentAvatar.attr('src'));
             return false;
         });
 
@@ -64,6 +65,7 @@ module.exports = {
             that.$bb_aj_CurrentAvatar.attr("src", appsettings.userinfo.defaultavatarimg);
             that.$bb_aj_CurrentSkin.attr("src", appsettings.userinfo.defaultskinimg);
             that.$bb_aj_CurrentSkin.attr("data-skinclass", appsettings.userinfo.defaultskinclass);
+            that.$bk_aj_nav_avatar.attr('src', appsettings.api.installningar.curAvatarsrc + 'menyavatars/nav_' + appsettings.userinfo.avatarimg);
             that.tempupdateSkin(skinclass);
 
             return false;
@@ -71,14 +73,18 @@ module.exports = {
 
         this.$bb_aj_btnSettingSave.on('click', function (e) {
             if (confirm(globalmessages.installningar.confirmSave)) {
-                                
+               
                 that.updatesettings(userid, 1, appsettings.userinfo.avatarid, function (t) {                        
-                    
+                                    
                 });
                 that.updatesettings(userid, 2, appsettings.userinfo.skinid, function (x) {
-                        return true;
-                    });
+                    
+                });
             };
+            let skinclass = that.$bb_aj_CurrentSkin.attr("data-skinclass");
+            that.tempupdateSkin(skinclass);
+            that.tempupdateAvatar(that.$bb_aj_CurrentAvatar.attr('src'));
+            return false;  
         });
         
     },
@@ -93,6 +99,10 @@ module.exports = {
         this.$aj_bb_KrypinSkin.removeClass(function (index, className) {
             return (className.match(/(^|\s)aj_bb_skin_\S+/g) || []).join(' ');
         }).addClass(skinclass);
+    },
+    tempupdateAvatar: function (avatarsrc) {
+        let currentavatarimg = avatarsrc.replace(appsettings.api.installningar.avatarimgsrc, '');
+        this.$bk_aj_nav_avatar.attr('src', appsettings.api.installningar.curAvatarsrc  +'menyavatars/nav_' + currentavatarimg);
     },
     getcurrentAvatarimg: function (settingslist) {
         let that = this; //spara this 
@@ -111,6 +121,7 @@ module.exports = {
         appsettings.userinfo.avatarid = retID;
         appsettings.userinfo.defaultavatarimg = retsrc;
         appsettings.userinfo.defaultavatarid = retID;
+        appsettings.userinfo.avatarimg = retobj;
                
         return true;
     },

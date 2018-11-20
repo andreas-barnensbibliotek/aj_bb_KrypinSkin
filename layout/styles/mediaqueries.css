@@ -43,11 +43,7 @@ float: left;
 .registerGroup .loginGroup {
     margin-left: 0.2em;
 }
-.item.heightunlimit
-{
-   position:relative;
-   
-}
+
 #SearchIcon{display:none;}
 
 .registerGroup ul {
@@ -123,19 +119,19 @@ body {
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
 }
 @media only screen and (min-width: 280px) and (max-width: 579px) {
-    #topboxheader{display:none;}
-body {
-    __background-color: #f495f5;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    max-width: 64.857em;
-    padding-bottom: 0;
-    padding-left: 0.1em;
-    padding-right: 0.1em;
-    padding-top: 0;
-}
+    body {
+        __background-color: #f495f5;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        /*max-width: 64.857rem;*/
+        max-width: 60.857rem;
+        padding-bottom: 0;
+        padding-left: 0.1em;
+        padding-right: 0.1em;
+        padding-top: 0;
+    }
 .SearchContainer div, .SearchContainer input {
     width: 85%;
 }
@@ -154,17 +150,17 @@ body {
     float: right;
     width: 42.2429%;
 }
-#logon {
-    height: 0;
-    padding-left: 1.7%;
-    
-}
+    #logon {
+        height: 0;
+        padding-left: 1.7%;
+        padding-right: 0.5%;
+    }
 #logon img {
     max-height: 110px;
 }
-/*#topboxheader {
+#topboxheader {
     display: block;
-}*/
+}
 #topheader {
     display: none;
 }
@@ -232,8 +228,15 @@ body {
     overflow-y: auto;
     width: 100%;
 }
+
+ .item.full_imgheight1{
+ min-height: 330px;
+  padding:0px;
+}
  .item.full_img img{      
-  max-height: 230px;
+  height: auto;
+  max-height:100%;
+  width:100%;
 }
 #logginBlock div {    
   font-size:0.70em;
@@ -242,19 +245,20 @@ body {
 
 }
 @media only screen and (min-width: 580px) {
-    
-body {
-    __background-color: #0094ff;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    max-width: 64.857em;
-    padding-bottom: 0;
-    padding-left: 0.25em;
-    padding-right: 0.25em;
-    padding-top: 0;
-}
+    body {
+        __background-color: #0094ff;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        /*max-width: 64.857em;
+        max-width: 64.857rem;*/
+        max-width: 60.857rem;
+        padding-bottom: 0;
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+        padding-top: 0;
+    }
 #header {
     padding-bottom: 0;
 }
@@ -270,11 +274,11 @@ body {
     float: left;
     width: 23.2429%;
 }
-#logon {
-    height: 40px;
-    padding-left: 2.1%;
-   
-}
+    #logon {
+        height: 40px;
+        padding-left: 2.1%;
+        padding-right: 1.5%;
+    }
 #topboxheader {
     height: 60px;
     margin-bottom: 2%;
@@ -381,9 +385,16 @@ body {
     overflow-y: none;
     width: 48.84%;
 }
- .item.full_img img{      
-  max-height: 200px;
+.item.full_imgheight1{
+ min-height: 330px;
+  padding:0px;
 }
+ .item.full_img img{      
+  height: auto;
+  max-height:100%;
+  width:100%;
+}
+
 #logginBlock div {    
   font-size:0.72em;
   __font-weight:bold;
@@ -392,18 +403,19 @@ body {
 }
 
 @media only screen and (min-width: 888px) {
-body {
-   __background-color: #ffd800;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    max-width: 64.857em;
-    padding-bottom: 0;
-    padding-left: 0.55em;
-    padding-right: 0.55em;
-    padding-top: 0;
-}
+    body {
+        __background-color: #ffd800;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        /*max-width: 64.857rem;*/
+        max-width: 60.857rem;
+        padding-bottom: 0;
+        padding-left: 0.55em;
+        padding-right: 0.55em;
+        padding-top: 0;
+    }
 .headerleftcol {
     float: left;
     width: 18.3036%;
@@ -416,11 +428,11 @@ body {
     float: left;
     width: 20.2429%;
 }
-#logon {
-    height: 60px;
-    padding-left: 2.5%;
-    
-}
+    #logon {
+        height: 60px;
+        padding-left: 2.5%;
+        padding-right: 1.5%;
+    }
 #topboxheader {
     height: 75px;
     margin-left: 0;
@@ -550,6 +562,9 @@ body {
     __width: 24.0869%;
     max-height:300px;
 }
+.item.full_imgheight1{
+  min-height: 212px;
+}
  .item.full_img img{      
   max-height: 330px;
 }
@@ -558,18 +573,19 @@ body {
 }
 }
 @media only screen and (min-width: 925px) {
-body {
-    __background-color: #ccc;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    max-width: 72.857em;
-    padding-bottom: 0;
-    padding-left: 1.15em;
-    padding-right: 1.15em;
-    padding-top: 0;
-}
+    body {
+        __background-color: #ccc;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        /*max-width: 72.857rem;*/
+        max-width: 68.857rem;
+        padding-bottom: 0;
+        padding-left: 1.15em;
+        padding-right: 1.15em;
+        padding-top: 0;
+    }
 .headerleftcol {
     float: left;
     width: 15.3036%;
@@ -583,11 +599,11 @@ body {
     width: 20.2429%;
   margin-top:0.2em;
 }
-#logon {
-    height: 80px;
-    padding-left: 3.2%;
-   
-}
+    #logon {
+        height: 80px;
+        padding-left: 3.2%;
+        padding-right: 1.5%;
+    }
 #topboxheader {
     height: 54px;
     margin-top: 3%;
@@ -655,6 +671,9 @@ body {
 {
     height:auto;
    
+}
+.item.full_imgheight1{
+ height: 232px;
 }
  .item.full_img img{      
   max-height: 230px;
@@ -786,8 +805,11 @@ body {
     overflow-y: hidden;
     width: 24.2914%;
 }
- .item.full_img img{      
-  max-height: 230px;
+.item.full_imgheight1{
+ height: 232px;
+}    
+.item.full_img img{
+   max-height: 100%;
 }	
 }
 @media only screen and (min-width: 1824px) {

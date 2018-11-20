@@ -4,8 +4,9 @@ var $ = require("jquery");
 
 $(function () {
 
+
     var appsettings = appsettingsobject.config;
-    appsettings.userinfo.userid =7017 // $('.kk_aj_userid').html();
+    appsettings.userinfo.userid = $('#barnensbiblCurrentUserid').html();
 
     var currentpage = $('.kk_aj_CurrentPageType').html();
 

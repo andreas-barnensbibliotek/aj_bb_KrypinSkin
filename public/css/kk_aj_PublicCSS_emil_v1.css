@@ -1,0 +1,1904 @@
+﻿@charset "UTF-8";
+/* line 2, _dev/devsass/komponenter/_extendedDesignSettings.scss */
+
+.bb_aj_gridItem input {
+    padding: 4px 6px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.bb_aj_gridItem button {
+    font-family: 'Baloo', cursive;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0 2px;
+    padding: 4px 10px;
+    background-color: #fff;
+    outline: none;
+}
+
+.gridTitle .bb_aj_gridItem {
+    background-color: transparent !important;
+}
+
+.ikonheaderBlock h1 {
+    color: #fff;
+    font-size: 2.2em;
+}
+
+.content-1of4 {
+    /*height: 100%;*/
+}
+
+.aj_bb_KrypinMainContainer {
+    padding: 1.2% !important;
+}
+
+.aj_bb_KrypinMainContainer #footikonimg {
+    width: 200px;
+}
+
+
+.aj_bb_KrypinSkin .addboklistform {
+    text-align: left;
+    padding: .5rem;
+}
+  /* line 5, _dev/devsass/komponenter/_extendedDesignSettings.scss */
+  .aj_bb_KrypinSkin .addboklistform button {
+    margin: .2rem .2rem 0 0; }
+
+/* line 10, _dev/devsass/komponenter/_extendedDesignSettings.scss */
+#bb_aj_modalContainer .bb_aj_modalheader .buttonblock a img:hover, .aj_bb_KrypinSkin .booklistSettings img:hover, .bookitem-card .buttonitem_booktip img:hover, .bibblomon-card .buttonitem_booktip img:hover, .booklist-card .buttonitem_booktip img:hover, .badgeitem-card .buttonitem_booktip img:hover, .skrivbokenitem-card .buttonitem_booktip img:hover, .boktipsitem-card .buttonitem_booktip img:hover, #bb_aj_inventory_Mod .inventoryitem-card .buttonitem_booktip img:hover, #bb_aj_shop_Mod .shopitem-card .buttonitem_booktip img:hover, .skrivbokenitem-card .buttonitem_edit:hover, .boktipsitem-card .buttonitem_edit:hover {
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+  -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg); }
+
+/* line 14, _dev/devsass/komponenter/_extendedDesignSettings.scss */
+#bb_aj_skrivboken_Mod .grader180 img, #bb_aj_boktips_Mod .grader180 img {
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
+/*Tema med grönt*/
+/* line 31, _dev/devsass/komponenter/_colortemplate.scss */
+.aj_bb_skin_greenbg {
+    /*background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg") !important;*/
+    background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenleaves.jpg") !important;
+    color: #fff;
+}
+  /* line 38, _dev/devsass/komponenter/_colortemplate.scss */
+    .aj_bb_skin_greenbg .bb_aj_gridItem {
+        background-color: #eaf2d3;
+    }
+  /* line 43, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_greenbg .item:hover {
+    background-color: #c1df89; }
+  /* line 47, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_greenbg .bb_aj_valdBG {
+    background-color: #c1df89; }
+  /* line 51, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_greenbg .bookitem-card:hover, .aj_bb_skin_greenbg .bibblomon-card:hover, .aj_bb_skin_greenbg .booklist-card:hover, .aj_bb_skin_greenbg .badgeitem-card:hover, .aj_bb_skin_greenbg .skrivbokenitem-card:hover, .aj_bb_skin_greenbg .boktipsitem-card:hover, .aj_bb_skin_greenbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_greenbg .inventoryitem-card:hover, .aj_bb_skin_greenbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_greenbg .shopitem-card:hover {
+    background-color: #c1df89; }
+
+/*Tema med brunt*/
+/* line 60, _dev/devsass/komponenter/_colortemplate.scss */
+.aj_bb_skin_brownbg {
+  background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/brownbg-animals.jpg") !important; }
+  /* line 62, _dev/devsass/komponenter/_colortemplate.scss */
+
+  /* line 65, _dev/devsass/komponenter/_colortemplate.scss */
+    .aj_bb_skin_brownbg .bb_aj_gridItem {
+        background-color: #e4cc73;
+    }
+  /* line 71, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_brownbg #aj_bb_krypinNav li:hover {
+    /*background-color: #62533B;*/ }
+  /* line 77, _dev/devsass/komponenter/_colortemplate.scss */
+    .aj_bb_skin_brownbg .bookitem-card:hover, .aj_bb_skin_brownbg .bibblomon-card:hover, .aj_bb_skin_brownbg .booklist-card:hover, .aj_bb_skin_brownbg .badgeitem-card:hover, .aj_bb_skin_brownbg .skrivbokenitem-card:hover, .aj_bb_skin_brownbg .boktipsitem-card:hover, .aj_bb_skin_brownbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_brownbg .inventoryitem-card:hover, .aj_bb_skin_brownbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_brownbg .shopitem-card:hover {
+        background-color: #e4b629;
+    }
+
+/*Tema med Blå*/
+/* line 86, _dev/devsass/komponenter/_colortemplate.scss */
+.aj_bb_skin_bluebg {
+  background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/fastfood.jpg") !important; }
+  /* line 88, _dev/devsass/komponenter/_colortemplate.scss */
+
+  /* line 91, _dev/devsass/komponenter/_colortemplate.scss */
+    .aj_bb_skin_bluebg .bb_aj_gridItem {
+        background-color: #a6def2;
+    }
+  /* line 96, _dev/devsass/komponenter/_colortemplate.scss */
+    .aj_bb_skin_bluebg #aj_bb_krypinNav li:hover {
+        /*background-color: #C3ECF3;*/
+    }
+  /* line 102, _dev/devsass/komponenter/_colortemplate.scss */
+    .aj_bb_skin_bluebg .bookitem-card:hover, .aj_bb_skin_bluebg .bibblomon-card:hover, .aj_bb_skin_bluebg .booklist-card:hover, .aj_bb_skin_bluebg .badgeitem-card:hover, .aj_bb_skin_bluebg .skrivbokenitem-card:hover, .aj_bb_skin_bluebg .boktipsitem-card:hover, .aj_bb_skin_bluebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_bluebg .inventoryitem-card:hover, .aj_bb_skin_bluebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_bluebg .shopitem-card:hover {
+        background-color: #20acde;
+    }
+
+/*Tema med svart*/
+/* line 111, _dev/devsass/komponenter/_colortemplate.scss */
+.aj_bb_skin_blackbg {
+  background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/pirates2.jpg") !important;
+}
+  /* line 113, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackbg h1, .aj_bb_skin_blackbg h2, .aj_bb_skin_blackbg h3, .aj_bb_skin_blackbg h4, .aj_bb_skin_blackbg h5, .aj_bb_skin_blackbg p {
+    color: #fff !important; }
+  /* line 117, _dev/devsass/komponenter/_colortemplate.scss */
+
+  /* line 120, _dev/devsass/komponenter/_colortemplate.scss */
+    .aj_bb_skin_blackbg .bb_aj_gridItem {
+        background-color: #323232;
+    }
+  /* line 125, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackbg #aj_bb_krypinNav li:hover {
+    /*background-color: #CCCCCC;*/ }
+  /* line 131, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackbg .bookitem-card:hover, .aj_bb_skin_blackbg .bibblomon-card:hover, .aj_bb_skin_blackbg .booklist-card:hover, .aj_bb_skin_blackbg .badgeitem-card:hover, .aj_bb_skin_blackbg .skrivbokenitem-card:hover, .aj_bb_skin_blackbg .boktipsitem-card:hover, .aj_bb_skin_blackbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_blackbg .inventoryitem-card:hover, .aj_bb_skin_blackbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_blackbg .shopitem-card:hover {
+    background-color: #CCCCCC; }
+
+/*Tema med svart*/
+/* line 140, _dev/devsass/komponenter/_colortemplate.scss */
+.aj_bb_skin_beigebg {
+  background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/LjusbeigeBin.jpg") !important; }
+  /* line 142, _dev/devsass/komponenter/_colortemplate.scss */
+
+  /* line 145, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_beigebg .bb_aj_gridItem {
+    background-color: #FBE2B3; }
+  /* line 150, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_beigebg #aj_bb_krypinNav li:hover {
+    background-color: #E8B16D; }
+  /* line 156, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_beigebg .bookitem-card:hover, .aj_bb_skin_beigebg .bibblomon-card:hover, .aj_bb_skin_beigebg .booklist-card:hover, .aj_bb_skin_beigebg .badgeitem-card:hover, .aj_bb_skin_beigebg .skrivbokenitem-card:hover, .aj_bb_skin_beigebg .boktipsitem-card:hover, .aj_bb_skin_beigebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_beigebg .inventoryitem-card:hover, .aj_bb_skin_beigebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_beigebg .shopitem-card:hover {
+    background-color: #E8B16D; }
+
+/* line 3, _dev/devsass/komponenter/_base.scss */
+.aj_bb_KrypinMainContainer .row3 {
+  margin-left: .18rem;
+  margin-right: .3rem;
+  width: auto; }
+
+/* line 8, _dev/devsass/komponenter/_base.scss */
+.aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock {
+  background-color: transparent !important;
+  width: 100%; }
+  /* line 10, _dev/devsass/komponenter/_base.scss */
+  .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none; }
+    /* line 15, _dev/devsass/komponenter/_base.scss */
+    .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav img {
+      min-width: 48px; }
+    /* line 18, _dev/devsass/komponenter/_base.scss */
+    .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li {
+      margin-top: .3rem; }
+      /* line 20, _dev/devsass/komponenter/_base.scss */
+      .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li:hover {
+        margin-left: -.5rem;
+        margin-right: -.5rem; }
+        /* line 23, _dev/devsass/komponenter/_base.scss */
+        .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li:hover img {
+          margin-left: .5rem;
+          margin-right: .5rem; }
+
+/* line 34, _dev/devsass/komponenter/_base.scss */
+.bb_aj_HeaderSettings {
+  text-align: right; }
+
+/* line 38, _dev/devsass/komponenter/_base.scss */
+.bb_aj_valdmeny {
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    /*background-color: #0c6d4c;*/
+}
+  /* line 42, _dev/devsass/komponenter/_base.scss */
+  .bb_aj_valdmeny img {
+    margin-left: .5rem;
+    margin-right: .5rem; }
+
+/* line 49, _dev/devsass/komponenter/_base.scss */
+#bb_aj_modalContainer {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  cursor: pointer; }
+  /* line 62, _dev/devsass/komponenter/_base.scss */
+  #bb_aj_modalContainer .bb_aj_modalheader .buttonblock {
+    float: right; }
+  /* line 72, _dev/devsass/komponenter/_base.scss */
+  #bb_aj_modalContainer .bb_aj_modalcontent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    color: #000000;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    overflow-y: auto;
+    overflow-x: auto;
+    min-width: 320px;
+    max-height: 60%;
+    height: 70%;
+    width: 54%; }
+
+/* line 10, _dev/devsass/komponenter/_grid.scss */
+body {
+  font: 100 1em/150% 'Hind Siliguri', Helvetica, sans-serif;
+  /*font: 100 1em/150% "proxima-nova", Helvetica, sans-serif;*/ }
+
+/* line 16, _dev/devsass/komponenter/_grid.scss */
+.wrapper {
+  max-width: 1200px;
+  margin: auto; }
+
+/* line 22, _dev/devsass/komponenter/_grid.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  margin: 1.5em 0 0.5em; }
+
+/* line 29, _dev/devsass/komponenter/_grid.scss */
+h1 {
+    font-size: 2em;
+    font-family: 'Baloo', cursive;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* line 30, _dev/devsass/komponenter/_grid.scss */
+.bb_aj_gridItem h2 {
+    font-size: 1em;
+    font-family: 'Baloo', cursive;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* line 31, _dev/devsass/komponenter/_grid.scss */
+h3 {
+  font-size: 1.5em; }
+
+/* line 32, _dev/devsass/komponenter/_grid.scss */
+h4 {
+  font-size: 1.3em; }
+
+/* line 33, _dev/devsass/komponenter/_grid.scss */
+h5 {
+  font-size: 1.1em !important;
+  font-weight: 600; }
+
+/* line 36, _dev/devsass/komponenter/_grid.scss */
+h6 {
+  font-size: 1.05em !important;
+  font-weight: 500; }
+
+/* line 40, _dev/devsass/komponenter/_grid.scss */
+strong {
+  font-weight: 600; }
+
+/* line 42, _dev/devsass/komponenter/_grid.scss */
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(51, 153, 204, 0.2); }
+
+/* line 48, _dev/devsass/komponenter/_grid.scss */
+.img-placeholder {
+  background-image: url("http://placehold.it/200x100/CC99CC/ffffff&text=Feature");
+  background-size: cover;
+  min-height: 100px;
+  min-width: 100px; }
+
+/*Basic Grid Styles*/
+/* line 56, _dev/devsass/komponenter/_grid.scss */
+.aj_bb_KrypinMainGrid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+/* line 61, _dev/devsass/komponenter/_grid.scss */
+.u-textCenter {
+  text-align: center; }
+
+/* line 64, _dev/devsass/komponenter/_grid.scss */
+.Grid-cell {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+
+/* line 68, _dev/devsass/komponenter/_grid.scss */
+.bb_aj_gridItem {
+  background-color: #fff;
+
+
+  padding: 1em;
+  margin-bottom: 1em;
+  /*background: $demoMain;*/
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  border: 0px !important;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  overflow: hidden;
+  /*&:hover {
+    background: $demoMainDark;
+  }*/ }
+  /* line 76, _dev/devsass/komponenter/_grid.scss */
+  .bb_aj_gridItem:after {
+    content: "";
+    display: block;
+    margin-top: .8em;
+    height: 1px; }
+
+/* line 88, _dev/devsass/komponenter/_grid.scss */
+.bb_aj_gridItem_Header {
+  margin-bottom: 0px !important; }
+
+/* With gutters*/
+/* line 98, _dev/devsass/komponenter/_grid.scss */
+.Grid--gutters {
+  margin-left: -1em;
+  margin-bottom: 1em;
+}
+  /* line 100, _dev/devsass/komponenter/_grid.scss */
+  .Grid--gutters .Grid-cell {
+    padding-left: 1em; }
+  /* line 105, _dev/devsass/komponenter/_grid.scss */
+  .Grid--gutters .Grid--nested .Grid-cell:first-of-type .bb_aj_gridItem {
+    margin-right: 1em; }
+
+/* line 112, _dev/devsass/komponenter/_grid.scss */
+.first-1of1Grid-cell {
+  padding-left: 0px !important; }
+
+/*Fyll utrymmet i höjd*/
+/* line 117, _dev/devsass/komponenter/_grid.scss */
+.fill-area {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /* align items in Main Axis */
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  /* align items in Cross Axis */
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+  /* Extra space in Cross Axis */ }
+
+/* Justify per row*/
+/* line 127, _dev/devsass/komponenter/_grid.scss */
+.Grid--right {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+
+/* line 130, _dev/devsass/komponenter/_grid.scss */
+.Grid--center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+/* Alignment per row */
+/* line 135, _dev/devsass/komponenter/_grid.scss */
+.Grid--top {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+
+/* line 138, _dev/devsass/komponenter/_grid.scss */
+.Grid--bottom {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+
+/* line 141, _dev/devsass/komponenter/_grid.scss */
+.Grid--center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+/* Alignment per cell */
+/* line 146, _dev/devsass/komponenter/_grid.scss */
+.Grid-cell--top {
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start; }
+
+/* line 149, _dev/devsass/komponenter/_grid.scss */
+.Grid-cell--bottom {
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end; }
+
+/* line 152, _dev/devsass/komponenter/_grid.scss */
+.Grid-cell--center {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+              -ms-grid-row-align: center;
+          align-self: center; }
+
+/* line 157, _dev/devsass/komponenter/_grid.scss */
+.navigation {
+  list-style: none;
+  /*background: deepskyblue;*/
+  background: rgba(102, 51, 255, 0.1);
+  margin: 0 0 1em;
+  border: 1px solid #33cccc;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+  /* line 169, _dev/devsass/komponenter/_grid.scss */
+  .navigation a {
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: #333; }
+    /* line 174, _dev/devsass/komponenter/_grid.scss */
+    .navigation a:hover {
+      background: rgba(64, 0, 255, 0.1);
+      -webkit-border-radius: 3px;
+              border-radius: 3px; }
+  /* line 179, _dev/devsass/komponenter/_grid.scss */
+  .navigation:hover {
+    background: rgba(102, 51, 255, 0.25); }
+
+@media all and (max-width: 800px) {
+  /* line 185, _dev/devsass/komponenter/_grid.scss */
+  .navigation {
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; } }
+
+@media all and (max-width: 600px) {
+  /* line 191, _dev/devsass/komponenter/_grid.scss */
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+    padding: 0; }
+    /* line 195, _dev/devsass/komponenter/_grid.scss */
+    .navigation a {
+      text-align: center;
+      padding: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+    /* line 201, _dev/devsass/komponenter/_grid.scss */
+    .navigation li:last-of-type a {
+      border-bottom: none; } }
+
+/*===========================================*/
+/* Base classes for all media - Mobile first */
+/* line 210, _dev/devsass/komponenter/_grid.scss */
+.Grid--cols-2 > .Grid-cell {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%; }
+
+/* line 214, _dev/devsass/komponenter/_grid.scss */
+.Grid--cols-3 > .Grid-cell {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%; }
+
+/* line 218, _dev/devsass/komponenter/_grid.scss */
+.Grid--cols-4 > .Grid-cell {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%; }
+
+/* line 222, _dev/devsass/komponenter/_grid.scss */
+.Grid--cols-6 > .Grid-cell {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%; }
+
+/* line 226, _dev/devsass/komponenter/_grid.scss */
+.Grid--cols-12 > .Grid-cell {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 33.3333%;
+      -ms-flex: 0 0 33.3333%;
+          flex: 0 0 33.3333%; }
+
+/* line 231, _dev/devsass/komponenter/_grid.scss */
+.Grid--holly-grail .aside, .Grid--holly-grail .main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 100%;
+      -ms-flex: 1 100%;
+          flex: 1 100%; }
+
+/* One of -- columns*/
+/* line 237, _dev/devsass/komponenter/_grid.scss */
+.Grid--1of2 > .Grid-cell,
+.Grid--1of4 > .Grid-cell:first-of-type,
+.Grid--1of3 > .Grid-cell:first-of-type,
+.Grid--2of3 > .Grid-cell:first-of-type {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%; }
+
+/* line 243, _dev/devsass/komponenter/_grid.scss */
+.Grid--1of6 > .Grid-cell:first-of-type {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%; }
+
+/* line 246, _dev/devsass/komponenter/_grid.scss */
+.Grid--1of12 > .Grid-cell:first-of-type {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 25%;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%; }
+
+/* line 249, _dev/devsass/komponenter/_grid.scss */
+.Grid--fit > .Grid-cell {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+
+/* line 252, _dev/devsass/komponenter/_grid.scss */
+.Grid--full > .Grid-cell {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%; }
+
+/* Tablet (medium) screens */
+@media (max-width: 25em) {
+  /* line 258, _dev/devsass/komponenter/_grid.scss */
+  .Grid--cols-4 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; }
+  /* line 262, _dev/devsass/komponenter/_grid.scss */
+  .Grid--cols-6 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; }
+  /* line 265, _dev/devsass/komponenter/_grid.scss */
+  .Grid--cols-12 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; }
+  /* line 269, _dev/devsass/komponenter/_grid.scss */
+  .Grid--holly-grail .aside {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 -webkit-calc(25% - 1em);
+        -ms-flex: 1 calc(25% - 1em);
+            flex: 1 calc(25% - 1em); }
+  /* line 273, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of2 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; }
+  /* line 276, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of12 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%; }
+  /* line 279, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of6 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; }
+  /* line 282, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of4 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; }
+  /* line 285, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of3 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; }
+  /* line 288, _dev/devsass/komponenter/_grid.scss */
+  .Grid--2of3 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; } }
+
+/* Tablet (medium) screens */
+@media (min-width: 30em) {
+  /* line 296, _dev/devsass/komponenter/_grid.scss */
+  .Grid--cols-4 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%; }
+  /* line 300, _dev/devsass/komponenter/_grid.scss */
+  .Grid--cols-6 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.3333%;
+        -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%; }
+  /* line 303, _dev/devsass/komponenter/_grid.scss */
+  .Grid--cols-12 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 16.6666%;
+        -ms-flex: 0 0 16.6666%;
+            flex: 0 0 16.6666%; }
+  /* line 307, _dev/devsass/komponenter/_grid.scss */
+  .Grid--holly-grail .aside {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 -webkit-calc(25% - 1em);
+        -ms-flex: 1 calc(25% - 1em);
+            flex: 1 calc(25% - 1em); }
+  /* line 311, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of2 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%; }
+  /* line 314, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of12 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.3333%;
+        -ms-flex: 0 0 8.3333%;
+            flex: 0 0 8.3333%; }
+  /* line 317, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of6 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 30%;
+        -ms-flex: 0 0 30%;
+            flex: 0 0 30%; }
+  /* line 320, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of4 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%; }
+  /* line 324, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of3 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.6666%;
+        -ms-flex: 0 0 66.6666%;
+            flex: 0 0 66.6666%; }
+  /* line 327, _dev/devsass/komponenter/_grid.scss */
+  .Grid--2of3 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%; } }
+
+/* Large screens */
+@media (min-width: 48em) {
+  /* line 334, _dev/devsass/komponenter/_grid.scss */
+  .Grid--cols-2 > .Grid-cell,
+  .Grid--cols-3 > .Grid-cell,
+  .Grid--cols-4 > .Grid-cell,
+  .Grid--cols-6 > .Grid-cell,
+  .Grid--cols-12 > .Grid-cell {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+  /* line 342, _dev/devsass/komponenter/_grid.scss */
+  .Grid--holly-grail .main {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+        -ms-flex: 2;
+            flex: 2; }
+  /* line 343, _dev/devsass/komponenter/_grid.scss */
+  .Grid--holly-grail .aside {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+  /* line 344, _dev/devsass/komponenter/_grid.scss */
+  .Grid--holly-grail .aside-1 {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+  /* line 345, _dev/devsass/komponenter/_grid.scss */
+  .Grid--holly-grail .main {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+  /* line 346, _dev/devsass/komponenter/_grid.scss */
+  .Grid--holly-grail .aside-2 {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; }
+  /* line 348, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of2 > .Grid-cell {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%; }
+  /* line 351, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of12 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.3333%;
+        -ms-flex: 0 0 8.3333%;
+            flex: 0 0 8.3333%; }
+  /* line 354, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of6 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 16.6666%;
+        -ms-flex: 0 0 16.6666%;
+            flex: 0 0 16.6666%; }
+  /* line 357, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of4 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%; }
+  /* line 360, _dev/devsass/komponenter/_grid.scss */
+  .Grid--1of3 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.3333%;
+        -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%; }
+  /* line 363, _dev/devsass/komponenter/_grid.scss */
+  .Grid--2of3 > .Grid-cell:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.6666%;
+        -ms-flex: 0 0 66.6666%;
+            flex: 0 0 66.6666%; }
+  /* line 368, _dev/devsass/komponenter/_grid.scss */
+  .Grid--gutters.Grid--nested .Grid-cell:first-of-type .bb_aj_gridItem {
+    margin-right: 0; } }
+
+/*// Contents classes
+.content-1of1::before { content: "1"; }
+.content-1of2::before { content: "1/2"; }
+.content-1of3::before { content: "1/3"; }
+.content-1of4::before { content: "1/4"; }
+.content-1of6::before { content: "1/6"; }
+.content-1of12::before { content: "1/12"; }*/
+/* line 1, _dev/devsass/komponenter/_krypinpageBase.scss */
+.ikonheaderBlock {
+  position: relative;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  /* line 6, _dev/devsass/komponenter/_krypinpageBase.scss */
+  .ikonheaderBlock img {
+    max-width: 60px;
+    margin-right: .5rem; }
+  /* line 10, _dev/devsass/komponenter/_krypinpageBase.scss */
+  .ikonheaderBlock .booklistSetup {
+    position: absolute;
+    right: 0px;
+    bottom: -5px; }
+    /* line 14, _dev/devsass/komponenter/_krypinpageBase.scss */
+    .ikonheaderBlock .booklistSetup img {
+      margin-right: .1rem; }
+  /* line 18, _dev/devsass/komponenter/_krypinpageBase.scss */
+  .ikonheaderBlock .scoreBlock {
+    position: absolute;
+    right: 0px;
+    top: 0px; }
+
+/* line 25, _dev/devsass/komponenter/_krypinpageBase.scss */
+.booklistSettings {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+
+/* line 31, _dev/devsass/komponenter/_krypinpageBase.scss */
+.bb_aj_CloseContainer {
+  position: absolute;
+  right: -6px;
+  top: 0px; }
+
+/* line 2, _dev/devsass/komponenter/_booklistPage.scss */
+.aj_bb_KrypinSkin .bb_aj_BooklistAdd {
+  display: none; }
+
+/* line 5, _dev/devsass/komponenter/_booklistPage.scss */
+.aj_bb_KrypinSkin .bb_aj_BooklistSettings {
+  display: none; }
+
+/* line 12, _dev/devsass/komponenter/_booklistPage.scss */
+.aj_bb_KrypinSkin .booklistSettings img {
+  /*height: 100%;*/
+  max-width: 32px;
+  padding-left: .2rem; }
+
+/* line 20, _dev/devsass/komponenter/_booklistPage.scss */
+.aj_bb_KrypinSkin .booklistSettings button {
+  margin-right: 2rem; }
+
+/* line 22, _dev/devsass/komponenter/_booklistPage.scss */
+.aj_bb_KrypinSkin .bb_aj_editbooklistnamnBlock {
+  display: none; }
+  /* line 24, _dev/devsass/komponenter/_booklistPage.scss */
+  .aj_bb_KrypinSkin .bb_aj_editbooklistnamnBlock button {
+    height: 2rem !important; }
+  /* line 27, _dev/devsass/komponenter/_booklistPage.scss */
+  .aj_bb_KrypinSkin .bb_aj_editbooklistnamnBlock .editBoklistanamn {
+    width: 60%;
+    float: left;
+    height: 2rem; }
+
+/* line 3, _dev/devsass/komponenter/_skrivbokenBase.scss */
+#bb_aj_skrivboken_Mod .skrivbokenExempleimg .bookitem-button {
+  display: none; }
+
+/* line 7, _dev/devsass/komponenter/_skrivbokenBase.scss */
+#bb_aj_skrivboken_Mod textarea {
+  resize: vertical; }
+
+/* line 17, _dev/devsass/komponenter/_skrivbokenBase.scss */
+#bb_aj_skrivboken_Mod .skrivbokreadhead {
+  /*margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;*/
+  width: 80%;
+  position: relative;
+  -webkit-transition: all 5s ease-in-out;
+  transition: all 5s ease-in-out; }
+  /* line 25, _dev/devsass/komponenter/_skrivbokenBase.scss */
+  #bb_aj_skrivboken_Mod .skrivbokreadhead .close {
+    top: 20px;
+    right: 30px;
+    -webkit-transition: all 200ms;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333; }
+    /* line 34, _dev/devsass/komponenter/_skrivbokenBase.scss */
+    #bb_aj_skrivboken_Mod .skrivbokreadhead .close:hover {
+      color: #06D85F; }
+  /* line 38, _dev/devsass/komponenter/_skrivbokenBase.scss */
+  #bb_aj_skrivboken_Mod .skrivbokreadhead .content {
+    max-height: 30%;
+    overflow: auto; }
+
+/* line 45, _dev/devsass/komponenter/_skrivbokenBase.scss */
+#bb_aj_skrivboken_Mod .skrivbokreadtextenBlock {
+  margin-left: 1.0rem;
+  margin-right: 1.0rem; }
+
+/* line 50, _dev/devsass/komponenter/_skrivbokenBase.scss */
+#bb_aj_skrivboken_Mod .skrivbokreadfoot .Grid-cell {
+  min-height: 50px !important; }
+  /* line 52, _dev/devsass/komponenter/_skrivbokenBase.scss */
+  #bb_aj_skrivboken_Mod .skrivbokreadfoot .Grid-cell:hover {
+    background-color: transparent; }
+  /* line 53, _dev/devsass/komponenter/_skrivbokenBase.scss */
+  #bb_aj_skrivboken_Mod .skrivbokreadfoot .Grid-cell .catblock {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    border-top: 1px solid #000000;
+    margin-top: 2rem; }
+    /* line 60, _dev/devsass/komponenter/_skrivbokenBase.scss */
+    #bb_aj_skrivboken_Mod .skrivbokreadfoot .Grid-cell .catblock img {
+      height: 30px !important;
+      width: 30px !important; }
+
+/* line 71, _dev/devsass/komponenter/_skrivbokenBase.scss */
+.bb_aj_modalContainer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer; }
+
+/* line 84, _dev/devsass/komponenter/_skrivbokenBase.scss */
+.bb_aj_modalcontent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  color: white;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+/* line 3, _dev/devsass/komponenter/_boktipsBase.scss */
+#bb_aj_boktips_Mod .boktipsenExempleimg .bookitem-button {
+  display: none; }
+
+/* line 7, _dev/devsass/komponenter/_boktipsBase.scss */
+#bb_aj_boktips_Mod textarea {
+  resize: vertical; }
+
+/* line 17, _dev/devsass/komponenter/_boktipsBase.scss */
+#bb_aj_boktips_Mod .boktipsreadhead {
+  /*margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;*/
+  width: 80%;
+  position: relative;
+  -webkit-transition: all 5s ease-in-out;
+  transition: all 5s ease-in-out; }
+  /* line 25, _dev/devsass/komponenter/_boktipsBase.scss */
+  #bb_aj_boktips_Mod .boktipsreadhead .close {
+    top: 20px;
+    right: 30px;
+    -webkit-transition: all 200ms;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333; }
+    /* line 34, _dev/devsass/komponenter/_boktipsBase.scss */
+    #bb_aj_boktips_Mod .boktipsreadhead .close:hover {
+      color: #06D85F; }
+  /* line 38, _dev/devsass/komponenter/_boktipsBase.scss */
+  #bb_aj_boktips_Mod .boktipsreadhead .content {
+    max-height: 30%;
+    overflow: auto; }
+
+/* line 45, _dev/devsass/komponenter/_boktipsBase.scss */
+#bb_aj_boktips_Mod .boktipsreadtextenBlock {
+  margin-left: 1.0rem;
+  margin-right: 1.0rem; }
+
+/* line 50, _dev/devsass/komponenter/_boktipsBase.scss */
+#bb_aj_boktips_Mod .boktipsreadfoot .Grid-cell {
+  min-height: 50px !important; }
+  /* line 52, _dev/devsass/komponenter/_boktipsBase.scss */
+  #bb_aj_boktips_Mod .boktipsreadfoot .Grid-cell:hover {
+    background-color: transparent; }
+  /* line 53, _dev/devsass/komponenter/_boktipsBase.scss */
+  #bb_aj_boktips_Mod .boktipsreadfoot .Grid-cell .catblock {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    border-top: 1px solid #000000;
+    margin-top: 2rem; }
+    /* line 60, _dev/devsass/komponenter/_boktipsBase.scss */
+    #bb_aj_boktips_Mod .boktipsreadfoot .Grid-cell .catblock img {
+      height: 30px !important;
+      width: 30px !important; }
+
+/* item baseblock för alla listitems*/
+/* line 3, _dev/devsass/komponenter/_bookItemBlock.scss */
+.bookitem-card, .bibblomon-card, .booklist-card, .badgeitem-card, .skrivbokenitem-card, .boktipsitem-card, #bb_aj_inventory_Mod .inventoryitem-card, #bb_aj_shop_Mod .shopitem-card {
+    position: relative;
+    padding: 1em 0.6em;
+    border-radius: 10px;
+    margin-right: .5rem;
+    margin-left: .5rem;
+    __min-width: 160px;
+    /*max-height: 300px;*/
+    text-align: center;
+    overflow: hidden;
+    -webkit-box-align: top;
+    -webkit-align-items: top;
+    -ms-flex-align: top;
+    align-items: top;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+  /* line 15, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bookitem-card .bookitem-image, .bibblomon-card .bookitem-image, .booklist-card .bookitem-image, .badgeitem-card .bookitem-image, .skrivbokenitem-card .bookitem-image, .boktipsitem-card .bookitem-image, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-image, #bb_aj_shop_Mod .shopitem-card .bookitem-image {
+    height: auto;
+    overflow: hidden;
+    width: 100% !important;
+    -webkit-box-align: top;
+    -webkit-align-items: top;
+        -ms-flex-align: top;
+            align-items: top;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    /* line 24, _dev/devsass/komponenter/_bookItemBlock.scss */
+    .bookitem-card .bookitem-image img, .bibblomon-card .bookitem-image img, .booklist-card .bookitem-image img, .badgeitem-card .bookitem-image img, .skrivbokenitem-card .bookitem-image img, .boktipsitem-card .bookitem-image img, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-image img, #bb_aj_shop_Mod .shopitem-card .bookitem-image img {
+      __max-width: 150px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center; }
+  /* line 31, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bookitem-card .bookitem-info, .bibblomon-card .bookitem-info, .booklist-card .bookitem-info, .badgeitem-card .bookitem-info, .skrivbokenitem-card .bookitem-info, .boktipsitem-card .bookitem-info, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-info, #bb_aj_shop_Mod .shopitem-card .bookitem-info {
+    text-align: center;
+    /*background-color:$white;*/ }
+  /* line 36, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bookitem-card .bookitem-button, .bibblomon-card .bookitem-button, .booklist-card .bookitem-button, .badgeitem-card .bookitem-button, .skrivbokenitem-card .bookitem-button, .boktipsitem-card .bookitem-button, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-button, #bb_aj_shop_Mod .shopitem-card .bookitem-button {
+    text-align: right;
+    position: absolute;
+    right: 0; }
+    /* line 40, _dev/devsass/komponenter/_bookItemBlock.scss */
+    .bookitem-card .bookitem-button a, .bibblomon-card .bookitem-button a, .booklist-card .bookitem-button a, .badgeitem-card .bookitem-button a, .skrivbokenitem-card .bookitem-button a, .boktipsitem-card .bookitem-button a, #bb_aj_inventory_Mod .inventoryitem-card .bookitem-button a, #bb_aj_shop_Mod .shopitem-card .bookitem-button a {
+      float: left; }
+
+/* line 51, _dev/devsass/komponenter/_bookItemBlock.scss */
+.bibblomon-card {
+  background-color: #000000;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  padding-bottom: 2rem; }
+  /* line 58, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card h1, .bibblomon-card h2, .bibblomon-card h3, .bibblomon-card h4, .bibblomon-card h5, .bibblomon-card h6 {
+    color: #FFFFFF !important; }
+  /* line 61, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card h3 {
+    color: #e2974a !important; }
+  /* line 64, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card p {
+    color: #FFFFFF !important;
+    margin-bottom: 0px;
+    padding-bottom: 0px; }
+  /* line 70, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card ul li {
+    font-size: .8rem; }
+  /* line 74, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card:hover {
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
+    -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+    -webkit-transition-delay: .3s;
+            transition-delay: .3s;
+    background-color: #000000 !important; }
+  /* line 81, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card img {
+    margin-top: .5rem; }
+    /* line 83, _dev/devsass/komponenter/_bookItemBlock.scss */
+    .bibblomon-card img:hover {
+      border: 0px; }
+  /* line 87, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .bibblomon-card .bookitem-info {
+    border: 3px solid #000000;
+    -webkit-border-bottom-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+            border-bottom-right-radius: 10px; }
+
+/* line 94, _dev/devsass/komponenter/_bookItemBlock.scss */
+#bb_aj_cmdSetting_Booklist {
+  display: none; }
+
+/* line 100, _dev/devsass/komponenter/_bookItemBlock.scss */
+.booklist-card .bookitem-image img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+/* line 110, _dev/devsass/komponenter/_bookItemBlock.scss */
+.badgeitem-card {
+  margin-bottom: 1rem;
+  margin-right: 0rem;
+  margin-left: 0rem;
+  _min-width: 115px;
+  max-width: 180px; }
+
+/* line 126, _dev/devsass/komponenter/_bookItemBlock.scss */
+.skrivbokenitem-card .bookitem-image img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /*max-width:200px!important;*/
+  max-height: 200px; }
+
+/* line 144, _dev/devsass/komponenter/_bookItemBlock.scss */
+.boktipsitem-card .bookitem-image img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 200px !important;
+  max-height: 200px; }
+
+/* line 155, _dev/devsass/komponenter/_bookItemBlock.scss */
+.hoverinfocontainer {
+  position: relative; }
+  /* line 157, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .hoverinfocontainer:hover .image {
+    opacity: 0.3; }
+  /* line 161, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .hoverinfocontainer:hover .iteminfoblock {
+    opacity: 1; }
+  /* line 164, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .hoverinfocontainer .image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden; }
+  /* line 172, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .hoverinfocontainer .iteminfoblock {
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: left;
+    width: 90%;
+    height: 90%; }
+  /* line 184, _dev/devsass/komponenter/_bookItemBlock.scss */
+  .hoverinfocontainer .iteminfocontent {
+    background-color: black;
+    color: orange;
+    font-size: 0.7rem;
+    width: 100%;
+    height: 100%;
+    padding-left: .3rem;
+    overflow-y: auto; }
+    /* line 192, _dev/devsass/komponenter/_bookItemBlock.scss */
+    .hoverinfocontainer .iteminfocontent h1 {
+      color: inherit; }
+    /* line 195, _dev/devsass/komponenter/_bookItemBlock.scss */
+    .hoverinfocontainer .iteminfocontent .bb_aj_gotoWiki {
+      color: #FFFFFF;
+      position: absolute;
+      bottom: 0px; }
+
+/* line 1, _dev/devsass/komponenter/_startpage.scss */
+h3 {
+  font-weight: 600; }
+
+/* line 3, _dev/devsass/komponenter/_startpage.scss */
+.avatarItems {
+  padding: 1rem; }
+  /* line 5, _dev/devsass/komponenter/_startpage.scss */
+  .avatarItems h3 {
+    padding: .5rem 0; }
+
+/* line 10, _dev/devsass/komponenter/_startpage.scss */
+.BiblomoneyItems {
+  overflow: hidden; }
+  /* line 12, _dev/devsass/komponenter/_startpage.scss */
+  .BiblomoneyItems .bibblomoneyContent {
+    min-height: 10rem;
+    padding-top: 2rem;
+    text-align: center; }
+    /* line 13, _dev/devsass/komponenter/_startpage.scss */
+    .BiblomoneyItems .bibblomoneyContent img {
+      max-width: 56px; }
+  /* line 20, _dev/devsass/komponenter/_startpage.scss */
+  .BiblomoneyItems .bibblomoneyFooter img {
+    max-width: 28px; }
+
+/* line 23, _dev/devsass/komponenter/_startpage.scss */
+.BiblomonItems {
+  overflow: hidden; }
+  /* line 25, _dev/devsass/komponenter/_startpage.scss */
+  .BiblomonItems .bibblomonContent {
+    min-height: 10rem;
+    padding-top: 2rem;
+    text-align: center; }
+    /* line 26, _dev/devsass/komponenter/_startpage.scss */
+    .BiblomonItems .bibblomonContent img {
+      max-width: 56px; }
+  /* line 32, _dev/devsass/komponenter/_startpage.scss */
+  .BiblomonItems .bibblomonFooter img {
+    max-width: 28px; }
+
+/* line 37, _dev/devsass/komponenter/_startpage.scss */
+.laserjustnuItems .bookitem-card, .laserjustnuItems .bibblomon-card, .laserjustnuItems .booklist-card, .laserjustnuItems .badgeitem-card, .laserjustnuItems .skrivbokenitem-card, .laserjustnuItems .boktipsitem-card, .laserjustnuItems #bb_aj_inventory_Mod .inventoryitem-card, #bb_aj_inventory_Mod .laserjustnuItems .inventoryitem-card, .laserjustnuItems #bb_aj_shop_Mod .shopitem-card, #bb_aj_shop_Mod .laserjustnuItems .shopitem-card {
+  padding-top: 1rem;
+  text-align: center; }
+
+/*---------------------------------------------grow START----------------*/
+/* line 45, _dev/devsass/komponenter/_startpage.scss */
+.testare {
+  text-align: center; }
+
+/* line 49, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #AJKrypingrowboxcontent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+/* line 54, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #growmainbox {
+  padding: 0;
+  margin: 10px 32px;
+  height: 95px; }
+  /* line 58, _dev/devsass/komponenter/_startpage.scss */
+  .AJKrypingrowboxmain #growmainbox ul {
+    margin-left: 0;
+    padding-left: 0;
+    white-space: nowrap; }
+    /* line 63, _dev/devsass/komponenter/_startpage.scss */
+    .AJKrypingrowboxmain #growmainbox ul li {
+      display: inline;
+      list-style-type: none;
+      float: left;
+      min-height: 80px;
+      width: 45px;
+      background-image: url("http://www.barnensbibliotek.se/DesktopModules/AJBarnensKrypin/webbilds/growbghylla.png"); }
+
+/* line 75, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .itmimg {
+  min-height: 85px;
+  background-repeat: no-repeat; }
+
+/* line 79, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .itmimga {
+  display: none; }
+
+/* line 80, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .itmadm {
+  min-height: 80px;
+  width: 45px;
+  border: 1px dashed #999; }
+  /* line 84, _dev/devsass/komponenter/_startpage.scss */
+  .AJKrypingrowboxmain .itmadm a {
+    display: block;
+    white-space: pre-line;
+    text-align: center;
+    color: #666;
+    text-decoration: none;
+    margin-top: 12px; }
+  /* line 92, _dev/devsass/komponenter/_startpage.scss */
+  .AJKrypingrowboxmain .itmadm:hover {
+    background-color: #ddd; }
+
+/* line 94, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .editGrow a {
+  padding: 0px;
+  margin: 0px; }
+
+/* line 95, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #AJKrypingrowdelbox {
+  margin-left: 40px; }
+
+/* line 96, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain .itmimgadel {
+  display: none; }
+
+/* line 97, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #growhelpbox a {
+  float: right;
+  background-image: url("");
+  display: block;
+  height: 10px;
+  width: 10px; }
+
+/* line 98, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #growhelpbox a:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5; }
+
+/* line 105, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #AJKrypInBarnbiblContent p {
+  font-size: 0.8em;
+  color: #333; }
+
+/* line 106, _dev/devsass/komponenter/_startpage.scss */
+.AJKrypingrowboxmain #AJKrypingrowInfo {
+  padding: 4px;
+  background-color: #fff;
+  margin-right: 10%; }
+
+/*---------------------------------------------grow END----------------*/
+/* line 114, _dev/devsass/komponenter/_startpage.scss */
+.highscoreItems {
+  overflow: hidden; }
+  /* line 116, _dev/devsass/komponenter/_startpage.scss */
+  .highscoreItems h2 {
+    text-align: left; }
+  /* line 117, _dev/devsass/komponenter/_startpage.scss */
+  .highscoreItems ul {
+    margin-top: 1rem;
+    list-style: none; }
+    /* line 120, _dev/devsass/komponenter/_startpage.scss */
+    .highscoreItems ul li {
+      float: left; }
+      /* line 122, _dev/devsass/komponenter/_startpage.scss */
+      .highscoreItems ul li img {
+        max-width: 42px;
+        padding: .2rem; }
+
+/* line 2, _dev/devsass/komponenter/_inventory.scss */
+#bb_aj_inventory_Mod .bb_aj_inventorytAdd {
+  display: none; }
+
+/* line 6, _dev/devsass/komponenter/_inventory.scss */
+#bb_aj_inventory_Mod .bb_aj_inventorySettings {
+  display: none; }
+
+/* line 10, _dev/devsass/komponenter/_inventory.scss */
+#bb_aj_inventory_Mod .inventoryitem-card {
+  margin-right: 0rem;
+  margin-left: 0rem; }
+  /* line 12, _dev/devsass/komponenter/_inventory.scss */
+  #bb_aj_inventory_Mod .inventoryitem-card .bookitem-image {
+    background-image: -webkit-radial-gradient(circle, #ddd, #eee, #a7a7a7);
+    background-image: radial-gradient(circle, #ddd, #eee, #a7a7a7); }
+  /* line 18, _dev/devsass/komponenter/_inventory.scss */
+  #bb_aj_inventory_Mod .inventoryitem-card .bookitem-info {
+    text-align: left;
+    padding-right: .2rem;
+    padding-left: .2rem; }
+  /* line 25, _dev/devsass/komponenter/_inventory.scss */
+  #bb_aj_inventory_Mod .inventoryitem-card p {
+    font-size: .7rem; }
+  /* line 26, _dev/devsass/komponenter/_inventory.scss */
+  #bb_aj_inventory_Mod .inventoryitem-card .invitmtyp {
+    padding-top: .5rem;
+    padding-left: .2rem; }
+    /* line 29, _dev/devsass/komponenter/_inventory.scss */
+    #bb_aj_inventory_Mod .inventoryitem-card .invitmtyp h6 {
+      font-size: 0.7rem !important;
+      font-weight: 900; }
+    /* line 30, _dev/devsass/komponenter/_inventory.scss */
+    #bb_aj_inventory_Mod .inventoryitem-card .invitmtyp img {
+      max-width: 24px;
+      margin-bottom: .5rem;
+      text-align: right; }
+
+/* line 1, _dev/devsass/komponenter/_shop.scss */
+#bb_aj_shop_Mod {
+  margin-right: 0rem;
+  margin-left: 0rem; }
+  /* line 2, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .bb_aj_shopAdd {
+    display: none; }
+  /* line 6, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .bb_aj_shopSettings {
+    display: none; }
+  /* line 10, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .shopitem-card {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 1rem; }
+    /* line 15, _dev/devsass/komponenter/_shop.scss */
+    #bb_aj_shop_Mod .shopitem-card .bookitem-button {
+      max-width: 32px; }
+  /* line 19, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .bookitem-image {
+    background-color: #999999; }
+  /* line 22, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .bookitem-info {
+    text-align: left !important;
+    padding-right: .2rem;
+    padding-left: .2rem; }
+    /* line 26, _dev/devsass/komponenter/_shop.scss */
+    #bb_aj_shop_Mod .bookitem-info .shop_prisblock {
+      margin-top: .1rem;
+      margin-right: -.2rem;
+      margin-left: -.2rem;
+      padding: 0.3em 0 0.4em 0.6em;
+      background: #339933;
+      border-radius: 10px;
+    }
+.shop_prisblock h5 {
+    font-size: 1em !important;
+}
+/* line 34, _dev/devsass/komponenter/_shop.scss */
+#bb_aj_shop_Mod .bookitem-info .shop_prisblock.forsale {
+    background: #ff9900;
+}
+  /* line 42, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod p {
+    font-size: .7rem; }
+  /* line 43, _dev/devsass/komponenter/_shop.scss */
+  #bb_aj_shop_Mod .invitmtyp {
+    padding-top: .5rem;
+    padding-left: .2rem; }
+    /* line 46, _dev/devsass/komponenter/_shop.scss */
+    #bb_aj_shop_Mod .invitmtyp h6 {
+      font-size: 0.7rem !important;
+      font-weight: 900; }
+    /* line 47, _dev/devsass/komponenter/_shop.scss */
+    #bb_aj_shop_Mod .invitmtyp img {
+      max-width: 24px;
+      margin-bottom: .5rem;
+      text-align: right; }
+
+/* line 1, _dev/devsass/komponenter/_installningar.scss */
+.basecurrentImgstyle, #bb_aj_installningar_Mod .alternativblock .avatar_current img, #bb_aj_installningar_Mod .alternativblock .skin_current img {
+  max-width: 150px;
+  margin-left: 1rem; }
+
+/* line 5, _dev/devsass/komponenter/_installningar.scss */
+.listbasestyle, #bb_aj_installningar_Mod .alternativblock .avatar_alternativ #avatar_maingallery li, #bb_aj_installningar_Mod .alternativblock .skin_alternativ #skin_maingallery li {
+  list-style: none;
+  float: left;
+  width: 50px;
+  margin: 5px 1px 0 0; }
+
+/* line 14, _dev/devsass/komponenter/_installningar.scss */
+#bb_aj_installningar_Mod .bb_aj_installningarAdd {
+  display: none; }
+
+/* line 18, _dev/devsass/komponenter/_installningar.scss */
+#bb_aj_installningar_Mod .bb_aj_installningarSettings {
+  display: none; }
+
+/* line 21, _dev/devsass/komponenter/_installningar.scss */
+#bb_aj_installningar_Mod .alternativblock {
+  padding-bottom: 1rem;
+  ___border-bottom: 1px solid #000;
+  margin-bottom: 2.5rem; }
+  /* line 35, _dev/devsass/komponenter/_installningar.scss */
+  #bb_aj_installningar_Mod .alternativblock .avatar_alternativ #avatar_maingallery img {
+    max-width: 40px; }
+  /* line 41, _dev/devsass/komponenter/_installningar.scss */
+  #bb_aj_installningar_Mod .alternativblock .skin_current img {
+    border: 2px solid #fff; }
+  /* line 48, _dev/devsass/komponenter/_installningar.scss */
+  #bb_aj_installningar_Mod .alternativblock .skin_alternativ #skin_maingallery li {
+    width: 90px; }
+  /* line 52, _dev/devsass/komponenter/_installningar.scss */
+  #bb_aj_installningar_Mod .alternativblock .skin_alternativ #skin_maingallery img {
+    max-width: 80px; }
+
+/**
+ * dropdown
+ */
+/* line 5, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd {
+  width: 200px;
+  background: #efefef;
+  color: #575757;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 13px;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer; }
+
+/* line 22, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-panel {
+  text-align: center;
+  font-size: 15px;
+  padding: 5px 7px;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/* line 34, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-panel::after {
+  content: '\25BC';
+  display: inline-block;
+  float: right;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  color: #a5a5a5; }
+
+/* line 42, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-panel.jplist-dd-opened::after {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
+/* line 46, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-panel:hover {
+  color: #000; }
+
+/* line 50, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-content {
+  display: none; }
+
+/* line 54, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-content.jplist-dd-opened {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  -webkit-box-shadow: 3px 5px 5px #e0e0e0;
+          box-shadow: 3px 5px 5px #e0e0e0;
+  position: absolute;
+  background: #f5f5f5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 1000; }
+
+/* line 70, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-item {
+  border-bottom: 1px dotted #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px 15px;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s; }
+
+/* line 77, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-item:hover {
+  background-color: #fff;
+  color: #000; }
+
+/* line 82, _dev/devsass/komponenter/_jplist.scss */
+.jplist-dd-item:last-child {
+  border: 0; }
+
+/**
+ * horizontal
+ */
+/* line 88, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider {
+  width: 300px;
+  height: 20px;
+  background: #efefef;
+  margin-right: 15px;
+  margin-bottom: 35px;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+/* line 99, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: blue;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%); }
+
+/* line 112, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider-holder-1,
+.jplist-slider-holder-2 {
+  width: 10px;
+  height: 100%;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  z-index: 200;
+  -webkit-transition: 0.3s background-color;
+  transition: 0.3s background-color;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  line-height: 0; }
+
+/* line 131, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider-holder-1 {
+  background: #000; }
+
+/* line 135, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider-holder-1:active {
+  background: #9f35ff; }
+
+/* line 139, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider-holder-2 {
+  background: #822121; }
+
+/* line 143, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider-holder-2:active {
+  background: #ff2888; }
+
+/* line 147, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider-range {
+  width: 0;
+  height: 20px;
+  background: #ccc;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+/**
+ * vertical
+ */
+/* line 161, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider.jplist-slider-vertical {
+  width: 20px;
+  height: 300px; }
+
+/* line 166, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider.jplist-slider-vertical::before {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0); }
+
+/* line 174, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider.jplist-slider-vertical .jplist-slider-holder-1,
+.jplist-slider.jplist-slider-vertical .jplist-slider-holder-2 {
+  height: 10px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%); }
+
+/* line 183, _dev/devsass/komponenter/_jplist.scss */
+.jplist-slider.jplist-slider-vertical .jplist-slider-range {
+  width: 100%;
+  height: 0; }
+/* line 1, _dev/devsass/komponenter/_auto_complete.scss */
+.autocomplete-suggestions {
+  text-align: left;
+  cursor: default;
+  border: 1px solid #ccc;
+  border-top: 0;
+  background: #fff;
+  -webkit-box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.1);
+  /* core styles should not be changed */
+  position: absolute;
+  display: none;
+  z-index: 9999;
+  max-height: 254px;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+/* line 18, _dev/devsass/komponenter/_auto_complete.scss */
+.autocomplete-suggestion {
+  position: relative;
+  padding: 0 .6em;
+  line-height: 23px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.02em;
+  color: #333333; }
+  /* line 28, _dev/devsass/komponenter/_auto_complete.scss */
+  .autocomplete-suggestion b {
+    font-weight: normal;
+    color: #1f8dd6; }
+  /* line 32, _dev/devsass/komponenter/_auto_complete.scss */
+  .autocomplete-suggestion .selected {
+    background: #f0f0f0; }
+
+/* line 1, _dev/devsass/komponenter/_scoreboardPage.scss */
+.scoreboardSettings {
+  padding-bottom: .5rem; }
+
+/* Global krypinskin*/
+/* line 19, _dev/devsass/kk_aj_PublicCSS.scss */
+.kk_aj_conf {
+  display: none; }
+
+/* line 22, _dev/devsass/kk_aj_PublicCSS.scss */
+.aj_bb_KrypinSkin {
+  padding-top: 2rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: .5rem !important; }
+  /* line 29, _dev/devsass/kk_aj_PublicCSS.scss */
+  .aj_bb_KrypinSkin hr {
+    margin-top: 0px;
+    background-color: #000; }
+
+/* line 35, _dev/devsass/kk_aj_PublicCSS.scss */
+.Grid-cell .dnnModuleManager {
+  padding: 0px !important; }
+
+/* line 37, _dev/devsass/kk_aj_PublicCSS.scss */
+.item {
+  height: auto !important;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  __display: flex;
+  -webkit-box-align: top;
+  -webkit-align-items: top;
+      -ms-flex-align: top;
+          align-items: top;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 0.02rem !important;
+  margin-right: .02rem !important;
+  min-height: 330px !important; }
+  /* line 47, _dev/devsass/kk_aj_PublicCSS.scss */
+  .item a {
+    text-decoration: none !important; }
+  /* line 50, _dev/devsass/kk_aj_PublicCSS.scss */
+  .item h5, .bookitem-info h5 {
+    margin: 0.5em 0 0.2em 0;
+    font-size: 1.1rem;
+    font-family: 'Baloo', cursive;
+    font-weight: 400;
+  }
+
+  .item h6 {
+      
+  }
+  /* line 53, _dev/devsass/kk_aj_PublicCSS.scss */
+  .item img {
+    max-height: 200px !important; }
+
+/* line 59, _dev/devsass/kk_aj_PublicCSS.scss */
+.loading {
+  -webkit-animation: loading 1s linear infinite;
+          animation: loading 1s linear infinite; }
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+/* line 71, _dev/devsass/kk_aj_PublicCSS.scss */
+#mceu_17 {
+  display: none; }
+
+/* line 75, _dev/devsass/kk_aj_PublicCSS.scss */
+.aj_bb_highscoreBlock .col-1, .aj_bb_highscoreBlock .col-2, .aj_bb_highscoreBlock .col-3, .aj_bb_highscoreBlock .col-4, .aj_bb_highscoreBlock .col-5, .aj_bb_highscoreBlock .col-6, .aj_bb_highscoreBlock .col-7, .aj_bb_highscoreBlock .col-8, .aj_bb_highscoreBlock .col-9, .aj_bb_highscoreBlock .col-10, .aj_bb_highscoreBlock .col-11, .aj_bb_highscoreBlock .col-12, .aj_bb_highscoreBlock .col, .aj_bb_highscoreBlock .col-auto, .aj_bb_highscoreBlock .col-sm-1, .aj_bb_highscoreBlock .col-sm-2, .aj_bb_highscoreBlock .col-sm-3, .aj_bb_highscoreBlock .col-sm-4, .aj_bb_highscoreBlock .col-sm-5, .aj_bb_highscoreBlock .col-sm-6, .aj_bb_highscoreBlock .col-sm-7, .aj_bb_highscoreBlock .col-sm-8, .aj_bb_highscoreBlock .col-sm-9, .aj_bb_highscoreBlock .col-sm-10, .aj_bb_highscoreBlock .col-sm-11, .aj_bb_highscoreBlock .col-sm-12, .aj_bb_highscoreBlock .col-sm, .aj_bb_highscoreBlock .col-sm-auto, .aj_bb_highscoreBlock .col-md-1, .aj_bb_highscoreBlock .col-md-2, .aj_bb_highscoreBlock .col-md-3, .aj_bb_highscoreBlock .col-md-4, .aj_bb_highscoreBlock .col-md-5, .aj_bb_highscoreBlock .col-md-6, .aj_bb_highscoreBlock .col-md-7, .aj_bb_highscoreBlock .col-md-8, .aj_bb_highscoreBlock .col-md-9, .aj_bb_highscoreBlock .col-md-10, .aj_bb_highscoreBlock .col-md-11, .aj_bb_highscoreBlock .col-md-12, .aj_bb_highscoreBlock .col-md, .aj_bb_highscoreBlock .col-md-auto, .aj_bb_highscoreBlock .col-lg-1, .aj_bb_highscoreBlock .col-lg-2, .aj_bb_highscoreBlock .col-lg-3, .aj_bb_highscoreBlock .col-lg-4, .aj_bb_highscoreBlock .col-lg-5, .aj_bb_highscoreBlock .col-lg-6, .aj_bb_highscoreBlock .col-lg-7, .aj_bb_highscoreBlock .col-lg-8, .aj_bb_highscoreBlock .col-lg-9, .aj_bb_highscoreBlock .col-lg-10, .aj_bb_highscoreBlock .col-lg-11, .aj_bb_highscoreBlock .col-lg-12, .aj_bb_highscoreBlock .col-lg, .aj_bb_highscoreBlock .col-lg-auto, .aj_bb_highscoreBlock .col-xl-1, .aj_bb_highscoreBlock .col-xl-2, .aj_bb_highscoreBlock .col-xl-3, .aj_bb_highscoreBlock .col-xl-4, .aj_bb_highscoreBlock .col-xl-5, .aj_bb_highscoreBlock .col-xl-6, .aj_bb_highscoreBlock .col-xl-7, .aj_bb_highscoreBlock .col-xl-8, .aj_bb_highscoreBlock .col-xl-9, .aj_bb_highscoreBlock .col-xl-10, .aj_bb_highscoreBlock .col-xl-11, .aj_bb_highscoreBlock .col-xl-12, .aj_bb_highscoreBlock .col-xl, .aj_bb_highscoreBlock .col-xl-auto {
+  padding-left: 0px !important;
+  padding-right: 0px !important; }
+
+/* scoreboard*/
+/* line 83, _dev/devsass/kk_aj_PublicCSS.scss */
+#bb_aj_specialbadgeblock, #bb_aj_highscorebadgeblock {
+  margin-top: 1rem;
+  padding-top: .5rem;
+  border-top: 1px dashed #ddd; }

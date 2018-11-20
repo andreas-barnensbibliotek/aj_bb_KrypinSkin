@@ -11,26 +11,28 @@
 <%@ Register TagPrefix="dnn" TagName="STYLES" Src="~/Admin/Skins/Styles.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="LINKTOMOBILE" Src="~/Admin/Skins/LinkToMobileSite.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="MENU" Src="~/DesktopModules/DDRMenu/Menu.ascx" %>
-<%--<%@ Register TagPrefix="dnn" TagName="Meta" Src="~/Admin/Skins/Meta.ascx" %>--%>
+<%@ Register TagPrefix="dnn" TagName="META" Src="~/Admin/Skins/Meta.ascx" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 <%@ Register TagPrefix="fortyfingers" TagName="STYLEHELPER" Src="~/DesktopModules/40Fingers/SkinObjects/StyleHelper/StyleHelper.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="JQUERY" Src="~/Admin/Skins/jQuery.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="JavaScriptLibraryInclude" Src="~/admin/Skins/JavaScriptLibraryInclude.ascx" %>
-<dnn:DnnJsInclude runat="server" FilePath="~/Resources/Shared/Scripts/jquery/jquery-ui.min.js" />
 
-<fortyfingers:STYLEHELPER ID="MainCSS"  AddCssFile="layout/styles/main.css" runat="server" />
-<fortyfingers:STYLEHELPER ID="STYLEHELPER3" AddToHead='<meta charset="UTF-8">' runat="server" />
-<fortyfingers:STYLEHELPER ID="headMeta1" AddToHead='<meta http-equiv="X-UA-Compatible" content="IE=edge">' runat="server" />
-<fortyfingers:STYLEHELPER ID="headMeta2" AddToHead='<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">' runat="server" />
-<fortyfingers:STYLEHELPER ID="headreferrer" AddToHead='<meta name="referrer" content="origin">' runat="server" />
+<dnn:META ID="META1" runat="server" Name="viewport" Content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<dnn:META ID="META2" runat="server" Name="charset" Content="UTF-8" />
+<dnn:META ID="META3" runat="server" Name="referrer" Content="origin" />
 
-<fortyfingers:STYLEHELPER ID="mediaqueriesCSS" AddCssFile="layout/styles/mediaqueries.css" runat="server" />
-<fortyfingers:STYLEHELPER ID="STYLEHELPER1" AddCssFile="layout/styles/slicknav.css" runat="server" />
+<%--<dnn:DnnCssInclude runat="server" FilePath="https://fonts.googleapis.com/css?family=Baloo" PathNameAlias="SkinPath" />--%>
+<dnn:DnnCssInclude runat="server" FilePath="layout/styles/main.css" PathNameAlias="SkinPath" />
+<dnn:DnnCssInclude runat="server" FilePath="layout/styles/mediaqueries.css" PathNameAlias="SkinPath" />
+<dnn:DnnCssInclude runat="server" FilePath="layout/styles/slicknav.css" PathNameAlias="SkinPath" />
 
-<fortyfingers:STYLEHELPER ID="STYLEHELPER4"  AddJsFile="layout/scripts/jquery.cookiesdirective.js" runat="server" />
-<fortyfingers:STYLEHELPER ID="SHGLEE9" IfBrowser="IE<9" AddCssFile="layout/styles/ie/ie8.css" AddJsFile="layout/scripts/ie/html5shiv.min.js" runat="server" />
-<fortyfingers:STYLEHELPER ID="SHGLEE9_2" IfBrowser="IE<9"   AddJsFile="layout/scripts/ie/css3-mediaqueries.min.js" runat="server" />
+<%--<dnn:DnnJsInclude runat="server" FilePath="~/Resources/Shared/Scripts/jquery/jquery-ui.min.js" PathNameAlias="SkinPath" />--%>
+<dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.cookiesdirective.js" PathNameAlias="SkinPath"/>
 
+<!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 <div id="maincontainer" class="aj_bb_KrypinMainContainer">
     <div class="wrapper row1">
         <div id="logon" class="headerleftcol">
@@ -134,10 +136,9 @@
   </div>
 </div>
 <!-- AJSHAREBOX WIDGET -->
-<fortyfingers:STYLEHELPER ID="bokemonJS"  AddJsFile="../../../../DesktopModules/barnensbiblService/bokemonApi/js/backup/bokemonUser.js" runat="server" />
-
-<fortyfingers:STYLEHELPER ID="AJShareboxCss" AddCssFile="../../../../DesktopModules/ajSharebox/ajSharebox.css" runat="server" />
-<fortyfingers:STYLEHELPER ID="AJShareboxJs"  AddJsFile="../../../../DesktopModules/ajSharebox/ajSharebox.js" runat="server" />
+<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/js/backup/bokemonUser.js" PathNameAlias="SkinPath"/>
+<dnn:DnnCssInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.css" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.js" PathNameAlias="SkinPath" />
 <div class="Ajshare_box">
     <ul></ul>
 </div>
@@ -150,8 +151,9 @@
     </div>
 </div>
 <span id="barnensbiblCurrentUserid"><%= UserController.Instance.GetCurrentUserInfo().UserID%></span>
-<fortyfingers:STYLEHELPER ID="tinymce" AddJsFile="public/js/tinymce/tinymce.min.js" runat="server" />
-<fortyfingers:STYLEHELPER ID="scriptmobile" AddJsFile="layout/scripts/jquery.slicknav.min.js" runat="server" />
-<fortyfingers:STYLEHELPER ID="addcustomjs" AddJsFile="layout/scripts/custom.js" runat="server" />
-<fortyfingers:STYLEHELPER ID="blommor" AddJsFile="public/js/growbox.js" runat="server" />
-<fortyfingers:STYLEHELPER ID="krypinbundlejs" AddJsFile="public/js/aj_bb_Krypinbundle.1.0.0.js" runat="server" />
+<dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="layout/scripts/custom.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/growbox.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/tinymce/tinymce.min.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.1.0.0.js" PathNameAlias="SkinPath" />
+

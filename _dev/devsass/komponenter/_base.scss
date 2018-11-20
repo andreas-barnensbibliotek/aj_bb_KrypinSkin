@@ -1,47 +1,66 @@
-.aj_bb_KrypinMainContainer{
-     
-     .row3{
-         margin-left:.15rem;
-         margin-right:.3rem;         
-         width:auto;
-     }
-     .aj_bb_krypinNavBlock{
-          width:100%;
-         #aj_bb_krypinNav{
-             width:100%;
-             margin:0px;
-             padding:0px;
-             list-style:none;
-             img{
-                 min-width:48px;
-             }
-             li{
-                 margin-top:.3rem; 
-                 &:hover{
-                    margin-left:-.5rem;
-                    margin-right:-.5rem;
-                    img{
-                        margin-left:.5rem;
-                        margin-right:.5rem;
+.aj_bb_KrypinMainContainer {
+
+    .row3 {
+        margin-left: .15rem;
+        margin-right: .3rem;
+        width: auto;
+    }
+
+    .aj_bb_krypinNavBlock {
+        width: 100%;
+
+        #aj_bb_krypinNav {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+
+            img {
+                min-width: 48px;
+            }
+
+            li {
+                margin-top: .3rem;
+
+                &:hover {
+                    margin-left: -.5rem;
+                    margin-right: -.5rem;
+
+                    img {
+                        margin-left: .5rem;
+                        margin-right: .5rem;
                     }
-                 }
-                                
-             }
+                }
+            }
         }
-     }
+    }
+
+    .bb_aj_modpart {
+    }
+
+    .no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+
+        > .col,
+        > [class*="col-"] {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
 }
 
 .bb_aj_HeaderSettings{
     text-align:right;
 }
 
-.bb_aj_valdmeny{
-    margin-left:-.5rem;
-    margin-right:-.5rem;                   
-    background-color:$darkgreen;   
-    img{
-        margin-left:.5rem;
-        margin-right:.5rem;
+.bb_aj_valdmeny {
+    margin-left: -.5rem;
+    margin-right: -.5rem;    
+
+    img {
+        margin-left: .5rem;
+        margin-right: .5rem;
     }
 }
 
