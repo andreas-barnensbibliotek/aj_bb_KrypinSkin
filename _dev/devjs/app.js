@@ -3,8 +3,7 @@ var appsettingsobject = require("./jsmoduler/appsettings.js");
 var $ = require("jquery");
 
 $(function () {
-
-
+    
     var appsettings = appsettingsobject.config;
     appsettings.userinfo.userid = $('#barnensbiblCurrentUserid').html();
 
@@ -20,5 +19,4 @@ $(function () {
     }
 
     init();
-
 });

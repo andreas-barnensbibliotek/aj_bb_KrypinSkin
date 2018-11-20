@@ -49,8 +49,7 @@
 	var $ = __webpack_require__(5);
 
 	$(function () {
-
-
+	    
 	    var appsettings = appsettingsobject.config;
 	    appsettings.userinfo.userid = $('#barnensbiblCurrentUserid').html();
 
@@ -66,9 +65,7 @@
 	    }
 
 	    init();
-
 	});
-
 
 /***/ }),
 /* 1 */
