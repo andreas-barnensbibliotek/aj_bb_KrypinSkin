@@ -16,6 +16,10 @@
 @import 'komponenter/_scoreboardPage';
 @import 'komponenter/_avatar_mod';
 @import 'komponenter/_emil_css';
+@import 'komponenter/_itemDropdown';
+@import 'komponenter/_print';
+@import 'komponenter/_topHeader';
+
 /* Global krypinskin*/
 .kk_aj_conf{
     display:none;
@@ -86,3 +90,4 @@
     padding-top:.5rem;
     border-top:1px dashed #ddd;
 }
+#barnensbiblCurrentUserid{display:none;}

@@ -150,6 +150,7 @@
 	var bb_pagebehaviors = __webpack_require__(8);
 	var bb_HB_Handler = __webpack_require__(9);
 	var appsettingsobject = __webpack_require__(10);
+	var globalmessages = appsettingsobject.usermessages;
 	var appsettings = appsettingsobject.config;
 	module.exports = {
 	    init: function (userid) {
@@ -163,7 +164,9 @@
 
 	    },
 	    cacheDom: function () {
+	        this.$bb_aj_MainKrypinSkinContainer = $('.aj_bb_KrypinSkin');
 	        this.$bb_bb_aj_MainScore = $('.bibblomonMainscore');
+	        this.$bb_aj_buttonitem_del_laserjustnu = $('.buttonitem_del_laserjustnu');
 	        
 	    },
 	    BindEvent: function (userid) {
@@ -172,6 +175,14 @@
 	        PubSubHandler.callEvents.on("userScoreupdate", function (highscore) {
 	            that.$bb_bb_aj_MainScore.html(highscore + " xp");
 	        });
+
+	        this.$bb_aj_MainKrypinSkinContainer.on("click", '.buttonitem_del_laserjustnu', function (e) {
+	            if (confirm(globalmessages.laserjustnu.confirmRemove)) {               
+	                that.removefromLaserjustnu(userid);
+	            };
+	            return true;
+	        })
+
 	    },
 	    Renderbiblomon: function (userid) {
 	        let that = this;
@@ -235,7 +246,17 @@
 	    checkIfDivExist: function (divid) {
 	        let myElem = document.getElementById(divid);
 	        return (myElem === null) ? true : false;         
+	    },
+	    removefromLaserjustnu: function (userid) {
+	        let that = this;
+	        let apiurl = appsettings.api.installningar.updatesettings;
+	        bb_API.getjsondata(apiurl(userid,3,0), function (data) {
+	            console.log("laser justnu bok borttagen");
+	            that.Renderlaserjustnu(userid);
+	        });
+
 	    }
+	    
 	};
 
 
@@ -27876,12 +27897,12 @@
 	
 	module.exports = {
 	    config:  (function(){
-	        let _apiserver = "http://localhost:59015";
-	        let _dnnURL = "http://localdev.kivdev.se";
+	        //let _apiserver = "http://localhost:59015";
+	        //let _dnnURL = "http://localdev.kivdev.se";
 	        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
 	        //let _dnnURL = "http://dev1.barnensbibliotek.se";
-	        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
-	        //let _dnnURL = "http://nytt.barnensbibliotek.se";
+	        let _apiserver = "http://dev1.barnensbibliotek.se:8080";
+	        let _dnnURL = "http://nytt.barnensbibliotek.se";
 	        let _devkey = "alf";
 	        let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
 	        let _localOrServerURL = "";
@@ -28224,8 +28245,12 @@
 	                    "confirmAdd": decodeURIComponent(escape("Vill du lägga till denna boklista?")),
 	                    "confirmEdit": decodeURIComponent(escape("Vill du byta namn på boklistan?")),
 	                    "confirmDel": "Vill du ta bort boklistan?"
+	                },
+	            laserjustnu:
+	                {
+	                    "confirmRemove": decodeURIComponent(escape("Är du säker?"))
 	                }
-	            };
+	        };
 	    })()
 	}
 
@@ -28282,7 +28307,11 @@
 	            return imgsrc
 	        });
 
-	       
+	        Handlebars.registerHelper('isbookinlaserjustnu', function (bookid) {
+
+	            return (bookid > 0) ? true : false;
+
+	        });
 	    }
 	}
 
@@ -28320,7 +28349,8 @@
 	        this.$aj_bb_KrypinMainGrid = $('.bb_aj_krypincontainer');
 	        this.$bb_aj_booklistMain = $('#bb_aj_booklistMain');
 	        this.$bb_aj_booklist_Mod = $('#bb_aj_booklist_Mod');
-	        this.$bb_aj_addbooklist = $('#cmdNyBoklista');        
+	        this.$bb_aj_addbooklist = $('#cmdNyBoklista');      
+	       
 	    },
 	    BindEvent: function (userid) {
 	        let that = this;
@@ -28402,7 +28432,18 @@
 	            jplist.resetControls();
 	            return false;
 	        });
+	        this.$bb_aj_booklistMain.on('click', '.buttonitem_readnow', function (e) {
+	            let bokid = $(this).attr("data-itemid");
+	            that.Laserjustnu(userid, bokid);            
+	            return false;
+	        });
 
+	        this.$bb_aj_booklistMain.on('click', '.boklistshow', function (e) {
+	            let boklistid = $(this).attr("data-bookistid");            
+	            $('.bb_aj_gridItem[data-bookistid=' + boklistid + "] .item").toggle();
+	            return false;
+	        });
+	        
 	    },    
 	    Apiupdate: function (apiurl, userid) {
 	        let that = this; //spara this
@@ -28453,6 +28494,15 @@
 	        jplist.resetControls();
 	        this.Apiupdate(apiurl(booklistid, userid), userid);
 	    },
+	    Laserjustnu: function (userid, bookid) {
+	        let that = this;
+	        let apiurl = appsettings.api.installningar.updatesettings;
+	        bb_API.getjsondata(apiurl(userid, 3, bookid), function (data) {
+
+	            that.initbooklist(userid);
+	        });
+
+	    },
 	    
 	    Render: function (apiurl, handlebartemplate, userid) {
 	        let that = this; //spara this
@@ -28495,10 +28545,10 @@
 	                        
 	                    })
 	                });
-	                
+	                return false;
 	            });
 	        });
-	    }    
+	    }
 	};
 
 	// helper
@@ -47578,6 +47628,12 @@
 	        textArea.innerHTML = str;
 	        return textArea.value;
 	    },
+	    removeClassStartingWith: function (node, begin) {
+	        node.removeClass(function (index, className) {
+	            return (className.match(new RegExp("\\b" + begin + "\\S+", "g")) || []).join(' ');
+	        });
+	        // usage removeClassStartingWith($('#hello'), 'color-'); skicka med jquery classen och det som du vill ha bort
+	    }
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 

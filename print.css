@@ -1,0 +1,81 @@
+﻿img {
+    page-break-before: always; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: always; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: always; /* or 'auto' */
+}
+
+.row1, .row2, .row4, .Ajshare_box, #dnn_krypinMenyPane, #ReadspeakerBox, #barnensbiblCurrentUserid, .booklistSettings, .bookitem-button, .booklistSetup {
+    display: none;
+}
+
+.item {
+    display: inline-block;
+    max-width: 150px;
+    float: left;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    max-height: none !important;
+}
+
+h5 {
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    margin: 0;
+}
+
+h6 {
+    font-size: 0.8em !important;
+    margin: 0;
+}
+
+.booklist-card {
+    padding: 0;
+}
+
+.bb_aj_gridItem {
+    margin: 0;
+    padding: 0;
+}
+
+.bookitem-image {
+    float: left;
+    width: 100px;
+}
+
+#bb_aj_booklist_Mod .bookitem-image img {
+    max-width: 100% !important;
+}
+
+#bb_aj_bibblomonlistMain .bookitem-image img {
+    max-width: 50% !important;
+}
+
+
+
+
+
+#bb_aj_bibblomonlistMain .item {
+    max-width: 500px !important;
+}
+
+.bibblomon-card .bookitem-info {
+    border: 0 !important;
+}
+
+.bibblomon-card h3, .bibblomon-card h4 {
+    font-size: 1em !important;
+    margin: 0 !important;
+}
+
+.iteminfoblock {
+    position: relative !important;
+    opacity: 100 !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+}
+

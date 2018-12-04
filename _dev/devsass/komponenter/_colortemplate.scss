@@ -28,12 +28,22 @@ $menygreen: #c1df89;
 $menybrown: #62533B;
 $djunglegreen: #c1df89;
 
+
+
 /*Tema med grönt*/
 .aj_bb_skin_greenbg {
     background-image: url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg') !important;
 
+
+
     h1, h2, h3, h4, h5, p {
         color: $black !important;
+    }
+
+    .ikonheaderBlock{
+        h3 {
+            color: #FFFFFF;
+        }
     }
 
     .bb_aj_gridItem {
@@ -148,6 +158,7 @@ $djunglegreen: #c1df89;
         color: $black !important;
     }
 
+   
     .aj_bb_krypinNavBlock {
         background-color: #C3ECF3 !important;
     }
@@ -180,6 +191,12 @@ $djunglegreen: #c1df89;
         background-color: #C3ECF3 !important;
     }
 
+    .ikonheaderBlock {
+        h3 {
+            color: $black;
+        }
+    }
+
     .bb_aj_gridItem {
         background-color: #a6def2;
     }
@@ -193,7 +210,7 @@ $djunglegreen: #c1df89;
     }
 
     .bookitem-card {
-        &:hover {            
+        &:hover {
             background-color: #20acde;
         }
     }
@@ -202,8 +219,20 @@ $djunglegreen: #c1df89;
 .aj_bb_skin_blackbg {
     background-image: url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg') !important;
 
-    h1, h2, h3, h4, h5, p, label, fieldset {
-        color: #fff !important;
+    h1, h2, h3, h4, h5, h6, p, label, fieldset {
+        color: $white !important;
+    }
+
+    .aj_bb_KrypinSkin {
+         .addboklistform {
+            color: $white !important;
+         }
+    }
+
+    #bb_aj_modalContainer {
+        h1, h2, h3, h4, h5, p {
+            color: $black !important;
+        }
     }
 
     .aj_bb_krypinNavBlock {
@@ -235,9 +264,21 @@ $djunglegreen: #c1df89;
 .aj_bb_skin_blackskullbg {
     background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/pirates2.jpg") !important;
 
-    h1, h2, h3, h4, h5, p {
+    h1, h2, h3, h4, h5, h6, p {
         color: $white !important;
     }
+
+    #bb_aj_modalContainer {
+        h1, h2, h3, h4, h5, p {
+            color: $black !important;
+        }
+    }
+
+    
+        .addboklistform {
+            color: $white !important;
+        }
+    
 
     .aj_bb_krypinNavBlock {
         background-color: #444343 !important;

@@ -30,4 +30,10 @@ module.exports = {
         textArea.innerHTML = str;
         return textArea.value;
     },
+    removeClassStartingWith: function (node, begin) {
+        node.removeClass(function (index, className) {
+            return (className.match(new RegExp("\\b" + begin + "\\S+", "g")) || []).join(' ');
+        });
+        // usage removeClassStartingWith($('#hello'), 'color-'); skicka med jquery classen och det som du vill ha bort
+    }
 }

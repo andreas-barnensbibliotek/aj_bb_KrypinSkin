@@ -28,225 +28,243 @@
           transform: rotate(180deg); }
 
 /*Tema med grönt*/
-/* line 32, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 34, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_greenbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenNyckelpigor.jpg") !important; }
-  /* line 35, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 39, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_greenbg h1, .aj_bb_skin_greenbg h2, .aj_bb_skin_greenbg h3, .aj_bb_skin_greenbg h4, .aj_bb_skin_greenbg h5, .aj_bb_skin_greenbg p {
     color: #000000 !important; }
-  /* line 39, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 44, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_greenbg .ikonheaderBlock h3 {
+    color: #FFFFFF; }
+  /* line 49, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_greenbg .bb_aj_gridItem {
     background-color: #fdf28b; }
-  /* line 44, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 54, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_greenbg .item:hover {
     background-color: #c1df89; }
-  /* line 49, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 59, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_greenbg .bb_aj_valdBG {
     background-color: #c1df89; }
-  /* line 54, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 64, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_greenbg .bookitem-card:hover, .aj_bb_skin_greenbg .bibblomon-card:hover, .aj_bb_skin_greenbg .booklist-card:hover, .aj_bb_skin_greenbg .badgeitem-card:hover, .aj_bb_skin_greenbg .skrivbokenitem-card:hover, .aj_bb_skin_greenbg .boktipsitem-card:hover, .aj_bb_skin_greenbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_greenbg .inventoryitem-card:hover, .aj_bb_skin_greenbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_greenbg .shopitem-card:hover {
     background-color: #c1df89; }
 
 /*Tema med grönt EMIL*/
-/* line 63, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 73, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_djungelbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenleaves.jpg") !important;
   color: #fff; }
-  /* line 67, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 77, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_djungelbg .bb_aj_gridItem {
     background-color: #eaf2d3; }
-  /* line 72, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 82, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_djungelbg .item:hover {
     background-color: #c1df89; }
-  /* line 77, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 87, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_djungelbg .bb_aj_valdBG {
     background-color: #c1df89; }
-  /* line 82, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 92, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_djungelbg .bookitem-card:hover, .aj_bb_skin_djungelbg .bibblomon-card:hover, .aj_bb_skin_djungelbg .booklist-card:hover, .aj_bb_skin_djungelbg .badgeitem-card:hover, .aj_bb_skin_djungelbg .skrivbokenitem-card:hover, .aj_bb_skin_djungelbg .boktipsitem-card:hover, .aj_bb_skin_djungelbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_djungelbg .inventoryitem-card:hover, .aj_bb_skin_djungelbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_djungelbg .shopitem-card:hover {
     background-color: #c1df89; }
 
 /*Tema med brunt*/
-/* line 90, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 100, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_brownbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/brunblomma.jpg") !important; }
-  /* line 92, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 102, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_brownbg .aj_bb_krypinNavBlock {
     background-color: #BCA575; }
-  /* line 95, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 105, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_brownbg .bb_aj_gridItem {
     background-color: #BCA575; }
-  /* line 101, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 111, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_brownbg #aj_bb_krypinNav li:hover {
     background-color: #62533B; }
-  /* line 107, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 117, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_brownbg .bookitem-card:hover, .aj_bb_skin_brownbg .bibblomon-card:hover, .aj_bb_skin_brownbg .booklist-card:hover, .aj_bb_skin_brownbg .badgeitem-card:hover, .aj_bb_skin_brownbg .skrivbokenitem-card:hover, .aj_bb_skin_brownbg .boktipsitem-card:hover, .aj_bb_skin_brownbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_brownbg .inventoryitem-card:hover, .aj_bb_skin_brownbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_brownbg .shopitem-card:hover {
     background-color: #62533B; }
 
 /*Tema med brunt EMIL*/
-/* line 115, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 125, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_catfishbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/brownbg-animals.jpg") !important; }
-  /* line 118, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 128, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_catfishbg .aj_bb_krypinNavBlock {
     background-color: #BCA575; }
-  /* line 122, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 132, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_catfishbg .bb_aj_gridItem {
     background-color: #e4cc73; }
-  /* line 128, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 138, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_catfishbg #aj_bb_krypinNav li:hover {
     background-color: #62533B; }
-  /* line 135, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 145, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_catfishbg .bookitem-card:hover, .aj_bb_skin_catfishbg .bibblomon-card:hover, .aj_bb_skin_catfishbg .booklist-card:hover, .aj_bb_skin_catfishbg .badgeitem-card:hover, .aj_bb_skin_catfishbg .skrivbokenitem-card:hover, .aj_bb_skin_catfishbg .boktipsitem-card:hover, .aj_bb_skin_catfishbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_catfishbg .inventoryitem-card:hover, .aj_bb_skin_catfishbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_catfishbg .shopitem-card:hover {
     background-color: #e4b629; }
 
 /*Tema med Blå*/
-/* line 144, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 154, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_bluebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/BlueFlowers_light.jpg") !important; }
-  /* line 147, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 157, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_bluebg h1, .aj_bb_skin_bluebg h2, .aj_bb_skin_bluebg h3, .aj_bb_skin_bluebg h4, .aj_bb_skin_bluebg h5, .aj_bb_skin_bluebg p {
     color: #000000 !important; }
-  /* line 151, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 162, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_bluebg .aj_bb_krypinNavBlock {
     background-color: #C3ECF3 !important; }
-  /* line 155, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 166, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_bluebg .bb_aj_gridItem {
     background-color: #C3ECF3; }
-  /* line 161, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 172, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_bluebg #aj_bb_krypinNav li:hover {
     background-color: #C3ECF3; }
-  /* line 168, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 179, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_bluebg .bookitem-card:hover, .aj_bb_skin_bluebg .bibblomon-card:hover, .aj_bb_skin_bluebg .booklist-card:hover, .aj_bb_skin_bluebg .badgeitem-card:hover, .aj_bb_skin_bluebg .skrivbokenitem-card:hover, .aj_bb_skin_bluebg .boktipsitem-card:hover, .aj_bb_skin_bluebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_bluebg .inventoryitem-card:hover, .aj_bb_skin_bluebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_bluebg .shopitem-card:hover {
     background-color: #C3ECF3; }
 
 /*Tema med Blå EMIL*/
-/* line 176, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 187, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_blueCakebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/fastfood.jpg") !important; }
-  /* line 179, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 190, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blueCakebg .aj_bb_krypinNavBlock {
     background-color: #C3ECF3 !important; }
-  /* line 183, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 195, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blueCakebg .ikonheaderBlock h3 {
+    color: #000000; }
+  /* line 200, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blueCakebg .bb_aj_gridItem {
     background-color: #a6def2; }
-  /* line 189, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 206, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blueCakebg #aj_bb_krypinNav li:hover {
     background-color: #C3ECF3; }
-  /* line 196, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 213, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blueCakebg .bookitem-card:hover, .aj_bb_skin_blueCakebg .bibblomon-card:hover, .aj_bb_skin_blueCakebg .booklist-card:hover, .aj_bb_skin_blueCakebg .badgeitem-card:hover, .aj_bb_skin_blueCakebg .skrivbokenitem-card:hover, .aj_bb_skin_blueCakebg .boktipsitem-card:hover, .aj_bb_skin_blueCakebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_blueCakebg .inventoryitem-card:hover, .aj_bb_skin_blueCakebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_blueCakebg .shopitem-card:hover {
     background-color: #20acde; }
 
 /*Tema med svart*/
-/* line 202, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 219, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_blackbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg") !important; }
-  /* line 205, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_skin_blackbg h1, .aj_bb_skin_blackbg h2, .aj_bb_skin_blackbg h3, .aj_bb_skin_blackbg h4, .aj_bb_skin_blackbg h5, .aj_bb_skin_blackbg p, .aj_bb_skin_blackbg label, .aj_bb_skin_blackbg fieldset {
-    color: #fff !important; }
-  /* line 209, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 222, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackbg h1, .aj_bb_skin_blackbg h2, .aj_bb_skin_blackbg h3, .aj_bb_skin_blackbg h4, .aj_bb_skin_blackbg h5, .aj_bb_skin_blackbg h6, .aj_bb_skin_blackbg p, .aj_bb_skin_blackbg label, .aj_bb_skin_blackbg fieldset {
+    color: #FFFFFF !important; }
+  /* line 227, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackbg .aj_bb_KrypinSkin .addboklistform {
+    color: #FFFFFF !important; }
+  /* line 233, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackbg #bb_aj_modalContainer h1, .aj_bb_skin_blackbg #bb_aj_modalContainer h2, .aj_bb_skin_blackbg #bb_aj_modalContainer h3, .aj_bb_skin_blackbg #bb_aj_modalContainer h4, .aj_bb_skin_blackbg #bb_aj_modalContainer h5, .aj_bb_skin_blackbg #bb_aj_modalContainer p {
+    color: #000000 !important; }
+  /* line 238, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blackbg .aj_bb_krypinNavBlock {
     background-color: #444343 !important; }
-  /* line 213, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 242, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blackbg .bb_aj_gridItem {
     background-color: #444343; }
-  /* line 219, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 248, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blackbg #aj_bb_krypinNav li:hover {
     background-color: #CCCCCC; }
-  /* line 226, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 255, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blackbg .bookitem-card:hover, .aj_bb_skin_blackbg .bibblomon-card:hover, .aj_bb_skin_blackbg .booklist-card:hover, .aj_bb_skin_blackbg .badgeitem-card:hover, .aj_bb_skin_blackbg .skrivbokenitem-card:hover, .aj_bb_skin_blackbg .boktipsitem-card:hover, .aj_bb_skin_blackbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_blackbg .inventoryitem-card:hover, .aj_bb_skin_blackbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_blackbg .shopitem-card:hover {
     background-color: #CCCCCC; }
 
 /*Tema med svart EMIL*/
-/* line 235, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 264, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_blackskullbg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/pirates2.jpg") !important; }
-  /* line 238, _dev/devsass/komponenter/_colortemplate.scss */
-  .aj_bb_skin_blackskullbg h1, .aj_bb_skin_blackskullbg h2, .aj_bb_skin_blackskullbg h3, .aj_bb_skin_blackskullbg h4, .aj_bb_skin_blackskullbg h5, .aj_bb_skin_blackskullbg p {
+  /* line 267, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackskullbg h1, .aj_bb_skin_blackskullbg h2, .aj_bb_skin_blackskullbg h3, .aj_bb_skin_blackskullbg h4, .aj_bb_skin_blackskullbg h5, .aj_bb_skin_blackskullbg h6, .aj_bb_skin_blackskullbg p {
     color: #FFFFFF !important; }
-  /* line 242, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 272, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackskullbg #bb_aj_modalContainer h1, .aj_bb_skin_blackskullbg #bb_aj_modalContainer h2, .aj_bb_skin_blackskullbg #bb_aj_modalContainer h3, .aj_bb_skin_blackskullbg #bb_aj_modalContainer h4, .aj_bb_skin_blackskullbg #bb_aj_modalContainer h5, .aj_bb_skin_blackskullbg #bb_aj_modalContainer p {
+    color: #000000 !important; }
+  /* line 278, _dev/devsass/komponenter/_colortemplate.scss */
+  .aj_bb_skin_blackskullbg .addboklistform {
+    color: #FFFFFF !important; }
+  /* line 283, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blackskullbg .aj_bb_krypinNavBlock {
     background-color: #444343 !important; }
-  /* line 246, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 287, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blackskullbg .bb_aj_gridItem {
     background-color: #323232; }
-  /* line 252, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 293, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blackskullbg #aj_bb_krypinNav li:hover {
     background-color: #CCCCCC; }
-  /* line 259, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 300, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_blackskullbg .bookitem-card:hover, .aj_bb_skin_blackskullbg .bibblomon-card:hover, .aj_bb_skin_blackskullbg .booklist-card:hover, .aj_bb_skin_blackskullbg .badgeitem-card:hover, .aj_bb_skin_blackskullbg .skrivbokenitem-card:hover, .aj_bb_skin_blackskullbg .boktipsitem-card:hover, .aj_bb_skin_blackskullbg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_blackskullbg .inventoryitem-card:hover, .aj_bb_skin_blackskullbg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_blackskullbg .shopitem-card:hover {
     background-color: #CCCCCC; }
 
 /*Tema med svart*/
-/* line 267, _dev/devsass/komponenter/_colortemplate.scss */
+/* line 308, _dev/devsass/komponenter/_colortemplate.scss */
 .aj_bb_skin_beigebg {
   background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/LjusbeigeBin.jpg") !important; }
-  /* line 269, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 310, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_beigebg .aj_bb_krypinNavBlock {
     background-color: #FBE2B3 !important; }
-  /* line 272, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 313, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_beigebg .bb_aj_gridItem {
     background-color: #FBE2B3; }
-  /* line 277, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 318, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_beigebg #aj_bb_krypinNav li:hover {
     background-color: #E8B16D; }
-  /* line 283, _dev/devsass/komponenter/_colortemplate.scss */
+  /* line 324, _dev/devsass/komponenter/_colortemplate.scss */
   .aj_bb_skin_beigebg .bookitem-card:hover, .aj_bb_skin_beigebg .bibblomon-card:hover, .aj_bb_skin_beigebg .booklist-card:hover, .aj_bb_skin_beigebg .badgeitem-card:hover, .aj_bb_skin_beigebg .skrivbokenitem-card:hover, .aj_bb_skin_beigebg .boktipsitem-card:hover, .aj_bb_skin_beigebg #bb_aj_inventory_Mod .inventoryitem-card:hover, #bb_aj_inventory_Mod .aj_bb_skin_beigebg .inventoryitem-card:hover, .aj_bb_skin_beigebg #bb_aj_shop_Mod .shopitem-card:hover, #bb_aj_shop_Mod .aj_bb_skin_beigebg .shopitem-card:hover {
     background-color: #E8B16D; }
 
-/* line 3, _dev/devsass/komponenter/_base.scss */
-.aj_bb_KrypinMainContainer .row3 {
+/* line 4, _dev/devsass/komponenter/_base.scss */
+.aj_bb_KrypinMainContainer .row3, .aj_bb_KrypinMainContainer .row1, .aj_bb_KrypinMainContainer .row2 {
   margin-left: .15rem;
   margin-right: .3rem;
   width: auto; }
 
-/* line 9, _dev/devsass/komponenter/_base.scss */
+/* line 10, _dev/devsass/komponenter/_base.scss */
 .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock {
   width: 100%; }
-  /* line 12, _dev/devsass/komponenter/_base.scss */
+  /* line 13, _dev/devsass/komponenter/_base.scss */
   .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav {
     width: 100%;
     margin: 0px;
     padding: 0px;
     list-style: none; }
-    /* line 18, _dev/devsass/komponenter/_base.scss */
+    /* line 19, _dev/devsass/komponenter/_base.scss */
     .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav img {
       min-width: 48px; }
-    /* line 22, _dev/devsass/komponenter/_base.scss */
+    /* line 23, _dev/devsass/komponenter/_base.scss */
     .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li {
       margin-top: .3rem; }
-      /* line 25, _dev/devsass/komponenter/_base.scss */
+      /* line 26, _dev/devsass/komponenter/_base.scss */
       .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li:hover {
         margin-left: -.5rem;
         margin-right: -.5rem; }
-        /* line 29, _dev/devsass/komponenter/_base.scss */
+        /* line 30, _dev/devsass/komponenter/_base.scss */
         .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock #aj_bb_krypinNav li:hover img {
           margin-left: .5rem;
           margin-right: .5rem; }
 
-/* line 41, _dev/devsass/komponenter/_base.scss */
+/* line 42, _dev/devsass/komponenter/_base.scss */
 .aj_bb_KrypinMainContainer .no-gutters {
   margin-right: 0;
   margin-left: 0; }
-  /* line 45, _dev/devsass/komponenter/_base.scss */
+  /* line 46, _dev/devsass/komponenter/_base.scss */
   .aj_bb_KrypinMainContainer .no-gutters > .col,
   .aj_bb_KrypinMainContainer .no-gutters > [class*="col-"] {
     padding-right: 0;
     padding-left: 0; }
 
-/* line 53, _dev/devsass/komponenter/_base.scss */
+/* line 54, _dev/devsass/komponenter/_base.scss */
 .bb_aj_HeaderSettings {
   text-align: right; }
 
-/* line 57, _dev/devsass/komponenter/_base.scss */
+/* line 58, _dev/devsass/komponenter/_base.scss */
 .bb_aj_valdmeny {
   margin-left: -.5rem;
   margin-right: -.5rem; }
-  /* line 61, _dev/devsass/komponenter/_base.scss */
+  /* line 62, _dev/devsass/komponenter/_base.scss */
   .bb_aj_valdmeny img {
     margin-left: .5rem;
     margin-right: .5rem; }
 
-/* line 68, _dev/devsass/komponenter/_base.scss */
+/* line 69, _dev/devsass/komponenter/_base.scss */
 #bb_aj_modalContainer {
   display: none;
   position: fixed;
@@ -259,10 +277,10 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   cursor: pointer; }
-  /* line 81, _dev/devsass/komponenter/_base.scss */
+  /* line 82, _dev/devsass/komponenter/_base.scss */
   #bb_aj_modalContainer .bb_aj_modalheader .buttonblock {
     float: right; }
-  /* line 91, _dev/devsass/komponenter/_base.scss */
+  /* line 92, _dev/devsass/komponenter/_base.scss */
   #bb_aj_modalContainer .bb_aj_modalcontent {
     position: absolute;
     top: 50%;
@@ -279,6 +297,10 @@
     max-height: 60%;
     height: 70%;
     width: 54%; }
+
+/* line 111, _dev/devsass/komponenter/_base.scss */
+.aj_bb_formBlock {
+  padding-left: 1rem; }
 
 /* line 10, _dev/devsass/komponenter/_grid.scss */
 body {
@@ -367,7 +389,7 @@ hr {
       -ms-flex: 1;
           flex: 1; }
 
-/* line 68, _dev/devsass/komponenter/_grid.scss */
+/* line 69, _dev/devsass/komponenter/_grid.scss */
 .bb_aj_gridItem {
   padding: .5rem .5rem 0;
   margin-bottom: 1em;
@@ -381,34 +403,34 @@ hr {
   /*&:hover {
     background: $demoMainDark;
   }*/ }
-  /* line 76, _dev/devsass/komponenter/_grid.scss */
+  /* line 77, _dev/devsass/komponenter/_grid.scss */
   .bb_aj_gridItem:after {
     content: "";
     display: block;
     margin-top: .8em;
     height: 1px; }
 
-/* line 88, _dev/devsass/komponenter/_grid.scss */
+/* line 89, _dev/devsass/komponenter/_grid.scss */
 .bb_aj_gridItem_Header {
   margin-bottom: 0px !important; }
 
 /* With gutters*/
-/* line 98, _dev/devsass/komponenter/_grid.scss */
+/* line 99, _dev/devsass/komponenter/_grid.scss */
 .Grid--gutters {
   margin-left: -1em; }
-  /* line 100, _dev/devsass/komponenter/_grid.scss */
+  /* line 101, _dev/devsass/komponenter/_grid.scss */
   .Grid--gutters .Grid-cell {
     padding-left: 1em; }
-  /* line 105, _dev/devsass/komponenter/_grid.scss */
+  /* line 106, _dev/devsass/komponenter/_grid.scss */
   .Grid--gutters .Grid--nested .Grid-cell:first-of-type .bb_aj_gridItem {
     margin-right: 1em; }
 
-/* line 112, _dev/devsass/komponenter/_grid.scss */
+/* line 113, _dev/devsass/komponenter/_grid.scss */
 .first-1of1Grid-cell {
   padding-left: 0px !important; }
 
 /*Fyll utrymmet i höjd*/
-/* line 117, _dev/devsass/komponenter/_grid.scss */
+/* line 118, _dev/devsass/komponenter/_grid.scss */
 .fill-area {
   display: -webkit-box;
   display: -webkit-flex;
@@ -430,14 +452,14 @@ hr {
   /* Extra space in Cross Axis */ }
 
 /* Justify per row*/
-/* line 127, _dev/devsass/komponenter/_grid.scss */
+/* line 128, _dev/devsass/komponenter/_grid.scss */
 .Grid--right {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
-/* line 130, _dev/devsass/komponenter/_grid.scss */
+/* line 131, _dev/devsass/komponenter/_grid.scss */
 .Grid--center {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -445,21 +467,21 @@ hr {
           justify-content: center; }
 
 /* Alignment per row */
-/* line 135, _dev/devsass/komponenter/_grid.scss */
+/* line 136, _dev/devsass/komponenter/_grid.scss */
 .Grid--top {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start; }
 
-/* line 138, _dev/devsass/komponenter/_grid.scss */
+/* line 139, _dev/devsass/komponenter/_grid.scss */
 .Grid--bottom {
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end; }
 
-/* line 141, _dev/devsass/komponenter/_grid.scss */
+/* line 142, _dev/devsass/komponenter/_grid.scss */
 .Grid--center {
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -467,26 +489,26 @@ hr {
           align-items: center; }
 
 /* Alignment per cell */
-/* line 146, _dev/devsass/komponenter/_grid.scss */
+/* line 147, _dev/devsass/komponenter/_grid.scss */
 .Grid-cell--top {
   -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
           align-self: flex-start; }
 
-/* line 149, _dev/devsass/komponenter/_grid.scss */
+/* line 150, _dev/devsass/komponenter/_grid.scss */
 .Grid-cell--bottom {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end; }
 
-/* line 152, _dev/devsass/komponenter/_grid.scss */
+/* line 153, _dev/devsass/komponenter/_grid.scss */
 .Grid-cell--center {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
               -ms-grid-row-align: center;
           align-self: center; }
 
-/* line 157, _dev/devsass/komponenter/_grid.scss */
+/* line 158, _dev/devsass/komponenter/_grid.scss */
 .navigation {
   list-style: none;
   /*background: deepskyblue;*/
@@ -504,30 +526,30 @@ hr {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
-  /* line 169, _dev/devsass/komponenter/_grid.scss */
+  /* line 170, _dev/devsass/komponenter/_grid.scss */
   .navigation a {
     text-decoration: none;
     display: block;
     padding: 1em;
     color: #333; }
-    /* line 174, _dev/devsass/komponenter/_grid.scss */
+    /* line 175, _dev/devsass/komponenter/_grid.scss */
     .navigation a:hover {
       background: rgba(64, 0, 255, 0.1);
       -webkit-border-radius: 3px;
               border-radius: 3px; }
-  /* line 179, _dev/devsass/komponenter/_grid.scss */
+  /* line 180, _dev/devsass/komponenter/_grid.scss */
   .navigation:hover {
     background: rgba(102, 51, 255, 0.25); }
 
 @media all and (max-width: 800px) {
-  /* line 185, _dev/devsass/komponenter/_grid.scss */
+  /* line 186, _dev/devsass/komponenter/_grid.scss */
   .navigation {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
             justify-content: space-around; } }
 
 @media all and (max-width: 600px) {
-  /* line 191, _dev/devsass/komponenter/_grid.scss */
+  /* line 192, _dev/devsass/komponenter/_grid.scss */
   .navigation {
     -webkit-flex-flow: column wrap;
     -webkit-box-orient: vertical;
@@ -535,54 +557,54 @@ hr {
         -ms-flex-flow: column wrap;
             flex-flow: column wrap;
     padding: 0; }
-    /* line 195, _dev/devsass/komponenter/_grid.scss */
+    /* line 196, _dev/devsass/komponenter/_grid.scss */
     .navigation a {
       text-align: center;
       padding: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.3);
       border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-    /* line 201, _dev/devsass/komponenter/_grid.scss */
+    /* line 202, _dev/devsass/komponenter/_grid.scss */
     .navigation li:last-of-type a {
       border-bottom: none; } }
 
 /*===========================================*/
 /* Base classes for all media - Mobile first */
-/* line 210, _dev/devsass/komponenter/_grid.scss */
+/* line 211, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-2 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-/* line 214, _dev/devsass/komponenter/_grid.scss */
+/* line 215, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-3 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-/* line 218, _dev/devsass/komponenter/_grid.scss */
+/* line 219, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-4 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-/* line 222, _dev/devsass/komponenter/_grid.scss */
+/* line 223, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-6 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%; }
 
-/* line 226, _dev/devsass/komponenter/_grid.scss */
+/* line 227, _dev/devsass/komponenter/_grid.scss */
 .Grid--cols-12 > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 33.3333%;
       -ms-flex: 0 0 33.3333%;
           flex: 0 0 33.3333%; }
 
-/* line 231, _dev/devsass/komponenter/_grid.scss */
+/* line 232, _dev/devsass/komponenter/_grid.scss */
 .Grid--holly-grail .aside, .Grid--holly-grail .main {
   -webkit-box-flex: 1;
   -webkit-flex: 1 100%;
@@ -590,7 +612,7 @@ hr {
           flex: 1 100%; }
 
 /* One of -- columns*/
-/* line 237, _dev/devsass/komponenter/_grid.scss */
+/* line 238, _dev/devsass/komponenter/_grid.scss */
 .Grid--1of2 > .Grid-cell,
 .Grid--1of4 > .Grid-cell:first-of-type,
 .Grid--1of3 > .Grid-cell:first-of-type,
@@ -600,28 +622,28 @@ hr {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-/* line 243, _dev/devsass/komponenter/_grid.scss */
+/* line 244, _dev/devsass/komponenter/_grid.scss */
 .Grid--1of6 > .Grid-cell:first-of-type {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%; }
 
-/* line 246, _dev/devsass/komponenter/_grid.scss */
+/* line 247, _dev/devsass/komponenter/_grid.scss */
 .Grid--1of12 > .Grid-cell:first-of-type {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 25%;
       -ms-flex: 0 0 25%;
           flex: 0 0 25%; }
 
-/* line 249, _dev/devsass/komponenter/_grid.scss */
+/* line 250, _dev/devsass/komponenter/_grid.scss */
 .Grid--fit > .Grid-cell {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
 
-/* line 252, _dev/devsass/komponenter/_grid.scss */
+/* line 253, _dev/devsass/komponenter/_grid.scss */
 .Grid--full > .Grid-cell {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
@@ -630,61 +652,61 @@ hr {
 
 /* Tablet (medium) screens */
 @media (max-width: 25em) {
-  /* line 258, _dev/devsass/komponenter/_grid.scss */
+  /* line 259, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-4 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 262, _dev/devsass/komponenter/_grid.scss */
+  /* line 263, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-6 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 265, _dev/devsass/komponenter/_grid.scss */
+  /* line 266, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-12 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 269, _dev/devsass/komponenter/_grid.scss */
+  /* line 270, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside {
     -webkit-box-flex: 1;
     -webkit-flex: 1 -webkit-calc(25% - 1em);
         -ms-flex: 1 calc(25% - 1em);
             flex: 1 calc(25% - 1em); }
-  /* line 273, _dev/devsass/komponenter/_grid.scss */
+  /* line 274, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of2 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 276, _dev/devsass/komponenter/_grid.scss */
+  /* line 277, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of12 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
             flex: 0 0 25%; }
-  /* line 279, _dev/devsass/komponenter/_grid.scss */
+  /* line 280, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of6 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 282, _dev/devsass/komponenter/_grid.scss */
+  /* line 283, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of4 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 285, _dev/devsass/komponenter/_grid.scss */
+  /* line 286, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  /* line 288, _dev/devsass/komponenter/_grid.scss */
+  /* line 289, _dev/devsass/komponenter/_grid.scss */
   .Grid--2of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
@@ -693,61 +715,61 @@ hr {
 
 /* Tablet (medium) screens */
 @media (min-width: 30em) {
-  /* line 296, _dev/devsass/komponenter/_grid.scss */
+  /* line 297, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-4 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
-  /* line 300, _dev/devsass/komponenter/_grid.scss */
+  /* line 301, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-6 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 33.3333%;
         -ms-flex: 0 0 33.3333%;
             flex: 0 0 33.3333%; }
-  /* line 303, _dev/devsass/komponenter/_grid.scss */
+  /* line 304, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-12 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 16.6666%;
         -ms-flex: 0 0 16.6666%;
             flex: 0 0 16.6666%; }
-  /* line 307, _dev/devsass/komponenter/_grid.scss */
+  /* line 308, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside {
     -webkit-box-flex: 1;
     -webkit-flex: 1 -webkit-calc(25% - 1em);
         -ms-flex: 1 calc(25% - 1em);
             flex: 1 calc(25% - 1em); }
-  /* line 311, _dev/devsass/komponenter/_grid.scss */
+  /* line 312, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of2 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
-  /* line 314, _dev/devsass/komponenter/_grid.scss */
+  /* line 315, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of12 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 8.3333%;
         -ms-flex: 0 0 8.3333%;
             flex: 0 0 8.3333%; }
-  /* line 317, _dev/devsass/komponenter/_grid.scss */
+  /* line 318, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of6 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 30%;
         -ms-flex: 0 0 30%;
             flex: 0 0 30%; }
-  /* line 320, _dev/devsass/komponenter/_grid.scss */
+  /* line 321, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of4 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
             flex: 0 0 25%; }
-  /* line 324, _dev/devsass/komponenter/_grid.scss */
+  /* line 325, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 66.6666%;
         -ms-flex: 0 0 66.6666%;
             flex: 0 0 66.6666%; }
-  /* line 327, _dev/devsass/komponenter/_grid.scss */
+  /* line 328, _dev/devsass/komponenter/_grid.scss */
   .Grid--2of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 75%;
@@ -756,7 +778,7 @@ hr {
 
 /* Large screens */
 @media (min-width: 48em) {
-  /* line 334, _dev/devsass/komponenter/_grid.scss */
+  /* line 335, _dev/devsass/komponenter/_grid.scss */
   .Grid--cols-2 > .Grid-cell,
   .Grid--cols-3 > .Grid-cell,
   .Grid--cols-4 > .Grid-cell,
@@ -766,73 +788,73 @@ hr {
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1; }
-  /* line 342, _dev/devsass/komponenter/_grid.scss */
+  /* line 343, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .main {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
         -ms-flex: 2;
             flex: 2; }
-  /* line 343, _dev/devsass/komponenter/_grid.scss */
+  /* line 344, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1; }
-  /* line 344, _dev/devsass/komponenter/_grid.scss */
+  /* line 345, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside-1 {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
         -ms-flex-order: 1;
             order: 1; }
-  /* line 345, _dev/devsass/komponenter/_grid.scss */
+  /* line 346, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .main {
     -webkit-box-ordinal-group: 3;
     -webkit-order: 2;
         -ms-flex-order: 2;
             order: 2; }
-  /* line 346, _dev/devsass/komponenter/_grid.scss */
+  /* line 347, _dev/devsass/komponenter/_grid.scss */
   .Grid--holly-grail .aside-2 {
     -webkit-box-ordinal-group: 4;
     -webkit-order: 3;
         -ms-flex-order: 3;
             order: 3; }
-  /* line 348, _dev/devsass/komponenter/_grid.scss */
+  /* line 349, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of2 > .Grid-cell {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
-  /* line 351, _dev/devsass/komponenter/_grid.scss */
+  /* line 352, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of12 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 8.3333%;
         -ms-flex: 0 0 8.3333%;
             flex: 0 0 8.3333%; }
-  /* line 354, _dev/devsass/komponenter/_grid.scss */
+  /* line 355, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of6 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 16.6666%;
         -ms-flex: 0 0 16.6666%;
             flex: 0 0 16.6666%; }
-  /* line 357, _dev/devsass/komponenter/_grid.scss */
+  /* line 358, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of4 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
             flex: 0 0 25%; }
-  /* line 360, _dev/devsass/komponenter/_grid.scss */
+  /* line 361, _dev/devsass/komponenter/_grid.scss */
   .Grid--1of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 33.3333%;
         -ms-flex: 0 0 33.3333%;
             flex: 0 0 33.3333%; }
-  /* line 363, _dev/devsass/komponenter/_grid.scss */
+  /* line 364, _dev/devsass/komponenter/_grid.scss */
   .Grid--2of3 > .Grid-cell:first-of-type {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 66.6666%;
         -ms-flex: 0 0 66.6666%;
             flex: 0 0 66.6666%; }
-  /* line 368, _dev/devsass/komponenter/_grid.scss */
+  /* line 369, _dev/devsass/komponenter/_grid.scss */
   .Grid--gutters.Grid--nested .Grid-cell:first-of-type .bb_aj_gridItem {
     margin-right: 0; } }
 
@@ -858,25 +880,31 @@ hr {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
+  /* line 2, _dev/devsass/komponenter/_krypinpageBase.scss */
+  .ikonheaderBlock h2 {
+    color: #FFFFFF; }
   /* line 6, _dev/devsass/komponenter/_krypinpageBase.scss */
+  .ikonheaderBlock h3 {
+    color: #FFFFFF; }
+  /* line 15, _dev/devsass/komponenter/_krypinpageBase.scss */
   .ikonheaderBlock img {
     max-width: 80px;
     margin-right: .5rem; }
-  /* line 10, _dev/devsass/komponenter/_krypinpageBase.scss */
+  /* line 20, _dev/devsass/komponenter/_krypinpageBase.scss */
   .ikonheaderBlock .booklistSetup {
     position: absolute;
     right: 0px;
     bottom: -5px; }
-    /* line 14, _dev/devsass/komponenter/_krypinpageBase.scss */
+    /* line 25, _dev/devsass/komponenter/_krypinpageBase.scss */
     .ikonheaderBlock .booklistSetup img {
       margin-right: .1rem; }
-  /* line 18, _dev/devsass/komponenter/_krypinpageBase.scss */
+  /* line 30, _dev/devsass/komponenter/_krypinpageBase.scss */
   .ikonheaderBlock .scoreBlock {
     position: absolute;
     right: 0px;
     top: 0px; }
 
-/* line 25, _dev/devsass/komponenter/_krypinpageBase.scss */
+/* line 37, _dev/devsass/komponenter/_krypinpageBase.scss */
 .booklistSettings {
   display: -webkit-box;
   display: -webkit-flex;
@@ -887,7 +915,7 @@ hr {
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
-/* line 31, _dev/devsass/komponenter/_krypinpageBase.scss */
+/* line 43, _dev/devsass/komponenter/_krypinpageBase.scss */
 .bb_aj_CloseContainer {
   position: absolute;
   right: -6px;
@@ -1282,60 +1310,61 @@ h3 {
 
 /* line 3, _dev/devsass/komponenter/_startpage.scss */
 .avatarItems {
+  text-align: center;
   padding: 1rem; }
-  /* line 5, _dev/devsass/komponenter/_startpage.scss */
+  /* line 7, _dev/devsass/komponenter/_startpage.scss */
   .avatarItems h3 {
     padding: .5rem; }
 
-/* line 10, _dev/devsass/komponenter/_startpage.scss */
+/* line 12, _dev/devsass/komponenter/_startpage.scss */
 .BiblomoneyItems {
   overflow: hidden; }
-  /* line 18, _dev/devsass/komponenter/_startpage.scss */
+  /* line 20, _dev/devsass/komponenter/_startpage.scss */
   .BiblomoneyItems .bibblomoneyFooter img {
     max-width: 28px; }
 
-/* line 23, _dev/devsass/komponenter/_startpage.scss */
+/* line 25, _dev/devsass/komponenter/_startpage.scss */
 .BiblomonItems {
   overflow: hidden; }
-  /* line 31, _dev/devsass/komponenter/_startpage.scss */
+  /* line 33, _dev/devsass/komponenter/_startpage.scss */
   .BiblomonItems .bibblomonFooter img {
     max-width: 28px; }
 
-/* line 42, _dev/devsass/komponenter/_startpage.scss */
+/* line 44, _dev/devsass/komponenter/_startpage.scss */
 .laserjustnuItems .bookitem-card, .laserjustnuItems .bibblomon-card, .laserjustnuItems .booklist-card, .laserjustnuItems .badgeitem-card, .laserjustnuItems .skrivbokenitem-card, .laserjustnuItems .boktipsitem-card, .laserjustnuItems #bb_aj_inventory_Mod .inventoryitem-card, #bb_aj_inventory_Mod .laserjustnuItems .inventoryitem-card, .laserjustnuItems #bb_aj_shop_Mod .shopitem-card, #bb_aj_shop_Mod .laserjustnuItems .shopitem-card {
   padding-top: 1rem;
   text-align: center; }
 
-/* line 47, _dev/devsass/komponenter/_startpage.scss */
+/* line 49, _dev/devsass/komponenter/_startpage.scss */
 .start-item-basestyle, .BiblomoneyItems .bibblomoneyContent, .BiblomonItems .bibblomonContent, .boktips-card-start {
   min-height: 10rem;
   padding-top: 1rem;
   text-align: center; }
-  /* line 48, _dev/devsass/komponenter/_startpage.scss */
+  /* line 50, _dev/devsass/komponenter/_startpage.scss */
   .start-item-basestyle img, .BiblomoneyItems .bibblomoneyContent img, .BiblomonItems .bibblomonContent img, .boktips-card-start img {
     max-width: 56px; }
 
-/* line 56, _dev/devsass/komponenter/_startpage.scss */
+/* line 58, _dev/devsass/komponenter/_startpage.scss */
 .bb_aj_modpart {
   max-height: 230px !important; }
-  /* line 60, _dev/devsass/komponenter/_startpage.scss */
+  /* line 62, _dev/devsass/komponenter/_startpage.scss */
   .bb_aj_modpart img {
     max-width: 110px !important;
     max-height: 132px !important; }
 
-/* line 67, _dev/devsass/komponenter/_startpage.scss */
+/* line 69, _dev/devsass/komponenter/_startpage.scss */
 .bb_aj_smallsize img {
   max-width: 56px !important; }
 
 /*---------------------------------------------grow START----------------*/
-/* line 72, _dev/devsass/komponenter/_startpage.scss */
+/* line 74, _dev/devsass/komponenter/_startpage.scss */
 .testare {
   text-align: center; }
 
-/* line 75, _dev/devsass/komponenter/_startpage.scss */
+/* line 77, _dev/devsass/komponenter/_startpage.scss */
 .AJKrypingrowboxmain {
   /*#AJKrypingrowdelbox{margin-left:40px;}*/ }
-  /* line 76, _dev/devsass/komponenter/_startpage.scss */
+  /* line 78, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain #AJKrypingrowboxcontent {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1349,17 +1378,17 @@ h3 {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center; }
-  /* line 81, _dev/devsass/komponenter/_startpage.scss */
+  /* line 83, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain #growmainbox {
     padding: 0;
     margin: 1rem;
     height: 95px; }
-    /* line 85, _dev/devsass/komponenter/_startpage.scss */
+    /* line 87, _dev/devsass/komponenter/_startpage.scss */
     .AJKrypingrowboxmain #growmainbox ul {
       margin-left: 0;
       padding-left: 0;
       white-space: nowrap; }
-      /* line 90, _dev/devsass/komponenter/_startpage.scss */
+      /* line 92, _dev/devsass/komponenter/_startpage.scss */
       .AJKrypingrowboxmain #growmainbox ul li {
         display: inline;
         list-style-type: none;
@@ -1367,19 +1396,19 @@ h3 {
         min-height: 80px;
         width: 45px;
         background-image: url("http://www.barnensbibliotek.se/DesktopModules/AJBarnensKrypin/webbilds/growbghylla.png"); }
-  /* line 102, _dev/devsass/komponenter/_startpage.scss */
+  /* line 104, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain .itmimg {
     min-height: 85px;
     background-repeat: no-repeat; }
-  /* line 106, _dev/devsass/komponenter/_startpage.scss */
+  /* line 108, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain .itmimga {
     display: none; }
-  /* line 107, _dev/devsass/komponenter/_startpage.scss */
+  /* line 109, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain .itmadm {
     min-height: 80px;
     width: 45px;
     border: 1px dashed #999; }
-    /* line 111, _dev/devsass/komponenter/_startpage.scss */
+    /* line 113, _dev/devsass/komponenter/_startpage.scss */
     .AJKrypingrowboxmain .itmadm a {
       display: block;
       white-space: pre-line;
@@ -1387,55 +1416,55 @@ h3 {
       color: #666;
       text-decoration: none;
       margin-top: 12px; }
-    /* line 119, _dev/devsass/komponenter/_startpage.scss */
+    /* line 121, _dev/devsass/komponenter/_startpage.scss */
     .AJKrypingrowboxmain .itmadm:hover {
       background-color: #ddd; }
-  /* line 121, _dev/devsass/komponenter/_startpage.scss */
+  /* line 123, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain .editGrow a {
     padding: 0px;
     margin: 0px; }
-  /* line 123, _dev/devsass/komponenter/_startpage.scss */
+  /* line 125, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain .itmimgadel {
     display: none; }
-  /* line 124, _dev/devsass/komponenter/_startpage.scss */
+  /* line 126, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain #growhelpbox a {
     float: right;
     background-image: url("");
     display: block;
     height: 10px;
     width: 10px; }
-  /* line 125, _dev/devsass/komponenter/_startpage.scss */
+  /* line 127, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain #growhelpbox a:hover {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
     filter: alpha(opacity=50);
     -moz-opacity: 0.5;
     -khtml-opacity: 0.5;
     opacity: 0.5; }
-  /* line 132, _dev/devsass/komponenter/_startpage.scss */
+  /* line 134, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain #AJKrypInBarnbiblContent p {
     font-size: 0.8em;
     color: #333; }
-  /* line 133, _dev/devsass/komponenter/_startpage.scss */
+  /* line 135, _dev/devsass/komponenter/_startpage.scss */
   .AJKrypingrowboxmain #AJKrypingrowInfo {
     padding: 4px;
     background-color: #fff;
     /*margin-right: 10%;*/ }
 
 /*---------------------------------------------grow END----------------*/
-/* line 141, _dev/devsass/komponenter/_startpage.scss */
+/* line 143, _dev/devsass/komponenter/_startpage.scss */
 .highscoreItems {
   overflow: hidden; }
-  /* line 143, _dev/devsass/komponenter/_startpage.scss */
+  /* line 145, _dev/devsass/komponenter/_startpage.scss */
   .highscoreItems h2 {
     text-align: left; }
-  /* line 144, _dev/devsass/komponenter/_startpage.scss */
+  /* line 146, _dev/devsass/komponenter/_startpage.scss */
   .highscoreItems ul {
     margin-top: 1rem;
     list-style: none; }
-    /* line 147, _dev/devsass/komponenter/_startpage.scss */
+    /* line 149, _dev/devsass/komponenter/_startpage.scss */
     .highscoreItems ul li {
       float: left; }
-      /* line 149, _dev/devsass/komponenter/_startpage.scss */
+      /* line 151, _dev/devsass/komponenter/_startpage.scss */
       .highscoreItems ul li img {
         max-width: 42px;
         padding: .2rem; }
@@ -1849,55 +1878,54 @@ h3 {
 
 /* line 18, _dev/devsass/komponenter/_emil_css.scss */
 .gridTitle {
-  margin-bottom: 0px !important; }
-  /* line 20, _dev/devsass/komponenter/_emil_css.scss */
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important; }
+  /* line 22, _dev/devsass/komponenter/_emil_css.scss */
   .gridTitle .bb_aj_gridItem {
     background-color: transparent !important; }
+    /* line 25, _dev/devsass/komponenter/_emil_css.scss */
+    .gridTitle .bb_aj_gridItem:after {
+      margin: 0px; }
 
-/* line 26, _dev/devsass/komponenter/_emil_css.scss */
+/* line 31, _dev/devsass/komponenter/_emil_css.scss */
 .ikonheaderBlock h1 {
   color: #fff;
   font-size: 2.2em; }
 
-/* line 31, _dev/devsass/komponenter/_emil_css.scss */
+/* line 36, _dev/devsass/komponenter/_emil_css.scss */
 .aj_bb_KrypinMainContainer {
   padding: 1.2% !important; }
 
-/* line 35, _dev/devsass/komponenter/_emil_css.scss */
+/* line 40, _dev/devsass/komponenter/_emil_css.scss */
 .aj_bb_KrypinMainContainer #footikonimg {
   width: 200px; }
 
-/* line 39, _dev/devsass/komponenter/_emil_css.scss */
-.aj_bb_KrypinSkin .addboklistform {
-  text-align: left;
-  padding: .5rem; }
-
 /* line 5, _dev/devsass/komponenter/_extendedDesignSettings.scss */
-/* line 44, _dev/devsass/komponenter/_emil_css.scss */
+/* line 46, _dev/devsass/komponenter/_emil_css.scss */
 .aj_bb_KrypinSkin .addboklistform button {
   margin: .2rem .2rem 0 0; }
 
 /* line 3, _dev/devsass/komponenter/_base.scss */
-/* line 49, _dev/devsass/komponenter/_emil_css.scss */
+/* line 51, _dev/devsass/komponenter/_emil_css.scss */
 .aj_bb_KrypinMainContainer .row3 {
   margin-left: .18rem;
   margin-right: .3rem;
   width: auto; }
 
 /* line 8, _dev/devsass/komponenter/_base.scss */
-/* line 56, _dev/devsass/komponenter/_emil_css.scss */
+/* line 58, _dev/devsass/komponenter/_emil_css.scss */
 .aj_bb_KrypinMainContainer .aj_bb_krypinNavBlock {
   background-color: transparent !important;
   width: 100%; }
 
 /* line 22, _dev/devsass/komponenter/_grid.scss */
-/* line 62, _dev/devsass/komponenter/_emil_css.scss */
+/* line 64, _dev/devsass/komponenter/_emil_css.scss */
 h1, h2, h3, h4, h5, h6 {
   color: #333;
   margin: 1.5em 0 0.5em; }
 
 /* line 29, _dev/devsass/komponenter/_grid.scss */
-/* line 68, _dev/devsass/komponenter/_emil_css.scss */
+/* line 70, _dev/devsass/komponenter/_emil_css.scss */
 h1 {
   font-size: 2em;
   font-family: 'Baloo', cursive;
@@ -1905,7 +1933,7 @@ h1 {
   text-transform: uppercase; }
 
 /* line 30, _dev/devsass/komponenter/_grid.scss */
-/* line 76, _dev/devsass/komponenter/_emil_css.scss */
+/* line 78, _dev/devsass/komponenter/_emil_css.scss */
 .bb_aj_gridItem h2 {
   font-size: 1em;
   font-family: 'Baloo', cursive;
@@ -1913,29 +1941,29 @@ h1 {
   text-transform: uppercase; }
 
 /* line 31, _dev/devsass/komponenter/_grid.scss */
-/* line 84, _dev/devsass/komponenter/_emil_css.scss */
+/* line 86, _dev/devsass/komponenter/_emil_css.scss */
 h3 {
   font-size: 1.5em; }
 
 /* line 32, _dev/devsass/komponenter/_grid.scss */
-/* line 89, _dev/devsass/komponenter/_emil_css.scss */
+/* line 91, _dev/devsass/komponenter/_emil_css.scss */
 h4 {
   font-size: 1.3em; }
 
 /* line 33, _dev/devsass/komponenter/_grid.scss */
-/* line 94, _dev/devsass/komponenter/_emil_css.scss */
+/* line 96, _dev/devsass/komponenter/_emil_css.scss */
 h5 {
   font-size: 1.1em !important;
   font-weight: 600; }
 
 /* line 36, _dev/devsass/komponenter/_grid.scss */
-/* line 100, _dev/devsass/komponenter/_emil_css.scss */
+/* line 102, _dev/devsass/komponenter/_emil_css.scss */
 h6 {
   font-size: 1.05em !important;
   font-weight: 500; }
 
 /* line 68, _dev/devsass/komponenter/_grid.scss */
-/* line 106, _dev/devsass/komponenter/_emil_css.scss */
+/* line 108, _dev/devsass/komponenter/_emil_css.scss */
 .bb_aj_gridItem {
   background-color: #fff;
   padding: 1em;
@@ -1945,25 +1973,25 @@ h6 {
 
 /* With gutters*/
 /* line 98, _dev/devsass/komponenter/_grid.scss */
-/* line 116, _dev/devsass/komponenter/_emil_css.scss */
+/* line 118, _dev/devsass/komponenter/_emil_css.scss */
 .Grid--gutters {
   margin-left: -1em;
   margin-bottom: 1em; }
 
 /* line 6, _dev/devsass/komponenter/_krypinpageBase.scss */
-/* line 122, _dev/devsass/komponenter/_emil_css.scss */
+/* line 124, _dev/devsass/komponenter/_emil_css.scss */
 .ikonheaderBlock img {
   max-width: 60px;
   margin-right: .5rem; }
 
 /* line 14, _dev/devsass/komponenter/_krypinpageBase.scss */
-/* line 128, _dev/devsass/komponenter/_emil_css.scss */
+/* line 130, _dev/devsass/komponenter/_emil_css.scss */
 .ikonheaderBlock .booklistSetup img {
   margin-right: .1rem; }
 
 /* item baseblock för alla listitems*/
 /* line 3, _dev/devsass/komponenter/_bookItemBlock.scss */
-/* line 134, _dev/devsass/komponenter/_emil_css.scss */
+/* line 136, _dev/devsass/komponenter/_emil_css.scss */
 .bookitem-card, .bibblomon-card, .booklist-card, .badgeitem-card, .skrivbokenitem-card, .boktipsitem-card, #bb_aj_inventory_Mod .inventoryitem-card, #bb_aj_shop_Mod .shopitem-card, .bibblomon-card, .booklist-card, .badgeitem-card, .skrivbokenitem-card, .boktipsitem-card, #bb_aj_inventory_Mod .inventoryitem-card, #bb_aj_shop_Mod .shopitem-card {
   padding: 1em 0.6em;
   -webkit-border-radius: 10px;
@@ -1974,7 +2002,7 @@ h6 {
   /*max-height: 300px;*/ }
 
 /* line 26, _dev/devsass/komponenter/_shop.scss */
-/* line 144, _dev/devsass/komponenter/_emil_css.scss */
+/* line 146, _dev/devsass/komponenter/_emil_css.scss */
 #bb_aj_shop_Mod .bookitem-info .shop_prisblock {
   margin-top: .1rem;
   margin-right: -.2rem;
@@ -1984,12 +2012,12 @@ h6 {
   -webkit-border-radius: 10px;
           border-radius: 10px; }
 
-/* line 153, _dev/devsass/komponenter/_emil_css.scss */
+/* line 155, _dev/devsass/komponenter/_emil_css.scss */
 .shop_prisblock h5 {
   font-size: 1em !important; }
 
 /* line 37, _dev/devsass/kk_aj_PublicCSS.scss */
-/* line 158, _dev/devsass/komponenter/_emil_css.scss */
+/* line 160, _dev/devsass/komponenter/_emil_css.scss */
 .item {
   height: auto !important;
   -webkit-border-radius: 10px;
@@ -1999,7 +2027,7 @@ h6 {
   min-height: 330px !important; }
 
 /* line 50, _dev/devsass/kk_aj_PublicCSS.scss */
-/* line 168, _dev/devsass/komponenter/_emil_css.scss */
+/* line 170, _dev/devsass/komponenter/_emil_css.scss */
 .item h5, .bookitem-info h5 {
   margin: 0.5em 0 0.2em 0;
   font-size: 1.1rem;
@@ -2007,15 +2035,55 @@ h6 {
   font-weight: 400; }
 
 /*List settings-meny*/
-/* line 179, _dev/devsass/komponenter/_emil_css.scss */
+/*.bb-dropdown {
+    text-align: right;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    cursor: pointer;
+}*/
+/*.bb-dropdown-button {
+}
+
+.bb-dropdown-content {
+    border-radius: 10px;
+    display: none;
+    background-color: #fff;
+    min-width: 120px;
+    padding: 12px 16px;
+    text-align: right;
+    font-size: 10px;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
+
+.bb-dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+.bb-dropdown:hover .bb-dropdown-content {
+    display: block;
+}*/
+/*List settings-meny*/
+/* line 2, _dev/devsass/komponenter/_itemDropdown.scss */
 .bb-dropdown {
   text-align: right;
   position: absolute;
   right: 0;
   top: 4px;
   cursor: pointer; }
+  /* line 10, _dev/devsass/komponenter/_itemDropdown.scss */
+  .bb-dropdown:hover .bb-dropdown-content {
+    display: block; }
+  /* line 14, _dev/devsass/komponenter/_itemDropdown.scss */
+  .bb-dropdown:hover img {
+    text-align: right;
+    margin-right: 0px; }
 
-/* line 190, _dev/devsass/komponenter/_emil_css.scss */
+/* line 20, _dev/devsass/komponenter/_itemDropdown.scss */
 .bb-dropdown-content {
   -webkit-border-radius: 10px;
           border-radius: 10px;
@@ -2025,40 +2093,131 @@ h6 {
   padding: 12px 16px;
   text-align: right;
   font-size: 10px; }
-  /* line 198, _dev/devsass/komponenter/_emil_css.scss */
+  /* line 30, _dev/devsass/komponenter/_itemDropdown.scss */
   .bb-dropdown-content ul {
     margin: 0;
     padding: 0;
     list-style: none; }
+  /* line 37, _dev/devsass/komponenter/_itemDropdown.scss */
+  .bb-dropdown-content a:hover {
+    text-decoration: underline !important; }
+  /* line 42, _dev/devsass/komponenter/_itemDropdown.scss */
+  .bb-dropdown-content .buttonitem_readnow {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
 
-/* line 205, _dev/devsass/komponenter/_emil_css.scss */
-.bb-dropdown-content a:hover {
-  text-decoration: underline; }
+/* line 1, _dev/devsass/komponenter/_print.scss */
+.booklistPrint, .kk_aj_print {
+  display: none; }
 
-/* line 209, _dev/devsass/komponenter/_emil_css.scss */
-.bb-dropdown:hover .bb-dropdown-content {
-  display: block; }
+/* line 4, _dev/devsass/komponenter/_print.scss */
+.booklistMail, .kk_aj_Mail {
+  display: none; }
+
+@media print {
+  /* line 8, _dev/devsass/komponenter/_print.scss */
+  img {
+    page-break-before: always;
+    /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: always;
+    /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: always;
+    /* or 'auto' */ }
+  /* line 14, _dev/devsass/komponenter/_print.scss */
+  .row1, .row2, .row4, .Ajshare_box, #dnn_krypinMenyPane, #ReadspeakerBox, #barnensbiblCurrentUserid, .booklistSettings, .bookitem-button, .booklistSetup {
+    display: none; }
+  /* line 18, _dev/devsass/komponenter/_print.scss */
+  .item {
+    display: inline-block;
+    max-width: 150px;
+    float: left; }
+  /* line 24, _dev/devsass/komponenter/_print.scss */
+  .item img {
+    width: 100%;
+    height: auto;
+    max-height: none !important; }
+  /* line 30, _dev/devsass/komponenter/_print.scss */
+  h5 {
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    margin: 0; }
+  /* line 36, _dev/devsass/komponenter/_print.scss */
+  h6 {
+    font-size: 0.8em !important;
+    margin: 0; }
+  /* line 41, _dev/devsass/komponenter/_print.scss */
+  .booklist-card {
+    padding: 0; }
+  /* line 45, _dev/devsass/komponenter/_print.scss */
+  .bb_aj_gridItem {
+    margin: 0;
+    padding: 0; }
+  /* line 50, _dev/devsass/komponenter/_print.scss */
+  .bookitem-image {
+    float: left;
+    width: 100px; }
+  /* line 55, _dev/devsass/komponenter/_print.scss */
+  #bb_aj_booklist_Mod .bookitem-image img {
+    max-width: 100% !important; }
+  /* line 59, _dev/devsass/komponenter/_print.scss */
+  #bb_aj_bibblomonlistMain .bookitem-image img {
+    max-width: 50% !important; }
+  /* line 63, _dev/devsass/komponenter/_print.scss */
+  #bb_aj_bibblomonlistMain .item {
+    max-width: 500px !important; }
+  /* line 67, _dev/devsass/komponenter/_print.scss */
+  .bibblomon-card .bookitem-info {
+    border: 0 !important; }
+  /* line 71, _dev/devsass/komponenter/_print.scss */
+  .bibblomon-card h3, .bibblomon-card h4 {
+    font-size: 1em !important;
+    margin: 0 !important; }
+  /* line 76, _dev/devsass/komponenter/_print.scss */
+  .iteminfoblock {
+    position: relative !important;
+    opacity: 100 !important;
+    top: 0 !important;
+    left: 0 !important;
+    -ms-transform: none !important;
+        transform: none !important;
+    -webkit-transform: none !important; } }
+
+/* line 1, _dev/devsass/komponenter/_topHeader.scss */
+.topheaderbg {
+  background-size: cover;
+  height: 120px; }
+  /* line 5, _dev/devsass/komponenter/_topHeader.scss */
+  .topheaderbg.krypin_head_djungle {
+    background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/krypinhead/krypin_head_djungle2.png"); }
+  /* line 9, _dev/devsass/komponenter/_topHeader.scss */
+  .topheaderbg.krypin_head_steal {
+    background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/krypinhead/krypin_head_steal.png"); }
+  /* line 13, _dev/devsass/komponenter/_topHeader.scss */
+  .topheaderbg.krypin_head_tree {
+    background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/krypinhead/krypin_head_tree.png"); }
 
 /* Global krypinskin*/
-/* line 20, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 24, _dev/devsass/kk_aj_PublicCSS.scss */
 .kk_aj_conf {
   display: none; }
 
-/* line 23, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 27, _dev/devsass/kk_aj_PublicCSS.scss */
 .aj_bb_KrypinSkin {
   padding-top: 2rem !important;
   padding-left: 0.5rem !important;
   padding-right: .5rem !important; }
-  /* line 30, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 34, _dev/devsass/kk_aj_PublicCSS.scss */
   .aj_bb_KrypinSkin hr {
     margin-top: 0px;
     background-color: #000; }
 
-/* line 36, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 40, _dev/devsass/kk_aj_PublicCSS.scss */
 .Grid-cell .dnnModuleManager {
   padding: 0px !important; }
 
-/* line 38, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 42, _dev/devsass/kk_aj_PublicCSS.scss */
 .item {
   height: auto !important;
   -webkit-border-radius: 10px;
@@ -2075,17 +2234,17 @@ h6 {
   margin-left: 0.02rem !important;
   margin-right: .02rem !important;
   min-height: 300px !important; }
-  /* line 48, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 52, _dev/devsass/kk_aj_PublicCSS.scss */
   .item a {
     text-decoration: none !important; }
-  /* line 51, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 55, _dev/devsass/kk_aj_PublicCSS.scss */
   .item h5 {
     font-size: 1.1rem !important; }
-  /* line 54, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 58, _dev/devsass/kk_aj_PublicCSS.scss */
   .item img {
     max-height: 200px !important; }
 
-/* line 60, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 64, _dev/devsass/kk_aj_PublicCSS.scss */
 .loading {
   -webkit-animation: loading 1s linear infinite;
           animation: loading 1s linear infinite; }
@@ -2106,18 +2265,22 @@ h6 {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
-/* line 72, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 76, _dev/devsass/kk_aj_PublicCSS.scss */
 #mceu_17 {
   display: none; }
 
-/* line 76, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 80, _dev/devsass/kk_aj_PublicCSS.scss */
 .aj_bb_highscoreBlock .col-1, .aj_bb_highscoreBlock .col-2, .aj_bb_highscoreBlock .col-3, .aj_bb_highscoreBlock .col-4, .aj_bb_highscoreBlock .col-5, .aj_bb_highscoreBlock .col-6, .aj_bb_highscoreBlock .col-7, .aj_bb_highscoreBlock .col-8, .aj_bb_highscoreBlock .col-9, .aj_bb_highscoreBlock .col-10, .aj_bb_highscoreBlock .col-11, .aj_bb_highscoreBlock .col-12, .aj_bb_highscoreBlock .col, .aj_bb_highscoreBlock .col-auto, .aj_bb_highscoreBlock .col-sm-1, .aj_bb_highscoreBlock .col-sm-2, .aj_bb_highscoreBlock .col-sm-3, .aj_bb_highscoreBlock .col-sm-4, .aj_bb_highscoreBlock .col-sm-5, .aj_bb_highscoreBlock .col-sm-6, .aj_bb_highscoreBlock .col-sm-7, .aj_bb_highscoreBlock .col-sm-8, .aj_bb_highscoreBlock .col-sm-9, .aj_bb_highscoreBlock .col-sm-10, .aj_bb_highscoreBlock .col-sm-11, .aj_bb_highscoreBlock .col-sm-12, .aj_bb_highscoreBlock .col-sm, .aj_bb_highscoreBlock .col-sm-auto, .aj_bb_highscoreBlock .col-md-1, .aj_bb_highscoreBlock .col-md-2, .aj_bb_highscoreBlock .col-md-3, .aj_bb_highscoreBlock .col-md-4, .aj_bb_highscoreBlock .col-md-5, .aj_bb_highscoreBlock .col-md-6, .aj_bb_highscoreBlock .col-md-7, .aj_bb_highscoreBlock .col-md-8, .aj_bb_highscoreBlock .col-md-9, .aj_bb_highscoreBlock .col-md-10, .aj_bb_highscoreBlock .col-md-11, .aj_bb_highscoreBlock .col-md-12, .aj_bb_highscoreBlock .col-md, .aj_bb_highscoreBlock .col-md-auto, .aj_bb_highscoreBlock .col-lg-1, .aj_bb_highscoreBlock .col-lg-2, .aj_bb_highscoreBlock .col-lg-3, .aj_bb_highscoreBlock .col-lg-4, .aj_bb_highscoreBlock .col-lg-5, .aj_bb_highscoreBlock .col-lg-6, .aj_bb_highscoreBlock .col-lg-7, .aj_bb_highscoreBlock .col-lg-8, .aj_bb_highscoreBlock .col-lg-9, .aj_bb_highscoreBlock .col-lg-10, .aj_bb_highscoreBlock .col-lg-11, .aj_bb_highscoreBlock .col-lg-12, .aj_bb_highscoreBlock .col-lg, .aj_bb_highscoreBlock .col-lg-auto, .aj_bb_highscoreBlock .col-xl-1, .aj_bb_highscoreBlock .col-xl-2, .aj_bb_highscoreBlock .col-xl-3, .aj_bb_highscoreBlock .col-xl-4, .aj_bb_highscoreBlock .col-xl-5, .aj_bb_highscoreBlock .col-xl-6, .aj_bb_highscoreBlock .col-xl-7, .aj_bb_highscoreBlock .col-xl-8, .aj_bb_highscoreBlock .col-xl-9, .aj_bb_highscoreBlock .col-xl-10, .aj_bb_highscoreBlock .col-xl-11, .aj_bb_highscoreBlock .col-xl-12, .aj_bb_highscoreBlock .col-xl, .aj_bb_highscoreBlock .col-xl-auto {
   padding-left: 0px !important;
   padding-right: 0px !important; }
 
 /* scoreboard*/
-/* line 84, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 88, _dev/devsass/kk_aj_PublicCSS.scss */
 #bb_aj_specialbadgeblock, #bb_aj_highscorebadgeblock {
   margin-top: 1rem;
   padding-top: .5rem;
   border-top: 1px dashed #ddd; }
+
+/* line 93, _dev/devsass/kk_aj_PublicCSS.scss */
+#barnensbiblCurrentUserid {
+  display: none; }

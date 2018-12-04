@@ -46,7 +46,11 @@ module.exports = {
             return imgsrc
         });
 
-       
+        Handlebars.registerHelper('isbookinlaserjustnu', function (bookid) {
+
+            return (bookid > 0) ? true : false;
+
+        });
     }
 }
 

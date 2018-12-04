@@ -25,7 +25,8 @@ module.exports = {
         this.$aj_bb_KrypinMainGrid = $('.bb_aj_krypincontainer');
         this.$bb_aj_booklistMain = $('#bb_aj_booklistMain');
         this.$bb_aj_booklist_Mod = $('#bb_aj_booklist_Mod');
-        this.$bb_aj_addbooklist = $('#cmdNyBoklista');        
+        this.$bb_aj_addbooklist = $('#cmdNyBoklista');      
+       
     },
     BindEvent: function (userid) {
         let that = this;
@@ -107,7 +108,18 @@ module.exports = {
             jplist.resetControls();
             return false;
         });
+        this.$bb_aj_booklistMain.on('click', '.buttonitem_readnow', function (e) {
+            let bokid = $(this).attr("data-itemid");
+            that.Laserjustnu(userid, bokid);            
+            return false;
+        });
 
+        this.$bb_aj_booklistMain.on('click', '.boklistshow', function (e) {
+            let boklistid = $(this).attr("data-bookistid");            
+            $('.bb_aj_gridItem[data-bookistid=' + boklistid + "] .item").toggle();
+            return false;
+        });
+        
     },    
     Apiupdate: function (apiurl, userid) {
         let that = this; //spara this
@@ -158,6 +170,15 @@ module.exports = {
         jplist.resetControls();
         this.Apiupdate(apiurl(booklistid, userid), userid);
     },
+    Laserjustnu: function (userid, bookid) {
+        let that = this;
+        let apiurl = appsettings.api.installningar.updatesettings;
+        bb_API.getjsondata(apiurl(userid, 3, bookid), function (data) {
+
+            that.initbooklist(userid);
+        });
+
+    },
     
     Render: function (apiurl, handlebartemplate, userid) {
         let that = this; //spara this
@@ -200,10 +221,10 @@ module.exports = {
                         
                     })
                 });
-                
+                return false;
             });
         });
-    }    
+    }
 };
 
 // helper

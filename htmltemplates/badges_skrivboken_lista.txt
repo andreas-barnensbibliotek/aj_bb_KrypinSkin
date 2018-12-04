@@ -1,7 +1,7 @@
 ﻿{{#each skrivbokenlist}}	
 	<!-- badgeitem start -->
 	<div class="col-6 col-sm-4 col-md-2" >                             
-		<div class="badgeitem-card" data-awardid="{{Awardid}}>  
+		<div class="badgeitem-card" data-awardid="{{Awardid}}">  
 			<div class="bookitem-button">
 				<h2></h2>
 			</div>                                  

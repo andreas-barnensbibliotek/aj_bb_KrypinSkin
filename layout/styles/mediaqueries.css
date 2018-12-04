@@ -300,8 +300,8 @@ body {
 }
 #topnav {
     font-size: 0.96em;
-    margin-left: 3px;
-    margin-right: 0.5%;
+    /*margin-left: 3px;
+    margin-right: 0.5%;*/
 }
 #flexmenu {
     display: none;
@@ -465,8 +465,8 @@ body {
 }
 #topnav {
     font-size: 0.96em;
-    margin-left: 3px;
-    margin-right: 0.5%;
+    /*margin-left: 3px;
+    margin-right: 0.5%;*/
 }
 #topnav #menyn li {
     margin-left: 0.3%;
@@ -709,8 +709,8 @@ body {
     width: 79.66%;
 }
 #topnav {
-    margin-left: 3px;
-    margin-right: 0.5%;
+    /*margin-left: 3px;
+    margin-right: 0.5%;*/
 }
 #topnav #menyn li a {
     font-size: 1em;

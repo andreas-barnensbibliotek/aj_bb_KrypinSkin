@@ -63,10 +63,10 @@
 						<div class="iteminfoblock">
 							<div class="iteminfocontent">
 								
-								<p>{{Bokemoninfo}}</p>
-								<ul>																		
-									<li>Bonus: {{Bonus}} %</li>
-									<li>Basstyrka: {{BasePoints}} hp</li>
+								<h3>Styrkor</h3>
+								<ul>
+									<li>Basstyrka: {{BasePoints}} hp</li>																		
+									<li>Bonus: {{Bonus}} %</li>									
 								</ul>
 								<a href="http://www.barnensbibliotek.se/bibblomons/tabid/734/Default.aspx" class="bb_aj_gotoWiki">Läs mer om din bibblomon</a>
 							</div>

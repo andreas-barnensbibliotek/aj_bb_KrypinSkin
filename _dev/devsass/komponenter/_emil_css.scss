@@ -15,12 +15,17 @@
     outline: none;
 }
 
-.gridTitle{
-    margin-bottom:0px!important;
+.gridTitle {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+
     .bb_aj_gridItem {
         background-color: transparent !important;
+   
+        &:after {
+        margin: 0px;
+        }
     }
-
 }
 
 .ikonheaderBlock h1 {
@@ -36,10 +41,7 @@
     width: 200px;
 }
 
-.aj_bb_KrypinSkin .addboklistform {
-    text-align: left;
-    padding: .5rem;
-}
+
 /* line 5, _dev/devsass/komponenter/_extendedDesignSettings.scss */
 .aj_bb_KrypinSkin .addboklistform button {
     margin: .2rem .2rem 0 0;
@@ -176,15 +178,15 @@ h6 {
 
 
 /*List settings-meny*/
-.bb-dropdown {
+/*.bb-dropdown {
     text-align: right;
     position: absolute;
     right: 0;
     top: 4px;
     cursor: pointer;
-}
+}*/
 
-.bb-dropdown-button {
+/*.bb-dropdown-button {
 }
 
 .bb-dropdown-content {
@@ -208,4 +210,5 @@ h6 {
 
 .bb-dropdown:hover .bb-dropdown-content {
     display: block;
-}
+}*/
+

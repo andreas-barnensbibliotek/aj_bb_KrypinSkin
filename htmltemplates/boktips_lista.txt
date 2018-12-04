@@ -6,11 +6,20 @@
 						
 	<!-- bookitem start -->              
 		<div class="item ">
-			<div class="boktipsitem-card dragdrop" >
-				<div class="bookitem-button">
-					<a href="#1" title="Ändra i texten" class="buttonitem_edit" data-id="{{TipID}}" ><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_edit-24.png" /></a>
-					<a href="#2" title="Ta bort från listan" class="buttonitem_tabort" data-id="{{TipID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png" /></a>
-				</div>
+			<div class="boktipsitem-card dragdrop" >				
+				<div class="bb-dropdown">
+                    <img class="bb-dropdown-button" src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/bb-dropdown-button.png" />
+                    <div class="bb-dropdown-content">
+						<ul>
+							<li>
+								<a href="#1" title="Ändra i texten" class="buttonitem_edit" data-id="{{TipID}}" >Ändra</a>					
+							</li>
+							<li>
+								<a href="#2" title="Ta bort från listan" class="buttonitem_tabort" data-id="{{TipID}}">Ta bort</a>				
+							</li>                                    
+						</ul>
+                    </div>
+                </div>		
 				<a href="#" class="buttonitem_bokpost bb_aj_openInModal" data-id="{{TipID}}" data-bookid="{{Bookid}}">
 					<div class="bookitem-image">
 					<img title="{{Title}}" src="{{#categoryUrlimg ImgSrc}}{{/categoryUrlimg}}" />

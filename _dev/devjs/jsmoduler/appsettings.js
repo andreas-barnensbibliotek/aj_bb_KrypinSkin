@@ -1,12 +1,12 @@
 ﻿
 module.exports = {
     config:  (function(){
-        let _apiserver = "http://localhost:59015";
-        let _dnnURL = "http://localdev.kivdev.se";
+        //let _apiserver = "http://localhost:59015";
+        //let _dnnURL = "http://localdev.kivdev.se";
         //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
         //let _dnnURL = "http://dev1.barnensbibliotek.se";
-        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
-        //let _dnnURL = "http://nytt.barnensbibliotek.se";
+        let _apiserver = "http://dev1.barnensbibliotek.se:8080";
+        let _dnnURL = "http://nytt.barnensbibliotek.se";
         let _devkey = "alf";
         let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
         let _localOrServerURL = "";
@@ -349,7 +349,11 @@ module.exports = {
                     "confirmAdd": decodeURIComponent(escape("Vill du lägga till denna boklista?")),
                     "confirmEdit": decodeURIComponent(escape("Vill du byta namn på boklistan?")),
                     "confirmDel": "Vill du ta bort boklistan?"
+                },
+            laserjustnu:
+                {
+                    "confirmRemove": decodeURIComponent(escape("Är du säker?"))
                 }
-            };
+        };
     })()
 }

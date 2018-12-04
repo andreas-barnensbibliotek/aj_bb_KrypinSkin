@@ -4,8 +4,10 @@
     var _growtypestartsrc = new Array();
     var _growtypeid = new Array();
     var _growtypename = new Array();
-    var _imgbasesrc = "http://localdev.kivdev.se/desktopmodules/ajbarnenskrypin/webbilds/";
-    var serverUrl = "http://localdev.kivdev.se/desktopmodules";
+    var _server = "http://localdev.kivdev.se"
+    //var _server = "http://nytt.barnensbibliotek.se"
+    var _imgbasesrc = _server +"/desktopmodules/barnensbiblService/growmodapi/webbilds/";
+    var serverUrl = _server +"/desktopmodules";
 
     var _userid = $('#barnensbiblCurrentUserid').html();
     var _visituserid = $('#barnensbiblCurrentUserid').html();

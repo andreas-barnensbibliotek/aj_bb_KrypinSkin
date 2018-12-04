@@ -35,7 +35,7 @@
 <![endif]-->
 
 <div id="maincontainer" class="aj_bb_KrypinMainContainer">
-    <div class="wrapper row1">
+    <div class="wrapper row1 topheaderbg krypin_head_steal">
         <div id="logon" class="headerleftcol">
              <img id="logoimg" src= "images/bblogo2.png" runat="server" />        
         </div>

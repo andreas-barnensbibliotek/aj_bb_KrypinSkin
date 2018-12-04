@@ -1,0 +1,16 @@
+﻿.topheaderbg {
+    background-size: cover;
+    height: 120px;
+
+    &.krypin_head_djungle {
+        background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/krypinhead/krypin_head_djungle2.png");
+    }
+
+    &.krypin_head_steal {
+        background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/krypinhead/krypin_head_steal.png");
+    }
+
+    &.krypin_head_tree {
+        background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/krypinhead/krypin_head_tree.png");
+    }
+}

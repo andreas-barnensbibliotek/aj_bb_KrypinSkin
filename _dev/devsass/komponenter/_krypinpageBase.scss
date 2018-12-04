@@ -1,24 +1,36 @@
-﻿.ikonheaderBlock{  
-    position:relative;  
+﻿.ikonheaderBlock {
+    h2 {
+        color: $white;
+    }
+
+    h3 {
+        color: $white;
+    }
+
+    position: relative;
     justify-content: flex-start;
     display: flex;
     align-items: center;
-     img{
-            max-width:80px;
-            margin-right:.5rem;
-        }
-    .booklistSetup{
-        position:absolute;
-        right:0px;
-        bottom:-5px;
-        img{
-            margin-right:.1rem;
+
+    img {
+        max-width: 80px;
+        margin-right: .5rem;
+    }
+
+    .booklistSetup {
+        position: absolute;
+        right: 0px;
+        bottom: -5px;
+
+        img {
+            margin-right: .1rem;
         }
     }
-    .scoreBlock{
-        position:absolute;
-        right:0px;
-        top:0px;        
+
+    .scoreBlock {
+        position: absolute;
+        right: 0px;
+        top: 0px;
     }
 }
 
