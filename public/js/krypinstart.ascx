@@ -24,7 +24,6 @@
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/main.css" PathNameAlias="SkinPath" />
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/mediaqueries.css" PathNameAlias="SkinPath" />
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/slicknav.css" PathNameAlias="SkinPath" />
-<dnn:DnnCssInclude runat="server" FilePath="https://fonts.googleapis.com/css?family=Baloo" PathNameAlias="SkinPath" />
 
 <%--<dnn:DnnJsInclude runat="server" FilePath="~/Resources/Shared/Scripts/jquery/jquery-ui.min.js" PathNameAlias="SkinPath" />--%>
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.cookiesdirective.js" PathNameAlias="SkinPath"/>
@@ -165,7 +164,6 @@
   </div>
 </div>
 <!-- AJSHAREBOX WIDGET -->
-<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/js/backup/bokemonUser.js" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.css" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.js" PathNameAlias="SkinPath" />
 
@@ -184,4 +182,4 @@
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/custom.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/growbox.js" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.4.0.5.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.4.1.5.js" PathNameAlias="SkinPath" />

@@ -39,7 +39,7 @@ module.exports = {
             if (!imgsrc) {
                 let settingsobj = appsettingsobject.skrivbokimages;
                 let imglist = settingsobj.catimagesrc;
-                let catimgobj = _.find(imglist, function (o) { return o.catid == 001; });
+                let catimgobj = _.find(imglist, function (o) { return o.catid == 0; });
                 imgsrc = settingsobj.catimgbase + catimgobj.imgsrc;
             };
             

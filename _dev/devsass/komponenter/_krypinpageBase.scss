@@ -3,9 +3,9 @@
         color: $white;
     }
 
-    h3 {
+    /*h3 {
         color: $white;
-    }
+    }*/
 
     position: relative;
     justify-content: flex-start;
@@ -29,7 +29,7 @@
 
     .scoreBlock {
         position: absolute;
-        right: 0px;
+        right: 40%;
         top: 0px;
     }
 }

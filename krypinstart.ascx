@@ -1,12 +1,9 @@
 <%@ Control Language="vb" AutoEventWireup="false" Explicit="True" Inherits="DotNetNuke.UI.Skins.Skin" %>
-<%--<%@ Register TagPrefix="dnn" TagName="LANGUAGE" Src="~/Admin/Skins/Language.ascx" %>--%>
 <%@ Register TagPrefix="dnn" TagName="LOGO" Src="~/Admin/Skins/Logo.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="SEARCH" Src="~/Admin/Skins/Search.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="BREADCRUMB" Src="~/Admin/Skins/BreadCrumb.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="USER" Src="~/Admin/Skins/User.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="LOGIN" Src="~/Admin/Skins/Login.ascx" %>
-<%--<%@ Register TagPrefix="dnn" TagName="PRIVACY" Src="~/Admin/Skins/Privacy.ascx" %>
-<%@ Register TagPrefix="dnn" TagName="TERMS" Src="~/Admin/Skins/Terms.ascx" %>--%>
 <%@ Register TagPrefix="dnn" TagName="COPYRIGHT" Src="~/Admin/Skins/Copyright.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="STYLES" Src="~/Admin/Skins/Styles.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="LINKTOMOBILE" Src="~/Admin/Skins/LinkToMobileSite.ascx" %>
@@ -24,9 +21,6 @@
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/main.css" PathNameAlias="SkinPath" />
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/mediaqueries.css" PathNameAlias="SkinPath" />
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/slicknav.css" PathNameAlias="SkinPath" />
-<dnn:DnnCssInclude runat="server" FilePath="https://fonts.googleapis.com/css?family=Baloo" PathNameAlias="SkinPath" />
-
-<%--<dnn:DnnJsInclude runat="server" FilePath="~/Resources/Shared/Scripts/jquery/jquery-ui.min.js" PathNameAlias="SkinPath" />--%>
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.cookiesdirective.js" PathNameAlias="SkinPath"/>
 
 <!--[if lt IE 9]>
@@ -165,7 +159,6 @@
   </div>
 </div>
 <!-- AJSHAREBOX WIDGET -->
-<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/js/backup/bokemonUser.js" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.css" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.js" PathNameAlias="SkinPath" />
 
@@ -184,4 +177,4 @@
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/custom.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/growbox.js" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.1.0.0.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_krypinbundle.4.1.1.js" PathNameAlias="SkinPath" />

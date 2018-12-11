@@ -69,13 +69,24 @@ $djunglegreen: #c1df89;
     }
 }
 
-/*Tema med grönt EMIL*/
+/*Tema med djungel EMIL*/
 .aj_bb_skin_djungelbg {
     background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/greenleaves.jpg") !important;
     color: #fff;
-        
+
     .bb_aj_gridItem {
         background-color: #eaf2d3;
+    }
+
+    .ikonheaderBlock {
+        h3 {
+            color: $black !important;
+        }
+        .scoreBlock { 
+            h3 {
+                color: $white !important;
+            }
+        }
     }
 
     .item {
@@ -89,8 +100,8 @@ $djunglegreen: #c1df89;
     }
 
     .bookitem-card {
-        &:hover {            
-            background-color: $djunglegreen;            
+        &:hover {
+            background-color: $djunglegreen;
         }
     }
 }

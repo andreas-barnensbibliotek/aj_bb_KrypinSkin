@@ -136,7 +136,6 @@
   </div>
 </div>
 <!-- AJSHAREBOX WIDGET -->
-<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/js/backup/bokemonUser.js" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.css" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.js" PathNameAlias="SkinPath" />
 <div class="Ajshare_box">

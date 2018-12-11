@@ -13,7 +13,10 @@ var appsettings = appsettingsobject.config;
 module.exports = {
     init: function (userid) {       
         let moduleName = 'Scoreboard';
+
+        bb_containerbehaviors.init(moduleName);       
         bb_pagebehaviors.init(moduleName);
+
         this.cacheDom();
         this.BindEvent(userid);
         this.initBadges(userid);

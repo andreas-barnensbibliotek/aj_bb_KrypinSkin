@@ -84,14 +84,16 @@ gulp.task('jsconcatfiles', ['webpackjs'], function () {
 	 
 gulp.task('pub_jsconcatfiles', function () {
     return gulp.src(
-            [
+        [                
                 srcPath.jsbundle + '/jplist/jplist.min.js',
                 srcPath.jsbundle + '/handelbars/handlebars.js',
+                srcPath.jsbundle + '/draganddrop/dragdrop.js',
+                srcPath.jsbundle + '/autocomplete/auto-complete.js',
                 srcPath.jsbundle + '/bb_aj_js/aj_bb_KrypinbundleWebpack.1.0.babel.js',
             ]
         )
        .pipe(sourcemaps.init())
-       .pipe(concat('aj_bb_krypinbundle.1.0.0.js'))
+       .pipe(concat('aj_bb_krypinbundle.2.0.0.js'))
        .pipe(sourcemaps.write())
        .pipe(gulp.dest(srcPath.publik + '/js/'));
 });
@@ -121,13 +123,13 @@ gulp.task('csspub',function() {
 
 gulp.task('jspub', ['jsbabel', 'pub_jsconcatfiles'], function () {
     return gulp.src(
-            srcPath.publik + '/js/aj_bb_krypinbundle.1.0.0.js'
+            srcPath.publik + '/js/aj_bb_krypinbundle.2.0.0.js'
         )
         .pipe(minify({
             mangle: {
                 keepClassName: true
             }
         }))
-        .pipe(rename('aj_bb_krypinbundle.1.0.0.min.js'))
+        .pipe(rename('aj_bb_krypinbundle.2.0.0.min.js'))
        .pipe(gulp.dest(srcPath.publik + '/js/'));
 });

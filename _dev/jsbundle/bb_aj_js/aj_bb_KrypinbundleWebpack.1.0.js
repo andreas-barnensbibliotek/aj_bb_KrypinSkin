@@ -44,6 +44,7 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	
 	var pageloader = __webpack_require__(1);
 	var appsettingsobject = __webpack_require__(10);
 	var $ = __webpack_require__(5);
@@ -27901,8 +27902,10 @@
 	        //let _dnnURL = "http://localdev.kivdev.se";
 	        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
 	        //let _dnnURL = "http://dev1.barnensbibliotek.se";
-	        let _apiserver = "http://dev1.barnensbibliotek.se:8080";
-	        let _dnnURL = "http://nytt.barnensbibliotek.se";
+	        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
+	        //let _dnnURL = "http://nytt.barnensbibliotek.se";
+	        let _apiserver = "https://www2.barnensbibliotek.se";
+	        let _dnnURL = "https://www.barnensbibliotek.se";
 	        let _devkey = "alf";
 	        let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
 	        let _localOrServerURL = "";
@@ -28022,8 +28025,7 @@
 	        let _fn_userlatestboktips = function (userid) {
 	            return _apiserver + "/Api_v3.1/boktips/typ/ByUserIdLatest/val/" + userid + "/txtval/0/devkey/" + _devkey + "/?type=jsonp";       
 	        }
-	        
-
+	      
 	        return {
 	            apiserver: _apiserver,
 	            dnnURL: _dnnURL,
@@ -28219,40 +28221,61 @@
 	        };          
 	    })(),
 	    usermessages: (function () {
-	        
+	        let _fn_FixaText = function (mes) {
+	            try {
+	                return decodeURIComponent(escape(mes));
+	            }
+	            catch (e) {
+	                String.prototype.replaceAll = function (str1, str2, ignore) {
+	                    return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
+	                } 
+
+	                mes = mes.replaceAll('Ä', String.fromCharCode(196));//Ä
+	                mes = mes.replaceAll('Å', String.fromCharCode(197));//Å
+	                mes = mes.replaceAll('Ö', String.fromCharCode(214));//Ö
+	                mes = mes.replaceAll('ä', String.fromCharCode(228));//ä
+	                mes = mes.replaceAll('å', String.fromCharCode(229));//å
+	                mes = mes.replaceAll('ö', String.fromCharCode(246));//ö
+
+	                return mes;
+	            }            
+	        }
 	        return {
 	            installningar:
 	                {                    
-	                    "confirmSave": decodeURIComponent(escape("är du säker på att du vill spara ändringarna?"))
+	                    "confirmSave": _fn_FixaText("Är du säker på att du vill spara ändringarna?")
 	                },
 	            skrivbok:
 	                {
-	                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
-	                    "confirmAdd": decodeURIComponent(escape("är du säker på att du vill lägga till texten?")),
-	                    "confirmEdit": decodeURIComponent(escape("r du säker på att du vill ändra i i texten?")),
-	                    "confirmDel": decodeURIComponent(escape("är du säker på att du vill ta bort texten?"))
+	                    "confirmAlert": _fn_FixaText("Du måste fylla i alla uppgifter"),
+	                    "confirmAdd": _fn_FixaText("Är du säker på att du vill lägga till texten?"),
+	                    "confirmEdit": _fn_FixaText("Är du säker på att du vill ändra i texten?"),
+	                    "confirmDel": _fn_FixaText("Är du säker på att du vill ta bort texten?")
 	                },
 	            boktips:
 	                {
-	                    "confirmAlert": decodeURIComponent(escape("Du måste fylla i alla uppgifter")),
-	                    "confirmAdd": decodeURIComponent(escape("är du säker på att du vill lägga till boktipset?")),                    
-	                    "confirmEdit": decodeURIComponent(escape("är du säker på att du vill ändra i boktipset?")),
-	                    "confirmDel": decodeURIComponent(escape("är du säker på att du vill ta bort boktipset?"))
+	                    "confirmAlert": _fn_FixaText("Du måste fylla i alla uppgifter"),
+	                    "confirmAdd": _fn_FixaText("Är du säker på att du vill lägga till boktipset?"),                    
+	                    "confirmEdit": _fn_FixaText("Är du säker på att du vill ändra i boktipset?"),
+	                    "confirmDel": _fn_FixaText("Är du säker på att du vill ta bort boktipset?")
 	                },
 	            boklist:
 	                {
-	                    "confirmAlert": decodeURIComponent(escape("Du måste skriva något!")),
-	                    "confirmAdd": decodeURIComponent(escape("Vill du lägga till denna boklista?")),
-	                    "confirmEdit": decodeURIComponent(escape("Vill du byta namn på boklistan?")),
+	                    "confirmAlert": _fn_FixaText("Du måste skriva något!"),
+	                    "confirmAdd": _fn_FixaText("Vill du lägga till denna boklista?"),
+	                    "confirmEdit": _fn_FixaText("Vill du byta namn på boklistan?"),
 	                    "confirmDel": "Vill du ta bort boklistan?"
 	                },
 	            laserjustnu:
 	                {
-	                    "confirmRemove": decodeURIComponent(escape("Är du säker?"))
-	                }
+	                "confirmRemove": _fn_FixaText("Är du säker?")
+	            }
+	            
+	            
 	        };
 	    })()
 	}
+
 
 
 /***/ }),
@@ -28300,7 +28323,7 @@
 	            if (!imgsrc) {
 	                let settingsobj = appsettingsobject.skrivbokimages;
 	                let imglist = settingsobj.catimagesrc;
-	                let catimgobj = _.find(imglist, function (o) { return o.catid == 001; });
+	                let catimgobj = _.find(imglist, function (o) { return o.catid == 0; });
 	                imgsrc = settingsobj.catimgbase + catimgobj.imgsrc;
 	            };
 	            
@@ -48323,7 +48346,10 @@
 	module.exports = {
 	    init: function (userid) {       
 	        let moduleName = 'Scoreboard';
+
+	        bb_containerbehaviors.init(moduleName);       
 	        bb_pagebehaviors.init(moduleName);
+
 	        this.cacheDom();
 	        this.BindEvent(userid);
 	        this.initBadges(userid);
