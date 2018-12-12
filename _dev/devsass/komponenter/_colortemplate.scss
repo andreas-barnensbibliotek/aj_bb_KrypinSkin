@@ -230,14 +230,14 @@ $djunglegreen: #c1df89;
 .aj_bb_skin_blackbg {
     background-image: url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/skallar.jpg') !important;
 
-    h1, h2, h3, h4, h5, h6, p, label, fieldset {
+    h1, h2, h3, h4, h5, h6, p, label, fieldset, a {
         color: $white !important;
     }
 
     .aj_bb_KrypinSkin {
-         .addboklistform {
+        .addboklistform {
             color: $white !important;
-         }
+        }
     }
 
     #bb_aj_modalContainer {
@@ -252,6 +252,12 @@ $djunglegreen: #c1df89;
 
     .bb_aj_gridItem {
         background-color: #444343;
+    }
+
+    #AJKrypingrowInfo {
+        p {
+            color: $black !important;
+        }
     }
 
     #aj_bb_krypinNav {
@@ -275,7 +281,7 @@ $djunglegreen: #c1df89;
 .aj_bb_skin_blackskullbg {
     background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/pirates2.jpg") !important;
 
-    h1, h2, h3, h4, h5, h6, p {
+    h1, h2, h3, h4, h5, h6, p, a, label, fieldset {
         color: $white !important;
     }
 
@@ -285,11 +291,11 @@ $djunglegreen: #c1df89;
         }
     }
 
-    
-        .addboklistform {
-            color: $white !important;
-        }
-    
+
+    .addboklistform {
+        color: $white !important;
+    }
+
 
     .aj_bb_krypinNavBlock {
         background-color: #444343 !important;
@@ -297,6 +303,12 @@ $djunglegreen: #c1df89;
 
     .bb_aj_gridItem {
         background-color: #323232;
+    }
+
+    #AJKrypingrowInfo {
+        p {
+            color: $black !important;
+        }
     }
 
     #aj_bb_krypinNav {
@@ -316,26 +328,40 @@ $djunglegreen: #c1df89;
 
 
 /*Tema med svart*/
-.aj_bb_skin_beigebg{
-    background-image:url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/LjusbeigeBin.jpg')!important;
-    .aj_bb_krypinNavBlock{
-        background-color:#FBE2B3!important;        
+.aj_bb_skin_beigebg {
+    background-image: url('/Portals/_default/skins/bb_DAGOBAH_krypin/images/bakgrunder/LjusbeigeBin.jpg') !important;
+
+    .aj_bb_krypinNavBlock {
+        background-color: #FBE2B3 !important;
     }
+
     .bb_aj_gridItem {
-        background-color:#FBE2B3;
+        background-color: #FBE2B3;
     }
-    #aj_bb_krypinNav{
-         li{ 
-            &:hover{
-                 background-color:#E8B16D;
-             }
+
+    #aj_bb_krypinNav {
+        li {
+            &:hover {
+                background-color: #E8B16D;
+            }
         }
     }
-    .bookitem-card{
-        &:hover{
+
+    .bookitem-card {
+        .bb-dropdown{
+            a {
+                color: $black !important;
+            }
+        }
+        &:hover {
             //opacity:.9;
-            background-color:#E8B16D;
+            background-color: #E8B16D;
             //border:1px solid $black;
         }
+    }
+}
+.bb-dropdown {
+    a {
+        color: $black !important;
     }
 }

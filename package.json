@@ -30,6 +30,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^1.12.1",
     "gulp-uglify": "^3.0.0",
+    "webpack-polyfill-injector": "^2.0.2",
+    "webpack-polyfills-plugin": "^0.2.0",
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {

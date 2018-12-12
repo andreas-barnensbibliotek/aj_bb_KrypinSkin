@@ -187,9 +187,9 @@ module.exports = {
             bb_HB_Handler.injecthtmltemplate("#bb_aj_booklistMain", handlebartemplate, data, function () {
                  jplist.init();
 
-                new dragdrop.start((dom, api) => {
-                   
-                    dom.addEventListener('drop', (event) => {
+                new dragdrop.start(function (dom, api) {
+
+                    dom.addEventListener('drop', function (event) {
                         
                         let bokid;
                         let frombooklistid;
