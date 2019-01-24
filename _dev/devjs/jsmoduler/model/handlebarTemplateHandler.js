@@ -13,8 +13,8 @@ module.exports = {
         }, 'html');
     }
 }
-String.prototype.replaceAt = function (index, char) {
-    return this.substr(0, index) + char + this.substr(index + 1);
-    //   this will 'replace' the character at index with char ^
-}
+//String.prototype.replaceAt = function (index, char) {
+//    return this.substr(0, index) + char + this.substr(index + 1);
+//    //   this will 'replace' the character at index with char ^
+//}
 

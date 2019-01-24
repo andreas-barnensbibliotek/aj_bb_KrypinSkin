@@ -31,7 +31,7 @@
                     type="text"
                     value=""
                     data-clear-btn-id="name-clear-btn"
-                    placeholder="filtrera på titel" />
+                    placeholder="Vilken bok letar du efter?" />
 					<button type="button" class="title-clear-btn">Rensa</button>     
 					<a href="#" title="Skriv ut" class="booklistPrint kk_aj_print"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/print_32.png" /></a>
 					<a href="#" title="Maila listan" class="booklistMail"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/mail_32.png" /></a>

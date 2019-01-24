@@ -321,6 +321,16 @@
 .aj_bb_formBlock {
   padding-left: 1rem; }
 
+/* line 116, _dev/devsass/komponenter/_base.scss */
+.helptextcontent h3 {
+  text-align: left;
+  font-weight: 600;
+  margin-top: 1.5rem; }
+
+/* line 117, _dev/devsass/komponenter/_base.scss */
+.helptextcontent a {
+  text-decoration: underline; }
+
 /* line 10, _dev/devsass/komponenter/_grid.scss */
 body {
   font: 100 1em/150% 'Hind Siliguri', Helvetica, sans-serif;
