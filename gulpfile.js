@@ -69,12 +69,12 @@ gulp.task('webpackjs', function() {
 gulp.task('jsconcatfiles', ['webpackjs'], function () {
     return gulp.src(
         [               
-                srcPath.jsbundle + '/jplist/jplist.min.js',
+            srcPath.jsbundle + '/jplist/jplist.min.js',
             srcPath.jsbundle + '/handelbars/handlebars.js',
-                srcPath.jsbundle + '/draganddrop/dragdrop.js',
-                srcPath.jsbundle + '/autocomplete/auto-complete.js',
-                srcPath.jsbundle + '/bb_aj_js/aj_bb_KrypinbundleWebpack.1.0.js',
-            ]
+            srcPath.jsbundle + '/draganddrop/dragdrop.js',
+            srcPath.jsbundle + '/autocomplete/auto-complete.js',
+            srcPath.jsbundle + '/bb_aj_js/aj_bb_KrypinbundleWebpack.1.0.js',
+        ]
         )
        .pipe(sourcemaps.init())
        .pipe(concat('aj_bb_krypinbundle.1.0.0.js'))

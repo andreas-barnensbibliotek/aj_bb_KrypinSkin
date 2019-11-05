@@ -1,5 +1,6 @@
 var webpack = require("webpack");
 module.exports = {
+    mode: 'production',
     entry: ['babel-polyfill', './_dev/devjs/app.js'],
     output: {
         path: __dirname,
@@ -12,8 +13,10 @@ module.exports = {
 
     ]
 };
+
 //var webpack = require("webpack");
 //module.exports = {
+//    mode: 'production',
 //    entry: "./_dev/devjs/app.js",
 //    output: {
 //        path: __dirname,

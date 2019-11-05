@@ -1,10 +1,12 @@
-﻿var _ = require("lodash");
+﻿
+var _ = require("lodash");
 var $ = require("jquery");
 require('jquery-ui-dist/jquery-ui.js');
 var bb_pagebehaviors = require("./app_modules/krypinPageBahavior.js");
 var bb_containerbehaviors = require("./app_modules/krypinContainerBehavior.js");
 var bb_API = require("./model/apiServiceHandler.js");
 var bb_HB_Handler = require("./model/handlebarTemplateHandler.js");
+var modalhandler =require("./jsExternal/modal2_plugin.js");
 var appsettingsobject = require("./appsettings.js");
 var appsettings = appsettingsobject.config;
 var globalmessages = appsettingsobject.usermessages;
@@ -16,6 +18,7 @@ module.exports = {
         let moduleName = 'Booklist';
         bb_containerbehaviors.init(moduleName);
         bb_pagebehaviors.init(moduleName);
+        modalhandler.init();
         this.cacheDom();
         this.BindEvent(userid);
         this.initbooklist(userid);
@@ -26,10 +29,11 @@ module.exports = {
         this.$bb_aj_booklistMain = $('#bb_aj_booklistMain');
         this.$bb_aj_booklist_Mod = $('#bb_aj_booklist_Mod');
         this.$bb_aj_addbooklist = $('#cmdNyBoklista');      
-       
+       this.$bb_aj_GenericModalContainer = $('#bb_aj_GenericModalContainer');
     },
     BindEvent: function (userid) {
         let that = this;
+        
 
         this.$bb_aj_booklistMain.on('click', '#bb_aj_cmdAdd_Booklist', function (e) { return true; });
         this.$bb_aj_booklistMain.on('click', '.buttonitem_booktip', function (e) { return true; });
@@ -54,7 +58,7 @@ module.exports = {
                 boklistanamnElement.focus();
                 return false;
             };
-            let result = confirm(globalmessages.boklist.confirmADD);
+            let result = confirm(globalmessages.boklist.confirmAdd);
             if (result) {                             
                     that.addBooklist(boklistanamn, userid);                    
             };            
@@ -80,6 +84,54 @@ module.exports = {
             return false;
         });
         
+      //  this.$bb_aj_booklistMain.on('click', '.booklistPrint', function (e) {
+      //      let booklistid = $(this).attr('data-bookistid');
+      //      let boklistNamn = $('.bb_aj_booklistname' + booklistid).html();
+      //      console.log("booklistid: "+ booklistid);          
+                       
+      //      that.printModal(booklistid,userid,boklistNamn);
+
+      //      modalhandler.openInModal();
+		    //return false;
+      //  });
+
+        $('body').on('click', '.booklistPrint', function (e) {
+            let booklistid = $(this).attr('data-bookistid');
+            let boklistNamn = $('.bb_aj_booklistname' + booklistid).html();
+            console.log("booklistid: " + booklistid);
+
+            that.printModal(booklistid, userid, boklistNamn);
+
+            modalhandler.openInModal();
+            return false;
+        });
+
+        this.$bb_aj_GenericModalContainer.on('click', '#bb_aj_PrintBoklistTemplate', function (e) {
+            
+            let printobj={                
+                userid : $(this).attr('data-userid'),
+                booklistid : $(this).attr('data-boklistId'),
+                bgimg : $('#print_bgVal').val(),
+                color : $('#print_RubrikColorVal').val(),
+                font : $('#print_RubrikTypsnittVal').val(),
+                Rubrik: $(this).attr('data-boklistNamn')
+            };
+
+            let url = appsettings.api.boklistor.printUrl 
+            console.log(url(printobj));
+            let win = window.open(url(printobj), "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=780,height=200,top="+(screen.height-400)+",left="+(screen.width-840));
+            
+
+            //modalhandler.openInModal();
+		    return false;
+        });
+
+        this.$bb_aj_GenericModalContainer.on('click', '.bb_aj_closeModal', function (e) {
+            modalhandler.closeModal();
+		    return false;
+        });
+        
+
         this.$bb_aj_booklistMain.on('click', '.cmdeditBoklista', function (e) {
             let booklistid = $(this).closest(".aj_bb_KrypinMainGrid").attr("data-bookistid");
             let textnyttnamn = $(this).siblings(".editBoklistanamn").val();
@@ -132,6 +184,35 @@ module.exports = {
         bb_API.getjsondata(apiurl, function (data) {            
         });
     },
+    printModal: function(boklistid, userid,boklistNamn){
+        let hbtempl = appsettings.handlebartemplate.hb_PrintModalVal_tmp; 
+        let data = {
+            boklistid: boklistid,
+            userid: userid,
+            boklistNamn: boklistNamn
+        };
+
+        bb_HB_Handler.injecthtmltemplate("#bb_aj_GenericModalContainer", hbtempl, data, function () {
+            console.log("klart!");
+         });
+    },
+    // printbooklist :function(boklistid,userid){
+    //     let apiurl = appsettings.api.boklistor.getuserboklist;        
+    //     let hbtempl = appsettings.handlebartemplate.hb_PrintBoklist_tmp; 
+
+    //     // hämta från api
+    //     bb_API.getjsondata(apiurl(userid), function (data) {
+    //          console.log("data: " + data.Booklists);
+    //         let valdboklista= _.find(data.Booklists, function(o) { return o.BlID == boklistid; } );
+    //         console.log(valdboklista);
+
+    //         bb_HB_Handler.returnhtmltemplate( hbtempl, valdboklista, function (html) {
+    //             alert("hjälp")
+    //             console.log("html "+ html);
+    //             //win.document.body.innerHTML = html;
+    //         });
+    //     });
+    // },
     getbooklist : function (apiurl, userid) {
         let handlebartemplate = appsettings.handlebartemplate.hb_booklist_tmp;
         this.Render(apiurl, handlebartemplate, userid);       

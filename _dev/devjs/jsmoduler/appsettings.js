@@ -1,41 +1,45 @@
 ﻿
 module.exports = {
     config:  (function(){
-        let _apiserver = "http://localhost:59015";
-        let _dnnURL = "http://localdev.kivdev.se";
-        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
-        //let _dnnURL = "http://dev1.barnensbibliotek.se";
-        //let _apiserver = "http://dev1.barnensbibliotek.se:8080";
-        //let _dnnURL = "http://nytt.barnensbibliotek.se";
-        //let _apiserver = "https://www2.barnensbibliotek.se";
-        //let _dnnURL = "https://www.barnensbibliotek.se";
-        let _devkey = "alf";
-        let _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
-        let _localOrServerURL = "";
-        let _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";
-        let _avatarimgsrc = "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/avatars/";
+        const _apiserver = "http://localhost:59015";
+        const _dnnURL = "http://localdev.kivdev.se";
+        //const _apiserver = "http://dev1.barnensbibliotek.se:8080";
+        //const _dnnURL = "http://dev1.barnensbibliotek.se";
+        // const _apiserver = "http://dev1.barnensbibliotek.se:8080";
+        // const _dnnURL = "http://nytt.barnensbibliotek.se";
+         //const _apiserver = "https://www2.barnensbibliotek.se";
+         //const _dnnURL = "https://www.barnensbibliotek.se";
+        const _devkey = "alf";
+        const _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
+        const _localOrServerURL = "";
+        const _htmltemplateURL = "/Portals/_default/Skins/bb_DAGOBAH_krypin/htmltemplates/";
+        const _avatarimgsrc = "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/avatars/";
         // settings src
-        let _src_setting_base = "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/";
-        let _src_avatar = _src_setting_base + "avatars/";
-        let _src_skinbg = _src_setting_base + "bakgrunder/";
+        const _src_setting_base = "/Portals/_default/Skins/bb_DAGOBAH_krypin/images/";
+        const _src_avatar = _src_setting_base + "avatars/";
+        const _src_skinbg = _src_setting_base + "bakgrunder/";
         // Boklistor START
         //// template
-        let _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
-        let _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
-        let _hb_skrivbokModal_View_template = _dnnURL + _htmltemplateURL + "skrivbokModal_View.txt";
-        let _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
-        let _hb_bibblomonlist_template = _dnnURL + _htmltemplateURL + "Bibblomon_lista.txt";
-        let _hb_bibblomonItem_template = _dnnURL + _htmltemplateURL + "Bibblomon_Item.txt";
+        const _hb_booklist_template = _dnnURL + _htmltemplateURL + "boklistor_lista.txt";
+        const _hb_booklistItem_template = _dnnURL + _htmltemplateURL + "booklistitems.txt";
+        const _hb_skrivbokModal_View_template = _dnnURL + _htmltemplateURL + "skrivbokModal_View.txt";
+        const _hb_boktipsModal_View_template = _dnnURL + _htmltemplateURL + "boktipsModal_View.txt";
+        const _hb_bibblomonlist_template = _dnnURL + _htmltemplateURL + "Bibblomon_lista.txt";
+        const _hb_bibblomonItem_template = _dnnURL + _htmltemplateURL + "Bibblomon_Item.txt";
 
-        let _hb_Skribokenbadges_template = _dnnURL + _htmltemplateURL + "badges_skrivboken_lista.txt";
-        let _hb_Boktipsbadges_template = _dnnURL + _htmltemplateURL + "badges_boktips_lista.txt";
-        let _hb_Specialbadges_template = _dnnURL + _htmltemplateURL + "badges_special_lista.txt";
-        let _hb_Highscorebadges_template = _dnnURL + _htmltemplateURL + "badges_highscore_lista.txt";
-        let _hb_Laserjustnu_template = _dnnURL + _htmltemplateURL + "laserjustnu_item.txt";
-        let _hb_userlatestboktips_template = _dnnURL + _htmltemplateURL + "boktipsSingel_Item.txt";
+        const _hb_Skribokenbadges_template = _dnnURL + _htmltemplateURL + "badges_skrivboken_lista.txt";
+        const _hb_Boktipsbadges_template = _dnnURL + _htmltemplateURL + "badges_boktips_lista.txt";
+        const _hb_Specialbadges_template = _dnnURL + _htmltemplateURL + "badges_special_lista.txt";
+        const _hb_Highscorebadges_template = _dnnURL + _htmltemplateURL + "badges_highscore_lista.txt";
+        const _hb_Laserjustnu_template = _dnnURL + _htmltemplateURL + "laserjustnu_item.txt";
+        const _hb_userlatestboktips_template = _dnnURL + _htmltemplateURL + "boktipsSingel_Item.txt";
+
+        const _hb_PrintModalVal_template = _dnnURL + _htmltemplateURL + "print_modalVal.txt";
+        const _hb_PrintBoklist_template = _dnnURL + _htmltemplateURL + "print_Boklistor.txt";
+        const _url_printUrl ="/DesktopModules/barnensbiblService/krypinboklistorPrint/";
         
         // Inställningar
-        let _hb_settingsAvatar_template = _dnnURL + _htmltemplateURL + "settings_avatar_lista.txt";
+        const _hb_settingsAvatar_template = _dnnURL + _htmltemplateURL + "settings_avatar_lista.txt";
         let _hb_settingsSkins_template = _dnnURL + _htmltemplateURL + "settings_skin_lista.txt";
         //// api
         let _fn_userboklist = function (userid) {
@@ -55,6 +59,9 @@ module.exports = {
         };
         let _fn_delBooklist = function (booklistid, userid) {
             return _apiserver + "/Api_v3.1/booklist/typ/delbooklist/blistid/" + booklistid + "/value/0/uid/" + userid + _apidevkeyend;
+        };
+        let _fn_printUrl = function (prnObj) {
+            return _dnnURL + _url_printUrl + "boklistPrintTemplate.html?uid=" + prnObj.userid + "&listid=" + prnObj.booklistid + "&bg=" + prnObj.bgimg + "&col=" + prnObj.color + "&font=" + prnObj.font
         };
         
         // Skrivboken START
@@ -152,7 +159,10 @@ module.exports = {
                 hb_settingsAvatar_tmp: _hb_settingsAvatar_template,
                 hb_settingsSkins_tmp: _hb_settingsSkins_template,
                 hb_laserjustnu_tmp: _hb_Laserjustnu_template,
-                hb_userlatestboktips_tmp: _hb_userlatestboktips_template
+                hb_userlatestboktips_tmp: _hb_userlatestboktips_template,
+
+                hb_PrintModalVal_tmp : _hb_PrintModalVal_template,
+                hb_PrintBoklist_tmp : _hb_PrintBoklist_template
                  
             },
             api:{
@@ -162,7 +172,8 @@ module.exports = {
                     deluserbokitem: _fn_deluserbokItem,
                     addbooklist: _fn_addBooklist,
                     editbooklist: _fn_editBooklist,
-                    delbooklist: _fn_delBooklist
+                    delbooklist: _fn_delBooklist,
+                    printUrl: _fn_printUrl
                 },
                 skrivbokenlistor:{
                     getuserskribokenlist: _fn_userSkrivbokenlist,
@@ -177,7 +188,7 @@ module.exports = {
                     getbookContextByBookID: _fn_bookContextByBookID,
                     addboktipsItem: _fn_addBoktipsItem,
                     editboktipsItem: _fn_editBoktipsItem,
-                    delboktipsItem: _fn_delBoktipsItem
+                    delboktipsItem: _fn_delBoktipsItem                    
                 },
                 bibblomonlistor: {
                     getuserbibblomonlist: _fn_userBibblomonlist                    

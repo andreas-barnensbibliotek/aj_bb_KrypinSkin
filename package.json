@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/theonealf/webpack_sass_gulp#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^7.0.1",
@@ -26,20 +26,22 @@
     "gulp-clean-css": "^2.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-documentation": "^3.2.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^3.2.1",
     "gulp-sourcemaps": "^1.12.1",
-    "gulp-uglify": "^3.0.0",
-    "webpack-polyfill-injector": "^2.0.2",
+    "gulp-uglify": "^3.0.1",
+    "webpack-polyfill-injector": "^3.0.2",
     "webpack-polyfills-plugin": "^0.2.0",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "5.2.0",
+    "documentation": "^6.0.0"
   },
   "dependencies": {
+    "acorn": "^6.0.7",
     "babel-polyfill": "^6.26.0",
     "jquery": "^3.3.1",
-    "jquery-ui": "^1.12.1",
-    "jquery-ui-dist": "^1.12.1",
-    "lodash": "^4.17.10"
+    "jquery-ui": "1.12.1",
+    "jquery-ui-dist": "1.12.1",
+    "lodash": "^4.17.11"
   },
   "keywords": [
     "krypin"

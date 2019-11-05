@@ -182,4 +182,4 @@
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/custom.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/growbox.js" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.4.1.6.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.4.2.1.js" PathNameAlias="SkinPath" />

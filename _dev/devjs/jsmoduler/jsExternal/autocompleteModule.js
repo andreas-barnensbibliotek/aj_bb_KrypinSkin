@@ -53,7 +53,7 @@ module.exports = {
     },
     demo: function () {
         let demo = new autoComplete({
-            selector: '#txtboktipsTitle',
+            selector: '#txtboktipsTitle2',
             minChars: 1,
             source: function (term, suggest) {
                 term = term.toLowerCase();

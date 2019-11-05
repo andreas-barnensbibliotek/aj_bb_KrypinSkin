@@ -14,5 +14,15 @@
 		</a>
 	</div>	            
 </div>
-
+{{else}}
+<div class="bookitem-card boktips-card-start" >
+		<div class="bookitem-button">			
+		</div>
+		<a href="/Krypin/Krypin_Boktips/tabid/1431/Default.aspx" class="buttonitem_bokpost bb_aj_openInModal">			
+			<div class="bookitem-info">
+				<p class="titel">Skriv ett boktips</p>				
+			</div>
+		</a>
+	</div>	            
+</div>
 {{/each}}	

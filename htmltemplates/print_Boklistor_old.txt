@@ -1,0 +1,44 @@
+﻿
+ class="backbgIMG1">
+        <link rel="stylesheet" href="Portals/_default/Skins/bb_DAGOBAH_krypin/public/css/print.css">
+        <!-- Normalize or reset CSS with your favorite library -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Roboto|Kodchasan&display=swap"
+            rel="stylesheet">
+  
+    
+
+        <div id="header">
+            <div id="logo">
+                <img
+                    src="https://www.barnensbibliotek.se/Portals/0/ny_layout/Robot_boktips_BarnensBibliotek_470w_1.png"
+                    style="width:200px;">
+            </div><div class="printrubrik rubcolor1 rubtype1">Äventyr</div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+            <!-- item loop START -->
+                {{#each BooklistItems}}	
+                    <div class="item col-xs-3 col-lg-3">
+                        <div class="booklist-card">
+
+                            <a href="#" class="buttonitem_bokpost">
+                                <div class="bookitem-image">
+                                    <img
+                                        src="{{imageurl}}">
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="divFooter">
+            <div class="bblogo"><img
+                    src="https://www.barnensbibliotek.se/Portals/_default/Skins/bb_BALNAB/images/bblogo2.png"
+                    id="dnn_logoimg">
+            </div>
+        <div>
+    

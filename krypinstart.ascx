@@ -1,9 +1,12 @@
 <%@ Control Language="vb" AutoEventWireup="false" Explicit="True" Inherits="DotNetNuke.UI.Skins.Skin" %>
+<%--<%@ Register TagPrefix="dnn" TagName="LANGUAGE" Src="~/Admin/Skins/Language.ascx" %>--%>
 <%@ Register TagPrefix="dnn" TagName="LOGO" Src="~/Admin/Skins/Logo.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="SEARCH" Src="~/Admin/Skins/Search.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="BREADCRUMB" Src="~/Admin/Skins/BreadCrumb.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="USER" Src="~/Admin/Skins/User.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="LOGIN" Src="~/Admin/Skins/Login.ascx" %>
+<%--<%@ Register TagPrefix="dnn" TagName="PRIVACY" Src="~/Admin/Skins/Privacy.ascx" %>
+<%@ Register TagPrefix="dnn" TagName="TERMS" Src="~/Admin/Skins/Terms.ascx" %>--%>
 <%@ Register TagPrefix="dnn" TagName="COPYRIGHT" Src="~/Admin/Skins/Copyright.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="STYLES" Src="~/Admin/Skins/Styles.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="LINKTOMOBILE" Src="~/Admin/Skins/LinkToMobileSite.ascx" %>
@@ -21,6 +24,8 @@
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/main.css" PathNameAlias="SkinPath" />
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/mediaqueries.css" PathNameAlias="SkinPath" />
 <dnn:DnnCssInclude runat="server" FilePath="layout/styles/slicknav.css" PathNameAlias="SkinPath" />
+
+<%--<dnn:DnnJsInclude runat="server" FilePath="~/Resources/Shared/Scripts/jquery/jquery-ui.min.js" PathNameAlias="SkinPath" />--%>
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.cookiesdirective.js" PathNameAlias="SkinPath"/>
 
 <!--[if lt IE 9]>
@@ -88,18 +93,18 @@
                 </div>
                 <div class="container">
                     <div class="row ">
-                        <div id="one_one_four_Pane" class="col one_one_four_Pane" runat="server"></div>
-                        <div id="one_two_four_Pane" class="col one_two_four_Pane" runat="server"></div>
-                        <div id="one_three_four_Pane" class="col one_three_four_Pane" runat="server"></div>
-                        <div id="one_four_four_Pane" class="col one_four_four_Pane" runat="server"></div>
+                        <div id="one_one_four_Pane" class="col col-12 col-sm-6 col-md-3 col-lg-3" runat="server"></div>
+                        <div id="one_two_four_Pane" class="col col-12 col-sm-6 col-md-3 col-lg-3" runat="server"></div>
+                        <div id="one_three_four_Pane" class="col col-12 col-sm-6 col-md-3 col-lg-3" runat="server"></div>
+                        <div id="one_four_four_Pane" class="col col-12 col-sm-6 col-md-3 col-lg-3" runat="server"></div>
                     </div>
 
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div id="two_one_four_Pane" class="col-4 two_one_four_Pane" runat="server"></div>
-                        <div id="two_two_four_Pane" class="col-4 two_two_four_Pane" runat="server"></div>                        
-                        <div id="two_three_four_Pane" class="col-4 two_three_four_Pane" runat="server"></div>
+                        <div id="two_one_four_Pane" class="col-12 col-sm-12 col-md-12 col-lg-4" runat="server"></div>
+                        <div id="two_two_four_Pane" class="col-12 col-sm-8 col-md-6 col-lg-4" runat="server"></div>                        
+                        <div id="two_three_four_Pane" class="col-12 col-sm-4 col-md-6 col-lg-4" runat="server"></div>
                         
                     </div>
                 </div>
@@ -177,4 +182,4 @@
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/custom.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/growbox.js" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_krypinbundle.1.0.0.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.1.0.0.js" PathNameAlias="SkinPath" />

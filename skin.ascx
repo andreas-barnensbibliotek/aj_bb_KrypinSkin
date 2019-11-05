@@ -74,6 +74,7 @@
         
     </div>
 <!-- content -->
+
    <div id="aj_bb_KrypinSkin"  class="wrapper row3 aj_bb_KrypinSkin" >
         <!-- flexGrid START -->
         <div class="aj_bb_KrypinMainGrid Grid--gutters Grid--1of12">
@@ -155,4 +156,3 @@
 <dnn:DnnJsInclude runat="server" FilePath="public/js/growbox.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/tinymce/tinymce.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.1.0.0.js" PathNameAlias="SkinPath" />
-

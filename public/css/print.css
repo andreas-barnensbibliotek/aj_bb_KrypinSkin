@@ -1,0 +1,172 @@
+.backbgIMG1{
+  background: transparent;    
+}
+.backbgIMG2{
+background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg2.png");
+background-repeat: repeat;
+}
+.backbgIMG3{
+background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg3.png");
+background-repeat: repeat;
+}
+.backbgIMG4{
+background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg4.png");
+background-repeat: repeat;
+}
+.backbgIMG5{
+background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg5.png");
+background-repeat: repeat;
+}
+.backbgIMG6{
+background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg6.png");
+background-repeat: repeat;
+}
+.rubcolor1{ 
+color:rgb(0, 0, 0);
+} 
+.rubcolor2{ 
+color:rgb(255, 255, 255);
+} 
+.rubcolor3{ 
+color:rgb(248, 192, 9);
+}
+.rubcolor4{ 
+color:#f29100;  
+} 
+.rubcolor5{ 
+color:#8DC641;
+} 
+.rubcolor6{ 
+color:#6b6bb1;
+}  
+
+.rubtype1{
+font-family: 'Tahoma', sans-serif;  
+}
+.rubtype2{
+font-family: 'georgia', sans-serif;  
+}
+.rubtype3{
+font-family: 'Baloo Bhai', cursive;  
+}
+.rubtype4{  
+font-family: 'Kodchasan', cursive;  
+}
+.rubtype5{
+font-family: 'Roboto', sans-serif;  
+}
+.rubtype6{
+font-family: 'Titan One', cursive;  
+}
+
+#logo{float:left;}
+
+.printrubrik{
+    float: right;
+    margin-right: 6rem;
+    margin-top:2vw;
+    font-size: 6vw;
+    
+    font-weight: bold;
+   
+}
+
+#logo{
+    padding-top:.5rem;
+    padding-left:1rem;
+}
+
+.container{
+    clear: both; 
+    padding:1.2rem;text-align: center;
+}
+
+.item{      
+    margin-right:0px!important;
+    margin-left: 0px!important;
+    max-height: 100%!important;
+    border-radius: 0px!important;
+    float:left;
+    max-height: 100px;    
+  }
+
+.item img {
+    display:inline-block;
+      max-height: 180px !important; 
+      margin:.5rem;
+      border:1px solid #000;
+}
+  
+.booklist-card{
+      max-height:unset!important;
+}
+
+div.divFooter {
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.bblogo img{
+    float:right;
+    width: 100px;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.booklist-card .bookitem-image img {
+    /* display: -webkit-box; */
+    /* display: -webkit-flex; */
+    display: inline;
+    /* display: flex; */
+}
+
+.bookitem-info{
+    display: none;
+}
+@media print {
+    [class*="col-sm-"] {
+      float: left;
+    }
+  }
+
+  page[size="A4"] {  
+    width: 21cm;
+    height: 29.7cm; 
+  }
+  page[size="A4"][layout="landscape"] {
+    width: 29.7cm;
+    height: 21cm;  
+  }
+  page[size="A3"] {
+    width: 29.7cm;
+    height: 42cm;
+  }
+  page[size="A3"][layout="landscape"] {
+    width: 42cm;
+    height: 29.7cm;  
+  }
+  page[size="A5"] {
+    width: 14.8cm;
+    height: 21cm;
+  }
+  page[size="A5"][layout="landscape"] {
+    width: 21cm;
+    height: 14.8cm;  
+  }
+  @media print {
+    body, page {
+      margin: 0;
+      box-shadow: 0;
+    } 
+    div.divFooter {
+      position: fixed;
+      bottom: 0;
+    }
+}
+@media screen {
+    .container{
+        max-width: 960px;    
+    }
+    #header{ max-width: 960px;    }
+  }

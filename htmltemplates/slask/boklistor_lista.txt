@@ -31,13 +31,15 @@
                     type="text"
                     value=""
                     data-clear-btn-id="name-clear-btn"
-                    placeholder="filtrera på titel" />
+                    placeholder="Vilken bok letar du efter?" />
 					<button type="button" class="title-clear-btn">Rensa</button>     
-					<a href="#" title="Skriv ut" class="booklistPrint"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/print_32.png" /></a>
+					<a href="#" title="Skriv ut" data-bookistid="{{BlID}}" class="booklistPrint kk_aj_print"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/print_32.png" /></a>
 					<a href="#" title="Maila listan" class="booklistMail"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/mail_32.png" /></a>
 					
 					<a href="#" title="Ändra namn" class="bb_aj_booklistEditname" data-bookistid="{{BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/booklistSetup.png"></a>
+					<a href="#" title="Visa" class="boklistshow" data-bookistid="{{BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/Arrowhead-Down-32.png"></a>
 					<a href="#" title="Ta bort boklistan" class="bb_aj_booklistDelete" data-bookistid="{{BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/item_uncheck.png"></a>
+					
 					
 				</div>
 			</div>
@@ -60,15 +62,24 @@
                             <div class="bb-dropdown-content">
 								<ul>
 									<li>
-										<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{Bookid}}" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Gå till boken</a>
+										<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{Bookid}}" title="Gå till boken i katalogen" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Gå till boken</a>
 									</li>
 									<li>
-										<a href="/Krypin/bk_aj_boktips_Krypin/tabid/1354/Default.aspx?bookid={{Bookid}}&typ=boktips" title="Skriv boktips om boken" class="buttonitem_booktip" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">									
-										Skriv boktip</a>
+										<a href="/Krypin/Krypin_Boktips/tabid/1431/Default.aspx?bookid={{Bookid}}&typ=boktips" title="Skriv boktips om boken" class="buttonitem_booktip" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">									
+										Skriv boktips</a>
 									</li>
+									<li>{{#if Lasernu}}
+									
+									
+									<a href="#3" title="Läser denna just nu" class="buttonitem_readnow"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/Check-24.png"> Läser denna just nu</a>
+									
+									{{else}}
+										<a href="#3" title="Välj denna som: Läser just nu" class="buttonitem_readnow"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Läser denna just nu</a>
+									{{/if}}
+									</li>   
 									<li>
-										<a href="#2" title="Ta bort från listan" class="buttonitem_tabort"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Ta bort</a>
-									</li>                                    
+										<a href="#2" title="Ta bort från listan" class="buttonitem_tabort"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Ta bort från listan</a>
+									</li> 
 								</ul>
                             </div>
                         </div>						
@@ -84,10 +95,12 @@
 					</div>	            
 				</div>
 			</div>
-			<!-- bookitem slut-->
+			<!-- bookitem slut-->			
 			
 		{{/each}}
-			<!-- boklistaContent bottom start --><div data-jplist-control="no-results" data-group="bb_aj_group_{{count @index}}" data-name="no-results">Det finns inget att visa</div>			
+		
+			<!-- boklistaContent bottom start --><div data-jplist-control="no-results" data-group="bb_aj_group_{{count @index}}" data-name="no-results" class="resulttext"><span >Det finns inget att visa </span></div>			
+			</div>
 		</div>	
 		<!-- boklistaContent bottom slut -->
 	 </div>

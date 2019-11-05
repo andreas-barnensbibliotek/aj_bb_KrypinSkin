@@ -1,20 +1,32 @@
 ﻿<h2>Läser just nu</h2>
 <div class="bookitem-card">
-	<div class="bb-dropdown">
-        <img class="bb-dropdown-button" src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/bb-dropdown-button.png" />
-        <div class="bb-dropdown-content">
-			<ul>
-				<li>
-					<a href="/Krypin/bk_aj_boktips_Krypin/tabid/1354/Default.aspx?bookid={{LaserJustNu}}&amp;typ=boktips" title="Skriv boktips om boken" class="buttonitem_booktip">
-					skriv boktip</a>
-				</li>				                                   
-			</ul>
-        </div>
-    </div>		    
-    <a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{LaserJustNu}}" class="buttonitem_bokpost">
-        <div class="bookitem-image">
-            <img src="{{LaserJustNuSrc}}">
-        </div>
+	{{#if (isbookinlaserjustnu LaserJustNu)}}	
+		<div class="bb-dropdown">
+			<img class="bb-dropdown-button" src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/bb-dropdown-button.png" />
+			<div class="bb-dropdown-content">
+				<ul>			
+					<li>
+						<a href="/Krypin/Krypin_Boktips/tabid/1431/Default.aspx?bookid={{LaserJustNu}}&amp;typ=boktips" title="Skriv boktips om boken" class="buttonitem_booktip">
+						Skriv boktips</a>
+					</li>
+					<li>
+						<a href="#" data-bookid={{LaserJustNu}}" title="Läser inte boken längre. Ta bort boken" class="buttonitem_del_laserjustnu">
+						Läser inte boken längre</a>
+					</li>			
+				</ul>
+			</div>
+		</div>		    
+		<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{LaserJustNu}}" class="buttonitem_bokpost">
+			<div class="bookitem-image">
+				<img src="{{LaserJustNuSrc}}">
+			</div>
         
-    </a>
+		</a>
+	{{else}}				    
+		<a href="/Krypin/Krypin_Boklistor/tabid/1432/Default.aspx" class="buttonitem_bokpost">
+			<div class="bookitem-image">				
+				Välj bok från dina boklistor
+			</div>        
+		</a>
+	{{/if}}
 </div>

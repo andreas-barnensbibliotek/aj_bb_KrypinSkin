@@ -34,7 +34,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 <div id="maincontainer" class="aj_bb_KrypinMainContainer">
-    <div class="wrapper row1">
+    <div class="wrapper row1 topheaderbg krypin_head_steal">
         <div id="logon" class="headerleftcol">
              <img id="logoimg" src= "images/bblogo2.png" runat="server" />        
         </div>
@@ -130,13 +130,12 @@
   <div id="copyright" class="clear">
     <p class="fl_left">&copy; <a href="/Hem/Regler/tabid/865/Default.aspx">L&aring;na av oss</a> - <a href="#">barnensbibliotek.se</a></p>
     <p class="fl_right">        
-        
+        xcxc
     </p>
   
   </div>
 </div>
 <!-- AJSHAREBOX WIDGET -->
-<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/js/backup/bokemonUser.js" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.css" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.js" PathNameAlias="SkinPath" />
 <div class="Ajshare_box">
@@ -155,5 +154,5 @@
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/custom.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/growbox.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/tinymce/tinymce.min.js" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.4.0.2.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.5.0.0.js" PathNameAlias="SkinPath" />
 

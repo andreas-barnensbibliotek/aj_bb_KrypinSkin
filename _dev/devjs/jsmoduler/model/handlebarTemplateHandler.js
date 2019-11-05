@@ -11,6 +11,14 @@ module.exports = {
             $(targetClass).html(temptpl(currentdata));
             callback();
         }, 'html');
+    },
+    returnhtmltemplate: function (usetemplateName, currentdata, callback) {
+        handelbarhelpers.init();
+        
+        $.get(usetemplateName, function (data) {
+            var temptpl = Handlebars.compile(data);                      
+            callback(temptpl(currentdata));
+        }, 'html');
     }
 }
 //String.prototype.replaceAt = function (index, char) {

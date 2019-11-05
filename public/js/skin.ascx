@@ -16,7 +16,7 @@
 <%@ Register TagPrefix="fortyfingers" TagName="STYLEHELPER" Src="~/DesktopModules/40Fingers/SkinObjects/StyleHelper/StyleHelper.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="JQUERY" Src="~/Admin/Skins/jQuery.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="JavaScriptLibraryInclude" Src="~/admin/Skins/JavaScriptLibraryInclude.ascx" %>
-
+<div>dev1</div>
 <dnn:META ID="META1" runat="server" Name="viewport" Content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <dnn:META ID="META2" runat="server" Name="charset" Content="UTF-8" />
 <dnn:META ID="META3" runat="server" Name="referrer" Content="origin" />
@@ -130,7 +130,7 @@
   <div id="copyright" class="clear">
     <p class="fl_left">&copy; <a href="/Hem/Regler/tabid/865/Default.aspx">L&aring;na av oss</a> - <a href="#">barnensbibliotek.se</a></p>
     <p class="fl_right">        
-        
+        xcxc
     </p>
   
   </div>
@@ -154,5 +154,5 @@
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/custom.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/growbox.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/tinymce/tinymce.min.js" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.4.1.6.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_bb_Krypinbundle.4.2.3.js" PathNameAlias="SkinPath" />
 

@@ -33,7 +33,7 @@
                     data-clear-btn-id="name-clear-btn"
                     placeholder="Vilken bok letar du efter?" />
 					<button type="button" class="title-clear-btn">Rensa</button>     
-					<a href="#" title="Skriv ut" class="booklistPrint kk_aj_print"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/print_32.png" /></a>
+					<a href="#" title="Skriv ut" data-bookistid="{{BlID}}" class="booklistPrint kk_aj_print"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/print_32.png" /></a>
 					<a href="#" title="Maila listan" class="booklistMail"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/mail_32.png" /></a>
 					
 					<a href="#" title="Ändra namn" class="bb_aj_booklistEditname" data-bookistid="{{BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/booklistSetup.png"></a>
@@ -83,7 +83,7 @@
 								</ul>
                             </div>
                         </div>						
-						<a href="#" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
+						<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{Bookid}}" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
 							<div class="bookitem-image">
 							  <img src="{{imageurl}}">
 							</div>
