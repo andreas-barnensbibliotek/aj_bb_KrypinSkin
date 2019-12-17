@@ -1,5 +1,5 @@
 const ModalHandler = () => {
-	let contcssID = '#bb_aj_GenericModalContainer';
+    let contcssID = '#bb_aj_modalContainer';//'#bb_aj_GenericModalContainer';
 	let confirmbuttonID = '#bb_aj_confirm';
 
 	//cacheDom

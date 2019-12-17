@@ -138,7 +138,8 @@
 </div>
 <!-- AJSHAREBOX WIDGET -->
 <dnn:DnnCssInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.css" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/ajSharebox/ajSharebox.js" PathNameAlias="SkinPath" />
+
+<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/bb_aj_Quest_mod/public/js/aj_bb_QuestNavbundle.1.0.0.js" PathNameAlias="SkinPath" />
 <div class="Ajshare_box">
     <ul></ul>
 </div>

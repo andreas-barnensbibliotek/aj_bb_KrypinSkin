@@ -83,7 +83,7 @@
 								</ul>
                             </div>
                         </div>						
-						<a href="#" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
+						<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{Bookid}}" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
 							<div class="bookitem-image">
 							  <img src="{{imageurl}}">
 							</div>

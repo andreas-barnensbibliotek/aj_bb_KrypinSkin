@@ -23,7 +23,7 @@
         
 		</a>
 	{{else}}				    
-		<a href="/Krypin/Krypin_Boklistor/tabid/1432/Default.aspx" class="buttonitem_bokpost">
+		<a href="/Krypin/Krypin_Boklistor/tabid/1429/Default.aspx" class="buttonitem_bokpost">
 			<div class="bookitem-image">				
 				Välj bok från dina boklistor
 			</div>        

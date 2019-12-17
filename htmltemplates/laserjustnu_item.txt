@@ -16,7 +16,7 @@
 				</ul>
 			</div>
 		</div>		    
-		<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{LaserJustNu}}" class="buttonitem_bokpost">
+		<a href="/tabid/1469/Default.aspx?bookid={{LaserJustNu}}" class="buttonitem_bokpost">
 			<div class="bookitem-image">
 				<img src="{{LaserJustNuSrc}}">
 			</div>

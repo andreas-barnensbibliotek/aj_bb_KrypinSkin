@@ -10,10 +10,12 @@ module.exports = {
         //this.$bb_aj_bb_aj_openModal = $('.bb_aj_openInModal');
     },    
     closeModal: function () {
-        this.$bb_aj_ModalMainContainer.fadeOut("slow");
+        $('#bb_aj_GenericModalContainer').fadeOut("slow");
+        $('#bb_aj_modalContainer').fadeOut("slow");
     },
     openInModal: function () {
-        this.$bb_aj_ModalMainContainer.fadeIn("slow");
+        $('#bb_aj_GenericModalContainer').fadeIn("slow");
+        $('#bb_aj_modalContainer').fadeIn("slow");
     }   
 
 };
