@@ -1,14 +1,14 @@
 ﻿
 module.exports = {
     config:  (function(){
-        const _apiserver = "http://localhost:59015";
-        const _dnnURL = "http://localdev.kivdev.se";
-        //const _apiserver = "http://dev1.barnensbibliotek.se:8080";
-        //const _dnnURL = "http://dev1.barnensbibliotek.se";
+        // const _apiserver = "http://localhost:59015";
+        // const _dnnURL = "http://localdev.kivdev.se";
+        // const _apiserver = "http://dev1.barnensbibliotek.se:8080";
+        // const _dnnURL = "http://dev1.barnensbibliotek.se";
         // const _apiserver = "http://dev1.barnensbibliotek.se:8080";
         // const _dnnURL = "http://nytt.barnensbibliotek.se";
-         //const _apiserver = "https://www2.barnensbibliotek.se";
-         //const _dnnURL = "https://www.barnensbibliotek.se";
+         const _apiserver = "https://www2.barnensbibliotek.se";
+         const _dnnURL = "https://www.barnensbibliotek.se";
         const _devkey = "alf";
         const _apidevkeyend = "/devkey/" + _devkey + "/?type=jsonp&callback=?";
         const _localOrServerURL = "";
@@ -383,7 +383,170 @@ module.exports = {
             laserjustnu:
                 {
                 "confirmRemove": _fn_FixaText("Är du säker?")
-            }
+                },
+            skrivbokenlist: [{
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/Lv1_Berattar_grey.png",
+                    "Beskrivning": _fn_FixaText("ej uppnådd berättare Level 1"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/Lv2_Berattare_grey.png",
+                    "Beskrivning": _fn_FixaText("ej uppnådd berättare Level 2"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/Lv3_Skribent_grey.png",
+                    "Beskrivning": _fn_FixaText("ej uppnådd Level 3 Skribent"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/Lv4_Storskribent_grey.png",
+                    "Beskrivning": _fn_FixaText("ej uppnådd Level 4 Storskribent"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/Lv5_Forfattare_grey.png",
+                    "Beskrivning": _fn_FixaText("ej uppnådd Level 5 Författare"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/Lv6_Guldforfattare_grey.png",
+                    "Beskrivning": _fn_FixaText("ej uppnådd Level 6 Guldförfattare"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                }
+            ],
+            boktipslist: [{
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/btLv1_Boktipsar_grey.png",
+                    "Beskrivning": _fn_FixaText("ej uppnådd Level 1 Boktipsar"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/btLv2_Boktipsare_grey.png",
+                    "Beskrivning":_fn_FixaText("ej uppnådd Level 2 Boktipsare"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/btLv3_Storboktipsare_grey.png",
+                    "Beskrivning":_fn_FixaText("ej uppnådd Level 3 Storboktipsare"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/btLv4_Massboktipsare_grey.png",
+                    "Beskrivning":_fn_FixaText("ej uppnådd Level 4 Massboktipsare"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                },
+                {
+                    "Userid": "0",
+                    "Awardid": "0",
+                    "Counter": "0",
+                    "UserLevel": "0",
+                    "AwardName": "",
+                    "Badgesrc": "/Portals/0/bokmarkelser/btLv5_BoktokTipsare_grey.png",
+                    "Beskrivning":_fn_FixaText("ej uppnådd Level 5 Boktoktipsare"),
+                    "Occures": "",
+                    "AwardGroup": "",
+                    "TolevelUp": "",
+                    "EarnFuncID": ""
+                }
+            ],
+            specialbadgeslist: [],
+            highscorelist: [],
+            skrivbokentitel: [
+                { "titel":_fn_FixaText("Berättar") },
+                { "titel":_fn_FixaText("Berättare") },
+                { "titel":_fn_FixaText("Skribent") },
+                { "titel":_fn_FixaText("Storskribent") },
+                { "titel":_fn_FixaText("Författare") },
+                { "titel":_fn_FixaText("Guldförfattare") },
+            ],
+            boktipstitel: [
+                { "titel": "Boktipsar" },
+                { "titel": "Boktipsare" },
+                { "titel": "Storboktipsare" },
+                { "titel": "MassBoktipsare" },
+                { "titel": "BoktokTipsare" }
+            ]
+
             
             
         };

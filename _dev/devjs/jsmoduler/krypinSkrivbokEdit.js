@@ -77,20 +77,24 @@ module.exports = {
             callback(retval);
         });
     },
-    deleteSkrivbokItem: function (userid) {
+    deleteSkrivbokItem: function (skrivbokid, userid, callback) {       
         let apiurl = appsettings.api.skrivbokenlistor.delskribokenItem;
-        this.ApiPostHandler(apiurl(), userid);
+        _formObj.SkrivID = skrivbokid;
+        _formObj.UserID = userid;
+
+        bb_API.postjsondata(apiurl(), _formObj, function (data) {
+            callback(true);
+        });
     },
     ApiPostHandler: function (apiurl, userid, callback) {
-        let itmdata = this.HelpercollectFormValues(userid);
+        let itmdata = this.HelpercollectFormValues(userid);        
         if (this.validateSave(itmdata)) {
             bb_API.postjsondata(apiurl, itmdata, function (data) {
                 callback(true);
             });
         } else {
             callback(false);
-        };
-        
+        };        
     },
     Render: function (apiurl, handlebartemplate, userid) {
         let that = this; //spara this

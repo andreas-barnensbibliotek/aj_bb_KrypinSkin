@@ -21,18 +21,7 @@
 				</div></div>
 			</div>
 			<div class="Grid-cell">
-				<div class="bb_aj_gridItem booklistSettings">
-					<input
-					class="listfilter"
-                    data-jplist-control="textbox-filter"
-                    data-group="bb_aj_group_{{count @index}}"
-                    data-name="my-filter-{{BIID}}"
-                    data-path=".titel"
-                    type="text"
-                    value=""
-                    data-clear-btn-id="name-clear-btn"
-                    placeholder="Vilken bok letar du efter?" />
-					<button type="button" class="title-clear-btn">Rensa</button>     
+				<div class="bb_aj_gridItem booklistSettings">					 
 					<a href="#" title="Skriv ut" data-bookistid="{{BlID}}" class="booklistPrint kk_aj_print"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/print_32.png" /></a>
 					<a href="#" title="Maila listan" class="booklistMail"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/mail_32.png" /></a>
 					
@@ -57,30 +46,10 @@
 			<div id="products" class="row list-group">              
 				<div class="item col-xs-4 col-lg-4" data-jplist-item>
 					<div class="booklist-card dragdrop" data-itemid="{{Bookid}}" data-id="{{Bookid}}">
-						<div class="bb-dropdown">
+						<div class="bb-dropdown">						
                             <img class="bb-dropdown-button" src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/bb-dropdown-button.png" />
-                            <div class="bb-dropdown-content">
-								<ul>
-									<li>
-										<a href="/tabid/1469/Default.aspx?bookid={{Bookid}}" title="Gå till boken i katalogen" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Gå till boken</a>
-									</li>
-									<li>
-										<a href="/Krypin/Krypin_Boktips/tabid/1431/Default.aspx?bookid={{Bookid}}&typ=boktips" title="Skriv boktips om boken" class="buttonitem_booktip" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">									
-										Skriv boktips</a>
-									</li>
-									<li>{{#if Lasernu}}
-									
-									
-									<a href="#3" title="Läser denna just nu" class="buttonitem_readnow"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}"><img src="/Portals/_default/Skins/bb_DAGOBAH_krypin/images/modules/Check-24.png"> Läser denna just nu</a>
-									
-									{{else}}
-										<a href="#3" title="Välj denna som: Läser just nu" class="buttonitem_readnow"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Läser denna just nu</a>
-									{{/if}}
-									</li>   
-									<li>
-										<a href="#2" title="Ta bort från listan" class="buttonitem_tabort"  data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Ta bort från listan</a>
-									</li> 
-								</ul>
+                            <div class="bb-dropdown-content">								
+									 {{#booklistdpr @root.Booklists Bookid ../BlID}} {{/booklistdpr}}								
                             </div>
                         </div>						
 						<a href="/tabid/1469/Default.aspx?bookid={{Bookid}}" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">

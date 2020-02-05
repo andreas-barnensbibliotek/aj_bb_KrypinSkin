@@ -2139,29 +2139,39 @@ h6 {
   background-color: #fff;
   min-width: 120px;
   padding: 12px 16px;
-  text-align: right;
-  font-size: 10px; }
-  /* line 30, _dev/devsass/komponenter/_itemDropdown.scss */
+  text-align: left;
+  font-size: 0.9rem;
+  overflow: auto;
+  max-height: 220px; }
+  /* line 32, _dev/devsass/komponenter/_itemDropdown.scss */
   .bb-dropdown-content ul {
     margin: 0;
     padding: 0;
     list-style: none; }
-  /* line 37, _dev/devsass/komponenter/_itemDropdown.scss */
+  /* line 39, _dev/devsass/komponenter/_itemDropdown.scss */
   .bb-dropdown-content a:hover {
     text-decoration: underline !important; }
-  /* line 42, _dev/devsass/komponenter/_itemDropdown.scss */
+  /* line 44, _dev/devsass/komponenter/_itemDropdown.scss */
   .bb-dropdown-content .buttonitem_readnow {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
 
+/* line 48, _dev/devsass/komponenter/_itemDropdown.scss */
+.addtobooklistHeader {
+  border-bottom: 1px solid #000; }
+  /* line 50, _dev/devsass/komponenter/_itemDropdown.scss */
+  .addtobooklistHeader b {
+    display: block;
+    margin-top: 6px; }
+
 /* line 4, _dev/devsass/komponenter/_print.scss */
 .booklistMail, .kk_aj_Mail {
   display: none; }
 
 @media print {
-  /* line 8, _dev/devsass/komponenter/_print.scss */
+  /* line 11, _dev/devsass/komponenter/_print.scss */
   img {
     page-break-before: always;
     /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
@@ -2169,56 +2179,56 @@ h6 {
     /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
     page-break-inside: always;
     /* or 'auto' */ }
-  /* line 14, _dev/devsass/komponenter/_print.scss */
+  /* line 17, _dev/devsass/komponenter/_print.scss */
   .row1, .row2, .row4, .Ajshare_box, #dnn_krypinMenyPane, #ReadspeakerBox, #barnensbiblCurrentUserid, .booklistSettings, .bookitem-button, .booklistSetup {
     display: none; }
-  /* line 18, _dev/devsass/komponenter/_print.scss */
+  /* line 21, _dev/devsass/komponenter/_print.scss */
   .item {
     display: inline-block;
     max-width: 150px;
     float: left; }
-  /* line 24, _dev/devsass/komponenter/_print.scss */
+  /* line 27, _dev/devsass/komponenter/_print.scss */
   .item img {
     width: 100%;
     height: auto;
     max-height: none !important; }
-  /* line 30, _dev/devsass/komponenter/_print.scss */
+  /* line 33, _dev/devsass/komponenter/_print.scss */
   h5 {
     font-size: 1em !important;
     font-weight: 400 !important;
     margin: 0; }
-  /* line 36, _dev/devsass/komponenter/_print.scss */
+  /* line 39, _dev/devsass/komponenter/_print.scss */
   h6 {
     font-size: 0.8em !important;
     margin: 0; }
-  /* line 41, _dev/devsass/komponenter/_print.scss */
+  /* line 44, _dev/devsass/komponenter/_print.scss */
   .booklist-card {
     padding: 0; }
-  /* line 45, _dev/devsass/komponenter/_print.scss */
+  /* line 48, _dev/devsass/komponenter/_print.scss */
   .bb_aj_gridItem {
     margin: 0;
     padding: 0; }
-  /* line 50, _dev/devsass/komponenter/_print.scss */
+  /* line 53, _dev/devsass/komponenter/_print.scss */
   .bookitem-image {
     float: left;
     width: 100px; }
-  /* line 55, _dev/devsass/komponenter/_print.scss */
+  /* line 58, _dev/devsass/komponenter/_print.scss */
   #bb_aj_booklist_Mod .bookitem-image img {
     max-width: 100% !important; }
-  /* line 59, _dev/devsass/komponenter/_print.scss */
+  /* line 62, _dev/devsass/komponenter/_print.scss */
   #bb_aj_bibblomonlistMain .bookitem-image img {
     max-width: 50% !important; }
-  /* line 63, _dev/devsass/komponenter/_print.scss */
+  /* line 66, _dev/devsass/komponenter/_print.scss */
   #bb_aj_bibblomonlistMain .item {
     max-width: 500px !important; }
-  /* line 67, _dev/devsass/komponenter/_print.scss */
+  /* line 70, _dev/devsass/komponenter/_print.scss */
   .bibblomon-card .bookitem-info {
     border: 0 !important; }
-  /* line 71, _dev/devsass/komponenter/_print.scss */
+  /* line 74, _dev/devsass/komponenter/_print.scss */
   .bibblomon-card h3, .bibblomon-card h4 {
     font-size: 1em !important;
     margin: 0 !important; }
-  /* line 76, _dev/devsass/komponenter/_print.scss */
+  /* line 79, _dev/devsass/komponenter/_print.scss */
   .iteminfoblock {
     position: relative !important;
     opacity: 100 !important;
@@ -2242,26 +2252,113 @@ h6 {
   .topheaderbg.krypin_head_tree {
     background-image: url("/Portals/_default/skins/bb_DAGOBAH_krypin/images/krypinhead/krypin_head_tree.png"); }
 
+/* line 1, _dev/devsass/komponenter/_modal_printPreview.scss */
+#printBoklistPreview {
+  display: block;
+  min-height: 120px;
+  min-width: 120px;
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 2rem;
+  background-size: cover;
+  background-repeat: repeat;
+  border: 1px solid #000; }
+  /* line 12, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG1 {
+    background: transparent; }
+  /* line 16, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG2 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg2.png"); }
+  /* line 20, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG3 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg3.png"); }
+  /* line 24, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG4 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg4.png"); }
+  /* line 29, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG5 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg5.png"); }
+  /* line 34, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG6 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg6.png"); }
+  /* line 39, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG7 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg7.png"); }
+  /* line 44, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG8 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg8.png"); }
+  /* line 49, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG9 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg9.png"); }
+  /* line 54, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG12 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg12.png"); }
+  /* line 59, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG13 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg13.png"); }
+  /* line 64, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG14 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg14.png"); }
+  /* line 69, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.backbgIMG15 {
+    background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg15.png"); }
+  /* line 74, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubcolor1 {
+    color: black; }
+  /* line 78, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubcolor2 {
+    color: white; }
+  /* line 82, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubcolor3 {
+    color: #f8c009; }
+  /* line 86, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubcolor4 {
+    color: #f29100; }
+  /* line 90, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubcolor5 {
+    color: #8DC641; }
+  /* line 94, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubcolor6 {
+    color: #6b6bb1; }
+  /* line 98, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubtype1 {
+    font-family: 'Tahoma', sans-serif; }
+  /* line 102, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubtype2 {
+    font-family: 'georgia', sans-serif; }
+  /* line 106, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubtype3 {
+    font-family: 'Baloo Bhai', cursive; }
+  /* line 110, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubtype4 {
+    font-family: 'Kodchasan', cursive; }
+  /* line 114, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubtype5 {
+    font-family: 'Roboto', sans-serif; }
+  /* line 118, _dev/devsass/komponenter/_modal_printPreview.scss */
+  #printBoklistPreview.rubtype6 {
+    font-family: 'Titan One', cursive; }
+
 /* Global krypinskin*/
-/* line 24, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 25, _dev/devsass/kk_aj_PublicCSS.scss */
 .kk_aj_conf {
   display: none; }
 
-/* line 27, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 28, _dev/devsass/kk_aj_PublicCSS.scss */
 .aj_bb_KrypinSkin {
   padding-top: 2rem !important;
   padding-left: 0.5rem !important;
   padding-right: .5rem !important; }
-  /* line 34, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 35, _dev/devsass/kk_aj_PublicCSS.scss */
   .aj_bb_KrypinSkin hr {
     margin-top: 0px;
     background-color: #000; }
 
-/* line 40, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 41, _dev/devsass/kk_aj_PublicCSS.scss */
 .Grid-cell .dnnModuleManager {
   padding: 0px !important; }
 
-/* line 42, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 43, _dev/devsass/kk_aj_PublicCSS.scss */
 .item {
   height: auto !important;
   -webkit-border-radius: 10px;
@@ -2278,17 +2375,17 @@ h6 {
   margin-left: 0.02rem !important;
   margin-right: .02rem !important;
   min-height: 300px !important; }
-  /* line 52, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 53, _dev/devsass/kk_aj_PublicCSS.scss */
   .item a {
     text-decoration: none !important; }
-  /* line 55, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 56, _dev/devsass/kk_aj_PublicCSS.scss */
   .item h5 {
     font-size: 1.1rem !important; }
-  /* line 58, _dev/devsass/kk_aj_PublicCSS.scss */
+  /* line 59, _dev/devsass/kk_aj_PublicCSS.scss */
   .item img {
     max-height: 200px !important; }
 
-/* line 64, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 65, _dev/devsass/kk_aj_PublicCSS.scss */
 .loading {
   -webkit-animation: loading 1s linear infinite;
           animation: loading 1s linear infinite; }
@@ -2309,22 +2406,22 @@ h6 {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
-/* line 76, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 77, _dev/devsass/kk_aj_PublicCSS.scss */
 #mceu_17 {
   display: none; }
 
-/* line 80, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 81, _dev/devsass/kk_aj_PublicCSS.scss */
 .aj_bb_highscoreBlock .col-1, .aj_bb_highscoreBlock .col-2, .aj_bb_highscoreBlock .col-3, .aj_bb_highscoreBlock .col-4, .aj_bb_highscoreBlock .col-5, .aj_bb_highscoreBlock .col-6, .aj_bb_highscoreBlock .col-7, .aj_bb_highscoreBlock .col-8, .aj_bb_highscoreBlock .col-9, .aj_bb_highscoreBlock .col-10, .aj_bb_highscoreBlock .col-11, .aj_bb_highscoreBlock .col-12, .aj_bb_highscoreBlock .col, .aj_bb_highscoreBlock .col-auto, .aj_bb_highscoreBlock .col-sm-1, .aj_bb_highscoreBlock .col-sm-2, .aj_bb_highscoreBlock .col-sm-3, .aj_bb_highscoreBlock .col-sm-4, .aj_bb_highscoreBlock .col-sm-5, .aj_bb_highscoreBlock .col-sm-6, .aj_bb_highscoreBlock .col-sm-7, .aj_bb_highscoreBlock .col-sm-8, .aj_bb_highscoreBlock .col-sm-9, .aj_bb_highscoreBlock .col-sm-10, .aj_bb_highscoreBlock .col-sm-11, .aj_bb_highscoreBlock .col-sm-12, .aj_bb_highscoreBlock .col-sm, .aj_bb_highscoreBlock .col-sm-auto, .aj_bb_highscoreBlock .col-md-1, .aj_bb_highscoreBlock .col-md-2, .aj_bb_highscoreBlock .col-md-3, .aj_bb_highscoreBlock .col-md-4, .aj_bb_highscoreBlock .col-md-5, .aj_bb_highscoreBlock .col-md-6, .aj_bb_highscoreBlock .col-md-7, .aj_bb_highscoreBlock .col-md-8, .aj_bb_highscoreBlock .col-md-9, .aj_bb_highscoreBlock .col-md-10, .aj_bb_highscoreBlock .col-md-11, .aj_bb_highscoreBlock .col-md-12, .aj_bb_highscoreBlock .col-md, .aj_bb_highscoreBlock .col-md-auto, .aj_bb_highscoreBlock .col-lg-1, .aj_bb_highscoreBlock .col-lg-2, .aj_bb_highscoreBlock .col-lg-3, .aj_bb_highscoreBlock .col-lg-4, .aj_bb_highscoreBlock .col-lg-5, .aj_bb_highscoreBlock .col-lg-6, .aj_bb_highscoreBlock .col-lg-7, .aj_bb_highscoreBlock .col-lg-8, .aj_bb_highscoreBlock .col-lg-9, .aj_bb_highscoreBlock .col-lg-10, .aj_bb_highscoreBlock .col-lg-11, .aj_bb_highscoreBlock .col-lg-12, .aj_bb_highscoreBlock .col-lg, .aj_bb_highscoreBlock .col-lg-auto, .aj_bb_highscoreBlock .col-xl-1, .aj_bb_highscoreBlock .col-xl-2, .aj_bb_highscoreBlock .col-xl-3, .aj_bb_highscoreBlock .col-xl-4, .aj_bb_highscoreBlock .col-xl-5, .aj_bb_highscoreBlock .col-xl-6, .aj_bb_highscoreBlock .col-xl-7, .aj_bb_highscoreBlock .col-xl-8, .aj_bb_highscoreBlock .col-xl-9, .aj_bb_highscoreBlock .col-xl-10, .aj_bb_highscoreBlock .col-xl-11, .aj_bb_highscoreBlock .col-xl-12, .aj_bb_highscoreBlock .col-xl, .aj_bb_highscoreBlock .col-xl-auto {
   padding-left: 0px !important;
   padding-right: 0px !important; }
 
 /* scoreboard*/
-/* line 88, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 89, _dev/devsass/kk_aj_PublicCSS.scss */
 #bb_aj_specialbadgeblock, #bb_aj_highscorebadgeblock {
   margin-top: 1rem;
   padding-top: .5rem;
   border-top: 1px dashed #ddd; }
 
-/* line 93, _dev/devsass/kk_aj_PublicCSS.scss */
+/* line 94, _dev/devsass/kk_aj_PublicCSS.scss */
 #barnensbiblCurrentUserid {
   display: none; }

@@ -1,0 +1,121 @@
+#printBoklistPreview {
+    display: block;
+    min-height: 120px;
+    min-width: 120px;
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 2rem;
+    background-size: cover;
+    background-repeat: repeat;
+    border: 1px solid #000;
+
+    &.backbgIMG1 {
+        background: transparent;
+    }
+
+    &.backbgIMG2 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg2.png");        
+    }
+
+    &.backbgIMG3 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg3.png");
+    }
+
+    &.backbgIMG4 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg4.png");
+       
+    }
+
+    &.backbgIMG5 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg5.png");
+        
+    }
+
+    &.backbgIMG6 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg6.png");
+       
+    }
+
+    &.backbgIMG7 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg7.png");
+        
+    }
+
+    &.backbgIMG8 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg8.png");
+        
+    }
+
+    &.backbgIMG9 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg9.png");
+       
+    }
+
+    &.backbgIMG12 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg12.png");
+        
+    }
+
+    &.backbgIMG13 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg13.png");
+        
+    }
+
+    &.backbgIMG14 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg14.png");
+        
+    }
+
+    &.backbgIMG15 {
+        background-image: url("/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg15.png");
+        
+    }
+
+    &.rubcolor1 {
+        color: rgb(0, 0, 0);
+    }
+
+    &.rubcolor2 {
+        color: rgb(255, 255, 255);
+    }
+
+    &.rubcolor3 {
+        color: rgb(248, 192, 9);
+    }
+
+    &.rubcolor4 {
+        color: #f29100;
+    }
+
+    &.rubcolor5 {
+        color: #8DC641;
+    }
+
+    &.rubcolor6 {
+        color: #6b6bb1;
+    }
+
+    &.rubtype1 {
+        font-family: 'Tahoma', sans-serif;
+    }
+
+    &.rubtype2 {
+        font-family: 'georgia', sans-serif;
+    }
+
+    &.rubtype3 {
+        font-family: 'Baloo Bhai', cursive;
+    }
+
+    &.rubtype4 {
+        font-family: 'Kodchasan', cursive;
+    }
+
+    &.rubtype5 {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    &.rubtype6 {
+        font-family: 'Titan One', cursive;
+    }
+}

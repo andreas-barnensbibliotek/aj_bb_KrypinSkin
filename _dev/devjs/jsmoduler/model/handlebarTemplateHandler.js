@@ -1,5 +1,4 @@
 ﻿var $ = require("jquery");
-var appsettingsobject = require("./../appsettings.js");
 var handelbarhelpers = require("./handlebarHelpers.js");
 
 module.exports = {   

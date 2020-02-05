@@ -1,4 +1,4 @@
-// ANDVÄND DENNA live för att stödja IE och Safari
+// ANDVï¿½ND DENNA live fï¿½r att stï¿½dja IE och Safari
 //var webpack = require("webpack");
 //module.exports = {
 //    mode: 'production',

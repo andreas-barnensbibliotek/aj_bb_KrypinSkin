@@ -9,7 +9,7 @@
         <div id="bb_aj_modalbody" class="bb_aj_modalbody" >
             
             <div class="bekraftaModalbox">               
-                <h2>Skrivut boklista: {{boklistNamn}}</h2>
+                <h2>Skriv ut boklista: {{boklistNamn}}</h2>
                 <div class="printform">
                 
                     <div class="form-group row">
@@ -73,12 +73,19 @@
                             <div class="bb_aj_ErrMess"></div>
 
                         </div>
-                    </div>      
+                    </div>     
+                    <div class="printinfo row">
+                        <div class="col-sm-12 center" > 
+                        <div id="printBoklistPreview">
+                            Exempeltext
+                        </div>
+                        </div>
+                    </div>          
                     <div class="printinfo row">
                         <div class="col-sm-12">      
                             <h3>Utskriftstips</h3>
-                            <p>Om du vill skriva ut i A3 format är ett tips att du i inställningarna till din skrivare förstorar utskriften till 120% eller 130%.
-                            Då blir storleken på bokomslagen lite bättre</p>                            
+                            <p>Om du vill skriva ut i A3-format är ett tips att du i inställningarna till din skrivare förstorar utskriften till 120% eller 130%.
+                            Då blir storleken på bokomslagen lite bättre.</p>                            
 
                         </div>
                     </div>                       

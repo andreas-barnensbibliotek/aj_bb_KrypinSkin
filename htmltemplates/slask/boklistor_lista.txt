@@ -62,7 +62,7 @@
                             <div class="bb-dropdown-content">
 								<ul>
 									<li>
-										<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{Bookid}}" title="Gå till boken i katalogen" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Gå till boken</a>
+										<a href="/tabid/1469/Default.aspx?bookid={{Bookid}}" title="Gå till boken i katalogen" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">Gå till boken</a>
 									</li>
 									<li>
 										<a href="/Krypin/Krypin_Boktips/tabid/1431/Default.aspx?bookid={{Bookid}}&typ=boktips" title="Skriv boktips om boken" class="buttonitem_booktip" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">									
@@ -83,7 +83,7 @@
 								</ul>
                             </div>
                         </div>						
-						<a href="/tabid/578/Default.aspx?cid=katalogenDetails&command=lista&bookid={{Bookid}}" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
+						<a href="/tabid/1469/Default.aspx?bookid={{Bookid}}" class="buttonitem_bokpost" data-itemid="{{Bookid}}" data-bookistid="{{../BlID}}">
 							<div class="bookitem-image">
 							  <img src="{{imageurl}}">
 							</div>

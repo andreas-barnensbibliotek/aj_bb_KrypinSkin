@@ -84,6 +84,21 @@ module.exports = {
             return false;
         });
         
+        this.$bb_aj_booklistMain.on('click', '.booklistHandler', function (e) {
+            let booklistid = $(this).attr("data-boklistid");
+            let bookid= $(this).attr("data-bookid"); 
+            let bookInList= $(this).attr("data-inlist"); 
+
+            console.log("bokitem klickat: " +booklistid);
+            if(bookInList == 0){
+                that.addbookitemfromlist(booklistid, bookid, userid);
+            }else{
+                that.delbookitemfromlist(booklistid, bookid, userid);
+            };           
+            
+		    return false;
+       });
+
       //  this.$bb_aj_booklistMain.on('click', '.booklistPrint', function (e) {
       //      let booklistid = $(this).attr('data-bookistid');
       //      let boklistNamn = $('.bb_aj_booklistname' + booklistid).html();
@@ -94,7 +109,7 @@ module.exports = {
       //      modalhandler.openInModal();
 		    //return false;
       //  });
-
+      
         $('body').on('click', '.booklistPrint', function (e) {
             let booklistid = $(this).attr('data-bookistid');
             let boklistNamn = $('.bb_aj_booklistname' + booklistid).html();
@@ -132,6 +147,22 @@ module.exports = {
         });
         
 
+        this.$bb_aj_GenericModalContainer.on('change', '.form-control', function (e) {
+            let bgimgNr = $('#print_bgVal').val();
+            let fontcolor = $('#print_RubrikColorVal').val();
+            let textfont = $('#print_RubrikTypsnittVal').val();
+
+           // let bgimgSrc = "http://localdev.kivdev.se/desktopModules/barnensbiblService/krypinboklistorPrint/images/printbg/printbg";
+            
+            //$('#printBoklistPreview').attr("style", "font-family:" +textfont +"; color:"+fontcolor+";background-image: url('"+bgimgSrc+ bgimgNr+".png');")
+            $('#printBoklistPreview').removeClass();
+            $('#printBoklistPreview').addClass('rubcolor'+fontcolor);
+            $('#printBoklistPreview').addClass('rubtype'+textfont);
+            $('#printBoklistPreview').addClass('backbgIMG'+bgimgNr);
+           
+            return false;
+        });
+        
         this.$bb_aj_booklistMain.on('click', '.cmdeditBoklista', function (e) {
             let booklistid = $(this).closest(".aj_bb_KrypinMainGrid").attr("data-bookistid");
             let textnyttnamn = $(this).siblings(".editBoklistanamn").val();
@@ -231,7 +262,7 @@ module.exports = {
         let apiurl = appsettings.api.boklistor.adduserbokitem; //get apiurl funktionen från appsettings
         //let handlebartemplate = appsettings.handlebartemplate.hb_booklist_tmp;
 
-        this.Apiupdateajax(apiurl(booklistid, bokid, userid), userid);
+        this.Apiupdate(apiurl(booklistid, bokid, userid), userid);
     },
     addBooklist: function (boklistnamn, userid) {
         let apiurl = appsettings.api.boklistor.addbooklist; //get apiurl funktionen från appsettings
@@ -268,40 +299,40 @@ module.exports = {
             bb_HB_Handler.injecthtmltemplate("#bb_aj_booklistMain", handlebartemplate, data, function () {
                  jplist.init();
 
-                new dragdrop.start(function (dom, api) {
+                // new dragdrop.start(function (dom, api) {
 
-                    dom.addEventListener('drop', function (event) {
+                //     dom.addEventListener('drop', function (event) {
                         
-                        let bokid;
-                        let frombooklistid;
-                        let tobooklistid, c, testare;
+                //         let bokid;
+                //         let frombooklistid;
+                //         let tobooklistid, c, testare;
 
-                        try {
-                            bokid = event.currentTarget.activeElement.attributes[2].value;
-                            frombooklistid = event.currentTarget.activeElement.attributes[3].value;
-                            var parent = getClosest(event.target, '.bb_aj_gridItem');
-                            tobooklistid = $(parent).attr('data-bookistid');
-                            if (!tobooklistid) {
-                                tobooklistid = event.target.attributes[2].value;
-                            };
+                //         try {
+                //             bokid = event.currentTarget.activeElement.attributes[2].value;
+                //             frombooklistid = event.currentTarget.activeElement.attributes[3].value;
+                //             var parent = getClosest(event.target, '.bb_aj_gridItem');
+                //             tobooklistid = $(parent).attr('data-bookistid');
+                //             if (!tobooklistid) {
+                //                 tobooklistid = event.target.attributes[2].value;
+                //             };
                             
-                        }
-                        catch (err) {
-                            bokid = 0;
-                            frombooklistid = 0;
-                            tobooklistid = 0;
-                        };
+                //         }
+                //         catch (err) {
+                //             bokid = 0;
+                //             frombooklistid = 0;
+                //             tobooklistid = 0;
+                //         };
 
-                        if (tobooklistid) {
-                            if (frombooklistid != tobooklistid) {
-                                that.delbookitemfromlist(frombooklistid, bokid, userid);
-                                that.addbookitemfromlist(tobooklistid, bokid, userid);
+                //         if (tobooklistid) {
+                //             if (frombooklistid != tobooklistid) {
+                //                 that.delbookitemfromlist(frombooklistid, bokid, userid);
+                //                 that.addbookitemfromlist(tobooklistid, bokid, userid);
 
-                            };
-                        };                     
+                //             };
+                //         };                     
                         
-                    })
-                });
+                //     })
+                //  });
                 return false;
             });
         });

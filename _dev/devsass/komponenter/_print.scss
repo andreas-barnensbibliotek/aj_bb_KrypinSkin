@@ -4,6 +4,9 @@
 .booklistMail, .kk_aj_Mail {
     display: none;
 }
+
+
+
 @media print {
     img {
         page-break-before: always; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
