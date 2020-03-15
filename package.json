@@ -36,7 +36,7 @@
     "documentation": "^6.0.0"
   },
   "dependencies": {
-    "acorn": "^6.0.7",
+    "acorn": "^6.4.1",
     "babel-polyfill": "^6.26.0",
     "jquery": "^3.3.1",
     "jquery-ui": "1.12.1",
